@@ -1,6 +1,6 @@
 # Chapter 1
 
-As discussed in the introduction, each chapter of this book centers around a piece of code. Here is the code for chapter 1:
+As discussed in the introduction, each chapter of this book centers around a program written in Haskell. You can find the code for chapter 1 at
 
 ```haskell
 
