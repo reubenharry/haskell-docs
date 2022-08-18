@@ -9,13 +9,19 @@ There's a lot in this code that is likely to be unclear if you haven't used Hask
 
 ## Immutability
 
-We'll start line 2, which defines a value `outputLength`. 
+We'll start with the following lines from `Chapter1.hs`:
+
+```haskell
+outputLength :: Int
+outputLength = 5
+```
+
 
 The first thing to understand about this value is that it's immutable. `outputLength` is the integer `10` and cannot be updated at any point during the evaluation of the program. Understand line 2 to mean: `outputLength` is a name for the number 2. This contrasts to procedural languages, where `a = b` tends to mean "set `a` to have the value `b`".
 
 ## Types
 
-The double semicolon on line 1, `::`, indicates a type declaration. In this case, it is a declaration that the type of `outputLength` is an `Int`. This is enforced: the program will not compile if you change line 2 to e.g. `outputLength = "hello"`. 
+The double semicolon on the first line above, `::`, indicates a type declaration. In this case, it is a declaration that the type of `outputLength` is an `Int`. This is enforced: the program will not compile if you change line 2 to e.g. `outputLength = "hello"`. 
 
 In Haskell, **every expression has a type**. 
 
