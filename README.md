@@ -1,4 +1,4 @@
-# Learning Haskell
+# Learning Haskell (DRAFT FOR DISCUSSION!)
 
 Haskell is a wonderful language. It makes it simple to write elegant, bug-free and modular code that is easy to refactor and reason about.
 
