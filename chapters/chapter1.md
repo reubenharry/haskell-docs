@@ -5,10 +5,13 @@ As discussed in the introduction, each chapter of this book centers around a pie
 ```haskell
 
 outputLength :: Int
-outputLength = 10
+outputLength = 5
 
-takeEveryOther :: [a] -> [a]
-takeEveryOther =
+inputList :: [Double]
+inputList = [1..20]
+
+result :: [a] -> [a]
+result =
     fmap snd 
     . take outputLength 
     . filter (not . even . fst) 

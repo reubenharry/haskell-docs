@@ -1,8 +1,10 @@
 # Learning Haskell
 
-Haskell is a wonderful language. It makes it simple to write clean, bug-free and modular code that is easy to refactor and reason about. 
+Haskell is a wonderful language. It makes it simple to write clean, bug-free, modular and elegant code that is easy to refactor and reason about.
 
-However, it is significantly different in its approach in many areas from most other standard languages, and this presents a challenging barrier to its use.
+Moreover, it is one of the only languages to really take academic ideas about language design very seriously, while still being practical for industrial use.
+
+However, it is significantly different in its approach from most other well-known languages, and this presents a challenging barrier to its use.
 
 The goal of this book is to lower that barrier. 
 
