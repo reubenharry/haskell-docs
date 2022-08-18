@@ -1,26 +1,7 @@
 # Chapter 1
 
-As discussed in the introduction, each chapter of this book centers around a program written in Haskell. You can find the code for chapter 1 at
+As discussed in the introduction, each chapter of this book centers around a program written in Haskell. You can find the code for chapter 1 [here](/app/Chapter1.hs)
 
-```haskell
-
-outputLength :: Int
-outputLength = 5
-
-inputList :: [Double]
-inputList = [1..20]
-
-result :: [a] -> [a]
-result =
-    fmap snd 
-    . take outputLength 
-    . filter (not . even . fst) 
-    . zip [1..] 
-
-result = takeEveryOther $ words ""
-
-...
-```
 
 The goal of the chapter is to explain this code entirely. In so doing, we'll introduce the core ideas that make Haskell stand out.
 
