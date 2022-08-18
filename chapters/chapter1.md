@@ -7,9 +7,13 @@ The goal of the chapter is to explain this code entirely. In so doing, we'll int
 
 There's a lot in this code that is likely to be unclear if you haven't used Haskell before. Our strategy will be to focus on small simple pieces of the code, and build up to more complex ones, bit by bit.
 
+## How to run this program: GHCI
+
+...
+
 ## Immutability
 
-We'll start with the following lines from `Chapter1.hs`:
+We'll start our explanation with the following lines from `Chapter1.hs`:
 
 ```haskell
 outputLength :: Int
@@ -17,7 +21,7 @@ outputLength = 5
 ```
 
 
-The first thing to understand about this value is that it's immutable. `outputLength` is the integer `10` and cannot be updated at any point during the evaluation of the program. Understand line 2 to mean: `outputLength` is a name for the number 2. This contrasts to procedural languages, where `a = b` tends to mean "set `a` to have the value `b`".
+The first thing to understand about this value is that it's immutable...
 
 ## Types
 
@@ -31,11 +35,9 @@ However, it is good practice to state the type explicitly, for ease of reading.
 
 ## Order of declarations doesn't matter
 
-Notice that our program is made up of a series of definitions, of the form `something = something`. The order in which these definitions are made doesn't actually matter. You can confirm this for yourself, for example by moving lines 
-    above 
+Notice that our program is made up of a series of definitions, of the form `something = something`. The order in which these definitions are made doesn't actually matter.
 (You can even separate the type declaration from the definition, although it's conventional to keep them together for ease of use.)
 
-We will next examine lines...
 
 ## Functions
 
