@@ -1,7 +1,7 @@
 site_name: Haskell
 
-# include once repo is up, to allow edits
-# repo_url: https://github.com/squidfunk/mkdocs-material
+include once repo is up, to allow edits
+repo_url: https://github.com/reubenharry/haskell-docs
 
 
 theme:
