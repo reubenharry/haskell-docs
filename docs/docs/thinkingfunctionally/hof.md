@@ -1,0 +1,1 @@
+todo foldr, scanl/r, filter, forever

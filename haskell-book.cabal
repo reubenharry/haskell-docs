@@ -21,7 +21,23 @@ maintainer:         reubenharry@gmail.com
 -- A copyright notice.
 -- copyright:
 -- category:
-extra-source-files: CHANGELOG.md
+extra-source-files:
+    CHANGELOG.md
+    README.md
+
+library
+    exposed-modules:  MyLib
+
+    -- Modules included in this library but not exported.
+    -- other-modules:
+
+    -- LANGUAGE extensions used by modules in this package.
+    -- other-extensions:
+    build-depends:    
+        base ^>=4.16.3.0,
+        text
+    hs-source-dirs:   src
+    default-language: Haskell2010
 
 executable haskell-book
     main-is:          Main.hs
@@ -31,12 +47,9 @@ executable haskell-book
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
-    build-depends:    base ^>=4.14.3.0
-    hs-source-dirs:   
-        app
-    default-language: Haskell2010
     build-depends:
-        text
+        base ^>=4.16.3.0,
+        haskell-book
 
-    default-extensions:
-        OverloadedStrings
+    hs-source-dirs:   app
+    default-language: Haskell2010
