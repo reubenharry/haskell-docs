@@ -114,6 +114,42 @@ If you have two types, say `Bool` and `Int`, then you can generate a new type wh
 
     1. Actually, the type is more general: `forall a. a -> Either a Int`. See the section on polymorphism.
 
+## The unit type
+
+The type `()` contains a single value, which is also written `()`.
+
+!!! Warning
+    This practice of writing a type and a value with the same symbol is known as punning, and is quite widespread in Haskell. Be sure, when reading `() :: ()`, to understand that the `()` on the left is a *value* and the `()` on the right is a *type*.
+
+## The empty type
+
+`Void` is the type with *no* values. It can be useful, but at an introductory level is fairly rare. 
+
+## The list type
+
+The type of a list of `Bool`s is written `[Bool]`. 
+
+The type of a list of `Ints` is written `[Int]`.
+
+More generally, for *any type `a`*, `[a]` is the type of lists of values of type `a`.
+
+!!! Gotcha
+
+    Lists are homogeneous: [all elements must have the same type](/gotchas/lists).
+
+Write a list as in Python, like `[True, False, True]`. `:` is an operator to append to the front of a list. Examples:
+
+```haskell
+> 4 : [3, 1]
+[4, 3, 1]
+> 4 : []
+[4]
+> [1..10]
+[1,2,3,4,5,6,7,8,9,10]
+```
+
+
+
 ## Polymorphism
 
 Here is an example of polymorphism, or universal quantification over types:
@@ -139,6 +175,11 @@ Read this type as saying: for **any** type `a`, and **any** type `b`, this funct
 
 !!! Note
     Types are always uppercase, but a variable ranging over types like `a` and `b` above are always lowercase.
+
+!!! Warning
+    Polymorphic types are not like `Any` in Python. For example, the Boolean negation function `not :: Bool -> Bool` does not also have the type `a -> a`.
+    The only function that has type `forall a. a -> a` is the identity function (written `id`), because that is the only operation you can be sure works for *every* input type.
+    And **no** function has the type `forall a b. a -> b`, because that function would need to be able to take an input of any type, and return an output of any type.
 
 
 

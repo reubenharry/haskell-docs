@@ -17,6 +17,12 @@ You can also write:
 data Piece = Bishop Bool | Knight Bool | King Bool
 ```
 
+!!! Note
+    If `Either` were not already implemented in the `base` library, you could define it as:
+    ```haskell
+    Either a b = Left a | Right b
+    ```
+
 In this definition, a value of type `Piece` would look like `Bishop True`, `Bishop False`, etc. This Boolean flag could be used to represent whether a piece is white or black.
 
 Instead, one could also make a `Color` type and use that, for extra clarity: 

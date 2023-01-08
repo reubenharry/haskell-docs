@@ -5,6 +5,9 @@
 
 Haskell is a general purpose programming language. It is unique in being both very principled in its design (pure functions only, simple syntax, very expressive types), but also practical (heavily-engineered compiler into C that can generate fast code).
 
+Pros: highly modular code, low boilerplate, easy and safe refactoring
+Cons: no manual memory management, some [gaps in ecosystem](https://github.com/Gabriella439/post-rfc/blob/main/sotu.md)
+
 Here is some discussion of its most salient features, if you want to learn more:
 
 - [functional]()

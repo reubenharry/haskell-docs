@@ -1,1 +1,0 @@
-Haskell does not have very many syntactic constructs, partly because it has other mechanisms to express abstract patterns.

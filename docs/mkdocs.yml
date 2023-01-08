@@ -128,16 +128,17 @@ nav:
     - Values and Types: basics/types.md
     - Functions: basics/functions.md
     - Making Data: basics/createData.md
-    - Type Inference: basics/typeinference.md
-  - Thinking functionally:
+    - Syntactic constructs: basics/syntax.md
+  - Thinking in Haskell:
+    - Type Inference: thinkingfunctionally/typeinference.md
     - Immutability: thinkingfunctionally/immutability.md
     - Higher-order functions: thinkingfunctionally/hof.md
-  - Syntax:
-    - Overview: syntax/overview.md
-    - Let: syntax/let.md
-    - Where: syntax/where.md
-    - Case: syntax/case.md
-    - Guards: syntax/guards.md
+  # - Syntax:
+  #   - Overview: syntax/overview.md
+  #   - Let: syntax/let.md
+  #   - Where: syntax/where.md
+  #   - Case: syntax/case.md
+  #   - Guards: syntax/guards.md
 
   # - Extensions: extensions/extensions.md
   - Typeclasses:
@@ -148,8 +149,8 @@ nav:
     - Punning: gotchas/punning.md
     - Strings: gotchas/strings.md
     - Updating a variable: gotchas/mutation.md
-    - Folding: gotchas/foldl.md
   - FAQ:
+    - Folding: faqs/foldl.md
     - Multiple Arguments: faqs/multipleArguments.md
     - Numbers: faqs/numbers.md
     - Debugging: faqs/debugging.md
