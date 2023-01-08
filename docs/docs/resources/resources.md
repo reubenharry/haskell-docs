@@ -3,7 +3,7 @@
 
 [These notes](https://www.seas.upenn.edu/~cis1940/spring13/lectures.html) are excellent and friendly.
 
-[Learn You a Haskell](http://learnyouahaskell.com/) is a common favorite.
+[Learn You a Haskell](http://learnyouahaskell.com/) is a great introductory book.
 
 ## Understanding the ecosystem
 

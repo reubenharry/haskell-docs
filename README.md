@@ -18,7 +18,7 @@ With that in mind, it should be:
 - **friendly**: clear usage examples of code, FAQs and gotchas, pointers to other resources, unambiguous set up instructions for Haskell
 - **concise**: avoids long prose where possible 
 
-`Mkdocs Material` is a great platform for these goals. It's very easy to maintain (click Edit icon on any page to submit PR), is designed to look nice and display information well (info boxes, code comments, tabs and search for navigation).
+`Mkdocs Material` is a great platform for these goals. It's very easy to maintain (click Edit icon on any page to submit PR), is designed to look nice and display information well (info boxes, code comments, tabs and search for navigation), and it can be connected to Google Analytics to allow users to write feedback where they get stuck.
 
 ## What's wrong with existing resources?
 

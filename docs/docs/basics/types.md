@@ -41,6 +41,20 @@ False :: Bool
 ??? Gotcha
     `5` can have a more general type in Haskell. See [here](faq/numbers.md)
 
+## The type of text
+
+```haskell
+{-# LANGUAGE OverloadedStrings #-} --(1)!
+import Data.Text (Text)
+
+exampleText :: Text 
+exampleText = "hello world!"
+``` 
+
+1. See [here](/gotchas/strings) for why this extension is needed.
+
+
+
 
 <!-- Haskell's type system is such an important feature, and so useful for understanding the language, that it is a good place to begin.
 
@@ -139,7 +153,7 @@ More generally, for *any type `a`*, `[a]` is the type of lists of values of type
 
 Write a list as in Python, like `[True, False, True]`. `:` is an operator to append to the front of a list. Examples:
 
-```haskell
+```haskell title="repl example"
 > 4 : [3, 1]
 [4, 3, 1]
 > 4 : []
@@ -148,6 +162,26 @@ Write a list as in Python, like `[True, False, True]`. `:` is an operator to app
 [1,2,3,4,5,6,7,8,9,10]
 ```
 
+## IO
+
+The type `IO Bool` describes a process which can do arbitrary I/O, such as reading and writing to files, starting threads, running shell scripts, etc. The `Bool` indicates that a result of running this process will be to produce a value of type `Bool`. More generally, for any type `a`, `IO a` runs a process and returns a value of type `a`. 
+
+An example:
+
+```hs title="repl example"
+import qualified Data.Text.IO as T
+> :t getLine
+T.getLine :: IO T.Text
+```
+
+If run, this will read a line from StdIn and this line will be the value of type `Text` that is produced.
+
+The top level function in a Haskell project is often:
+
+```haskell
+main :: IO ()
+main = ...
+```
 
 
 ## Polymorphism

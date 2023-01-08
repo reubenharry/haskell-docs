@@ -123,16 +123,20 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Getting Started:
-    - Overview: gettingstarted/overview.md
+    - Quick start: gettingstarted/overview.md
+    - Packages: gettingstarted/packages.md
+    - Configuration: gettingstarted/versions.md
   - Basics:
     - Values and Types: basics/types.md
     - Functions: basics/functions.md
     - Making Data: basics/createData.md
     - Syntactic constructs: basics/syntax.md
   - Thinking in Haskell:
+    - Type Checking: thinkingfunctionally/typechecking.md
     - Type Inference: thinkingfunctionally/typeinference.md
     - Immutability: thinkingfunctionally/immutability.md
     - Higher-order functions: thinkingfunctionally/hof.md
+  # - Common functions: common/common.md
   # - Syntax:
   #   - Overview: syntax/overview.md
   #   - Let: syntax/let.md
@@ -142,9 +146,19 @@ nav:
 
   # - Extensions: extensions/extensions.md
   - Typeclasses:
-    - Typeclasses: typeclasses/typeclasses.md
+    - Type classes: typeclasses/overview.md
+    - Make instances: typeclasses/createinstances.md
   - Laziness:
     Laziness: laziness/laziness.md
+  - Libraries:
+    - Overview: packages/overview.md
+  - Case Study:
+    - Overview: casestudy/overview.md
+    - Chess Logic: casestudy/chess.md
+    - Reading JSON: casestudy/json.md
+    - REPL: casestudy/overview.md
+    - Parsing: casestudy/overview.md
+    - Evaluator: casestudy/overview.md
   - Gotchas:
     - Punning: gotchas/punning.md
     - Strings: gotchas/strings.md

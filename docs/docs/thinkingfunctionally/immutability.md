@@ -1,4 +1,4 @@
-When you write a definition, like:
+When you write a definition in your code, like:
 
 ```haskell
 value = True 
@@ -10,7 +10,7 @@ or
 swap (a, b) = (b, a)
 ```
 
-you cannot later write:
+you cannot later write in the same codebase:
 
 ```haskell
 value = False

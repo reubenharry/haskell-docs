@@ -85,21 +85,10 @@ In VSCode, activate it by installing the *Haskell* extension:
 
 This will make learning Haskell much smoother, by underlining type errors, showing inferred types by mouse-over, adding type signatures automatically, and adding language extensions and imports when needed.
 
-## Step 4 (configuration)
+## Step 4 (Hoogle)
 
+Hoogle is a search engine for Haskell, where you can look up by type. This is accessible [at this site](https://hoogle.haskell.org/), but we recommend installing the `hoogle-vscode` extension. 
 
+Open with ++option++ **h**, and use like so:
 
-To check that it has installed, enter on the command line:
-
-```bash
-> ghcup tui
-```
-
-You should see something like:
-
-![](/img/ghcuptui.png)
-
-This makes it easy to change version of the compiler, the Haskell language server, and cabal (the package manager).
-
-??? stack
-    `stack` is (roughly) an alternative package manager. Either `cabal` or `stack` work well, but this documentation defaults to `cabal`.
+![](/img/hoogle.png)

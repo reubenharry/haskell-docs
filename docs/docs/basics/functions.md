@@ -26,7 +26,7 @@ exampleFunc (i1, i2) = i1 + i2
 
 ## Currying
 
-Another approach to taking multiple arguments is shown here:
+Another approach to taking multiple arguments, more commonly used, is shown here:
 
 ```haskell
 exampleFunc :: Int -> (Int -> Int) -- (1)!
@@ -47,6 +47,9 @@ Accordingly, we can apply `exampleFunc` to an integer, say `5`, and obtain an "a
 ```
 
 1. By convention in Haskell, `exampleFunc 4 5` means `(exampleFunc 4) 5`.
+
+!!! Hint
+    When you see a function with a type like `#!haskell Type1 -> Type2 -> Type3 -> Type4` (which brackets as: `#!haskell Type1 -> (Type2 -> (Type3 -> Type4))` ), you can think of it as taking `Type1`, `Type2` and `Type3` as inputs, and outputting `Type4`. 
 
 ## Pattern matching
 
@@ -78,7 +81,7 @@ Here, `(Left i)`, `(Right True)` and `(Right _)` are all patterns.
 
 The patterns are matched top-down. For example, if the function were:
 
-```haskell
+```haskell linenums="1"
 exampleFunc :: Either Int Bool -> Int
 exampleFunc (Left i) = i 
 exampleFunc (Right _) = 0 
@@ -92,5 +95,5 @@ Then:
 0
 ```
 
-because the line `exampleFunc (Right _) = 0 ` would be matched before the final line was reached.
+because line 3 would be matched before line 4 was reached.
 

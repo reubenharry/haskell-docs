@@ -2,7 +2,7 @@
 
 Here is an example of a `case _ of` statement:
 
-```haskell
+```haskell hl_lines="8 9 10"
 {-# LANGUAGE OverloadedStrings #-}
 import Data.Text (Text)
 
@@ -77,7 +77,7 @@ example = val1 where
 
 For operators like `+` or `/` that are written *infix* (i.e. in between their two arguments), Haskell has some syntactic sugar:
 
-```haskell
+```haskell title="repl example"
 > 5 / 2
 2.5
 > (/) 5 2 -- (1)!
@@ -90,5 +90,5 @@ For operators like `+` or `/` that are written *infix* (i.e. in between their tw
 2.5
 ```
 
-1. Whether infix or not, the type of `(/)` is `Double -> (Double -> Double)`.
+1. Whether infix or not, the type of `(/)` is `#!haskell Double -> (Double -> Double)`.
 2. This is called a "section".

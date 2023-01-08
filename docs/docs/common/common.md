@@ -1,10 +1,14 @@
-## Common types
+## []
 
-[]
+```haskell
 
-Maybe
+take :: Int -> [a] -> [a]
 
-Either
+```
+
+## Maybe
+
+## Either
 
 ## Common functions
 
