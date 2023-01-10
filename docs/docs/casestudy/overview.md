@@ -1,6 +1,6 @@
 The following is a walkthrough of a Haskell project for displaying and updating a chess board via the command line:
 
-Example:
+Example: TODO
 
 update board
 which square?

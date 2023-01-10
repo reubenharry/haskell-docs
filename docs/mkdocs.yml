@@ -166,6 +166,7 @@ nav:
   - FAQ:
     - Folding: faqs/foldl.md
     - Multiple Arguments: faqs/multipleArguments.md
+    - Optional Arguments: faqs/optionalArguments.md
     - Numbers: faqs/numbers.md
     - Debugging: faqs/debugging.md
     - Output depends on input: faqs/dependentOutput.md

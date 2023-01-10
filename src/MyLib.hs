@@ -18,7 +18,10 @@ boolToNum bool = case bool of
     True -> 1
     False -> 0
 
-equals :: Eq a => (a, a) -> Bool
+x = 4
+exampleWithDollar = not $ (> 3) x
+
+equals :: Eq a => (->) (a, a) Bool
 equals (x,y) = x == y 
 
 class Addable a where
@@ -86,6 +89,14 @@ pieceToText :: ChessPiece -> Text
 pieceToText (Piece _ color) = case color of 
     Black -> "black"
     White -> "white"
+
+type Number = Double
+
+example' input = result <> " tree" 
+        where
+    result = case input of
+        True -> "red"
+        False -> "black"
 
 example = val1 where
     val1 = 0 : val2

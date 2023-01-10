@@ -32,7 +32,7 @@ for i in range(10):
     x += i
 ```
 
-This imperative approach isn't usually the natural approach in a functional language. 
+This imperative approach isn't usually the natural one in a functional language. 
 
 !!! Note
     There are simple ways to write code like this, e.g.:

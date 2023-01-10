@@ -30,3 +30,12 @@ There are many great resources, but:
 - most are long-form books or lecture notes, not a concise "cheatsheet"
 
 It's impossible for any one resource to do everything, but I thought it was possible that there was a "gap in the market" for a clean, clear, concise, example heavy, constantly-maintained guide.
+
+
+## General "philosophy":
+
+- avoid digressions: e.g. no history of Haskell, or discussion of the reason for the `String` type 
+- show, don't tell: prefer code examples, visual cues, highlighting and unfoldable comments to paragraphs of prose explaining an idea
+- don't be exhaustive: if you believe some feature can be understood easily without explanation, don't explain it.
+
+Note: these things are all fine, and appear to good effect elsewhere

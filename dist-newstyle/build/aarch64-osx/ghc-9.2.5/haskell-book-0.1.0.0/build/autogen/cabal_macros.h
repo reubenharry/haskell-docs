@@ -10,6 +10,16 @@
   (major1) == 0 && (major2) <  1 || \
   (major1) == 0 && (major2) == 1 && (minor) <= 0)
 #endif /* MIN_VERSION_haskell_book */
+/* package aeson-2.1.1.0 */
+#ifndef VERSION_aeson
+#define VERSION_aeson "2.1.1.0"
+#endif /* VERSION_aeson */
+#ifndef MIN_VERSION_aeson
+#define MIN_VERSION_aeson(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  1 || \
+  (major1) == 2 && (major2) == 1 && (minor) <= 1)
+#endif /* MIN_VERSION_aeson */
 /* package base-4.16.4.0 */
 #ifndef VERSION_base
 #define VERSION_base "4.16.4.0"
@@ -20,6 +30,36 @@
   (major1) == 4 && (major2) <  16 || \
   (major1) == 4 && (major2) == 16 && (minor) <= 4)
 #endif /* MIN_VERSION_base */
+/* package haskeline-0.8.2 */
+#ifndef VERSION_haskeline
+#define VERSION_haskeline "0.8.2"
+#endif /* VERSION_haskeline */
+#ifndef MIN_VERSION_haskeline
+#define MIN_VERSION_haskeline(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  8 || \
+  (major1) == 0 && (major2) == 8 && (minor) <= 2)
+#endif /* MIN_VERSION_haskeline */
+/* package megaparsec-9.2.2 */
+#ifndef VERSION_megaparsec
+#define VERSION_megaparsec "9.2.2"
+#endif /* VERSION_megaparsec */
+#ifndef MIN_VERSION_megaparsec
+#define MIN_VERSION_megaparsec(major1,major2,minor) (\
+  (major1) <  9 || \
+  (major1) == 9 && (major2) <  2 || \
+  (major1) == 9 && (major2) == 2 && (minor) <= 2)
+#endif /* MIN_VERSION_megaparsec */
+/* package mtl-2.2.2 */
+#ifndef VERSION_mtl
+#define VERSION_mtl "2.2.2"
+#endif /* VERSION_mtl */
+#ifndef MIN_VERSION_mtl
+#define MIN_VERSION_mtl(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  2 || \
+  (major1) == 2 && (major2) == 2 && (minor) <= 2)
+#endif /* MIN_VERSION_mtl */
 /* package text-1.2.5.0 */
 #ifndef VERSION_text
 #define VERSION_text "1.2.5.0"
@@ -30,6 +70,16 @@
   (major1) == 1 && (major2) <  2 || \
   (major1) == 1 && (major2) == 2 && (minor) <= 5)
 #endif /* MIN_VERSION_text */
+/* package witch-1.1.5.0 */
+#ifndef VERSION_witch
+#define VERSION_witch "1.1.5.0"
+#endif /* VERSION_witch */
+#ifndef MIN_VERSION_witch
+#define MIN_VERSION_witch(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  1 || \
+  (major1) == 1 && (major2) == 1 && (minor) <= 5)
+#endif /* MIN_VERSION_witch */
 
 /* tool gcc-13.1.6 */
 #ifndef TOOL_VERSION_gcc

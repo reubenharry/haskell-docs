@@ -30,6 +30,8 @@ False :: Bool
 !!! Tip
     Haskell types can be quite complex. To understand a type, always ask: what do the values belonging to this type look like?
 
+    For example, the values belonging to `Bool` are `True` and `False`.
+
 ## The type of integers
 
 `Int` is a type for integers, as in:
@@ -87,6 +89,9 @@ exampleFunction :: Int -> Bool
 exampleFunction x = x > 3
 ```
 
+!! Note
+    `Int` and `Bool` here are parameters of the type `Int -> Bool`. One can obtain a different type by changing these parameters,  e.g. `Text -> Int`.
+
 ## Product types (tuples)
 
 Pairs of values are themselves values. For example `(True, False)` has type `(Bool, Bool)`:
@@ -133,7 +138,7 @@ If you have two types, say `Bool` and `Int`, then you can generate a new type wh
 The type `()` contains a single value, which is also written `()`.
 
 !!! Warning
-    This practice of writing a type and a value with the same symbol is known as punning, and is quite widespread in Haskell. Be sure, when reading `() :: ()`, to understand that the `()` on the left is a *value* and the `()` on the right is a *type*.
+    This practice of writing a type and a value with the same symbol is known as [punning](/gotchas/punning), and is quite widespread in Haskell. Be sure, when reading `() :: ()`, to understand that the `()` on the left is a *value* and the `()` on the right is a *type*.
 
 ## The empty type
 
@@ -141,9 +146,9 @@ The type `()` contains a single value, which is also written `()`.
 
 ## The list type
 
-The type of a list of `Bool`s is written `[Bool]`. 
+The type of a list of `Bool`s is written `[Bool]` or `[] Bool`.
 
-The type of a list of `Ints` is written `[Int]`.
+The type of a list of `Ints` is written `[Int]` or `[] Int`.
 
 More generally, for *any type `a`*, `[a]` is the type of lists of values of type `a`.
 
@@ -215,5 +220,23 @@ Read this type as saying: for **any** type `a`, and **any** type `b`, this funct
     The only function that has type `forall a. a -> a` is the identity function (written `id`), because that is the only operation you can be sure works for *every* input type.
     And **no** function has the type `forall a b. a -> b`, because that function would need to be able to take an input of any type, and return an output of any type.
 
+## Kinds
 
+Types themselves have types, known as *kinds*. 
 
+```hs title="repl example"
+> :kind Bool
+Bool :: *
+> :kind Int
+Int :: *
+> :k Either
+Either :: * -> (* -> *) -- (1)! 
+> :k [Bool]
+[Bool] :: *
+> :k (Bool, Int)
+(Bool, Int) :: *
+> :k []
+[] :: * -> *
+```
+
+1. Consult [this section](/basics/functions/#partial-application-for-types) if this is unclear.

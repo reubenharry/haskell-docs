@@ -4,8 +4,7 @@ Because Haskell is pure and functional, the approach of debugging by adding `pri
 
 However, when you do need `print` statements, you can use `trace` from `Debug.Trace`, like so:
 
-todo
-
-and traceM like so
-
-todo
+```hs title="repl example"
+> import Debug.Trace (trace)
+> let output = take 10 [1..] in trace (("Length: " <> show (length output))) output
+```

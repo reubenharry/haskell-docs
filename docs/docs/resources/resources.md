@@ -1,9 +1,9 @@
 
 ## For newcomers
 
-[These notes](https://www.seas.upenn.edu/~cis1940/spring13/lectures.html) are excellent and friendly.
+[These notes](https://www.seas.upenn.edu/~cis1940/fall16/lectures/01-intro.html) are excellent.
 
-[Learn You a Haskell](http://learnyouahaskell.com/) is a great introductory book.
+[Learn You a Haskell](http://learnyouahaskell.com/) is a friendly introductory book.
 
 ## Understanding the ecosystem
 

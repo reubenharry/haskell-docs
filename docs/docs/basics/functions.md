@@ -48,8 +48,27 @@ Accordingly, we can apply `exampleFunc` to an integer, say `5`, and obtain an "a
 
 1. By convention in Haskell, `exampleFunc 4 5` means `(exampleFunc 4) 5`.
 
+This is often referred to as *partial application*. `exampleFunc` would be described as a *curried function*.
+
 !!! Hint
     When you see a function with a type like `#!haskell Type1 -> Type2 -> Type3 -> Type4` (which brackets as: `#!haskell Type1 -> (Type2 -> (Type3 -> Type4))` ), you can think of it as taking `Type1`, `Type2` and `Type3` as inputs, and outputting `Type4`. 
+
+## Partial application for types
+
+The same holds for types:
+
+```hs title="repl example"
+> :kind Either
+Either :: * -> (* -> *)
+> :kind Either Bool
+Either Bool :: * -> *
+> :kind Either Bool Int
+Either Bool Int :: *
+```
+
+
+
+
 
 ## Pattern matching
 

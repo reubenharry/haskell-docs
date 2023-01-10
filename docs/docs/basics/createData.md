@@ -45,6 +45,8 @@ Sq 3 :: Int -> Square -- (2)!
     > :t SqAlt 
     ```
 
+    If the number of types is `1`, you will see a suggestion to replace `data` with `newtype`. See more about `newtype` [here](https://kowainik.github.io/posts/haskell-mini-patterns)
+
 ### Records
 
 You can also name entries:
@@ -204,7 +206,18 @@ machine = machine1 where
 
 
 
-## todo
+## Synonyms
 
-type synonyms 
-newtype 
+One can also give new names to existing types:
+
+```hs
+type Number = Double
+```
+
+This can be useful for readability, particularly for quite complex types:
+
+```hs
+type Failure = Text
+data Result = ...
+type Program = Either Failure Result
+```

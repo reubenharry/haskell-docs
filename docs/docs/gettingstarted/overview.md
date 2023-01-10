@@ -50,7 +50,7 @@ executable haskell-book
     default-language: Haskell2010
 ```
 
-To run the functions in the project, first enter the Haskell repl (now in a project specific fashion):
+To run the functions in the project, first enter the Haskell repl from the root of the project directory (where the `.cabal` file is:
 
 ```bash
 cabal v2-repl
