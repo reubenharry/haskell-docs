@@ -22,7 +22,11 @@ or
 swap (a, b) = (a, b)
 ```
 
-This is because all Haskell values (including functions) are immutable. To write `a = b` is simple to state that `a` is a name for `b`. 
+This is because all Haskell values (including functions) are immutable. To write `a = b` is simply to state that `a` is a name for `b`, and that wherever you see `a` in the code, it can be replaced by `b`.
+
+For example, given the definition `swap (a, b) = (b, a)`, whenever you see `swap (a, b)` in your code, it can be replaced by `(b, a)`.
+
+## Loops and mutation
 
 In Python you could write:
 
@@ -45,7 +49,7 @@ This imperative approach isn't usually the natural one in a functional language.
         modify (+i)
     ```
 
-    1. Here, `forM` is a function, not a built-in command.  
+    1. Here, `forM` and `modify` are just regular functions, not built-in control-flow operators.  
 
     However, there's often a simpler solution that avoids thinking about loops and state altogether.
 
@@ -56,4 +60,4 @@ Instead, you could write:
 x = sum [0..9]
 ```
 
-See the next section for how this kind of approach scales to more complex situations.
+See [this section](/thinkingfunctionally/hof/#map-fold-scan-and-zip) for how this kind of approach scales to more complex situations.

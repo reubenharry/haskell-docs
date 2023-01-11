@@ -136,7 +136,7 @@ nav:
     - Type Inference: thinkingfunctionally/typeinference.md
     - Purity: thinkingfunctionally/purity.md
     - Immutability: thinkingfunctionally/immutability.md
-    - Higher-order functions: thinkingfunctionally/hof.md
+    - Thinking functionally: thinkingfunctionally/hof.md
   # - Common functions: common/common.md
   # - Syntax:
   #   - Overview: syntax/overview.md
@@ -176,7 +176,7 @@ nav:
     - Numbers: faqs/numbers.md
     - Converting Numbers: faqs/numbers.md
     - Debugging: faqs/debugging.md
-    - I/O: faqs/IO.md
+    - I/O: faqs/io.md
     - Output depends on input: faqs/dependentOutput.md
   - Resources:
     - Resources: resources/resources.md

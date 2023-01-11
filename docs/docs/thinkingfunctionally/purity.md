@@ -30,17 +30,18 @@ True
 Haskell's purity lends itself to modular code, and easy refactoring.
 
 ```hs
-graphicalUserInterface = run extremelyComplexFunction
+graphicalUserInterface = runWith complexFunction
     where 
-        run = ... 
-        extremelyComplexFunction :: UserInput -> Picture
-        extremelyComplexFunction = ...
+        complexFunction :: UserInput -> Picture
+        complexFunction = ...
+
+        runWith = ... -- e.g., a handler function
 ```
 
-TODO...
+Suppose we want to replace `complexFunction` with `simpleFunction`, also of type `UserInput -> Picture`.
 
-Because `extremelyComplexFunction` is not creating variables, or opening or closing files, there is much less chance of breakage when replacing it with `simpleFunction`.
 
+Because Haskell is pure (see /thinkingfunctionall/purity/#caveats) and so `complexFunction` is not creating/mutating global variables, or opening or closing files, we can be confident that there will be no unexpected implications of making the change, such as a subtle error when `runWith` takes `complexFunction` as input. 
 
 
 ## Equational reasoning

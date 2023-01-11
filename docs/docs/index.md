@@ -10,10 +10,9 @@ Haskell is a general purpose programming language. It is unique in being both ve
 
 Here is some discussion of its most salient features, if you want to learn more:
 
-todo: links
 
-- [functional]()
-- [pure](/thinkingfunctionally/purity)
+- [functional](/thinkingfunctionally/hof)
+- [pure](/thinkingfunctionally/purity) and [immutable](/thinkingfunctionally/immutability)
 - [statically typed](/thinkingfunctionally/typechecking)
 - [lazy](/laziness/laziness)
 

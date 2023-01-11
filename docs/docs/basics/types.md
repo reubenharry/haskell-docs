@@ -153,9 +153,30 @@ If you have two types, say `Bool` and `Int`, then you can generate a new type wh
 
     1. Actually, the type is more general: `forall a. a -> Either a Int`. See the section on polymorphism.
 
+### Maybe
+
+A closely related type is `Maybe`, which in other languages is sometimes called `Optional`:
+
+```hs title="Some values and their types"
+Just True :: Maybe Bool -- (1)!
+Just 5 :: Maybe Int
+Nothing :: Maybe Bool
+-- Also true:
+Nothing :: Maybe Int -- (2)!
+```
+
+1. `Just` is a function of type `Bool -> Maybe Bool`.
+
+2. The most general type of `Nothing` is `forall a. Maybe a`: see the section on [Universal types](/basics/types/#universal-types).
+
+
+
 ## The unit type
 
 The type `()` contains a single value, which is also written `()`.
+
+!!! Note
+    Conceptually, `Maybe X` is the same as `Either () X` (for any type `X`).
 
 !!! Warning
     This practice of writing a type and a value with the same symbol is known as [punning](/gotchas/punning), and is quite widespread in Haskell. Be sure, when reading `() :: ()`, to understand that the `()` on the left is a *value* and the `()` on the right is a *type*.
@@ -187,6 +208,9 @@ Write a list as in Python, like `[True, False, True]`. `:` is an operator to app
 [1,2,3,4,5,6,7,8,9,10]
 ```
 
+!!! Note
+    `[1,2,3]` is just convenient syntax for `1 : (2 : (3 : []))`.
+
 ## The IO type
 
 The type `IO Bool` describes a process which can do arbitrary I/O, such as reading and writing to files, starting threads, running shell scripts, etc. The `Bool` indicates that a result of running this process will be to produce a value of type `Bool`. More generally, for any type `a`, `IO a` runs a process and returns a value of type `a`. 
@@ -209,7 +233,7 @@ main = ...
 ```
 
 
-## Polymorphism
+## Universal types
 
 Here is an example of polymorphism, or universal quantification over types:
 
@@ -232,12 +256,12 @@ Here is an example of polymorphism, or universal quantification over types:
 
 Read this type as saying: for **any** type `a`, and **any** type `b`, this function will take a pair of values, one of type `a` on the left,  and one of type `b` on the right, and give back a pair in the other order.
 
-Types are always uppercase, but a variable ranging over types like `a` and `b` above are always lowercase.
+Specific types are always uppercase, but a variable ranging over types like `a` and `b` above are always lowercase.
 
 !!! Note
-    todo: "any type" really means *any* type. That includes `Bool`, `Int`, `Text`, `[Bool]`, `[(Bool, Int)]`, custom types you defined (e.g. `ChessPiece`), `Either Bool [Int]`, `IO Int`, and so on.
+   "any type" really means *any* type. That includes `Bool`, `Int`, `Text`, `[Bool]`, `[(Bool, Int)]`, functions like `(Int -> Bool)` or `(Int -> Int) -> Bool`, custom types you defined (e.g. `ChessPiece`), `Either Bool [Int]`, `IO Int`, and so on.
 
-!!! Warning
+!!! Tip
     Polymorphic types are not like `Any` in Python. For example, the Boolean negation function `not :: Bool -> Bool` does not also have the type `a -> a`.
 
     In `forall a. (a, b) -> (b, a)`, both occurrences of `a` must be the same, and both occurrences of `b` must be the same. so `(Bool, Int) -> (Int, Bool)` or `(Text, Double) -> (Double, Text)`, but not `(Bool, Int) -> (Double, Text)`. 
@@ -268,30 +292,83 @@ not undefined :: Bool
 > 
 ```
 
+### Usage with parametrized types
 
+Universally quantified types can appear as the parameters of other types:
 
-## Kinds
+```hs
+getLeft :: Either a b -> Maybe a
+getLeft (Left x) = Just x
+getLeft (Right _) = Nothing
+```
 
-Types themselves have types, known as *kinds*. 
+The universally quantified `a` and `b` indicate that `getLeft` is only manipulating the structure of the input, but nothing more. For example, if a function like `not` was called on `x`, then `a` could no longer be universally quantified:
+
+```hs hl_lines="2"
+getLeft :: Either Bool b -> Maybe Bool
+getLeft (Left x) = Just (not x)
+getLeft (Right _) = Nothing
+```
+ 
+
+## Types for types
+
+Types themselves have types, sometimes known as *kinds*. 
 
 ```hs title="repl example"
 > :kind Bool
-Bool :: *
+Bool :: * -- (1)!
 > :kind Int
 Int :: *
+> :kind (Either Bool Int)
+Either Bool Int :: *
+
+
 > :k Either
-Either :: * -> (* -> *) -- (1)! 
+Either :: * -> (* -> *) -- (2)! 
+> :k (Either Bool)
+Either Bool :: (* -> *) 
+> :k (Either Int)
+Either Int :: (* -> *) 
+
 > :k [Bool]
 [Bool] :: *
 > :k (Bool, Int)
 (Bool, Int) :: *
+
 > :k []
 [] :: * -> *
 ```
+1. `*` is the *kind* for all types that can have values, like `Bool`, `Either Bool Int`, `[Bool]` and so on.
 
-1. Consult [this section](/basics/functions/#partial-application-for-types) if this is unclear. Note also that it will be displayed: ` * -> * -> *` by the repl.
+2. Consult [this section](/basics/functions/#partial-application-for-types) if this is unclear. Note also that it will be displayed: ` * -> * -> *` by the repl.
 
 !!! Note
     The ability to have types of "higher kinds" (i.e. kinds like `* -> *`, or `* -> * -> *`) is a central feature that makes Haskell's type system more sophisticated than many languages.
 
     In codebases, it is common to encounter types like `ReaderT` which has kind `* -> (* -> *) -> * -> *` or `Fix` of kind `(* -> *) -> *`
+
+### Polymorphism for other kinds than `*`
+
+!!! Tip
+    Make sure to use the `GHC2021` [extension](/gettingstarted/versions/#extensions) or add the language extensions recommended by Haskell Language Server for this section.
+
+In a polymorphic type like `forall a. a`, we can explicitly specify the *kind* of types that the quantifier `forall` ranges over:
+
+```hs
+swap :: forall (a :: *) (b :: *) . (a, b) -> (b, a)
+swap (x, y) = (y, x)
+```
+
+The kind does not need to be `*`. For example, here is the type of `fmap` (see [this section about typeclasses](/typeclasses/survey/#functor)):
+
+=== "With kinds shown explicitly"
+    ```hs
+    fmap ::forall (f :: * -> *) (a::*) (b::*). Functor f => (a -> b) -> (f a -> f b)
+    ```
+
+=== "Without kinds shown explicitly (standard)"
+
+    ```haskell
+    fmap :: Functor f => (a -> b) -> f a -> f b
+    ```

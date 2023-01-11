@@ -16,14 +16,19 @@ import Control.Monad.RWS (modify)
 class Length f where
     len :: f a -> Int
 
-me :: Text
-me = "foo" <> mempty
+data Color' = Black' | White'
+data Piece' = Bishop' Color | Knight' Color 
 
-instance Length [] where
-    len (x: xs) = length 
+getColor :: Either a Piece' -> Maybe Color
+getColor (Right (Bishop' c)) = Just c
+getColor (Right (Knight' c)) = Just c
+getColor (Left _) = Nothing
 
-add1AndPrint :: Bool -> IO Int
-add1AndPrint x = print x >> return (x + 1)
+-- instance Length [] where
+--     len (x: xs) = length 
+
+-- add1AndPrint :: Bool -> IO Int
+-- add1AndPrint x = print x >> return (x + 1)
 
 
 take' 0 ls = []

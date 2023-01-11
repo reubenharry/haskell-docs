@@ -1,13 +1,49 @@
+
 Functions in Haskell are *first class values*, meaning they can be passed around like any other data (such are text or numbers), and also bound to names in the same way:
 
 ```hs title="repl example"
-todo
+> notEven = (\x -> not (even x))
+> notEven 3
+True
+> notEven 4
+False
+> test notEvenFunc = all (==False) [notEvenFunc (2*n) | n <- [1..10]] -- (1)!
+> test notEven
+
+-- a more concise definition
+> equivalentNotEven = not . even
+> equivalentNotEven 3
+True
+> equivalentNotEven 4
+False
+> test equivalentNotEven
+True
+
+-- even more direct!
+> test (not . even) -- (2)!
+True
 ```
 
+1. Takes a function of type `Int -> Bool` and tests if it returns `False` for `10` even numbers.
 
+2. It's not even necessary to assign a variable name to the input function at all: just pass in `not . even` as an argument.
 
-can return functions, as with [currying](), 
-    but they can also take functions as input.
+Functions can also return functions:
+
+```hs title="repl example"
+> mkNotEven isEvenFunc = \n -> not (isEvenFunc n)
+> (mkNotEven even) 3 -- (1)!
+True
+
+-- equivalently
+> mkNotEven2 isEvenFunc = not . isEvenFunc
+> (mkNotEven2 even) 3
+True
+```
+
+1. The result of `mkNotEven`, when applied to `even`, is a *function* to tell if a number is odd. 
+
+A common use case for functions returning functions is [currying](/basics/functions/#currying).
 
 ## Composition
 
@@ -54,9 +90,30 @@ Or in its general polymorphic form:
 
 ### Pointfree code
 
-todo
+Instead of writing `func x = not (even x)`, one can write `func = not . even`, which avoids having to name a variable `x` at all. 
 
-## Map
+todo with point
+```
+import gloss todo 
+picture = 
+    rotate 90
+    $ translate 20 20
+    $ scale 30 30
+    circle 2
+```
+
+```
+import gloss todo 
+picture = transform (circle 2) where 
+    transform =
+        rotate 90
+        . translate 20 20
+        . scale 30 30
+```
+
+## Map, fold, scan and zip
+
+### Map
 
 ```haskell
 > :t map
@@ -75,6 +132,6 @@ map :: (a -> b) -> ([a] -> [b]) -- (1)!
 [2,3,4,5,6,7,8,9,10,11]
 ```
 
-## Foldr
+### Foldr
 
 todo foldr, scanl/r, filter, forever

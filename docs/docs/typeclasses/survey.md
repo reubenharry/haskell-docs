@@ -2,4 +2,23 @@ Common typeclasses include: `Show`, `Eq`, `Ord`, `Num`, `Monoid`, `Foldable`, `F
 
 todo: explain each one
 
-# Foldable
+## Show
+
+## Eq
+
+## Ord
+
+## Num 
+
+## Semigroup
+
+## Monoid
+
+## Foldable
+
+## Functor
+
+## Applicative
+
+## Monad
+

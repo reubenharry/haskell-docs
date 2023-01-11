@@ -203,7 +203,14 @@ machine = machine1 where
     machine2 = M (\i -> (0, machine2))
 ```
 
+!!! Note
+    The list type can be defined recursively in this way:
 
+    ```hs
+    data List a = EmptyList | HeadThenList a (List a)
+    ```
+
+    In fact, the `[a]` type in Haskell is defined in this way, with the `[1,2,3]` being extra syntax for convenience.
 
 
 ## Synonyms

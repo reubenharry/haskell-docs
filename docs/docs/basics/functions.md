@@ -116,7 +116,54 @@ Then:
 
 because line 3 would be matched before line 4 was reached.
 
-todo: pattern matching at arbitrary depth
+!!! Note
+    Pattern matching follows the definition of types, including custom types:
+
+    ```hs title="repl example" hl_lines="4"
+    > data Color = White | Black deriving (Show)
+    > data PieceType = Bishop | Knight deriving (Show)
+    > data Piece = P PieceType Color deriving (Show)
+    > getColor (P _ c) = c
+    > getColor (P Bishop White)
+    White
+    ```
+
+!!! Note
+    Patterns can be arbitrarily deeply nested, as in:
+
+    ```hs 
+    data Color = Black | White
+    data Piece = Bishop Color | Knight Color 
+
+    getColor :: Either Bool Piece -> Maybe Color
+    getColor (Right (Bishop c)) = Just c
+    getColor (Right (Knight c)) = Just c
+    getColor (Left _) = Nothing
+    ```
+
+    And also with [recursive types](/basics/createdata/#recursive-types)
+
+    ```hs title="repl example" hl_lines="2"
+    > data BinTree = Leaf Char | Branches BinTree BinTree
+    > leftRightLeaf (Branches (Branches _ (Leaf c))  _) = c
+    > tree = Branches (Branches (Leaf 'a') (Leaf 'c')) (Leaf 'b')  
+    > leftRightLeaf tree
+    'c'
+    ```
+
+### Pattern matching lists
+
+This also applies to [lists](/basics/types/#the-list-type):
+
+```hs title="repl example"
+> ls@(head:tail) = [1,2,3]
+> head
+1
+> tail
+[2,3]
+> ls
+[1,2,3]
+```
 
 ### Using @ in patterns
 
