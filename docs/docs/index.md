@@ -10,10 +10,12 @@ Haskell is a general purpose programming language. It is unique in being both ve
 
 Here is some discussion of its most salient features, if you want to learn more:
 
+todo: links
+
 - [functional]()
-- [pure]()
-- [statically typed]()
-- [lazy]()
+- [pure](/thinkingfunctionally/purity)
+- [statically typed](/thinkingfunctionally/typechecking)
+- [lazy](/laziness/laziness)
 
 
 [**Get started**](gettingstarted/overview.md){ .md-button .md-button--primary }

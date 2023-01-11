@@ -116,3 +116,38 @@ Then:
 
 because line 3 would be matched before line 4 was reached.
 
+todo: pattern matching at arbitrary depth
+
+### Using @ in patterns
+
+```hs title="repl example"
+
+-- first example
+> let whole@(a,b) = ('a', True)
+> a
+'a'
+> b
+True
+> whole
+('a',True)
+
+-- second example
+> let whole@(a, left@(b, c)) = ('a', (True, ()))
+> a
+'a'
+> b
+True
+> c
+()
+> whole
+('a',(True,()))
+> left
+(True,())
+```
+
+```hs
+exampleFunc :: (Int, Bool) -> (Int, Bool)
+exampleFunc whole@(int,bool) 
+    | even int = whole
+    | otherwise = (int - 1, not bool)
+```

@@ -1,31 +1,49 @@
-Functions in Haskell can return functions, as with [currying](), 
+Functions in Haskell are *first class values*, meaning they can be passed around like any other data (such are text or numbers), and also bound to names in the same way:
+
+```hs title="repl example"
+todo
+```
+
+
+
+can return functions, as with [currying](), 
     but they can also take functions as input.
 
 ## Composition
 
-`.` composes functions:
+`.` chains together (or *composes*) functions:
 
 ```haskell title="repl example"
-> :t (+4)
-(+4) :: Int -> Int -- (1)!
-> :t (> 3)
-Int -> Bool -- (2)!
-> :t ( (> 3) . (+4))
-Int -> Bool
+
+import qualified Data.Text as T
+:set -XOverloadedStrings
+
+> :t (=='a') -- (1)!
+(=='a') :: Char -> Bool
+> (=='a') 'b' 
+False
+
+> :t T.head 
+T.head :: Text -> Char
+> T.head "hello"
+'h'
+
+> :t ( (=='a') . T.head)
+( (=='a') . T.head) :: Text -> Bool
+> ( (=='a') . T.head) "hello"
+False
 ```
 
-1. Actually, the repl gives a more general type: `#!haskell Num a => a -> a`. See [here](/faqs/numbers) for info.
+1. `#!hs (=='a')` is the function which takes a `Char` and returns `True` if it is `a` otherwise `False`.
 
 2. Here also, the repl gives a more general type. What is shown is more specific, but still true.
 
 
 
-TODO correct and finish
-
 The composition operator `.` is not a special syntax; it is a function, typically written in infix position like `+` or `*`, with the following type:
 
 ```haskell
-(.) :: (Int -> Bool) -> (Text -> Int) -> (Text -> Bool)
+(.) :: (Char -> Bool) -> (Text -> Char) -> (Text -> Bool)
 ```
 
 Or in its general polymorphic form:
@@ -33,6 +51,10 @@ Or in its general polymorphic form:
 ```haskell
 (.) :: (b -> c) -> (a -> b) -> (a -> c)
 ```
+
+### Pointfree code
+
+todo
 
 ## Map
 

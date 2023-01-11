@@ -45,7 +45,7 @@ library
         haskeline,
         witch
     hs-source-dirs:   src
-    default-language: Haskell2010
+    default-language: GHC2021
 
 executable haskell-book
     main-is:          Main.hs

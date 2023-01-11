@@ -35,10 +35,14 @@ for i in range(10):
 This imperative approach isn't usually the natural one in a functional language. 
 
 !!! Note
-    There are simple ways to write code like this, e.g.:
+    There are fairly simple ways to write code like this, e.g.:
 
     ```haskell
-    todo -- (1)!
+    import Control.Monad (forM)
+    import Control.Monad.State (execState, modify)
+
+    loop = flip execState 0 $ forM [0..9] $ \i -> -- (1)!
+        modify (+i)
     ```
 
     1. Here, `forM` is a function, not a built-in command.  
@@ -49,9 +53,7 @@ This imperative approach isn't usually the natural one in a functional language.
 Instead, you could write:
 
 ```haskell
-x = sum [0..10]
+x = sum [0..9]
 ```
 
-TODO check python and haskell
-
-See the next section for common folds etc
+See the next section for how this kind of approach scales to more complex situations.

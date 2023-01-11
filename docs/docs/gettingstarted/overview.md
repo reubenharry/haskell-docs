@@ -17,7 +17,7 @@ In a directory of your choice, create a new Haskell project by running:
 cabal init --interactive
 ```
 
-or if you prefer, clone [the repository from these docs](todo), which is itself a Haskell project.
+or if you prefer, clone [the repository from these very docs](todo), which is itself a Haskell project.
 
 This will create a file ending in the suffix `.cabal`, which is where you will specify package requirements and other build details. For instance:
 
@@ -83,7 +83,7 @@ In VSCode, activate it by installing the *Haskell* extension:
 
 ![](/img/hls.png)
 
-This will make learning Haskell much smoother, by underlining type errors, showing inferred types by mouse-over, adding type signatures automatically, and adding language extensions and imports when needed.
+This will make learning Haskell much smoother, by continuously checking your program, underlining type errors, showing inferred types by mouse-over, adding type signatures automatically, and adding language extensions and imports when needed.
 
 ## Step 4 (Hoogle)
 

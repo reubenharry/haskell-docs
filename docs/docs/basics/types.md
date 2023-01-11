@@ -41,9 +41,29 @@ False :: Bool
 ```
 
 ??? Gotcha
-    `5` can have a more general type in Haskell. See [here](faq/numbers.md)
+    `5` can have a more general type in Haskell. See [here](/faq/numbers.md)
+
+## The type of real numbers
+
+There are several available options. A good general choice is `Double`:
+
+```haskell
+5.0 :: Double
+```
 
 ## The type of text
+
+`Char` is the type of single characters:
+
+```hs title="repl example"
+> :t 'a'
+'a' :: Char
+
+> :t 'b'
+'b' :: Char
+```
+
+`Text` is the type of sequences of characters:
 
 ```haskell
 {-# LANGUAGE OverloadedStrings #-} --(1)!
@@ -167,7 +187,7 @@ Write a list as in Python, like `[True, False, True]`. `:` is an operator to app
 [1,2,3,4,5,6,7,8,9,10]
 ```
 
-## IO
+## The IO type
 
 The type `IO Bool` describes a process which can do arbitrary I/O, such as reading and writing to files, starting threads, running shell scripts, etc. The `Bool` indicates that a result of running this process will be to produce a value of type `Bool`. More generally, for any type `a`, `IO a` runs a process and returns a value of type `a`. 
 
@@ -212,13 +232,43 @@ Here is an example of polymorphism, or universal quantification over types:
 
 Read this type as saying: for **any** type `a`, and **any** type `b`, this function will take a pair of values, one of type `a` on the left,  and one of type `b` on the right, and give back a pair in the other order.
 
+Types are always uppercase, but a variable ranging over types like `a` and `b` above are always lowercase.
+
 !!! Note
-    Types are always uppercase, but a variable ranging over types like `a` and `b` above are always lowercase.
+    todo: "any type" really means *any* type. That includes `Bool`, `Int`, `Text`, `[Bool]`, `[(Bool, Int)]`, custom types you defined (e.g. `ChessPiece`), `Either Bool [Int]`, `IO Int`, and so on.
 
 !!! Warning
     Polymorphic types are not like `Any` in Python. For example, the Boolean negation function `not :: Bool -> Bool` does not also have the type `a -> a`.
-    The only function that has type `forall a. a -> a` is the identity function (written `id`), because that is the only operation you can be sure works for *every* input type.
+
+    In `forall a. (a, b) -> (b, a)`, both occurrences of `a` must be the same, and both occurrences of `b` must be the same. so `(Bool, Int) -> (Int, Bool)` or `(Text, Double) -> (Double, Text)`, but not `(Bool, Int) -> (Double, Text)`. 
+    
+    For this reason, the only function that has type `forall a. a -> a` is the identity function (written `id`), because that is the only operation you can be sure works for *every* input type.
+
     And **no** function has the type `forall a b. a -> b`, because that function would need to be able to take an input of any type, and return an output of any type.
+
+### How to use
+
+If you have a function with a polymorphic type as *input*, you can always call it on any particular types. For example:
+
+```hs title="repl example"
+> let swap (a,b) = (b,a)
+> swap (4, True)
+(True,4)
+> swap ('a', 3)
+(3,'a')
+```
+
+If you have a non-function value of a polymorphic type, like [undefined](/thinkingfunctionally/purity/#caveats) `:: forall a . a` , you may use it as the argument to *any function*.
+
+```hs title="repl example"
+> :t not
+not :: Bool -> Bool
+> :t not undefined
+not undefined :: Bool
+> 
+```
+
+
 
 ## Kinds
 
@@ -239,4 +289,9 @@ Either :: * -> (* -> *) -- (1)!
 [] :: * -> *
 ```
 
-1. Consult [this section](/basics/functions/#partial-application-for-types) if this is unclear.
+1. Consult [this section](/basics/functions/#partial-application-for-types) if this is unclear. Note also that it will be displayed: ` * -> * -> *` by the repl.
+
+!!! Note
+    The ability to have types of "higher kinds" (i.e. kinds like `* -> *`, or `* -> * -> *`) is a central feature that makes Haskell's type system more sophisticated than many languages.
+
+    In codebases, it is common to encounter types like `ReaderT` which has kind `* -> (* -> *) -> * -> *` or `Fix` of kind `(* -> *) -> *`

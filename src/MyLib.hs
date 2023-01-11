@@ -1,13 +1,56 @@
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE InstanceSigs #-}
+-- {-# LANGUAGE DeriveGeneric #-}
+-- {-# LANGUAGE InstanceSigs #-}
+-- {-# LANGUAGE TypeApplications #-}
 
 module MyLib (someFunc) where
 import Control.Monad (forM)
 import Data.Text (Text)
 import Data.Coerce (coerce)
 import GHC.Generics (Generic)
+import Witch
+import Control.Monad.State (execState)
+import Control.Monad.RWS (modify)
+
+class Length f where
+    len :: f a -> Int
+
+me :: Text
+me = "foo" <> mempty
+
+instance Length [] where
+    len (x: xs) = length 
+
+add1AndPrint :: Bool -> IO Int
+add1AndPrint x = print x >> return (x + 1)
+
+
+take' 0 ls = []
+take' _ [] = []
+take' n (firstElem : rest) = firstElem : take' (n-1) rest
+
+func1 = 1 : func2
+func2 = 2 : func1
+
+loop = flip execState 0 $ forM [0..9] $ \i ->
+    modify (+i)
+
+class  Eq' a  where
+    (===) :: a -> a -> Bool --(1)!
+
+instance Eq' Bool where
+    True === True = True
+    False === False = True
+    _ === _ = False
+
+primes = filterPrime [2..]
+  where filterPrime (p:xs) =
+          p : filterPrime [x | x <- xs, x `mod` p /= 0]
+
+exFunc whole@(int,bool) 
+    | even int = whole
+    | otherwise = (int - 1, not bool)
 
 someFunc :: IO ()
 someFunc = putStrLn "someFunc"
@@ -90,7 +133,15 @@ pieceToText (Piece _ color) = case color of
     Black -> "black"
     White -> "white"
 
+foo' = "foo" :: String
+
+bar = into @Text foo'
+
 type Number = Double
+
+shiftByFour maybeFlag x = case maybeFlag of 
+    Nothing -> error "define"
+    Just flag -> if flag then x + 4 else x - 4
 
 example' input = result <> " tree" 
         where

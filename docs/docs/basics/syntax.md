@@ -11,9 +11,11 @@ example input = result <> " tree" where
 
 ## Infixing and sections
 
-For operators like `+` or `/` that are written *infix* (i.e. in between their two arguments), Haskell has some syntactic sugar:
+For operators like `+` or `/` that are written *infix* (i.e. in between their two arguments), as opposed to *prefix* (before their arguments), Haskell has some syntactic sugar:
 
 ```haskell title="repl example"
+
+-- treating an infix function as a prefix function
 > 5 / 2
 2.5
 > (/) 5 2 -- (1)!
@@ -24,6 +26,13 @@ For operators like `+` or `/` that are written *infix* (i.e. in between their tw
 0.4
 > (5 /)  2
 2.5
+
+-- treating a prefix function as an infix function
+> let subtract x y = x - y
+> subtract 6 4
+2
+> 6 `subtract` 4
+2
 ```
 
 1. Whether infix or not, the type of `(/)` is `#!haskell Double -> (Double -> Double)`.

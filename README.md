@@ -36,6 +36,7 @@ It's impossible for any one resource to do everything, but I thought it was poss
 
 - avoid digressions: e.g. no history of Haskell, or discussion of the reason for the `String` type 
 - show, don't tell: prefer code examples, visual cues, highlighting and unfoldable comments to paragraphs of prose explaining an idea
-- don't be exhaustive: if you believe some feature can be understood easily without explanation, don't explain it.
+- don't be exhaustive: if you believe some feature can be understood easily without explanation, don't explain it. Explain currying, but don't bother explaining whether `[0..9]` includes `9`, since a user can easily figure that out.
+- prefer non-numerical examples: e.g. instead of examples about calculating primes, give examples involving chess. (Motivation: only having numerical examples suggests incorrectly that Haskell is not a general purpose language)
 
 Note: these things are all fine, and appear to good effect elsewhere

@@ -57,3 +57,14 @@ More importantly, it will infer the type of each `undefined`, like so:
 todo example
 
 Especially for more complex programs, the compiler's understanding of the types of unwritten parts of your program can be invaluable.
+
+### Type based refactoring
+
+Because type errors are static, refactoring a codebase can be performed with the help of the compiler:
+
+```hs
+type Position = (Double, Double)
+
+Here, if we changed the definition of `Position` to `#!hs type Position = (Double, Double, Double)`, we would be shown a list of compiler
+
+    todo

@@ -18,3 +18,10 @@ data BinTree = Leaf Int | BinTree BinTree BinTree
 ``` 
 
 Here, the second occurrence of `BinTree` is a value, and the rest are types.
+
+## Common examples of punning
+
+- `(Bool, Int)` is a type, but `(True, 4)` is a value
+- `[Bool]` is the type of lists of booleans, but `[True]` is a value, a list with a single element.
+- `()` is a type, and contains a single value, also called `()`.
+- `ReaderT` is both to a type, and a value, the constructor for that type. Similarly for `ExceptT`, `StateT` and others

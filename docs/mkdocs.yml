@@ -124,7 +124,7 @@ nav:
   - Home: index.md
   - Getting Started:
     - Quick start: gettingstarted/overview.md
-    - Packages: gettingstarted/packages.md
+    - Example Haskell File: gettingstarted/example.md
     - Configuration: gettingstarted/versions.md
   - Basics:
     - Values and Types: basics/types.md
@@ -134,6 +134,7 @@ nav:
   - Thinking in Haskell:
     - Type Checking: thinkingfunctionally/typechecking.md
     - Type Inference: thinkingfunctionally/typeinference.md
+    - Purity: thinkingfunctionally/purity.md
     - Immutability: thinkingfunctionally/immutability.md
     - Higher-order functions: thinkingfunctionally/hof.md
   # - Common functions: common/common.md
@@ -146,7 +147,8 @@ nav:
 
   # - Extensions: extensions/extensions.md
   - Typeclasses:
-    - Type classes: typeclasses/overview.md
+    - Typeclasses: typeclasses/overview.md
+    - Important typeclasses: typeclasses/survey.md
     - Make instances: typeclasses/createinstances.md
   - Laziness:
     Laziness: laziness/laziness.md
@@ -156,19 +158,25 @@ nav:
     - Overview: casestudy/overview.md
     - Chess Logic: casestudy/chess.md
     - Reading JSON: casestudy/json.md
-    - REPL: casestudy/overview.md
-    - Parsing: casestudy/overview.md
-    - Evaluator: casestudy/overview.md
+    - REPL: casestudy/repl.md
+    - Parsing: casestudy/parser.md
+    - Evaluator: casestudy/evaluator.md
   - Gotchas:
+    - Lists: gotchas/lists.md
     - Punning: gotchas/punning.md
     - Strings: gotchas/strings.md
     - Updating a variable: gotchas/mutation.md
+    - Varying output type: gotchas/functiontype.md
+    - fmap with a function: gotchas/functionFunctor.md
+    - Length of tuple: gotchas/tupleLength.md
   - FAQ:
     - Folding: faqs/foldl.md
     - Multiple Arguments: faqs/multipleArguments.md
     - Optional Arguments: faqs/optionalArguments.md
     - Numbers: faqs/numbers.md
+    - Converting Numbers: faqs/numbers.md
     - Debugging: faqs/debugging.md
+    - I/O: faqs/IO.md
     - Output depends on input: faqs/dependentOutput.md
   - Resources:
     - Resources: resources/resources.md
