@@ -8,6 +8,10 @@ comments: true
 
 [Learn You a Haskell](http://learnyouahaskell.com/) is a friendly introductory book.
 
+### Project-based learning
+
+[Learn Haskell by building a blog generator](https://lhbg-book.link) is a free book that takes a project-based approach to learning Haskell.
+
 ## Community
 
 Haskell has an active [subreddit](https://www.reddit.com/r/haskell/).
