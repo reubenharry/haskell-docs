@@ -5,6 +5,7 @@ repo_url: https://github.com/reubenharry/haskell-docs
 
 theme:
   name: material
+  custom_dir: overrides
   features:
     # - announce.dismiss
     - content.action.edit
