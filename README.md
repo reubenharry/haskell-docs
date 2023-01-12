@@ -28,7 +28,7 @@ With that in mind, it should be:
 | Beginner friendy   | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Up-to-date         | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Looks nice         | :x:                | :white_check_mark: | :x:                | :shrug:            | :white_check_mark: | :white_check_mark: |
-| Supports comments  | :x:                | :x:                | :white_check_mark: | :x:                | :white_check_mark: | :x:                |
+| Supports comments  | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :x:                |
 
 
 
