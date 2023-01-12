@@ -6,16 +6,16 @@ Getting set up with Haskell is very easy, here is the recommended route:
 
 ## Step 1 (installation)
 
-Download the Haskell installer, [GHCup](https://www.haskell.org/ghcup/).
+Run the Haskell installer, [GHCup](https://www.haskell.org/ghcup/), using the instructions on that page.
 
-To check that this was successful, enter the comand `ghci` into your terminal. This will open a Haskell repl. where you can execute Haskell code (much like in Python). 
+To check that this was successful, enter the comand `ghci` into your terminal. This will open a Haskell REPL where you can execute Haskell code (much like in Python).  To exit GHCi, type `:q` at the prompt.
 
 
 ## Step 2 (make a project)
 
-The repl is useful for evaluating simple expressions, and in-project debugging, but we recommend setting up a project as a first step to learning Haskell.
+The REPL is useful for evaluating simple expressions and in-project debugging, but we recommend setting up a project as a first step to learning Haskell.
 
-In a directory of your choice, create a new Haskell project by running:
+In a new directory of your choice, create a new Haskell project by running:
 
 ```bash
 cabal init --interactive
@@ -54,10 +54,10 @@ executable haskell-book
     default-language: Haskell2010
 ```
 
-To run the functions in the project, first enter the Haskell repl from the root of the project directory (where the `.cabal` file is:
+This package contains both a library and an executable.  To run the functions in the library, first enter the Haskell REPL from the root of the project directory (where the `.cabal` file is):
 
 ```bash
-cabal v2-repl
+cabal repl
 ```
 
 And then do:
@@ -67,19 +67,19 @@ And then do:
 > someFunc
 ```
 
-To compile your project into an executable:
-
-```bash
-cabal build
-```
-
-which you can run with:
+To build and run the executable:
 
 ```bash
 cabal run haskell-book
 ```
 
-This will run whatever program is labeled `main` in `/app/Main.hs`. 
+You can also build the executable without running it, which is useful for checking if you have compile errors or warnings:
+
+```bash
+cabal build
+```
+
+Becuase the `haskell-book` section of the cabal file gives a source directory of `app` and a main source file of `Main.hs`, this will run the variable called `main` in `app/Main.hs`.
 
 ## Step 3 (set up the Haskell Language Server)
 
