@@ -5,4 +5,6 @@ f 4 = True
 f 5 = 6
 ```
 
-This is because the output type of `f` can be *either* `Bool`, as the first line implies, *or* a number
+This is because the output type of `f` can be *either* always a `Bool`, as the first line implies, *or* always a number, as the second line implies.
+
+See this [FAQ](/faqs/dependentOutput) for the correct approach.

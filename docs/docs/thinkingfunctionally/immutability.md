@@ -1,8 +1,10 @@
 When you write a definition in your code, like:
 
 ```haskell
-value = True 
+flag = True -- (1)!
 ```
+
+1. `flag` isn't a keyword, it's just a normal variable name.
 
 or 
 
@@ -13,7 +15,7 @@ swap (a, b) = (b, a)
 you cannot later write in the same codebase:
 
 ```haskell
-value = False
+flag = False
 ```
 
 or 

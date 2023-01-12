@@ -52,13 +52,6 @@ False
 [Bishop,Knight]
 ```
 
-## Default methods
-
-
-todo
-
-
-
 ## Typeclass error messages
 
 ```hs title="repl example"

@@ -1,0 +1,749 @@
+name: OpenGLRaw
+version: 3.3.4.1
+synopsis: A raw binding for the OpenGL graphics system
+description:
+  OpenGLRaw is a raw Haskell binding for the OpenGL 4.6 graphics system and
+  lots of OpenGL extensions. It is basically a 1:1 mapping of OpenGL's C API,
+  intended as a basis for a nicer interface. OpenGLRaw offers access to all
+  necessary functions, tokens and types plus a general facility for loading
+  extension entries. The module hierarchy closely mirrors the naming structure
+  of the OpenGL extensions, making it easy to find the right module to import.
+  All API entries are loaded dynamically, so no special C header files are
+  needed for building this package. If an API entry is not found at runtime, a
+  userError is thrown.
+  .
+  OpenGL is the industry's most widely used and supported 2D and 3D graphics
+  application programming interface (API), incorporating a broad set of
+  rendering, texture mapping, special effects, and other powerful visualization
+  functions. For more information about OpenGL and its various extensions,
+  please see <http://www.opengl.org/>
+  and <http://www.opengl.org/registry/>.
+homepage: http://www.haskell.org/haskellwiki/Opengl
+bug-reports: https://github.com/haskell-opengl/OpenGLRaw/issues
+copyright: Copyright (C) 2009-2019 Sven Panne
+license: BSD3
+license-file: LICENSE
+author: Sven Panne
+maintainer: Sven Panne <svenpanne@gmail.com>, Jason Dagit <dagitj@gmail.com>
+category: Graphics
+build-type: Simple
+tested-with:
+  GHC == 8.0.2
+  GHC == 8.2.2
+  GHC == 8.4.4
+  GHC == 8.6.5
+  GHC == 8.8.4
+  GHC == 8.10.7
+  GHC == 9.0.1
+  GHC == 9.2.1
+cabal-version: >= 1.10
+extra-source-files:
+  CHANGELOG.md
+  README.md
+  RegistryProcessor/LICENSE
+  RegistryProcessor/OpenGL-Registry/xml/gl.xml
+  RegistryProcessor/OpenGL-Registry/xml/registry.rnc
+  RegistryProcessor/RegistryProcessor.cabal
+  RegistryProcessor/Setup.hs
+  RegistryProcessor/src/DeclarationParser.hs
+  RegistryProcessor/src/Main.hs
+  RegistryProcessor/src/ManPages.hs
+  RegistryProcessor/src/MangledRegistry.hs
+  RegistryProcessor/src/Registry.hs
+
+flag UseNativeWindowsLibraries
+  description:
+    When compiling under Windows, use the native libraries instead of e.g. the
+    ones coming with Cygwin.
+
+flag UseGlXGetProcAddress
+  description:
+    Use glXGetProcAddress instead of dlsym on non-Windows/-Darwin/-Android platforms.
+
+flag UseGLES2
+  description:
+    Use OpenGL ES 2.x instead of OpenGL ES 3.x on Android.
+
+flag OsAndroid
+  description:
+    Compile for Android. This flag goes away when cabal supports os(android).
+  default:
+    False
+
+library
+  exposed-modules:
+    Graphics.GL
+    Graphics.GL.AMD
+    Graphics.GL.AMD.BlendMinmaxFactor
+    Graphics.GL.AMD.DebugOutput
+    Graphics.GL.AMD.DepthClampSeparate
+    Graphics.GL.AMD.DrawBuffersBlend
+    Graphics.GL.AMD.FramebufferMultisampleAdvanced
+    Graphics.GL.AMD.FramebufferSamplePositions
+    Graphics.GL.AMD.GPUShaderHalfFloat
+    Graphics.GL.AMD.GPUShaderInt64
+    Graphics.GL.AMD.InterleavedElements
+    Graphics.GL.AMD.MultiDrawIndirect
+    Graphics.GL.AMD.NameGenDelete
+    Graphics.GL.AMD.OcclusionQueryEvent
+    Graphics.GL.AMD.PerformanceMonitor
+    Graphics.GL.AMD.PinnedMemory
+    Graphics.GL.AMD.QueryBufferObject
+    Graphics.GL.AMD.SamplePositions
+    Graphics.GL.AMD.SeamlessCubemapPerTexture
+    Graphics.GL.AMD.SparseTexture
+    Graphics.GL.AMD.StencilOperationExtended
+    Graphics.GL.AMD.TransformFeedback4
+    Graphics.GL.AMD.VertexShaderTessellator
+    Graphics.GL.APPLE
+    Graphics.GL.APPLE.AuxDepthStencil
+    Graphics.GL.APPLE.ClientStorage
+    Graphics.GL.APPLE.ElementArray
+    Graphics.GL.APPLE.Fence
+    Graphics.GL.APPLE.FloatPixels
+    Graphics.GL.APPLE.FlushBufferRange
+    Graphics.GL.APPLE.ObjectPurgeable
+    Graphics.GL.APPLE.RGB422
+    Graphics.GL.APPLE.RowBytes
+    Graphics.GL.APPLE.SpecularVector
+    Graphics.GL.APPLE.TextureRange
+    Graphics.GL.APPLE.TransformHint
+    Graphics.GL.APPLE.VertexArrayObject
+    Graphics.GL.APPLE.VertexArrayRange
+    Graphics.GL.APPLE.VertexProgramEvaluators
+    Graphics.GL.APPLE.YCbCr422
+    Graphics.GL.ARB
+    Graphics.GL.ARB.BaseInstance
+    Graphics.GL.ARB.BindlessTexture
+    Graphics.GL.ARB.BlendFuncExtended
+    Graphics.GL.ARB.BufferStorage
+    Graphics.GL.ARB.CLEvent
+    Graphics.GL.ARB.ClearBufferObject
+    Graphics.GL.ARB.ClearTexture
+    Graphics.GL.ARB.ClipControl
+    Graphics.GL.ARB.ColorBufferFloat
+    Graphics.GL.ARB.CompressedTexturePixelStorage
+    Graphics.GL.ARB.ComputeShader
+    Graphics.GL.ARB.ComputeVariableGroupSize
+    Graphics.GL.ARB.ConditionalRenderInverted
+    Graphics.GL.ARB.CopyBuffer
+    Graphics.GL.ARB.CopyImage
+    Graphics.GL.ARB.CullDistance
+    Graphics.GL.ARB.DebugOutput
+    Graphics.GL.ARB.DepthBufferFloat
+    Graphics.GL.ARB.DepthClamp
+    Graphics.GL.ARB.DepthTexture
+    Graphics.GL.ARB.DirectStateAccess
+    Graphics.GL.ARB.DrawBuffers
+    Graphics.GL.ARB.DrawBuffersBlend
+    Graphics.GL.ARB.DrawElementsBaseVertex
+    Graphics.GL.ARB.DrawIndirect
+    Graphics.GL.ARB.DrawInstanced
+    Graphics.GL.ARB.ES2Compatibility
+    Graphics.GL.ARB.ES31Compatibility
+    Graphics.GL.ARB.ES32Compatibility
+    Graphics.GL.ARB.ES3Compatibility
+    Graphics.GL.ARB.EnhancedLayouts
+    Graphics.GL.ARB.ExplicitUniformLocation
+    Graphics.GL.ARB.FragmentProgram
+    Graphics.GL.ARB.FragmentShader
+    Graphics.GL.ARB.FramebufferNoAttachments
+    Graphics.GL.ARB.FramebufferObjectCompatibility
+    Graphics.GL.ARB.FramebufferObjectCore
+    Graphics.GL.ARB.FramebufferSRGB
+    Graphics.GL.ARB.GPUShader5
+    Graphics.GL.ARB.GPUShaderFP64
+    Graphics.GL.ARB.GPUShaderInt64
+    Graphics.GL.ARB.GeometryShader4
+    Graphics.GL.ARB.GetProgramBinary
+    Graphics.GL.ARB.GetTextureSubImage
+    Graphics.GL.ARB.GlSpirv
+    Graphics.GL.ARB.HalfFloatPixel
+    Graphics.GL.ARB.HalfFloatVertex
+    Graphics.GL.ARB.ImagingCompatibility
+    Graphics.GL.ARB.ImagingCore
+    Graphics.GL.ARB.IndirectParameters
+    Graphics.GL.ARB.InstancedArrays
+    Graphics.GL.ARB.InternalformatQuery
+    Graphics.GL.ARB.InternalformatQuery2
+    Graphics.GL.ARB.InvalidateSubdata
+    Graphics.GL.ARB.MapBufferAlignment
+    Graphics.GL.ARB.MapBufferRange
+    Graphics.GL.ARB.MatrixPalette
+    Graphics.GL.ARB.MultiBind
+    Graphics.GL.ARB.MultiDrawIndirect
+    Graphics.GL.ARB.Multisample
+    Graphics.GL.ARB.Multitexture
+    Graphics.GL.ARB.OcclusionQuery
+    Graphics.GL.ARB.OcclusionQuery2
+    Graphics.GL.ARB.ParallelShaderCompile
+    Graphics.GL.ARB.PipelineStatisticsQuery
+    Graphics.GL.ARB.PixelBufferObject
+    Graphics.GL.ARB.PointParameters
+    Graphics.GL.ARB.PointSprite
+    Graphics.GL.ARB.PolygonOffsetClamp
+    Graphics.GL.ARB.ProgramInterfaceQuery
+    Graphics.GL.ARB.ProvokingVertex
+    Graphics.GL.ARB.QueryBufferObject
+    Graphics.GL.ARB.RobustnessCompatibility
+    Graphics.GL.ARB.RobustnessCore
+    Graphics.GL.ARB.SampleLocations
+    Graphics.GL.ARB.SampleShading
+    Graphics.GL.ARB.SamplerObjects
+    Graphics.GL.ARB.SeamlessCubeMap
+    Graphics.GL.ARB.SeamlessCubemapPerTexture
+    Graphics.GL.ARB.SeparateShaderObjects
+    Graphics.GL.ARB.ShaderAtomicCounters
+    Graphics.GL.ARB.ShaderImageLoadStore
+    Graphics.GL.ARB.ShaderObjects
+    Graphics.GL.ARB.ShaderStorageBufferObject
+    Graphics.GL.ARB.ShaderSubroutine
+    Graphics.GL.ARB.ShadingLanguage100
+    Graphics.GL.ARB.ShadingLanguageInclude
+    Graphics.GL.ARB.Shadow
+    Graphics.GL.ARB.ShadowAmbient
+    Graphics.GL.ARB.SparseBuffer
+    Graphics.GL.ARB.SparseTexture
+    Graphics.GL.ARB.SpirvExtensions
+    Graphics.GL.ARB.StencilTexturing
+    Graphics.GL.ARB.Sync
+    Graphics.GL.ARB.TessellationShader
+    Graphics.GL.ARB.TextureBarrier
+    Graphics.GL.ARB.TextureBorderClamp
+    Graphics.GL.ARB.TextureBufferObject
+    Graphics.GL.ARB.TextureBufferObjectRGB32
+    Graphics.GL.ARB.TextureBufferRange
+    Graphics.GL.ARB.TextureCompression
+    Graphics.GL.ARB.TextureCompressionBPTC
+    Graphics.GL.ARB.TextureCompressionRGTC
+    Graphics.GL.ARB.TextureCubeMap
+    Graphics.GL.ARB.TextureCubeMapArray
+    Graphics.GL.ARB.TextureEnvCombine
+    Graphics.GL.ARB.TextureEnvDot3
+    Graphics.GL.ARB.TextureFilterAnisotropic
+    Graphics.GL.ARB.TextureFilterMinmax
+    Graphics.GL.ARB.TextureFloat
+    Graphics.GL.ARB.TextureGather
+    Graphics.GL.ARB.TextureMirrorClampToEdge
+    Graphics.GL.ARB.TextureMirroredRepeat
+    Graphics.GL.ARB.TextureMultisample
+    Graphics.GL.ARB.TextureRG
+    Graphics.GL.ARB.TextureRGB10A2UI
+    Graphics.GL.ARB.TextureRectangle
+    Graphics.GL.ARB.TextureStencil8
+    Graphics.GL.ARB.TextureStorage
+    Graphics.GL.ARB.TextureStorageMultisample
+    Graphics.GL.ARB.TextureSwizzle
+    Graphics.GL.ARB.TextureView
+    Graphics.GL.ARB.TimerQuery
+    Graphics.GL.ARB.TransformFeedback2
+    Graphics.GL.ARB.TransformFeedback3
+    Graphics.GL.ARB.TransformFeedbackInstanced
+    Graphics.GL.ARB.TransformFeedbackOverflowQuery
+    Graphics.GL.ARB.TransposeMatrix
+    Graphics.GL.ARB.UniformBufferObject
+    Graphics.GL.ARB.VertexArrayBGRA
+    Graphics.GL.ARB.VertexArrayObject
+    Graphics.GL.ARB.VertexAttrib64Bit
+    Graphics.GL.ARB.VertexAttribBinding
+    Graphics.GL.ARB.VertexBlend
+    Graphics.GL.ARB.VertexBufferObject
+    Graphics.GL.ARB.VertexProgram
+    Graphics.GL.ARB.VertexShader
+    Graphics.GL.ARB.VertexType10f11f11fRev
+    Graphics.GL.ARB.VertexType2101010RevCompatibility
+    Graphics.GL.ARB.VertexType2101010RevCore
+    Graphics.GL.ARB.ViewportArray
+    Graphics.GL.ARB.WindowPos
+    Graphics.GL.ATI
+    Graphics.GL.ATI.DrawBuffers
+    Graphics.GL.ATI.ElementArray
+    Graphics.GL.ATI.EnvmapBumpmap
+    Graphics.GL.ATI.FragmentShader
+    Graphics.GL.ATI.MapObjectBuffer
+    Graphics.GL.ATI.Meminfo
+    Graphics.GL.ATI.PNTriangles
+    Graphics.GL.ATI.PixelFormatFloat
+    Graphics.GL.ATI.SeparateStencil
+    Graphics.GL.ATI.TextFragmentShader
+    Graphics.GL.ATI.TextureEnvCombine3
+    Graphics.GL.ATI.TextureFloat
+    Graphics.GL.ATI.TextureMirrorOnce
+    Graphics.GL.ATI.VertexArrayObject
+    Graphics.GL.ATI.VertexAttribArrayObject
+    Graphics.GL.ATI.VertexStreams
+    Graphics.GL.Compatibility30
+    Graphics.GL.Compatibility31
+    Graphics.GL.Compatibility32
+    Graphics.GL.Compatibility33
+    Graphics.GL.Compatibility40
+    Graphics.GL.Compatibility41
+    Graphics.GL.Compatibility42
+    Graphics.GL.Compatibility43
+    Graphics.GL.Compatibility44
+    Graphics.GL.Compatibility45
+    Graphics.GL.Compatibility46
+    Graphics.GL.Core30
+    Graphics.GL.Core31
+    Graphics.GL.Core32
+    Graphics.GL.Core33
+    Graphics.GL.Core40
+    Graphics.GL.Core41
+    Graphics.GL.Core42
+    Graphics.GL.Core43
+    Graphics.GL.Core44
+    Graphics.GL.Core45
+    Graphics.GL.Core46
+    Graphics.GL.EXT
+    Graphics.GL.EXT.ABGR
+    Graphics.GL.EXT.BGRA
+    Graphics.GL.EXT.BindableUniform
+    Graphics.GL.EXT.BlendColor
+    Graphics.GL.EXT.BlendEquationSeparate
+    Graphics.GL.EXT.BlendFuncSeparate
+    Graphics.GL.EXT.BlendMinmax
+    Graphics.GL.EXT.BlendSubtract
+    Graphics.GL.EXT.CMYKA
+    Graphics.GL.EXT.ClipVolumeHint
+    Graphics.GL.EXT.ColorSubtable
+    Graphics.GL.EXT.CompiledVertexArray
+    Graphics.GL.EXT.Convolution
+    Graphics.GL.EXT.CoordinateFrame
+    Graphics.GL.EXT.CopyTexture
+    Graphics.GL.EXT.CullVertex
+    Graphics.GL.EXT.DebugLabel
+    Graphics.GL.EXT.DebugMarker
+    Graphics.GL.EXT.DepthBoundsTest
+    Graphics.GL.EXT.DirectStateAccess
+    Graphics.GL.EXT.DrawBuffers2
+    Graphics.GL.EXT.DrawInstanced
+    Graphics.GL.EXT.DrawRangeElements
+    Graphics.GL.EXT.EglImageStorage
+    Graphics.GL.EXT.ExternalBuffer
+    Graphics.GL.EXT.FogCoord
+    Graphics.GL.EXT.FourTwoTwoPixels
+    Graphics.GL.EXT.FramebufferBlit
+    Graphics.GL.EXT.FramebufferMultisample
+    Graphics.GL.EXT.FramebufferMultisampleBlitScaled
+    Graphics.GL.EXT.FramebufferObject
+    Graphics.GL.EXT.FramebufferSRGB
+    Graphics.GL.EXT.GPUProgramParameters
+    Graphics.GL.EXT.GPUShader4
+    Graphics.GL.EXT.GeometryShader4
+    Graphics.GL.EXT.Histogram
+    Graphics.GL.EXT.IndexArrayFormats
+    Graphics.GL.EXT.IndexFunc
+    Graphics.GL.EXT.IndexMaterial
+    Graphics.GL.EXT.LightTexture
+    Graphics.GL.EXT.MemoryObject
+    Graphics.GL.EXT.MemoryObjectFd
+    Graphics.GL.EXT.MemoryObjectWin32
+    Graphics.GL.EXT.MultiDrawArrays
+    Graphics.GL.EXT.Multisample
+    Graphics.GL.EXT.PackedDepthStencil
+    Graphics.GL.EXT.PackedFloat
+    Graphics.GL.EXT.PackedPixels
+    Graphics.GL.EXT.PalettedTexture
+    Graphics.GL.EXT.PixelBufferObject
+    Graphics.GL.EXT.PixelTransform
+    Graphics.GL.EXT.PointParameters
+    Graphics.GL.EXT.PolygonOffset
+    Graphics.GL.EXT.PolygonOffsetClamp
+    Graphics.GL.EXT.ProvokingVertex
+    Graphics.GL.EXT.RasterMultisample
+    Graphics.GL.EXT.RescaleNormal
+    Graphics.GL.EXT.SecondaryColor
+    Graphics.GL.EXT.Semaphore
+    Graphics.GL.EXT.SemaphoreFd
+    Graphics.GL.EXT.SemaphoreWin32
+    Graphics.GL.EXT.SeparateShaderObjects
+    Graphics.GL.EXT.SeparateSpecularColor
+    Graphics.GL.EXT.ShaderFramebufferFetch
+    Graphics.GL.EXT.ShaderFramebufferFetchNonCoherent
+    Graphics.GL.EXT.ShaderImageLoadStore
+    Graphics.GL.EXT.SharedTexturePalette
+    Graphics.GL.EXT.StencilClearTag
+    Graphics.GL.EXT.StencilTwoSide
+    Graphics.GL.EXT.StencilWrap
+    Graphics.GL.EXT.Subtexture
+    Graphics.GL.EXT.Texture
+    Graphics.GL.EXT.Texture3D
+    Graphics.GL.EXT.TextureArray
+    Graphics.GL.EXT.TextureBufferObject
+    Graphics.GL.EXT.TextureCompressionLATC
+    Graphics.GL.EXT.TextureCompressionRGTC
+    Graphics.GL.EXT.TextureCompressionS3TC
+    Graphics.GL.EXT.TextureCubeMap
+    Graphics.GL.EXT.TextureEnvCombine
+    Graphics.GL.EXT.TextureEnvDot3
+    Graphics.GL.EXT.TextureFilterAnisotropic
+    Graphics.GL.EXT.TextureFilterMinmax
+    Graphics.GL.EXT.TextureInteger
+    Graphics.GL.EXT.TextureLODBias
+    Graphics.GL.EXT.TextureMirrorClamp
+    Graphics.GL.EXT.TextureObject
+    Graphics.GL.EXT.TexturePerturbNormal
+    Graphics.GL.EXT.TextureSNorm
+    Graphics.GL.EXT.TextureSRGB
+    Graphics.GL.EXT.TextureSRGBDecode
+    Graphics.GL.EXT.TextureSRGBR8
+    Graphics.GL.EXT.TextureSharedExponent
+    Graphics.GL.EXT.TextureSwizzle
+    Graphics.GL.EXT.TimerQuery
+    Graphics.GL.EXT.TransformFeedback
+    Graphics.GL.EXT.VertexArray
+    Graphics.GL.EXT.VertexArrayBGRA
+    Graphics.GL.EXT.VertexAttrib64Bit
+    Graphics.GL.EXT.VertexShader
+    Graphics.GL.EXT.VertexWeighting
+    Graphics.GL.EXT.Win32KeyedMutex
+    Graphics.GL.EXT.WindowRectangles
+    Graphics.GL.EXT.X11SyncObject
+    Graphics.GL.Functions
+    Graphics.GL.GREMEDY
+    Graphics.GL.GREMEDY.FrameTerminator
+    Graphics.GL.GREMEDY.StringMarker
+    Graphics.GL.GetProcAddress
+    Graphics.GL.Groups
+    Graphics.GL.HP
+    Graphics.GL.HP.ConvolutionBorderModes
+    Graphics.GL.HP.ImageTransform
+    Graphics.GL.HP.OcclusionTest
+    Graphics.GL.HP.TextureLighting
+    Graphics.GL.IBM
+    Graphics.GL.IBM.CullVertex
+    Graphics.GL.IBM.MultimodeDrawArrays
+    Graphics.GL.IBM.RasterposClip
+    Graphics.GL.IBM.StaticData
+    Graphics.GL.IBM.TextureMirroredRepeat
+    Graphics.GL.IBM.VertexArrayLists
+    Graphics.GL.INGR
+    Graphics.GL.INGR.BlendFuncSeparate
+    Graphics.GL.INGR.ColorClamp
+    Graphics.GL.INGR.InterlaceRead
+    Graphics.GL.INTEL
+    Graphics.GL.INTEL.BlackholeRender
+    Graphics.GL.INTEL.ConservativeRasterization
+    Graphics.GL.INTEL.FramebufferCmaa
+    Graphics.GL.INTEL.MapTexture
+    Graphics.GL.INTEL.ParallelArrays
+    Graphics.GL.INTEL.PerformanceQuery
+    Graphics.GL.KHR
+    Graphics.GL.KHR.BlendEquationAdvanced
+    Graphics.GL.KHR.BlendEquationAdvancedCoherent
+    Graphics.GL.KHR.ContextFlushControl
+    Graphics.GL.KHR.DebugCompatibility
+    Graphics.GL.KHR.DebugCore
+    Graphics.GL.KHR.NoError
+    Graphics.GL.KHR.ParallelShaderCompile
+    Graphics.GL.KHR.Robustness
+    Graphics.GL.KHR.ShaderSubgroup
+    Graphics.GL.KHR.TextureCompressionASTCHDR
+    Graphics.GL.KHR.TextureCompressionASTCLDR
+    Graphics.GL.MESA
+    Graphics.GL.MESA.FramebufferFlipY
+    Graphics.GL.MESA.PackInvert
+    Graphics.GL.MESA.ProgramBinaryFormats
+    Graphics.GL.MESA.ResizeBuffers
+    Graphics.GL.MESA.TileRasterOrder
+    Graphics.GL.MESA.WindowPos
+    Graphics.GL.MESA.YCbCrTexture
+    Graphics.GL.MESAX
+    Graphics.GL.MESAX.TextureStack
+    Graphics.GL.NV
+    Graphics.GL.NV.AlphaToCoverageDitherControl
+    Graphics.GL.NV.BindlessMultiDrawIndirect
+    Graphics.GL.NV.BindlessMultiDrawIndirectCount
+    Graphics.GL.NV.BindlessTexture
+    Graphics.GL.NV.BlendEquationAdvanced
+    Graphics.GL.NV.BlendEquationAdvancedCoherent
+    Graphics.GL.NV.BlendMinmaxFactor
+    Graphics.GL.NV.ClipSpaceWScaling
+    Graphics.GL.NV.CommandList
+    Graphics.GL.NV.ComputeProgram5
+    Graphics.GL.NV.ConditionalRender
+    Graphics.GL.NV.ConservativeRaster
+    Graphics.GL.NV.ConservativeRasterDilate
+    Graphics.GL.NV.ConservativeRasterPreSnap
+    Graphics.GL.NV.ConservativeRasterPreSnapTriangles
+    Graphics.GL.NV.CopyDepthToColor
+    Graphics.GL.NV.CopyImage
+    Graphics.GL.NV.DeepTexture3D
+    Graphics.GL.NV.DepthBufferFloat
+    Graphics.GL.NV.DepthClamp
+    Graphics.GL.NV.DrawTexture
+    Graphics.GL.NV.DrawVulkanImage
+    Graphics.GL.NV.Evaluators
+    Graphics.GL.NV.ExplicitMultisample
+    Graphics.GL.NV.Fence
+    Graphics.GL.NV.FillRectangle
+    Graphics.GL.NV.FloatBuffer
+    Graphics.GL.NV.FogDistance
+    Graphics.GL.NV.FragmentCoverageToColor
+    Graphics.GL.NV.FragmentProgram
+    Graphics.GL.NV.FragmentProgram2
+    Graphics.GL.NV.FramebufferMixedSamples
+    Graphics.GL.NV.FramebufferMultisampleCoverage
+    Graphics.GL.NV.GPUMulticast
+    Graphics.GL.NV.GPUProgram4
+    Graphics.GL.NV.GPUProgram5
+    Graphics.GL.NV.GPUShader5
+    Graphics.GL.NV.GeometryProgram4
+    Graphics.GL.NV.HalfFloat
+    Graphics.GL.NV.InternalformatSampleQuery
+    Graphics.GL.NV.LightMaxExponent
+    Graphics.GL.NV.MemoryAttachment
+    Graphics.GL.NV.MeshShader
+    Graphics.GL.NV.MultisampleCoverage
+    Graphics.GL.NV.MultisampleFilterHint
+    Graphics.GL.NV.OcclusionQuery
+    Graphics.GL.NV.PackedDepthStencil
+    Graphics.GL.NV.ParameterBufferObject
+    Graphics.GL.NV.PathRenderingCompatibility
+    Graphics.GL.NV.PathRenderingCore
+    Graphics.GL.NV.PathRenderingSharedEdge
+    Graphics.GL.NV.PixelDataRange
+    Graphics.GL.NV.PointSprite
+    Graphics.GL.NV.PresentVideo
+    Graphics.GL.NV.PrimitiveRestart
+    Graphics.GL.NV.QueryResource
+    Graphics.GL.NV.QueryResourceTag
+    Graphics.GL.NV.RegisterCombiners
+    Graphics.GL.NV.RegisterCombiners2
+    Graphics.GL.NV.RepresentativeFragmentTest
+    Graphics.GL.NV.RobustnessVideoMemoryPurge
+    Graphics.GL.NV.SampleLocations
+    Graphics.GL.NV.ScissorExclusive
+    Graphics.GL.NV.ShaderBufferLoad
+    Graphics.GL.NV.ShaderBufferStore
+    Graphics.GL.NV.ShaderSubgroupPartitioned
+    Graphics.GL.NV.ShaderThreadGroup
+    Graphics.GL.NV.ShadingRateImage
+    Graphics.GL.NV.TessellationProgram5
+    Graphics.GL.NV.TexgenEmboss
+    Graphics.GL.NV.TexgenReflection
+    Graphics.GL.NV.TextureBarrier
+    Graphics.GL.NV.TextureEnvCombine4
+    Graphics.GL.NV.TextureExpandNormal
+    Graphics.GL.NV.TextureMultisample
+    Graphics.GL.NV.TextureRectangle
+    Graphics.GL.NV.TextureShader
+    Graphics.GL.NV.TextureShader2
+    Graphics.GL.NV.TextureShader3
+    Graphics.GL.NV.TransformFeedback
+    Graphics.GL.NV.TransformFeedback2
+    Graphics.GL.NV.UniformBufferUnifiedMemory
+    Graphics.GL.NV.VDPAUInterop
+    Graphics.GL.NV.VDPAUInterop2
+    Graphics.GL.NV.VertexArrayRange
+    Graphics.GL.NV.VertexArrayRange2
+    Graphics.GL.NV.VertexAttribInteger64Bit
+    Graphics.GL.NV.VertexBufferUnifiedMemory
+    Graphics.GL.NV.VertexProgram
+    Graphics.GL.NV.VertexProgram2Option
+    Graphics.GL.NV.VertexProgram3
+    Graphics.GL.NV.VertexProgram4
+    Graphics.GL.NV.VideoCapture
+    Graphics.GL.NV.ViewportSwizzle
+    Graphics.GL.NVX
+    Graphics.GL.NVX.ConditionalRender
+    Graphics.GL.NVX.GPUMemoryInfo
+    Graphics.GL.NVX.GPUMulticast2
+    Graphics.GL.NVX.LinkedGPUMulticast
+    Graphics.GL.NVX.ProgressFence
+    Graphics.GL.OES
+    Graphics.GL.OES.ByteCoordinates
+    Graphics.GL.OES.CompressedPalettedTexture
+    Graphics.GL.OES.FixedPoint
+    Graphics.GL.OES.QueryMatrix
+    Graphics.GL.OES.ReadFormat
+    Graphics.GL.OES.SinglePrecision
+    Graphics.GL.OML
+    Graphics.GL.OML.Interlace
+    Graphics.GL.OML.Resample
+    Graphics.GL.OML.Subsample
+    Graphics.GL.OVR
+    Graphics.GL.OVR.Multiview
+    Graphics.GL.PGI
+    Graphics.GL.PGI.MiscHints
+    Graphics.GL.PGI.VertexHints
+    Graphics.GL.REND
+    Graphics.GL.REND.ScreenCoordinates
+    Graphics.GL.S3
+    Graphics.GL.S3.S3TC
+    Graphics.GL.SGI
+    Graphics.GL.SGI.ColorMatrix
+    Graphics.GL.SGI.ColorTable
+    Graphics.GL.SGI.TextureColorTable
+    Graphics.GL.SGIS
+    Graphics.GL.SGIS.DetailTexture
+    Graphics.GL.SGIS.FogFunction
+    Graphics.GL.SGIS.GenerateMipmap
+    Graphics.GL.SGIS.Multisample
+    Graphics.GL.SGIS.PixelTexture
+    Graphics.GL.SGIS.PointLineTexgen
+    Graphics.GL.SGIS.PointParameters
+    Graphics.GL.SGIS.SharpenTexture
+    Graphics.GL.SGIS.Texture4D
+    Graphics.GL.SGIS.TextureBorderClamp
+    Graphics.GL.SGIS.TextureColorMask
+    Graphics.GL.SGIS.TextureEdgeClamp
+    Graphics.GL.SGIS.TextureFilter4
+    Graphics.GL.SGIS.TextureLOD
+    Graphics.GL.SGIS.TextureSelect
+    Graphics.GL.SGIX
+    Graphics.GL.SGIX.Async
+    Graphics.GL.SGIX.AsyncHistogram
+    Graphics.GL.SGIX.AsyncPixel
+    Graphics.GL.SGIX.BlendAlphaMinmax
+    Graphics.GL.SGIX.CalligraphicFragment
+    Graphics.GL.SGIX.Clipmap
+    Graphics.GL.SGIX.ConvolutionAccuracy
+    Graphics.GL.SGIX.DepthTexture
+    Graphics.GL.SGIX.FlushRaster
+    Graphics.GL.SGIX.FogOffset
+    Graphics.GL.SGIX.FragmentLighting
+    Graphics.GL.SGIX.Framezoom
+    Graphics.GL.SGIX.IglooInterface
+    Graphics.GL.SGIX.Instruments
+    Graphics.GL.SGIX.Interlace
+    Graphics.GL.SGIX.IrInstrument1
+    Graphics.GL.SGIX.ListPriority
+    Graphics.GL.SGIX.PixelTexture
+    Graphics.GL.SGIX.PixelTiles
+    Graphics.GL.SGIX.PolynomialFFD
+    Graphics.GL.SGIX.ReferencePlane
+    Graphics.GL.SGIX.Resample
+    Graphics.GL.SGIX.ScalebiasHint
+    Graphics.GL.SGIX.Shadow
+    Graphics.GL.SGIX.ShadowAmbient
+    Graphics.GL.SGIX.Sprite
+    Graphics.GL.SGIX.Subsample
+    Graphics.GL.SGIX.TagSampleBuffer
+    Graphics.GL.SGIX.TextureAddEnv
+    Graphics.GL.SGIX.TextureCoordinateClamp
+    Graphics.GL.SGIX.TextureLODBias
+    Graphics.GL.SGIX.TextureMultiBuffer
+    Graphics.GL.SGIX.TextureScaleBias
+    Graphics.GL.SGIX.VertexPreclip
+    Graphics.GL.SGIX.YCrCb
+    Graphics.GL.SGIX.YCrCbA
+    Graphics.GL.SUN
+    Graphics.GL.SUN.ConvolutionBorderModes
+    Graphics.GL.SUN.GlobalAlpha
+    Graphics.GL.SUN.MeshArray
+    Graphics.GL.SUN.SliceAccum
+    Graphics.GL.SUN.TriangleList
+    Graphics.GL.SUN.Vertex
+    Graphics.GL.SUNX
+    Graphics.GL.SUNX.ConstantData
+    Graphics.GL.ThreeDFX
+    Graphics.GL.ThreeDFX.Multisample
+    Graphics.GL.ThreeDFX.Tbuffer
+    Graphics.GL.ThreeDFX.TextureCompressionFXT1
+    Graphics.GL.Tokens
+    Graphics.GL.Types
+    Graphics.GL.Version10
+    Graphics.GL.Version11
+    Graphics.GL.Version12
+    Graphics.GL.Version13
+    Graphics.GL.Version14
+    Graphics.GL.Version15
+    Graphics.GL.Version20
+    Graphics.GL.Version21
+    Graphics.GL.WIN
+    Graphics.GL.WIN.PhongShading
+    Graphics.GL.WIN.SpecularFog
+  other-modules:
+    Graphics.GL.ExtensionPredicates
+    Graphics.GL.Foreign
+    Graphics.GL.Functions.F01
+    Graphics.GL.Functions.F02
+    Graphics.GL.Functions.F03
+    Graphics.GL.Functions.F04
+    Graphics.GL.Functions.F05
+    Graphics.GL.Functions.F06
+    Graphics.GL.Functions.F07
+    Graphics.GL.Functions.F08
+    Graphics.GL.Functions.F09
+    Graphics.GL.Functions.F10
+    Graphics.GL.Functions.F11
+    Graphics.GL.Functions.F12
+    Graphics.GL.Functions.F13
+    Graphics.GL.Functions.F14
+    Graphics.GL.Functions.F15
+    Graphics.GL.Functions.F16
+    Graphics.GL.Functions.F17
+    Graphics.GL.Functions.F18
+    Graphics.GL.Functions.F19
+    Graphics.GL.Functions.F20
+    Graphics.GL.Functions.F21
+    Graphics.GL.Functions.F22
+    Graphics.GL.Functions.F23
+    Graphics.GL.Functions.F24
+    Graphics.GL.Functions.F25
+    Graphics.GL.Functions.F26
+    Graphics.GL.Functions.F27
+    Graphics.GL.Functions.F28
+    Graphics.GL.Functions.F29
+    Graphics.GL.Functions.F30
+    Graphics.GL.Functions.F31
+    Graphics.GL.Functions.F32
+    Graphics.GL.Functions.F33
+  c-sources:
+    cbits/HsOpenGLRaw.c
+  hs-source-dirs: src
+  build-depends:
+    base         >= 4       && < 5,
+    bytestring   >= 0.9     && < 0.12,
+    containers   >= 0.3     && < 0.7,
+    fixed        >= 0.2     && < 0.4,
+    half         >= 0.2.2.1 && < 0.4,
+    text         >= 0.1     && < 1.3,
+    transformers >= 0.2     && < 0.7
+  default-language: Haskell2010
+  ghc-options: -Wall
+  if impl(ghc > 8)
+    ghc-options: -Wcompat
+  other-extensions:
+    CPP
+    PatternSynonyms
+    ScopedTypeVariables
+  if os(openbsd)
+    -- OpenBSD keeps OpenGL libs under /usr/X11R6. Without the following line,
+    -- we get an error like this:
+    --   cabal: Missing dependency on a foreign library:
+    --   * Missing (or bad) C library: GL
+    pkgconfig-depends: gl
+  if os(windows) && flag(UseNativeWindowsLibraries)
+    if arch(i386)
+      cpp-options: "-DCALLCONV=stdcall"
+    else
+      cpp-options: "-DCALLCONV=ccall"
+    cc-options: "-DUSE_WGLGETPROCADDRESS"
+    extra-libraries: opengl32
+  else
+    cpp-options: "-DCALLCONV=ccall"
+    if os(darwin) || os(ios) || flag(OsAndroid) || !flag(UseGlXGetProcAddress)
+      -- TODO: Figure out if/when eglGetProcAddress should be used.
+      cc-options: "-DUSE_DLSYM"
+    else
+      cc-options: "-DUSE_GLXGETPROCADDRESS"
+    if os(darwin)
+      cpp-options: "-DHANDLE_IS_POINTER"
+      frameworks: OpenGL
+    else
+      if os(ios)
+        frameworks: OpenGLES
+      else
+        if flag(OsAndroid)
+          if flag(UseGLES2)
+            extra-libraries: GLESv2
+          else
+            extra-libraries: GLESv3
+        else
+          extra-libraries: GL
+
+source-repository head
+  type: git
+  location: https://github.com/haskell-opengl/OpenGLRaw.git

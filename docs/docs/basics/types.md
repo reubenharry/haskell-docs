@@ -348,7 +348,7 @@ Either Int :: (* -> *)
 
     In codebases, it is common to encounter types like `ReaderT` which has kind `* -> (* -> *) -> * -> *` or `Fix` of kind `(* -> *) -> *`
 
-### Polymorphism for other kinds than `*`
+### Universal quantification for other kinds than `*`
 
 !!! Tip
     Make sure to use the `GHC2021` [extension](/gettingstarted/versions/#extensions) or add the language extensions recommended by Haskell Language Server for this section.

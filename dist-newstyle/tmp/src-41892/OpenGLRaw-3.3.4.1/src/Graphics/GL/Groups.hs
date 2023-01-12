@@ -1,0 +1,4482 @@
+--------------------------------------------------------------------------------
+-- |
+-- Module      :  Graphics.GL.Groups
+-- Copyright   :  (c) Sven Panne 2019
+-- License     :  BSD3
+--
+-- Maintainer  :  Sven Panne <svenpanne@gmail.com>
+-- Stability   :  stable
+-- Portability :  portable
+--
+-- All enumeration groups from the
+-- <http://www.opengl.org/registry/ OpenGL registry>.
+--
+--------------------------------------------------------------------------------
+
+module Graphics.GL.Groups (
+  -- $EnumerantGroups
+) where
+
+-- $EnumerantGroups
+-- Note that the actual set of valid values depend on the OpenGL version, the
+-- chosen profile and the supported extensions. Therefore, the groups mentioned
+-- here should only be considered a rough guideline, for details see the OpenGL
+-- specification.
+--
+-- === #AccumOp# AccumOp
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ACCUM'
+-- * 'Graphics.GL.Tokens.GL_LOAD'
+-- * 'Graphics.GL.Tokens.GL_RETURN'
+-- * 'Graphics.GL.Tokens.GL_MULT'
+-- * 'Graphics.GL.Tokens.GL_ADD'
+--
+-- === #AlphaFunction# AlphaFunction
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ALWAYS'
+-- * 'Graphics.GL.Tokens.GL_EQUAL'
+-- * 'Graphics.GL.Tokens.GL_GEQUAL'
+-- * 'Graphics.GL.Tokens.GL_GREATER'
+-- * 'Graphics.GL.Tokens.GL_LEQUAL'
+-- * 'Graphics.GL.Tokens.GL_LESS'
+-- * 'Graphics.GL.Tokens.GL_NEVER'
+-- * 'Graphics.GL.Tokens.GL_NOTEQUAL'
+--
+-- === #ArrayObjectPNameATI# ArrayObjectPNameATI
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_OBJECT_BUFFER_SIZE_ATI'
+-- * 'Graphics.GL.Tokens.GL_OBJECT_BUFFER_USAGE_ATI'
+--
+-- === #ArrayObjectUsageATI# ArrayObjectUsageATI
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_STATIC_ATI'
+-- * 'Graphics.GL.Tokens.GL_DYNAMIC_ATI'
+--
+-- === #AtomicCounterBufferPName# AtomicCounterBufferPName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ATOMIC_COUNTER_BUFFER_BINDING'
+-- * 'Graphics.GL.Tokens.GL_ATOMIC_COUNTER_BUFFER_DATA_SIZE'
+-- * 'Graphics.GL.Tokens.GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS'
+-- * 'Graphics.GL.Tokens.GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES'
+-- * 'Graphics.GL.Tokens.GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER'
+-- * 'Graphics.GL.Tokens.GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER'
+-- * 'Graphics.GL.Tokens.GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER'
+-- * 'Graphics.GL.Tokens.GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER'
+-- * 'Graphics.GL.Tokens.GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER'
+-- * 'Graphics.GL.Tokens.GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_COMPUTE_SHADER'
+--
+-- === #AttribMask# AttribMask
+-- A bitwise combination of several of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ACCUM_BUFFER_BIT'
+-- * 'Graphics.GL.Tokens.GL_ALL_ATTRIB_BITS'
+-- * 'Graphics.GL.Tokens.GL_COLOR_BUFFER_BIT'
+-- * 'Graphics.GL.Tokens.GL_CURRENT_BIT'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_BUFFER_BIT'
+-- * 'Graphics.GL.Tokens.GL_ENABLE_BIT'
+-- * 'Graphics.GL.Tokens.GL_EVAL_BIT'
+-- * 'Graphics.GL.Tokens.GL_FOG_BIT'
+-- * 'Graphics.GL.Tokens.GL_HINT_BIT'
+-- * 'Graphics.GL.Tokens.GL_LIGHTING_BIT'
+-- * 'Graphics.GL.Tokens.GL_LINE_BIT'
+-- * 'Graphics.GL.Tokens.GL_LIST_BIT'
+-- * 'Graphics.GL.Tokens.GL_MULTISAMPLE_BIT' (aliases: 'Graphics.GL.Tokens.GL_MULTISAMPLE_BIT_3DFX', 'Graphics.GL.Tokens.GL_MULTISAMPLE_BIT_ARB', 'Graphics.GL.Tokens.GL_MULTISAMPLE_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MODE_BIT'
+-- * 'Graphics.GL.Tokens.GL_POINT_BIT'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_BIT'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_STIPPLE_BIT'
+-- * 'Graphics.GL.Tokens.GL_SCISSOR_BIT'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BUFFER_BIT'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BIT'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_BIT'
+-- * 'Graphics.GL.Tokens.GL_VIEWPORT_BIT'
+--
+-- === #AttributeType# AttributeType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_VEC2' (alias: 'Graphics.GL.Tokens.GL_FLOAT_VEC2_ARB')
+-- * 'Graphics.GL.Tokens.GL_FLOAT_VEC3' (alias: 'Graphics.GL.Tokens.GL_FLOAT_VEC3_ARB')
+-- * 'Graphics.GL.Tokens.GL_FLOAT_VEC4' (alias: 'Graphics.GL.Tokens.GL_FLOAT_VEC4_ARB')
+-- * 'Graphics.GL.Tokens.GL_DOUBLE'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_VEC2'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_VEC3'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_VEC4'
+-- * 'Graphics.GL.Tokens.GL_INT'
+-- * 'Graphics.GL.Tokens.GL_INT_VEC2' (alias: 'Graphics.GL.Tokens.GL_INT_VEC2_ARB')
+-- * 'Graphics.GL.Tokens.GL_INT_VEC3' (alias: 'Graphics.GL.Tokens.GL_INT_VEC3_ARB')
+-- * 'Graphics.GL.Tokens.GL_INT_VEC4' (alias: 'Graphics.GL.Tokens.GL_INT_VEC4_ARB')
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_VEC2'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_VEC3'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_VEC4'
+-- * 'Graphics.GL.Tokens.GL_BOOL' (alias: 'Graphics.GL.Tokens.GL_BOOL_ARB')
+-- * 'Graphics.GL.Tokens.GL_BOOL_VEC2' (alias: 'Graphics.GL.Tokens.GL_BOOL_VEC2_ARB')
+-- * 'Graphics.GL.Tokens.GL_BOOL_VEC3' (alias: 'Graphics.GL.Tokens.GL_BOOL_VEC3_ARB')
+-- * 'Graphics.GL.Tokens.GL_BOOL_VEC4' (alias: 'Graphics.GL.Tokens.GL_BOOL_VEC4_ARB')
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT2' (alias: 'Graphics.GL.Tokens.GL_FLOAT_MAT2_ARB')
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT3' (alias: 'Graphics.GL.Tokens.GL_FLOAT_MAT3_ARB')
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT4' (alias: 'Graphics.GL.Tokens.GL_FLOAT_MAT4_ARB')
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT2x3' (alias: 'Graphics.GL.Tokens.GL_FLOAT_MAT2x3_NV')
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT2x4' (alias: 'Graphics.GL.Tokens.GL_FLOAT_MAT2x4_NV')
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT3x2' (alias: 'Graphics.GL.Tokens.GL_FLOAT_MAT3x2_NV')
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT3x4' (alias: 'Graphics.GL.Tokens.GL_FLOAT_MAT3x4_NV')
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT4x2' (alias: 'Graphics.GL.Tokens.GL_FLOAT_MAT4x2_NV')
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT4x3' (alias: 'Graphics.GL.Tokens.GL_FLOAT_MAT4x3_NV')
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT2'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT3'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT4'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT2x3'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT2x4'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT3x2'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT3x4'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT4x2'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT4x3'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_1D' (alias: 'Graphics.GL.Tokens.GL_SAMPLER_1D_ARB')
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D' (alias: 'Graphics.GL.Tokens.GL_SAMPLER_2D_ARB')
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_3D' (aliases: 'Graphics.GL.Tokens.GL_SAMPLER_3D_ARB', 'Graphics.GL.Tokens.GL_SAMPLER_3D_OES')
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_CUBE' (alias: 'Graphics.GL.Tokens.GL_SAMPLER_CUBE_ARB')
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_1D_SHADOW' (alias: 'Graphics.GL.Tokens.GL_SAMPLER_1D_SHADOW_ARB')
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_SHADOW' (aliases: 'Graphics.GL.Tokens.GL_SAMPLER_2D_SHADOW_ARB', 'Graphics.GL.Tokens.GL_SAMPLER_2D_SHADOW_EXT')
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_CUBE_MAP_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_1D_ARRAY_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_ARRAY_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_MULTISAMPLE_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_CUBE_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_RECT' (alias: 'Graphics.GL.Tokens.GL_SAMPLER_2D_RECT_ARB')
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_RECT_SHADOW' (alias: 'Graphics.GL.Tokens.GL_SAMPLER_2D_RECT_SHADOW_ARB')
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_1D'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_2D'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_3D'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_CUBE'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_1D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_2D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_CUBE_MAP_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_2D_RECT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_1D'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_2D'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_3D'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_CUBE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_1D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_2D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_2D_RECT'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_1D'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_2D'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_3D'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_2D_RECT'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_CUBE'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_1D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_2D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_CUBE_MAP_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_2D_MULTISAMPLE_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_1D'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_2D'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_3D'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_2D_RECT'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_CUBE'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_1D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_2D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_CUBE_MAP_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_2D_MULTISAMPLE_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_1D'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_2D'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_3D'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_2D_RECT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_CUBE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_1D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_2D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT64_ARB' (alias: 'Graphics.GL.Tokens.GL_INT64_NV')
+-- * 'Graphics.GL.Tokens.GL_INT64_VEC2_ARB'
+-- * 'Graphics.GL.Tokens.GL_INT64_VEC3_ARB'
+-- * 'Graphics.GL.Tokens.GL_INT64_VEC4_ARB'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT64_ARB' (alias: 'Graphics.GL.Tokens.GL_UNSIGNED_INT64_NV')
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT64_VEC2_ARB'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT64_VEC3_ARB'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT64_VEC4_ARB'
+--
+-- === #BindTransformFeedbackTarget# BindTransformFeedbackTarget
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK'
+--
+-- === #BinormalPointerTypeEXT# BinormalPointerTypeEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BYTE'
+-- * 'Graphics.GL.Tokens.GL_SHORT'
+-- * 'Graphics.GL.Tokens.GL_INT'
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE' (alias: 'Graphics.GL.Tokens.GL_DOUBLE_EXT')
+--
+-- === #BlendEquationModeEXT# BlendEquationModeEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ALPHA_MAX_SGIX'
+-- * 'Graphics.GL.Tokens.GL_ALPHA_MIN_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FUNC_ADD' (alias: 'Graphics.GL.Tokens.GL_FUNC_ADD_EXT')
+-- * 'Graphics.GL.Tokens.GL_FUNC_REVERSE_SUBTRACT' (alias: 'Graphics.GL.Tokens.GL_FUNC_REVERSE_SUBTRACT_EXT')
+-- * 'Graphics.GL.Tokens.GL_FUNC_SUBTRACT' (alias: 'Graphics.GL.Tokens.GL_FUNC_SUBTRACT_EXT')
+-- * 'Graphics.GL.Tokens.GL_MAX' (alias: 'Graphics.GL.Tokens.GL_MAX_EXT')
+-- * 'Graphics.GL.Tokens.GL_MIN' (alias: 'Graphics.GL.Tokens.GL_MIN_EXT')
+--
+-- === #BlendingFactor# BlendingFactor
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ZERO'
+-- * 'Graphics.GL.Tokens.GL_ONE'
+-- * 'Graphics.GL.Tokens.GL_SRC_COLOR'
+-- * 'Graphics.GL.Tokens.GL_ONE_MINUS_SRC_COLOR'
+-- * 'Graphics.GL.Tokens.GL_DST_COLOR'
+-- * 'Graphics.GL.Tokens.GL_ONE_MINUS_DST_COLOR'
+-- * 'Graphics.GL.Tokens.GL_SRC_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_ONE_MINUS_SRC_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_DST_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_ONE_MINUS_DST_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_CONSTANT_COLOR'
+-- * 'Graphics.GL.Tokens.GL_ONE_MINUS_CONSTANT_COLOR'
+-- * 'Graphics.GL.Tokens.GL_CONSTANT_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_ONE_MINUS_CONSTANT_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_SRC_ALPHA_SATURATE'
+-- * 'Graphics.GL.Tokens.GL_SRC1_COLOR'
+-- * 'Graphics.GL.Tokens.GL_ONE_MINUS_SRC1_COLOR'
+-- * 'Graphics.GL.Tokens.GL_SRC1_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_ONE_MINUS_SRC1_ALPHA'
+--
+-- === #BlitFramebufferFilter# BlitFramebufferFilter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_NEAREST'
+-- * 'Graphics.GL.Tokens.GL_LINEAR'
+--
+-- === #Boolean# Boolean
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FALSE'
+-- * 'Graphics.GL.Tokens.GL_TRUE'
+--
+-- === #Buffer# Buffer
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_COLOR'
+-- * 'Graphics.GL.Tokens.GL_DEPTH'
+-- * 'Graphics.GL.Tokens.GL_STENCIL'
+--
+-- === #BufferAccessARB# BufferAccessARB
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_READ_ONLY'
+-- * 'Graphics.GL.Tokens.GL_WRITE_ONLY'
+-- * 'Graphics.GL.Tokens.GL_READ_WRITE'
+--
+-- === #BufferBitQCOM# BufferBitQCOM
+-- A bitwise combination of several of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_MULTISAMPLE_BUFFER_BIT7_QCOM'
+-- * 'Graphics.GL.Tokens.GL_MULTISAMPLE_BUFFER_BIT6_QCOM'
+-- * 'Graphics.GL.Tokens.GL_MULTISAMPLE_BUFFER_BIT5_QCOM'
+-- * 'Graphics.GL.Tokens.GL_MULTISAMPLE_BUFFER_BIT4_QCOM'
+-- * 'Graphics.GL.Tokens.GL_MULTISAMPLE_BUFFER_BIT3_QCOM'
+-- * 'Graphics.GL.Tokens.GL_MULTISAMPLE_BUFFER_BIT2_QCOM'
+-- * 'Graphics.GL.Tokens.GL_MULTISAMPLE_BUFFER_BIT1_QCOM'
+-- * 'Graphics.GL.Tokens.GL_MULTISAMPLE_BUFFER_BIT0_QCOM'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BUFFER_BIT7_QCOM'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BUFFER_BIT6_QCOM'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BUFFER_BIT5_QCOM'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BUFFER_BIT4_QCOM'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BUFFER_BIT3_QCOM'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BUFFER_BIT2_QCOM'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BUFFER_BIT1_QCOM'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BUFFER_BIT0_QCOM'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_BUFFER_BIT7_QCOM'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_BUFFER_BIT6_QCOM'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_BUFFER_BIT5_QCOM'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_BUFFER_BIT4_QCOM'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_BUFFER_BIT3_QCOM'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_BUFFER_BIT2_QCOM'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_BUFFER_BIT1_QCOM'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_BUFFER_BIT0_QCOM'
+-- * 'Graphics.GL.Tokens.GL_COLOR_BUFFER_BIT7_QCOM'
+-- * 'Graphics.GL.Tokens.GL_COLOR_BUFFER_BIT6_QCOM'
+-- * 'Graphics.GL.Tokens.GL_COLOR_BUFFER_BIT5_QCOM'
+-- * 'Graphics.GL.Tokens.GL_COLOR_BUFFER_BIT4_QCOM'
+-- * 'Graphics.GL.Tokens.GL_COLOR_BUFFER_BIT3_QCOM'
+-- * 'Graphics.GL.Tokens.GL_COLOR_BUFFER_BIT2_QCOM'
+-- * 'Graphics.GL.Tokens.GL_COLOR_BUFFER_BIT1_QCOM'
+-- * 'Graphics.GL.Tokens.GL_COLOR_BUFFER_BIT0_QCOM'
+--
+-- === #BufferPNameARB# BufferPNameARB
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BUFFER_SIZE' (alias: 'Graphics.GL.Tokens.GL_BUFFER_SIZE_ARB')
+-- * 'Graphics.GL.Tokens.GL_BUFFER_USAGE' (alias: 'Graphics.GL.Tokens.GL_BUFFER_USAGE_ARB')
+-- * 'Graphics.GL.Tokens.GL_BUFFER_ACCESS' (alias: 'Graphics.GL.Tokens.GL_BUFFER_ACCESS_ARB')
+-- * 'Graphics.GL.Tokens.GL_BUFFER_ACCESS_FLAGS'
+-- * 'Graphics.GL.Tokens.GL_BUFFER_IMMUTABLE_STORAGE'
+-- * 'Graphics.GL.Tokens.GL_BUFFER_MAPPED' (alias: 'Graphics.GL.Tokens.GL_BUFFER_MAPPED_ARB')
+-- * 'Graphics.GL.Tokens.GL_BUFFER_MAP_OFFSET'
+-- * 'Graphics.GL.Tokens.GL_BUFFER_MAP_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_BUFFER_STORAGE_FLAGS'
+--
+-- === #BufferPointerNameARB# BufferPointerNameARB
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BUFFER_MAP_POINTER' (alias: 'Graphics.GL.Tokens.GL_BUFFER_MAP_POINTER_ARB')
+--
+-- === #BufferStorageMask# BufferStorageMask
+-- A bitwise combination of several of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CLIENT_STORAGE_BIT' (alias: 'Graphics.GL.Tokens.GL_CLIENT_STORAGE_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_DYNAMIC_STORAGE_BIT' (alias: 'Graphics.GL.Tokens.GL_DYNAMIC_STORAGE_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_MAP_COHERENT_BIT' (alias: 'Graphics.GL.Tokens.GL_MAP_COHERENT_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_MAP_PERSISTENT_BIT' (alias: 'Graphics.GL.Tokens.GL_MAP_PERSISTENT_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_MAP_READ_BIT' (alias: 'Graphics.GL.Tokens.GL_MAP_READ_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_MAP_WRITE_BIT' (alias: 'Graphics.GL.Tokens.GL_MAP_WRITE_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_SPARSE_STORAGE_BIT_ARB'
+-- * 'Graphics.GL.Tokens.GL_LGPU_SEPARATE_STORAGE_BIT_NVX' (alias: 'Graphics.GL.Tokens.GL_PER_GPU_STORAGE_BIT_NV')
+-- * 'Graphics.GL.Tokens.GL_EXTERNAL_STORAGE_BIT_NVX'
+--
+-- === #BufferStorageTarget# BufferStorageTarget
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ARRAY_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_ATOMIC_COUNTER_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_COPY_READ_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_COPY_WRITE_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_DISPATCH_INDIRECT_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_DRAW_INDIRECT_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_ELEMENT_ARRAY_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_PACK_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_UNPACK_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_QUERY_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_SHADER_STORAGE_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BUFFER'
+--
+-- === #BufferTargetARB# BufferTargetARB
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ARRAY_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_ATOMIC_COUNTER_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_COPY_READ_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_COPY_WRITE_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_DISPATCH_INDIRECT_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_DRAW_INDIRECT_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_ELEMENT_ARRAY_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_PACK_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_UNPACK_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_QUERY_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_SHADER_STORAGE_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_PARAMETER_BUFFER'
+--
+-- === #BufferUsageARB# BufferUsageARB
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_STREAM_DRAW'
+-- * 'Graphics.GL.Tokens.GL_STREAM_READ'
+-- * 'Graphics.GL.Tokens.GL_STREAM_COPY'
+-- * 'Graphics.GL.Tokens.GL_STATIC_DRAW'
+-- * 'Graphics.GL.Tokens.GL_STATIC_READ'
+-- * 'Graphics.GL.Tokens.GL_STATIC_COPY'
+-- * 'Graphics.GL.Tokens.GL_DYNAMIC_DRAW'
+-- * 'Graphics.GL.Tokens.GL_DYNAMIC_READ'
+-- * 'Graphics.GL.Tokens.GL_DYNAMIC_COPY'
+--
+-- === #CheckFramebufferStatusTarget# CheckFramebufferStatusTarget
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DRAW_FRAMEBUFFER'
+-- * 'Graphics.GL.Tokens.GL_READ_FRAMEBUFFER'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER'
+--
+-- === #ClampColorModeARB# ClampColorModeARB
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FALSE' (alias: 'Graphics.GL.Tokens.GL_FALSE')
+-- * 'Graphics.GL.Tokens.GL_TRUE' (alias: 'Graphics.GL.Tokens.GL_TRUE')
+-- * 'Graphics.GL.Tokens.GL_TRUE' (alias: 'Graphics.GL.Tokens.GL_TRUE')
+-- * 'Graphics.GL.Tokens.GL_FALSE' (alias: 'Graphics.GL.Tokens.GL_FALSE')
+-- * 'Graphics.GL.Tokens.GL_FIXED_ONLY' (alias: 'Graphics.GL.Tokens.GL_FIXED_ONLY_ARB')
+--
+-- === #ClampColorTargetARB# ClampColorTargetARB
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CLAMP_VERTEX_COLOR_ARB'
+-- * 'Graphics.GL.Tokens.GL_CLAMP_FRAGMENT_COLOR_ARB'
+-- * 'Graphics.GL.Tokens.GL_CLAMP_READ_COLOR' (alias: 'Graphics.GL.Tokens.GL_CLAMP_READ_COLOR_ARB')
+--
+-- === #ClearBufferMask# ClearBufferMask
+-- A bitwise combination of several of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ACCUM_BUFFER_BIT'
+-- * 'Graphics.GL.Tokens.GL_COLOR_BUFFER_BIT'
+-- * 'Graphics.GL.Tokens.GL_COVERAGE_BUFFER_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_BUFFER_BIT'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BUFFER_BIT'
+--
+-- === #ClientAttribMask# ClientAttribMask
+-- A bitwise combination of several of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CLIENT_ALL_ATTRIB_BITS'
+-- * 'Graphics.GL.Tokens.GL_CLIENT_PIXEL_STORE_BIT'
+-- * 'Graphics.GL.Tokens.GL_CLIENT_VERTEX_ARRAY_BIT'
+--
+-- === #ClipControlDepth# ClipControlDepth
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_NEGATIVE_ONE_TO_ONE'
+-- * 'Graphics.GL.Tokens.GL_ZERO_TO_ONE'
+--
+-- === #ClipControlOrigin# ClipControlOrigin
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_LOWER_LEFT'
+-- * 'Graphics.GL.Tokens.GL_UPPER_LEFT'
+--
+-- === #ClipPlaneName# ClipPlaneName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CLIP_DISTANCE0' (alias: 'Graphics.GL.Tokens.GL_CLIP_PLANE0')
+-- * 'Graphics.GL.Tokens.GL_CLIP_DISTANCE1' (alias: 'Graphics.GL.Tokens.GL_CLIP_PLANE1')
+-- * 'Graphics.GL.Tokens.GL_CLIP_DISTANCE2' (alias: 'Graphics.GL.Tokens.GL_CLIP_PLANE2')
+-- * 'Graphics.GL.Tokens.GL_CLIP_DISTANCE3' (alias: 'Graphics.GL.Tokens.GL_CLIP_PLANE3')
+-- * 'Graphics.GL.Tokens.GL_CLIP_DISTANCE4' (alias: 'Graphics.GL.Tokens.GL_CLIP_PLANE4')
+-- * 'Graphics.GL.Tokens.GL_CLIP_DISTANCE5' (alias: 'Graphics.GL.Tokens.GL_CLIP_PLANE5')
+-- * 'Graphics.GL.Tokens.GL_CLIP_DISTANCE6'
+-- * 'Graphics.GL.Tokens.GL_CLIP_DISTANCE7'
+--
+-- === #ColorBuffer# ColorBuffer
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_NONE'
+-- * 'Graphics.GL.Tokens.GL_FRONT_LEFT'
+-- * 'Graphics.GL.Tokens.GL_FRONT_RIGHT'
+-- * 'Graphics.GL.Tokens.GL_BACK_LEFT'
+-- * 'Graphics.GL.Tokens.GL_BACK_RIGHT'
+-- * 'Graphics.GL.Tokens.GL_FRONT'
+-- * 'Graphics.GL.Tokens.GL_BACK'
+-- * 'Graphics.GL.Tokens.GL_LEFT'
+-- * 'Graphics.GL.Tokens.GL_RIGHT'
+-- * 'Graphics.GL.Tokens.GL_FRONT_AND_BACK'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT0'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT1'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT2'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT3'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT4'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT5'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT6'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT7'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT8'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT9'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT10'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT11'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT12'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT13'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT14'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT15'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT16'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT17'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT18'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT19'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT20'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT21'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT22'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT23'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT24'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT25'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT26'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT27'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT28'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT29'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT30'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT31'
+--
+-- === #ColorMaterialFace# ColorMaterialFace
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BACK'
+-- * 'Graphics.GL.Tokens.GL_FRONT'
+-- * 'Graphics.GL.Tokens.GL_FRONT_AND_BACK'
+--
+-- === #ColorMaterialParameter# ColorMaterialParameter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_AMBIENT'
+-- * 'Graphics.GL.Tokens.GL_AMBIENT_AND_DIFFUSE'
+-- * 'Graphics.GL.Tokens.GL_DIFFUSE'
+-- * 'Graphics.GL.Tokens.GL_EMISSION'
+-- * 'Graphics.GL.Tokens.GL_SPECULAR'
+--
+-- === #ColorPointerType# ColorPointerType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BYTE'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE'
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_INT'
+-- * 'Graphics.GL.Tokens.GL_SHORT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_BYTE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_SHORT'
+--
+-- === #ColorTableParameterPNameSGI# ColorTableParameterPNameSGI
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_COLOR_TABLE_BIAS' (alias: 'Graphics.GL.Tokens.GL_COLOR_TABLE_BIAS_SGI')
+-- * 'Graphics.GL.Tokens.GL_COLOR_TABLE_SCALE' (alias: 'Graphics.GL.Tokens.GL_COLOR_TABLE_SCALE_SGI')
+--
+-- === #ColorTableTarget# ColorTableTarget
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_COLOR_TABLE'
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_COLOR_TABLE'
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_COLOR_TABLE'
+--
+-- === #ColorTableTargetSGI# ColorTableTargetSGI
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_COLOR_TABLE' (alias: 'Graphics.GL.Tokens.GL_COLOR_TABLE_SGI')
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_COLOR_TABLE' (alias: 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI')
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_COLOR_TABLE' (alias: 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_COLOR_TABLE_SGI')
+-- * 'Graphics.GL.Tokens.GL_PROXY_COLOR_TABLE' (alias: 'Graphics.GL.Tokens.GL_PROXY_COLOR_TABLE_SGI')
+-- * 'Graphics.GL.Tokens.GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE' (alias: 'Graphics.GL.Tokens.GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE_SGI')
+-- * 'Graphics.GL.Tokens.GL_PROXY_POST_CONVOLUTION_COLOR_TABLE' (alias: 'Graphics.GL.Tokens.GL_PROXY_POST_CONVOLUTION_COLOR_TABLE_SGI')
+-- * 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_COLOR_TABLE_SGI'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COLOR_TABLE_SGI'
+--
+-- === #CombinerBiasNV# CombinerBiasNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_NONE'
+-- * 'Graphics.GL.Tokens.GL_BIAS_BY_NEGATIVE_ONE_HALF_NV'
+--
+-- === #CombinerComponentUsageNV# CombinerComponentUsageNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_RGB'
+-- * 'Graphics.GL.Tokens.GL_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_BLUE'
+--
+-- === #CombinerMappingNV# CombinerMappingNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_IDENTITY_NV'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INVERT_NV'
+-- * 'Graphics.GL.Tokens.GL_EXPAND_NORMAL_NV'
+-- * 'Graphics.GL.Tokens.GL_EXPAND_NEGATE_NV'
+-- * 'Graphics.GL.Tokens.GL_HALF_BIAS_NORMAL_NV'
+-- * 'Graphics.GL.Tokens.GL_HALF_BIAS_NEGATE_NV'
+-- * 'Graphics.GL.Tokens.GL_SIGNED_IDENTITY_NV'
+-- * 'Graphics.GL.Tokens.GL_SIGNED_NEGATE_NV'
+--
+-- === #CombinerParameterNV# CombinerParameterNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_COMBINER_INPUT_NV'
+-- * 'Graphics.GL.Tokens.GL_COMBINER_MAPPING_NV'
+-- * 'Graphics.GL.Tokens.GL_COMBINER_COMPONENT_USAGE_NV'
+--
+-- === #CombinerPortionNV# CombinerPortionNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_RGB'
+-- * 'Graphics.GL.Tokens.GL_ALPHA'
+--
+-- === #CombinerRegisterNV# CombinerRegisterNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DISCARD_NV'
+-- * 'Graphics.GL.Tokens.GL_PRIMARY_COLOR_NV'
+-- * 'Graphics.GL.Tokens.GL_SECONDARY_COLOR_NV'
+-- * 'Graphics.GL.Tokens.GL_SPARE0_NV'
+-- * 'Graphics.GL.Tokens.GL_SPARE1_NV'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE0_ARB'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE1_ARB'
+--
+-- === #CombinerScaleNV# CombinerScaleNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_NONE'
+-- * 'Graphics.GL.Tokens.GL_SCALE_BY_TWO_NV'
+-- * 'Graphics.GL.Tokens.GL_SCALE_BY_FOUR_NV'
+-- * 'Graphics.GL.Tokens.GL_SCALE_BY_ONE_HALF_NV'
+--
+-- === #CombinerStageNV# CombinerStageNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_COMBINER0_NV'
+-- * 'Graphics.GL.Tokens.GL_COMBINER1_NV'
+-- * 'Graphics.GL.Tokens.GL_COMBINER2_NV'
+-- * 'Graphics.GL.Tokens.GL_COMBINER3_NV'
+-- * 'Graphics.GL.Tokens.GL_COMBINER4_NV'
+-- * 'Graphics.GL.Tokens.GL_COMBINER5_NV'
+-- * 'Graphics.GL.Tokens.GL_COMBINER6_NV'
+-- * 'Graphics.GL.Tokens.GL_COMBINER7_NV'
+--
+-- === #CombinerVariableNV# CombinerVariableNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_VARIABLE_A_NV'
+-- * 'Graphics.GL.Tokens.GL_VARIABLE_B_NV'
+-- * 'Graphics.GL.Tokens.GL_VARIABLE_C_NV'
+-- * 'Graphics.GL.Tokens.GL_VARIABLE_D_NV'
+-- * 'Graphics.GL.Tokens.GL_VARIABLE_E_NV'
+-- * 'Graphics.GL.Tokens.GL_VARIABLE_F_NV'
+-- * 'Graphics.GL.Tokens.GL_VARIABLE_G_NV'
+--
+-- === #ConditionalRenderMode# ConditionalRenderMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_QUERY_WAIT'
+-- * 'Graphics.GL.Tokens.GL_QUERY_NO_WAIT'
+-- * 'Graphics.GL.Tokens.GL_QUERY_BY_REGION_WAIT'
+-- * 'Graphics.GL.Tokens.GL_QUERY_BY_REGION_NO_WAIT'
+-- * 'Graphics.GL.Tokens.GL_QUERY_WAIT_INVERTED'
+-- * 'Graphics.GL.Tokens.GL_QUERY_NO_WAIT_INVERTED'
+-- * 'Graphics.GL.Tokens.GL_QUERY_BY_REGION_WAIT_INVERTED'
+-- * 'Graphics.GL.Tokens.GL_QUERY_BY_REGION_NO_WAIT_INVERTED'
+--
+-- === #ContextFlagMask# ContextFlagMask
+-- A bitwise combination of several of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CONTEXT_FLAG_DEBUG_BIT' (alias: 'Graphics.GL.Tokens.GL_CONTEXT_FLAG_DEBUG_BIT_KHR')
+-- * 'Graphics.GL.Tokens.GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT'
+-- * 'Graphics.GL.Tokens.GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT' (alias: 'Graphics.GL.Tokens.GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB')
+-- * 'Graphics.GL.Tokens.GL_CONTEXT_FLAG_PROTECTED_CONTENT_BIT_EXT'
+-- * 'Graphics.GL.Tokens.GL_CONTEXT_FLAG_NO_ERROR_BIT' (alias: 'Graphics.GL.Tokens.GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR')
+--
+-- === #ContextProfileMask# ContextProfileMask
+-- A bitwise combination of several of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CONTEXT_COMPATIBILITY_PROFILE_BIT'
+-- * 'Graphics.GL.Tokens.GL_CONTEXT_CORE_PROFILE_BIT'
+--
+-- === #ConvolutionBorderModeEXT# ConvolutionBorderModeEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_REDUCE' (alias: 'Graphics.GL.Tokens.GL_REDUCE_EXT')
+--
+-- === #ConvolutionParameterEXT# ConvolutionParameterEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_BORDER_MODE' (alias: 'Graphics.GL.Tokens.GL_CONVOLUTION_BORDER_MODE_EXT')
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_FILTER_BIAS' (alias: 'Graphics.GL.Tokens.GL_CONVOLUTION_FILTER_BIAS_EXT')
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_FILTER_SCALE' (alias: 'Graphics.GL.Tokens.GL_CONVOLUTION_FILTER_SCALE_EXT')
+--
+-- === #ConvolutionTarget# ConvolutionTarget
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_1D'
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_2D'
+--
+-- === #ConvolutionTargetEXT# ConvolutionTargetEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_1D' (alias: 'Graphics.GL.Tokens.GL_CONVOLUTION_1D_EXT')
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_2D' (alias: 'Graphics.GL.Tokens.GL_CONVOLUTION_2D_EXT')
+--
+-- === #CopyBufferSubDataTarget# CopyBufferSubDataTarget
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ARRAY_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_ATOMIC_COUNTER_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_COPY_READ_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_COPY_WRITE_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_DISPATCH_INDIRECT_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_DRAW_INDIRECT_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_ELEMENT_ARRAY_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_PACK_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_UNPACK_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_QUERY_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_SHADER_STORAGE_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BUFFER'
+--
+-- === #CopyImageSubDataTarget# CopyImageSubDataTarget
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_RENDERBUFFER'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_1D'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_2D'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_3D'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_RECTANGLE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CUBE_MAP'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CUBE_MAP_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_1D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_2D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_2D_MULTISAMPLE_ARRAY'
+--
+-- === #CullFaceMode# CullFaceMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BACK'
+-- * 'Graphics.GL.Tokens.GL_FRONT'
+-- * 'Graphics.GL.Tokens.GL_FRONT_AND_BACK'
+--
+-- === #CullParameterEXT# CullParameterEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CULL_VERTEX_EYE_POSITION_EXT'
+-- * 'Graphics.GL.Tokens.GL_CULL_VERTEX_OBJECT_POSITION_EXT'
+--
+-- === #DataType# DataType
+-- There are no values defined for this enumeration group.
+--
+--
+-- === #DataTypeEXT# DataTypeEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_SCALAR_EXT'
+-- * 'Graphics.GL.Tokens.GL_VECTOR_EXT'
+-- * 'Graphics.GL.Tokens.GL_MATRIX_EXT'
+--
+-- === #DebugSeverity# DebugSeverity
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DEBUG_SEVERITY_LOW'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_SEVERITY_MEDIUM'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_SEVERITY_HIGH'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_SEVERITY_NOTIFICATION'
+-- * 'Graphics.GL.Tokens.GL_DONT_CARE'
+--
+-- === #DebugSource# DebugSource
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DEBUG_SOURCE_API'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_SOURCE_WINDOW_SYSTEM'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_SOURCE_SHADER_COMPILER'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_SOURCE_THIRD_PARTY'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_SOURCE_APPLICATION'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_SOURCE_OTHER'
+-- * 'Graphics.GL.Tokens.GL_DONT_CARE'
+--
+-- === #DebugType# DebugType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DEBUG_TYPE_ERROR'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_TYPE_PORTABILITY'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_TYPE_PERFORMANCE'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_TYPE_MARKER'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_TYPE_PUSH_GROUP'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_TYPE_POP_GROUP'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_TYPE_OTHER'
+-- * 'Graphics.GL.Tokens.GL_DONT_CARE'
+--
+-- === #DepthFunction# DepthFunction
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ALWAYS'
+-- * 'Graphics.GL.Tokens.GL_EQUAL'
+-- * 'Graphics.GL.Tokens.GL_GEQUAL'
+-- * 'Graphics.GL.Tokens.GL_GREATER'
+-- * 'Graphics.GL.Tokens.GL_LEQUAL'
+-- * 'Graphics.GL.Tokens.GL_LESS'
+-- * 'Graphics.GL.Tokens.GL_NEVER'
+-- * 'Graphics.GL.Tokens.GL_NOTEQUAL'
+--
+-- === #DrawBufferMode# DrawBufferMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_AUX0'
+-- * 'Graphics.GL.Tokens.GL_AUX1'
+-- * 'Graphics.GL.Tokens.GL_AUX2'
+-- * 'Graphics.GL.Tokens.GL_AUX3'
+-- * 'Graphics.GL.Tokens.GL_BACK'
+-- * 'Graphics.GL.Tokens.GL_BACK_LEFT'
+-- * 'Graphics.GL.Tokens.GL_BACK_RIGHT'
+-- * 'Graphics.GL.Tokens.GL_FRONT'
+-- * 'Graphics.GL.Tokens.GL_FRONT_AND_BACK'
+-- * 'Graphics.GL.Tokens.GL_FRONT_LEFT'
+-- * 'Graphics.GL.Tokens.GL_FRONT_RIGHT'
+-- * 'Graphics.GL.Tokens.GL_LEFT'
+-- * 'Graphics.GL.Tokens.GL_NONE' (alias: 'Graphics.GL.Tokens.GL_NONE_OES')
+-- * 'Graphics.GL.Tokens.GL_RIGHT'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT0'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT1'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT2'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT3'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT4'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT5'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT6'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT7'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT8'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT9'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT10'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT11'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT12'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT13'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT14'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT15'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT16'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT17'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT18'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT19'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT20'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT21'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT22'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT23'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT24'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT25'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT26'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT27'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT28'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT29'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT30'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT31'
+--
+-- === #DrawBufferModeATI# DrawBufferModeATI
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT0_NV'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT1_NV'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT2_NV'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT3_NV'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT4_NV'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT5_NV'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT6_NV'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT7_NV'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT8_NV'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT9_NV'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT10_NV'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT11_NV'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT12_NV'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT13_NV'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT14_NV'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT15_NV'
+--
+-- === #DrawElementsType# DrawElementsType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_BYTE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_SHORT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT'
+--
+-- === #ElementPointerTypeATI# ElementPointerTypeATI
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_BYTE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_SHORT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT'
+--
+-- === #EnableCap# EnableCap
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ALPHA_TEST'
+-- * 'Graphics.GL.Tokens.GL_ASYNC_DRAW_PIXELS_SGIX'
+-- * 'Graphics.GL.Tokens.GL_ASYNC_HISTOGRAM_SGIX'
+-- * 'Graphics.GL.Tokens.GL_ASYNC_READ_PIXELS_SGIX'
+-- * 'Graphics.GL.Tokens.GL_ASYNC_TEX_IMAGE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_AUTO_NORMAL'
+-- * 'Graphics.GL.Tokens.GL_BLEND'
+-- * 'Graphics.GL.Tokens.GL_CALLIGRAPHIC_FRAGMENT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_CLIP_DISTANCE0' (alias: 'Graphics.GL.Tokens.GL_CLIP_PLANE0')
+-- * 'Graphics.GL.Tokens.GL_CLIP_DISTANCE1' (alias: 'Graphics.GL.Tokens.GL_CLIP_PLANE1')
+-- * 'Graphics.GL.Tokens.GL_CLIP_DISTANCE2' (alias: 'Graphics.GL.Tokens.GL_CLIP_PLANE2')
+-- * 'Graphics.GL.Tokens.GL_CLIP_DISTANCE3' (alias: 'Graphics.GL.Tokens.GL_CLIP_PLANE3')
+-- * 'Graphics.GL.Tokens.GL_CLIP_DISTANCE4' (alias: 'Graphics.GL.Tokens.GL_CLIP_PLANE4')
+-- * 'Graphics.GL.Tokens.GL_CLIP_DISTANCE5' (alias: 'Graphics.GL.Tokens.GL_CLIP_PLANE5')
+-- * 'Graphics.GL.Tokens.GL_CLIP_DISTANCE6'
+-- * 'Graphics.GL.Tokens.GL_CLIP_DISTANCE7'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_COLOR_LOGIC_OP'
+-- * 'Graphics.GL.Tokens.GL_COLOR_MATERIAL'
+-- * 'Graphics.GL.Tokens.GL_COLOR_TABLE_SGI'
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_1D_EXT'
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_2D_EXT'
+-- * 'Graphics.GL.Tokens.GL_CULL_FACE'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_OUTPUT'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_OUTPUT_SYNCHRONOUS'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_CLAMP'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_TEST'
+-- * 'Graphics.GL.Tokens.GL_DITHER'
+-- * 'Graphics.GL.Tokens.GL_EDGE_FLAG_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_FOG'
+-- * 'Graphics.GL.Tokens.GL_FOG_OFFSET_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_COLOR_MATERIAL_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT0_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT1_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT2_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT3_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT4_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT5_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT6_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT7_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHTING_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_SRGB'
+-- * 'Graphics.GL.Tokens.GL_FRAMEZOOM_SGIX'
+-- * 'Graphics.GL.Tokens.GL_HISTOGRAM_EXT'
+-- * 'Graphics.GL.Tokens.GL_INDEX_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INDEX_LOGIC_OP'
+-- * 'Graphics.GL.Tokens.GL_INTERLACE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_IR_INSTRUMENT1_SGIX'
+-- * 'Graphics.GL.Tokens.GL_LIGHT0'
+-- * 'Graphics.GL.Tokens.GL_LIGHT1'
+-- * 'Graphics.GL.Tokens.GL_LIGHT2'
+-- * 'Graphics.GL.Tokens.GL_LIGHT3'
+-- * 'Graphics.GL.Tokens.GL_LIGHT4'
+-- * 'Graphics.GL.Tokens.GL_LIGHT5'
+-- * 'Graphics.GL.Tokens.GL_LIGHT6'
+-- * 'Graphics.GL.Tokens.GL_LIGHT7'
+-- * 'Graphics.GL.Tokens.GL_LIGHTING'
+-- * 'Graphics.GL.Tokens.GL_LINE_SMOOTH'
+-- * 'Graphics.GL.Tokens.GL_LINE_STIPPLE'
+-- * 'Graphics.GL.Tokens.GL_MAP1_COLOR_4'
+-- * 'Graphics.GL.Tokens.GL_MAP1_INDEX'
+-- * 'Graphics.GL.Tokens.GL_MAP1_NORMAL'
+-- * 'Graphics.GL.Tokens.GL_MAP1_TEXTURE_COORD_1'
+-- * 'Graphics.GL.Tokens.GL_MAP1_TEXTURE_COORD_2'
+-- * 'Graphics.GL.Tokens.GL_MAP1_TEXTURE_COORD_3'
+-- * 'Graphics.GL.Tokens.GL_MAP1_TEXTURE_COORD_4'
+-- * 'Graphics.GL.Tokens.GL_MAP1_VERTEX_3'
+-- * 'Graphics.GL.Tokens.GL_MAP1_VERTEX_4'
+-- * 'Graphics.GL.Tokens.GL_MAP2_COLOR_4'
+-- * 'Graphics.GL.Tokens.GL_MAP2_INDEX'
+-- * 'Graphics.GL.Tokens.GL_MAP2_NORMAL'
+-- * 'Graphics.GL.Tokens.GL_MAP2_TEXTURE_COORD_1'
+-- * 'Graphics.GL.Tokens.GL_MAP2_TEXTURE_COORD_2'
+-- * 'Graphics.GL.Tokens.GL_MAP2_TEXTURE_COORD_3'
+-- * 'Graphics.GL.Tokens.GL_MAP2_TEXTURE_COORD_4'
+-- * 'Graphics.GL.Tokens.GL_MAP2_VERTEX_3'
+-- * 'Graphics.GL.Tokens.GL_MAP2_VERTEX_4'
+-- * 'Graphics.GL.Tokens.GL_MINMAX_EXT'
+-- * 'Graphics.GL.Tokens.GL_MULTISAMPLE' (alias: 'Graphics.GL.Tokens.GL_MULTISAMPLE_SGIS')
+-- * 'Graphics.GL.Tokens.GL_NORMALIZE'
+-- * 'Graphics.GL.Tokens.GL_NORMAL_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEXTURE_SGIS'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_SGIX'
+-- * 'Graphics.GL.Tokens.GL_POINT_SMOOTH'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_OFFSET_FILL'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_OFFSET_LINE'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_OFFSET_POINT'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_SMOOTH'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_STIPPLE'
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI'
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_COLOR_TABLE_SGI'
+-- * 'Graphics.GL.Tokens.GL_PRIMITIVE_RESTART'
+-- * 'Graphics.GL.Tokens.GL_PRIMITIVE_RESTART_FIXED_INDEX'
+-- * 'Graphics.GL.Tokens.GL_PROGRAM_POINT_SIZE'
+-- * 'Graphics.GL.Tokens.GL_RASTERIZER_DISCARD'
+-- * 'Graphics.GL.Tokens.GL_REFERENCE_PLANE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_RESCALE_NORMAL_EXT'
+-- * 'Graphics.GL.Tokens.GL_SAMPLE_ALPHA_TO_COVERAGE' (alias: 'Graphics.GL.Tokens.GL_SAMPLE_ALPHA_TO_MASK_SGIS')
+-- * 'Graphics.GL.Tokens.GL_SAMPLE_ALPHA_TO_ONE' (alias: 'Graphics.GL.Tokens.GL_SAMPLE_ALPHA_TO_ONE_SGIS')
+-- * 'Graphics.GL.Tokens.GL_SAMPLE_COVERAGE' (alias: 'Graphics.GL.Tokens.GL_SAMPLE_MASK_SGIS')
+-- * 'Graphics.GL.Tokens.GL_SAMPLE_MASK'
+-- * 'Graphics.GL.Tokens.GL_SAMPLE_SHADING'
+-- * 'Graphics.GL.Tokens.GL_SCISSOR_TEST'
+-- * 'Graphics.GL.Tokens.GL_SEPARABLE_2D_EXT'
+-- * 'Graphics.GL.Tokens.GL_SHARED_TEXTURE_PALETTE_EXT'
+-- * 'Graphics.GL.Tokens.GL_SPRITE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_TEST'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_1D'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_2D'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_3D_EXT'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_4D_SGIS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COLOR_TABLE_SGI'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COORD_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CUBE_MAP_SEAMLESS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_GEN_Q'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_GEN_R'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_GEN_S'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_GEN_T'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ARRAY'
+--
+-- === #ErrorCode# ErrorCode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_INVALID_ENUM'
+-- * 'Graphics.GL.Tokens.GL_INVALID_FRAMEBUFFER_OPERATION' (aliases: 'Graphics.GL.Tokens.GL_INVALID_FRAMEBUFFER_OPERATION_EXT', 'Graphics.GL.Tokens.GL_INVALID_FRAMEBUFFER_OPERATION_OES')
+-- * 'Graphics.GL.Tokens.GL_INVALID_OPERATION'
+-- * 'Graphics.GL.Tokens.GL_INVALID_VALUE'
+-- * 'Graphics.GL.Tokens.GL_NO_ERROR'
+-- * 'Graphics.GL.Tokens.GL_OUT_OF_MEMORY'
+-- * 'Graphics.GL.Tokens.GL_STACK_OVERFLOW'
+-- * 'Graphics.GL.Tokens.GL_STACK_UNDERFLOW'
+-- * 'Graphics.GL.Tokens.GL_TABLE_TOO_LARGE' (alias: 'Graphics.GL.Tokens.GL_TABLE_TOO_LARGE_EXT')
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_TOO_LARGE_EXT'
+--
+-- === #EvalMapsModeNV# EvalMapsModeNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FILL_NV'
+--
+-- === #EvalTargetNV# EvalTargetNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_EVAL_2D_NV'
+-- * 'Graphics.GL.Tokens.GL_EVAL_TRIANGULAR_2D_NV'
+--
+-- === #ExternalHandleType# ExternalHandleType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_HANDLE_TYPE_OPAQUE_FD_EXT'
+-- * 'Graphics.GL.Tokens.GL_HANDLE_TYPE_OPAQUE_WIN32_EXT'
+-- * 'Graphics.GL.Tokens.GL_HANDLE_TYPE_OPAQUE_WIN32_KMT_EXT'
+-- * 'Graphics.GL.Tokens.GL_HANDLE_TYPE_D3D12_TILEPOOL_EXT'
+-- * 'Graphics.GL.Tokens.GL_HANDLE_TYPE_D3D12_RESOURCE_EXT'
+-- * 'Graphics.GL.Tokens.GL_HANDLE_TYPE_D3D11_IMAGE_EXT'
+-- * 'Graphics.GL.Tokens.GL_HANDLE_TYPE_D3D11_IMAGE_KMT_EXT'
+-- * 'Graphics.GL.Tokens.GL_HANDLE_TYPE_D3D12_FENCE_EXT'
+--
+-- === #FeedBackToken# FeedBackToken
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BITMAP_TOKEN'
+-- * 'Graphics.GL.Tokens.GL_COPY_PIXEL_TOKEN'
+-- * 'Graphics.GL.Tokens.GL_DRAW_PIXEL_TOKEN'
+-- * 'Graphics.GL.Tokens.GL_LINE_RESET_TOKEN'
+-- * 'Graphics.GL.Tokens.GL_LINE_TOKEN'
+-- * 'Graphics.GL.Tokens.GL_PASS_THROUGH_TOKEN'
+-- * 'Graphics.GL.Tokens.GL_POINT_TOKEN'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_TOKEN'
+--
+-- === #FeedbackType# FeedbackType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_2D'
+-- * 'Graphics.GL.Tokens.GL_3D'
+-- * 'Graphics.GL.Tokens.GL_3D_COLOR'
+-- * 'Graphics.GL.Tokens.GL_3D_COLOR_TEXTURE'
+-- * 'Graphics.GL.Tokens.GL_4D_COLOR_TEXTURE'
+--
+-- === #FenceConditionNV# FenceConditionNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ALL_COMPLETED_NV'
+--
+-- === #FenceParameterNameNV# FenceParameterNameNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FENCE_STATUS_NV'
+-- * 'Graphics.GL.Tokens.GL_FENCE_CONDITION_NV'
+--
+-- === #FfdMaskSGIX# FfdMaskSGIX
+-- There are no values defined for this enumeration group.
+--
+--
+-- === #FfdTargetSGIX# FfdTargetSGIX
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_GEOMETRY_DEFORMATION_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_DEFORMATION_SGIX'
+--
+-- === #FogCoordinatePointerType# FogCoordinatePointerType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE'
+--
+-- === #FogMode# FogMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_EXP'
+-- * 'Graphics.GL.Tokens.GL_EXP2'
+-- * 'Graphics.GL.Tokens.GL_FOG_FUNC_SGIS'
+-- * 'Graphics.GL.Tokens.GL_LINEAR'
+--
+-- === #FogPName# FogPName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FOG_MODE'
+-- * 'Graphics.GL.Tokens.GL_FOG_DENSITY'
+-- * 'Graphics.GL.Tokens.GL_FOG_START'
+-- * 'Graphics.GL.Tokens.GL_FOG_END'
+-- * 'Graphics.GL.Tokens.GL_FOG_INDEX'
+-- * 'Graphics.GL.Tokens.GL_FOG_COORD_SRC'
+--
+-- === #FogParameter# FogParameter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FOG_COLOR'
+-- * 'Graphics.GL.Tokens.GL_FOG_DENSITY'
+-- * 'Graphics.GL.Tokens.GL_FOG_END'
+-- * 'Graphics.GL.Tokens.GL_FOG_INDEX'
+-- * 'Graphics.GL.Tokens.GL_FOG_MODE'
+-- * 'Graphics.GL.Tokens.GL_FOG_OFFSET_VALUE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FOG_START'
+--
+-- === #FogPointerTypeEXT# FogPointerTypeEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE'
+--
+-- === #FogPointerTypeIBM# FogPointerTypeIBM
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE'
+--
+-- === #FragmentLightModelParameterSGIX# FragmentLightModelParameterSGIX
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT_MODEL_AMBIENT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT_MODEL_LOCAL_VIEWER_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT_MODEL_NORMAL_INTERPOLATION_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT_MODEL_TWO_SIDE_SGIX'
+--
+-- === #FragmentLightNameSGIX# FragmentLightNameSGIX
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT0_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT1_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT2_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT3_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT4_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT5_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT6_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT7_SGIX'
+--
+-- === #FragmentLightParameterSGIX# FragmentLightParameterSGIX
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_SPOT_EXPONENT'
+-- * 'Graphics.GL.Tokens.GL_SPOT_CUTOFF'
+-- * 'Graphics.GL.Tokens.GL_CONSTANT_ATTENUATION'
+-- * 'Graphics.GL.Tokens.GL_LINEAR_ATTENUATION'
+-- * 'Graphics.GL.Tokens.GL_QUADRATIC_ATTENUATION'
+-- * 'Graphics.GL.Tokens.GL_AMBIENT'
+-- * 'Graphics.GL.Tokens.GL_DIFFUSE'
+-- * 'Graphics.GL.Tokens.GL_SPECULAR'
+-- * 'Graphics.GL.Tokens.GL_POSITION'
+-- * 'Graphics.GL.Tokens.GL_SPOT_DIRECTION'
+--
+-- === #FragmentOpATI# FragmentOpATI
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_MOV_ATI'
+-- * 'Graphics.GL.Tokens.GL_ADD_ATI'
+-- * 'Graphics.GL.Tokens.GL_MUL_ATI'
+-- * 'Graphics.GL.Tokens.GL_SUB_ATI'
+-- * 'Graphics.GL.Tokens.GL_DOT3_ATI'
+-- * 'Graphics.GL.Tokens.GL_DOT4_ATI'
+-- * 'Graphics.GL.Tokens.GL_MAD_ATI'
+-- * 'Graphics.GL.Tokens.GL_LERP_ATI'
+-- * 'Graphics.GL.Tokens.GL_CND_ATI'
+-- * 'Graphics.GL.Tokens.GL_CND0_ATI'
+-- * 'Graphics.GL.Tokens.GL_DOT2_ADD_ATI'
+--
+-- === #FramebufferAttachment# FramebufferAttachment
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT0' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT0_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT0_NV', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT0_OES')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT1' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT1_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT1_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT2' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT2_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT2_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT3' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT3_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT3_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT4' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT4_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT4_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT5' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT5_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT5_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT6' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT6_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT6_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT7' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT7_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT7_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT8' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT8_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT8_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT9' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT9_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT9_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT10' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT10_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT10_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT11' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT11_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT11_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT12' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT12_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT12_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT13' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT13_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT13_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT14' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT14_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT14_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT15' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT15_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT15_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT16'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT17'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT18'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT19'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT20'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT21'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT22'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT23'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT24'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT25'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT26'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT27'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT28'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT29'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT30'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT31'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_ATTACHMENT' (aliases: 'Graphics.GL.Tokens.GL_DEPTH_ATTACHMENT_EXT', 'Graphics.GL.Tokens.GL_DEPTH_ATTACHMENT_OES')
+-- * 'Graphics.GL.Tokens.GL_DEPTH_STENCIL_ATTACHMENT'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_ATTACHMENT' (aliases: 'Graphics.GL.Tokens.GL_STENCIL_ATTACHMENT_EXT', 'Graphics.GL.Tokens.GL_STENCIL_ATTACHMENT_OES')
+--
+-- === #FramebufferAttachmentParameterName# FramebufferAttachmentParameterName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE' (alias: 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT')
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING' (alias: 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT')
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME' (aliases: 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME_EXT', 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME_OES')
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE' (aliases: 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE_EXT', 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE_OES')
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL' (aliases: 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL_EXT', 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL_OES')
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE' (aliases: 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE_EXT', 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE_OES')
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET_EXT' (aliases: 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET_OES', 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER', 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER_EXT')
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SAMPLES_EXT'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SCALE_IMG'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_LAYERED' (aliases: 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_LAYERED_ARB', 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_LAYERED_EXT', 'Graphics.GL.Tokens.GL_FRAMEBUFFER_ATTACHMENT_LAYERED_OES')
+--
+-- === #FramebufferFetchNoncoherent# FramebufferFetchNoncoherent
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_FETCH_NONCOHERENT_QCOM'
+--
+-- === #FramebufferParameterName# FramebufferParameterName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_DEFAULT_WIDTH'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_DEFAULT_HEIGHT'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_DEFAULT_LAYERS'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_DEFAULT_SAMPLES'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS'
+--
+-- === #FramebufferStatus# FramebufferStatus
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_COMPLETE'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_UNDEFINED'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_UNSUPPORTED'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE' (alias: 'Graphics.GL.Tokens.GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE')
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE' (alias: 'Graphics.GL.Tokens.GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE')
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS'
+--
+-- === #FramebufferTarget# FramebufferTarget
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER' (alias: 'Graphics.GL.Tokens.GL_FRAMEBUFFER_OES')
+-- * 'Graphics.GL.Tokens.GL_DRAW_FRAMEBUFFER'
+-- * 'Graphics.GL.Tokens.GL_READ_FRAMEBUFFER'
+--
+-- === #FrontFaceDirection# FrontFaceDirection
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CCW'
+-- * 'Graphics.GL.Tokens.GL_CW'
+--
+-- === #GetColorTableParameterPNameSGI# GetColorTableParameterPNameSGI
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_COLOR_TABLE_BIAS' (alias: 'Graphics.GL.Tokens.GL_COLOR_TABLE_BIAS_SGI')
+-- * 'Graphics.GL.Tokens.GL_COLOR_TABLE_SCALE' (alias: 'Graphics.GL.Tokens.GL_COLOR_TABLE_SCALE_SGI')
+-- * 'Graphics.GL.Tokens.GL_COLOR_TABLE_FORMAT' (alias: 'Graphics.GL.Tokens.GL_COLOR_TABLE_FORMAT_SGI')
+-- * 'Graphics.GL.Tokens.GL_COLOR_TABLE_WIDTH' (alias: 'Graphics.GL.Tokens.GL_COLOR_TABLE_WIDTH_SGI')
+-- * 'Graphics.GL.Tokens.GL_COLOR_TABLE_RED_SIZE' (alias: 'Graphics.GL.Tokens.GL_COLOR_TABLE_RED_SIZE_SGI')
+-- * 'Graphics.GL.Tokens.GL_COLOR_TABLE_GREEN_SIZE' (alias: 'Graphics.GL.Tokens.GL_COLOR_TABLE_GREEN_SIZE_SGI')
+-- * 'Graphics.GL.Tokens.GL_COLOR_TABLE_BLUE_SIZE' (alias: 'Graphics.GL.Tokens.GL_COLOR_TABLE_BLUE_SIZE_SGI')
+-- * 'Graphics.GL.Tokens.GL_COLOR_TABLE_ALPHA_SIZE' (alias: 'Graphics.GL.Tokens.GL_COLOR_TABLE_ALPHA_SIZE_SGI')
+-- * 'Graphics.GL.Tokens.GL_COLOR_TABLE_LUMINANCE_SIZE' (alias: 'Graphics.GL.Tokens.GL_COLOR_TABLE_LUMINANCE_SIZE_SGI')
+-- * 'Graphics.GL.Tokens.GL_COLOR_TABLE_INTENSITY_SIZE' (alias: 'Graphics.GL.Tokens.GL_COLOR_TABLE_INTENSITY_SIZE_SGI')
+--
+-- === #GetConvolutionParameter# GetConvolutionParameter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_BORDER_MODE' (alias: 'Graphics.GL.Tokens.GL_CONVOLUTION_BORDER_MODE_EXT')
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_BORDER_COLOR'
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_FILTER_SCALE' (alias: 'Graphics.GL.Tokens.GL_CONVOLUTION_FILTER_SCALE_EXT')
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_FILTER_BIAS' (alias: 'Graphics.GL.Tokens.GL_CONVOLUTION_FILTER_BIAS_EXT')
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_FORMAT' (alias: 'Graphics.GL.Tokens.GL_CONVOLUTION_FORMAT_EXT')
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_WIDTH' (alias: 'Graphics.GL.Tokens.GL_CONVOLUTION_WIDTH_EXT')
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_HEIGHT' (alias: 'Graphics.GL.Tokens.GL_CONVOLUTION_HEIGHT_EXT')
+-- * 'Graphics.GL.Tokens.GL_MAX_CONVOLUTION_WIDTH' (alias: 'Graphics.GL.Tokens.GL_MAX_CONVOLUTION_WIDTH_EXT')
+-- * 'Graphics.GL.Tokens.GL_MAX_CONVOLUTION_HEIGHT' (alias: 'Graphics.GL.Tokens.GL_MAX_CONVOLUTION_HEIGHT_EXT')
+--
+-- === #GetFramebufferParameter# GetFramebufferParameter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_DEFAULT_WIDTH'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_DEFAULT_HEIGHT'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_DEFAULT_LAYERS'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_DEFAULT_SAMPLES'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS'
+-- * 'Graphics.GL.Tokens.GL_DOUBLEBUFFER'
+-- * 'Graphics.GL.Tokens.GL_IMPLEMENTATION_COLOR_READ_FORMAT'
+-- * 'Graphics.GL.Tokens.GL_IMPLEMENTATION_COLOR_READ_TYPE'
+-- * 'Graphics.GL.Tokens.GL_SAMPLES'
+-- * 'Graphics.GL.Tokens.GL_SAMPLE_BUFFERS'
+-- * 'Graphics.GL.Tokens.GL_STEREO'
+--
+-- === #GetHistogramParameterPNameEXT# GetHistogramParameterPNameEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_HISTOGRAM_WIDTH' (aliases: 'Graphics.GL.Tokens.GL_HISTOGRAM_WIDTH_EXT', 'Graphics.GL.Tokens.GL_HISTOGRAM_WIDTH_EXT')
+-- * 'Graphics.GL.Tokens.GL_HISTOGRAM_FORMAT' (aliases: 'Graphics.GL.Tokens.GL_HISTOGRAM_FORMAT_EXT', 'Graphics.GL.Tokens.GL_HISTOGRAM_FORMAT_EXT')
+-- * 'Graphics.GL.Tokens.GL_HISTOGRAM_RED_SIZE' (aliases: 'Graphics.GL.Tokens.GL_HISTOGRAM_RED_SIZE_EXT', 'Graphics.GL.Tokens.GL_HISTOGRAM_RED_SIZE_EXT')
+-- * 'Graphics.GL.Tokens.GL_HISTOGRAM_GREEN_SIZE' (aliases: 'Graphics.GL.Tokens.GL_HISTOGRAM_GREEN_SIZE_EXT', 'Graphics.GL.Tokens.GL_HISTOGRAM_GREEN_SIZE_EXT')
+-- * 'Graphics.GL.Tokens.GL_HISTOGRAM_BLUE_SIZE' (aliases: 'Graphics.GL.Tokens.GL_HISTOGRAM_BLUE_SIZE_EXT', 'Graphics.GL.Tokens.GL_HISTOGRAM_BLUE_SIZE_EXT')
+-- * 'Graphics.GL.Tokens.GL_HISTOGRAM_ALPHA_SIZE' (aliases: 'Graphics.GL.Tokens.GL_HISTOGRAM_ALPHA_SIZE_EXT', 'Graphics.GL.Tokens.GL_HISTOGRAM_ALPHA_SIZE_EXT')
+-- * 'Graphics.GL.Tokens.GL_HISTOGRAM_LUMINANCE_SIZE' (aliases: 'Graphics.GL.Tokens.GL_HISTOGRAM_LUMINANCE_SIZE_EXT', 'Graphics.GL.Tokens.GL_HISTOGRAM_LUMINANCE_SIZE_EXT')
+-- * 'Graphics.GL.Tokens.GL_HISTOGRAM_SINK' (aliases: 'Graphics.GL.Tokens.GL_HISTOGRAM_SINK_EXT', 'Graphics.GL.Tokens.GL_HISTOGRAM_SINK_EXT')
+--
+-- === #GetMapQuery# GetMapQuery
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_COEFF'
+-- * 'Graphics.GL.Tokens.GL_DOMAIN'
+-- * 'Graphics.GL.Tokens.GL_ORDER'
+--
+-- === #GetMinmaxParameterPNameEXT# GetMinmaxParameterPNameEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_MINMAX_FORMAT' (aliases: 'Graphics.GL.Tokens.GL_MINMAX_FORMAT', 'Graphics.GL.Tokens.GL_MINMAX_FORMAT_EXT')
+-- * 'Graphics.GL.Tokens.GL_MINMAX_SINK' (aliases: 'Graphics.GL.Tokens.GL_MINMAX_SINK', 'Graphics.GL.Tokens.GL_MINMAX_SINK_EXT')
+-- * 'Graphics.GL.Tokens.GL_MINMAX_FORMAT' (aliases: 'Graphics.GL.Tokens.GL_MINMAX_FORMAT', 'Graphics.GL.Tokens.GL_MINMAX_FORMAT_EXT')
+-- * 'Graphics.GL.Tokens.GL_MINMAX_SINK' (aliases: 'Graphics.GL.Tokens.GL_MINMAX_SINK', 'Graphics.GL.Tokens.GL_MINMAX_SINK_EXT')
+--
+-- === #GetMultisamplePNameNV# GetMultisamplePNameNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_SAMPLE_LOCATION_ARB' (alias: 'Graphics.GL.Tokens.GL_SAMPLE_POSITION')
+-- * 'Graphics.GL.Tokens.GL_PROGRAMMABLE_SAMPLE_LOCATION_ARB'
+--
+-- === #GetPName# GetPName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ACCUM_ALPHA_BITS'
+-- * 'Graphics.GL.Tokens.GL_ACCUM_BLUE_BITS'
+-- * 'Graphics.GL.Tokens.GL_ACCUM_CLEAR_VALUE'
+-- * 'Graphics.GL.Tokens.GL_ACCUM_GREEN_BITS'
+-- * 'Graphics.GL.Tokens.GL_ACCUM_RED_BITS'
+-- * 'Graphics.GL.Tokens.GL_ACTIVE_TEXTURE'
+-- * 'Graphics.GL.Tokens.GL_ALIASED_LINE_WIDTH_RANGE'
+-- * 'Graphics.GL.Tokens.GL_ALIASED_POINT_SIZE_RANGE'
+-- * 'Graphics.GL.Tokens.GL_ALPHA_BIAS'
+-- * 'Graphics.GL.Tokens.GL_ALPHA_BITS'
+-- * 'Graphics.GL.Tokens.GL_ALPHA_SCALE'
+-- * 'Graphics.GL.Tokens.GL_ALPHA_TEST' (alias: 'Graphics.GL.Tokens.GL_ALPHA_TEST_QCOM')
+-- * 'Graphics.GL.Tokens.GL_ALPHA_TEST_FUNC' (alias: 'Graphics.GL.Tokens.GL_ALPHA_TEST_FUNC_QCOM')
+-- * 'Graphics.GL.Tokens.GL_ALPHA_TEST_REF' (alias: 'Graphics.GL.Tokens.GL_ALPHA_TEST_REF_QCOM')
+-- * 'Graphics.GL.Tokens.GL_ARRAY_BUFFER_BINDING'
+-- * 'Graphics.GL.Tokens.GL_ASYNC_DRAW_PIXELS_SGIX'
+-- * 'Graphics.GL.Tokens.GL_ASYNC_HISTOGRAM_SGIX'
+-- * 'Graphics.GL.Tokens.GL_ASYNC_MARKER_SGIX'
+-- * 'Graphics.GL.Tokens.GL_ASYNC_READ_PIXELS_SGIX'
+-- * 'Graphics.GL.Tokens.GL_ASYNC_TEX_IMAGE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_ATTRIB_STACK_DEPTH'
+-- * 'Graphics.GL.Tokens.GL_AUTO_NORMAL'
+-- * 'Graphics.GL.Tokens.GL_AUX_BUFFERS'
+-- * 'Graphics.GL.Tokens.GL_BLEND'
+-- * 'Graphics.GL.Tokens.GL_BLEND_COLOR' (alias: 'Graphics.GL.Tokens.GL_BLEND_COLOR_EXT')
+-- * 'Graphics.GL.Tokens.GL_BLEND_DST'
+-- * 'Graphics.GL.Tokens.GL_BLEND_DST_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_BLEND_DST_RGB'
+-- * 'Graphics.GL.Tokens.GL_BLEND_EQUATION_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_BLEND_EQUATION_EXT' (alias: 'Graphics.GL.Tokens.GL_BLEND_EQUATION_RGB')
+-- * 'Graphics.GL.Tokens.GL_BLEND_SRC'
+-- * 'Graphics.GL.Tokens.GL_BLEND_SRC_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_BLEND_SRC_RGB'
+-- * 'Graphics.GL.Tokens.GL_BLUE_BIAS'
+-- * 'Graphics.GL.Tokens.GL_BLUE_BITS'
+-- * 'Graphics.GL.Tokens.GL_BLUE_SCALE'
+-- * 'Graphics.GL.Tokens.GL_CALLIGRAPHIC_FRAGMENT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_CLIENT_ATTRIB_STACK_DEPTH'
+-- * 'Graphics.GL.Tokens.GL_CLIP_PLANE0'
+-- * 'Graphics.GL.Tokens.GL_CLIP_PLANE1'
+-- * 'Graphics.GL.Tokens.GL_CLIP_PLANE2'
+-- * 'Graphics.GL.Tokens.GL_CLIP_PLANE3'
+-- * 'Graphics.GL.Tokens.GL_CLIP_PLANE4'
+-- * 'Graphics.GL.Tokens.GL_CLIP_PLANE5'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ARRAY_COUNT_EXT'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ARRAY_SIZE'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ARRAY_STRIDE'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ARRAY_TYPE'
+-- * 'Graphics.GL.Tokens.GL_COLOR_CLEAR_VALUE'
+-- * 'Graphics.GL.Tokens.GL_COLOR_LOGIC_OP'
+-- * 'Graphics.GL.Tokens.GL_COLOR_MATERIAL'
+-- * 'Graphics.GL.Tokens.GL_COLOR_MATERIAL_FACE'
+-- * 'Graphics.GL.Tokens.GL_COLOR_MATERIAL_PARAMETER'
+-- * 'Graphics.GL.Tokens.GL_COLOR_MATRIX_SGI'
+-- * 'Graphics.GL.Tokens.GL_COLOR_MATRIX_STACK_DEPTH_SGI'
+-- * 'Graphics.GL.Tokens.GL_COLOR_TABLE_SGI'
+-- * 'Graphics.GL.Tokens.GL_COLOR_WRITEMASK'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_TEXTURE_FORMATS'
+-- * 'Graphics.GL.Tokens.GL_CONTEXT_FLAGS'
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_1D_EXT'
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_2D_EXT'
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_HINT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_CULL_FACE'
+-- * 'Graphics.GL.Tokens.GL_CULL_FACE_MODE'
+-- * 'Graphics.GL.Tokens.GL_CURRENT_COLOR'
+-- * 'Graphics.GL.Tokens.GL_CURRENT_INDEX'
+-- * 'Graphics.GL.Tokens.GL_CURRENT_NORMAL'
+-- * 'Graphics.GL.Tokens.GL_CURRENT_PROGRAM'
+-- * 'Graphics.GL.Tokens.GL_CURRENT_RASTER_COLOR'
+-- * 'Graphics.GL.Tokens.GL_CURRENT_RASTER_DISTANCE'
+-- * 'Graphics.GL.Tokens.GL_CURRENT_RASTER_INDEX'
+-- * 'Graphics.GL.Tokens.GL_CURRENT_RASTER_POSITION'
+-- * 'Graphics.GL.Tokens.GL_CURRENT_RASTER_POSITION_VALID'
+-- * 'Graphics.GL.Tokens.GL_CURRENT_RASTER_TEXTURE_COORDS'
+-- * 'Graphics.GL.Tokens.GL_CURRENT_TEXTURE_COORDS'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_GROUP_STACK_DEPTH'
+-- * 'Graphics.GL.Tokens.GL_DEFORMATIONS_MASK_SGIX'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_BIAS'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_BITS'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_CLEAR_VALUE'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_FUNC'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_RANGE'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_SCALE'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_TEST'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_WRITEMASK'
+-- * 'Graphics.GL.Tokens.GL_DETAIL_TEXTURE_2D_BINDING_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DEVICE_LUID_EXT'
+-- * 'Graphics.GL.Tokens.GL_DEVICE_NODE_MASK_EXT'
+-- * 'Graphics.GL.Tokens.GL_DEVICE_UUID_EXT'
+-- * 'Graphics.GL.Tokens.GL_DISPATCH_INDIRECT_BUFFER_BINDING'
+-- * 'Graphics.GL.Tokens.GL_DISTANCE_ATTENUATION_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DITHER'
+-- * 'Graphics.GL.Tokens.GL_DOUBLEBUFFER'
+-- * 'Graphics.GL.Tokens.GL_DRAW_BUFFER' (alias: 'Graphics.GL.Tokens.GL_DRAW_BUFFER_EXT')
+-- * 'Graphics.GL.Tokens.GL_DRAW_FRAMEBUFFER_BINDING'
+-- * 'Graphics.GL.Tokens.GL_DRIVER_UUID_EXT'
+-- * 'Graphics.GL.Tokens.GL_EDGE_FLAG'
+-- * 'Graphics.GL.Tokens.GL_EDGE_FLAG_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_EDGE_FLAG_ARRAY_COUNT_EXT'
+-- * 'Graphics.GL.Tokens.GL_EDGE_FLAG_ARRAY_STRIDE'
+-- * 'Graphics.GL.Tokens.GL_ELEMENT_ARRAY_BUFFER_BINDING'
+-- * 'Graphics.GL.Tokens.GL_FEEDBACK_BUFFER_SIZE'
+-- * 'Graphics.GL.Tokens.GL_FEEDBACK_BUFFER_TYPE'
+-- * 'Graphics.GL.Tokens.GL_FOG'
+-- * 'Graphics.GL.Tokens.GL_FOG_COLOR'
+-- * 'Graphics.GL.Tokens.GL_FOG_DENSITY'
+-- * 'Graphics.GL.Tokens.GL_FOG_END'
+-- * 'Graphics.GL.Tokens.GL_FOG_FUNC_POINTS_SGIS'
+-- * 'Graphics.GL.Tokens.GL_FOG_HINT'
+-- * 'Graphics.GL.Tokens.GL_FOG_INDEX'
+-- * 'Graphics.GL.Tokens.GL_FOG_MODE'
+-- * 'Graphics.GL.Tokens.GL_FOG_OFFSET_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FOG_OFFSET_VALUE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FOG_START'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_COLOR_MATERIAL_FACE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_COLOR_MATERIAL_PARAMETER_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_COLOR_MATERIAL_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT0_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHTING_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT_MODEL_AMBIENT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT_MODEL_LOCAL_VIEWER_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT_MODEL_NORMAL_INTERPOLATION_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT_MODEL_TWO_SIDE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_SHADER_DERIVATIVE_HINT'
+-- * 'Graphics.GL.Tokens.GL_FRAMEZOOM_FACTOR_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAMEZOOM_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRONT_FACE'
+-- * 'Graphics.GL.Tokens.GL_GENERATE_MIPMAP_HINT_SGIS'
+-- * 'Graphics.GL.Tokens.GL_GREEN_BIAS'
+-- * 'Graphics.GL.Tokens.GL_GREEN_BITS'
+-- * 'Graphics.GL.Tokens.GL_GREEN_SCALE'
+-- * 'Graphics.GL.Tokens.GL_HISTOGRAM_EXT'
+-- * 'Graphics.GL.Tokens.GL_IMPLEMENTATION_COLOR_READ_FORMAT'
+-- * 'Graphics.GL.Tokens.GL_IMPLEMENTATION_COLOR_READ_TYPE'
+-- * 'Graphics.GL.Tokens.GL_INDEX_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INDEX_ARRAY_COUNT_EXT'
+-- * 'Graphics.GL.Tokens.GL_INDEX_ARRAY_STRIDE'
+-- * 'Graphics.GL.Tokens.GL_INDEX_ARRAY_TYPE'
+-- * 'Graphics.GL.Tokens.GL_INDEX_BITS'
+-- * 'Graphics.GL.Tokens.GL_INDEX_CLEAR_VALUE'
+-- * 'Graphics.GL.Tokens.GL_INDEX_LOGIC_OP' (alias: 'Graphics.GL.Tokens.GL_LOGIC_OP')
+-- * 'Graphics.GL.Tokens.GL_INDEX_MODE'
+-- * 'Graphics.GL.Tokens.GL_INDEX_OFFSET'
+-- * 'Graphics.GL.Tokens.GL_INDEX_SHIFT'
+-- * 'Graphics.GL.Tokens.GL_INDEX_WRITEMASK'
+-- * 'Graphics.GL.Tokens.GL_INSTRUMENT_MEASUREMENTS_SGIX'
+-- * 'Graphics.GL.Tokens.GL_INTERLACE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_IR_INSTRUMENT1_SGIX'
+-- * 'Graphics.GL.Tokens.GL_LAYER_PROVOKING_VERTEX'
+-- * 'Graphics.GL.Tokens.GL_LIGHT0'
+-- * 'Graphics.GL.Tokens.GL_LIGHT1'
+-- * 'Graphics.GL.Tokens.GL_LIGHT2'
+-- * 'Graphics.GL.Tokens.GL_LIGHT3'
+-- * 'Graphics.GL.Tokens.GL_LIGHT4'
+-- * 'Graphics.GL.Tokens.GL_LIGHT5'
+-- * 'Graphics.GL.Tokens.GL_LIGHT6'
+-- * 'Graphics.GL.Tokens.GL_LIGHT7'
+-- * 'Graphics.GL.Tokens.GL_LIGHTING'
+-- * 'Graphics.GL.Tokens.GL_LIGHT_ENV_MODE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_LIGHT_MODEL_AMBIENT'
+-- * 'Graphics.GL.Tokens.GL_LIGHT_MODEL_COLOR_CONTROL'
+-- * 'Graphics.GL.Tokens.GL_LIGHT_MODEL_LOCAL_VIEWER'
+-- * 'Graphics.GL.Tokens.GL_LIGHT_MODEL_TWO_SIDE'
+-- * 'Graphics.GL.Tokens.GL_LINE_SMOOTH'
+-- * 'Graphics.GL.Tokens.GL_LINE_SMOOTH_HINT'
+-- * 'Graphics.GL.Tokens.GL_LINE_STIPPLE'
+-- * 'Graphics.GL.Tokens.GL_LINE_STIPPLE_PATTERN'
+-- * 'Graphics.GL.Tokens.GL_LINE_STIPPLE_REPEAT'
+-- * 'Graphics.GL.Tokens.GL_LINE_WIDTH'
+-- * 'Graphics.GL.Tokens.GL_LINE_WIDTH_GRANULARITY' (alias: 'Graphics.GL.Tokens.GL_SMOOTH_LINE_WIDTH_GRANULARITY')
+-- * 'Graphics.GL.Tokens.GL_LINE_WIDTH_RANGE' (alias: 'Graphics.GL.Tokens.GL_SMOOTH_LINE_WIDTH_RANGE')
+-- * 'Graphics.GL.Tokens.GL_LIST_BASE'
+-- * 'Graphics.GL.Tokens.GL_LIST_INDEX'
+-- * 'Graphics.GL.Tokens.GL_LIST_MODE'
+-- * 'Graphics.GL.Tokens.GL_LOGIC_OP_MODE'
+-- * 'Graphics.GL.Tokens.GL_MAJOR_VERSION'
+-- * 'Graphics.GL.Tokens.GL_MAP1_COLOR_4'
+-- * 'Graphics.GL.Tokens.GL_MAP1_GRID_DOMAIN'
+-- * 'Graphics.GL.Tokens.GL_MAP1_GRID_SEGMENTS'
+-- * 'Graphics.GL.Tokens.GL_MAP1_INDEX'
+-- * 'Graphics.GL.Tokens.GL_MAP1_NORMAL'
+-- * 'Graphics.GL.Tokens.GL_MAP1_TEXTURE_COORD_1'
+-- * 'Graphics.GL.Tokens.GL_MAP1_TEXTURE_COORD_2'
+-- * 'Graphics.GL.Tokens.GL_MAP1_TEXTURE_COORD_3'
+-- * 'Graphics.GL.Tokens.GL_MAP1_TEXTURE_COORD_4'
+-- * 'Graphics.GL.Tokens.GL_MAP1_VERTEX_3'
+-- * 'Graphics.GL.Tokens.GL_MAP1_VERTEX_4'
+-- * 'Graphics.GL.Tokens.GL_MAP2_COLOR_4'
+-- * 'Graphics.GL.Tokens.GL_MAP2_GRID_DOMAIN'
+-- * 'Graphics.GL.Tokens.GL_MAP2_GRID_SEGMENTS'
+-- * 'Graphics.GL.Tokens.GL_MAP2_INDEX'
+-- * 'Graphics.GL.Tokens.GL_MAP2_NORMAL'
+-- * 'Graphics.GL.Tokens.GL_MAP2_TEXTURE_COORD_1'
+-- * 'Graphics.GL.Tokens.GL_MAP2_TEXTURE_COORD_2'
+-- * 'Graphics.GL.Tokens.GL_MAP2_TEXTURE_COORD_3'
+-- * 'Graphics.GL.Tokens.GL_MAP2_TEXTURE_COORD_4'
+-- * 'Graphics.GL.Tokens.GL_MAP2_VERTEX_3'
+-- * 'Graphics.GL.Tokens.GL_MAP2_VERTEX_4'
+-- * 'Graphics.GL.Tokens.GL_MAP_COLOR'
+-- * 'Graphics.GL.Tokens.GL_MAP_STENCIL'
+-- * 'Graphics.GL.Tokens.GL_MATRIX_MODE'
+-- * 'Graphics.GL.Tokens.GL_MAX_3D_TEXTURE_SIZE' (alias: 'Graphics.GL.Tokens.GL_MAX_3D_TEXTURE_SIZE_EXT')
+-- * 'Graphics.GL.Tokens.GL_MAX_4D_TEXTURE_SIZE_SGIS'
+-- * 'Graphics.GL.Tokens.GL_MAX_ACTIVE_LIGHTS_SGIX'
+-- * 'Graphics.GL.Tokens.GL_MAX_ARRAY_TEXTURE_LAYERS'
+-- * 'Graphics.GL.Tokens.GL_MAX_ASYNC_DRAW_PIXELS_SGIX'
+-- * 'Graphics.GL.Tokens.GL_MAX_ASYNC_HISTOGRAM_SGIX'
+-- * 'Graphics.GL.Tokens.GL_MAX_ASYNC_READ_PIXELS_SGIX'
+-- * 'Graphics.GL.Tokens.GL_MAX_ASYNC_TEX_IMAGE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_MAX_ATTRIB_STACK_DEPTH'
+-- * 'Graphics.GL.Tokens.GL_MAX_CLIENT_ATTRIB_STACK_DEPTH'
+-- * 'Graphics.GL.Tokens.GL_MAX_CLIPMAP_DEPTH_SGIX'
+-- * 'Graphics.GL.Tokens.GL_MAX_CLIPMAP_VIRTUAL_DEPTH_SGIX'
+-- * 'Graphics.GL.Tokens.GL_MAX_CLIP_DISTANCES' (alias: 'Graphics.GL.Tokens.GL_MAX_CLIP_PLANES')
+-- * 'Graphics.GL.Tokens.GL_MAX_COLOR_MATRIX_STACK_DEPTH_SGI'
+-- * 'Graphics.GL.Tokens.GL_MAX_COLOR_TEXTURE_SAMPLES'
+-- * 'Graphics.GL.Tokens.GL_MAX_COMBINED_ATOMIC_COUNTERS'
+-- * 'Graphics.GL.Tokens.GL_MAX_COMBINED_COMPUTE_UNIFORM_COMPONENTS'
+-- * 'Graphics.GL.Tokens.GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS'
+-- * 'Graphics.GL.Tokens.GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS'
+-- * 'Graphics.GL.Tokens.GL_MAX_COMBINED_SHADER_STORAGE_BLOCKS'
+-- * 'Graphics.GL.Tokens.GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS'
+-- * 'Graphics.GL.Tokens.GL_MAX_COMBINED_UNIFORM_BLOCKS'
+-- * 'Graphics.GL.Tokens.GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS'
+-- * 'Graphics.GL.Tokens.GL_MAX_COMPUTE_ATOMIC_COUNTERS'
+-- * 'Graphics.GL.Tokens.GL_MAX_COMPUTE_ATOMIC_COUNTER_BUFFERS'
+-- * 'Graphics.GL.Tokens.GL_MAX_COMPUTE_SHADER_STORAGE_BLOCKS'
+-- * 'Graphics.GL.Tokens.GL_MAX_COMPUTE_TEXTURE_IMAGE_UNITS'
+-- * 'Graphics.GL.Tokens.GL_MAX_COMPUTE_UNIFORM_BLOCKS'
+-- * 'Graphics.GL.Tokens.GL_MAX_COMPUTE_UNIFORM_COMPONENTS'
+-- * 'Graphics.GL.Tokens.GL_MAX_COMPUTE_WORK_GROUP_COUNT'
+-- * 'Graphics.GL.Tokens.GL_MAX_COMPUTE_WORK_GROUP_INVOCATIONS'
+-- * 'Graphics.GL.Tokens.GL_MAX_COMPUTE_WORK_GROUP_SIZE'
+-- * 'Graphics.GL.Tokens.GL_MAX_CUBE_MAP_TEXTURE_SIZE'
+-- * 'Graphics.GL.Tokens.GL_MAX_DEBUG_GROUP_STACK_DEPTH'
+-- * 'Graphics.GL.Tokens.GL_MAX_DEPTH_TEXTURE_SAMPLES'
+-- * 'Graphics.GL.Tokens.GL_MAX_DRAW_BUFFERS'
+-- * 'Graphics.GL.Tokens.GL_MAX_DUAL_SOURCE_DRAW_BUFFERS'
+-- * 'Graphics.GL.Tokens.GL_MAX_ELEMENTS_INDICES'
+-- * 'Graphics.GL.Tokens.GL_MAX_ELEMENTS_VERTICES'
+-- * 'Graphics.GL.Tokens.GL_MAX_ELEMENT_INDEX'
+-- * 'Graphics.GL.Tokens.GL_MAX_EVAL_ORDER'
+-- * 'Graphics.GL.Tokens.GL_MAX_FOG_FUNC_POINTS_SGIS'
+-- * 'Graphics.GL.Tokens.GL_MAX_FRAGMENT_ATOMIC_COUNTERS'
+-- * 'Graphics.GL.Tokens.GL_MAX_FRAGMENT_INPUT_COMPONENTS'
+-- * 'Graphics.GL.Tokens.GL_MAX_FRAGMENT_LIGHTS_SGIX'
+-- * 'Graphics.GL.Tokens.GL_MAX_FRAGMENT_SHADER_STORAGE_BLOCKS'
+-- * 'Graphics.GL.Tokens.GL_MAX_FRAGMENT_UNIFORM_BLOCKS'
+-- * 'Graphics.GL.Tokens.GL_MAX_FRAGMENT_UNIFORM_COMPONENTS'
+-- * 'Graphics.GL.Tokens.GL_MAX_FRAGMENT_UNIFORM_VECTORS'
+-- * 'Graphics.GL.Tokens.GL_MAX_FRAMEBUFFER_HEIGHT'
+-- * 'Graphics.GL.Tokens.GL_MAX_FRAMEBUFFER_LAYERS'
+-- * 'Graphics.GL.Tokens.GL_MAX_FRAMEBUFFER_SAMPLES'
+-- * 'Graphics.GL.Tokens.GL_MAX_FRAMEBUFFER_WIDTH'
+-- * 'Graphics.GL.Tokens.GL_MAX_FRAMEZOOM_FACTOR_SGIX'
+-- * 'Graphics.GL.Tokens.GL_MAX_GEOMETRY_ATOMIC_COUNTERS'
+-- * 'Graphics.GL.Tokens.GL_MAX_GEOMETRY_INPUT_COMPONENTS'
+-- * 'Graphics.GL.Tokens.GL_MAX_GEOMETRY_OUTPUT_COMPONENTS'
+-- * 'Graphics.GL.Tokens.GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS'
+-- * 'Graphics.GL.Tokens.GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS'
+-- * 'Graphics.GL.Tokens.GL_MAX_GEOMETRY_UNIFORM_BLOCKS'
+-- * 'Graphics.GL.Tokens.GL_MAX_GEOMETRY_UNIFORM_COMPONENTS'
+-- * 'Graphics.GL.Tokens.GL_MAX_INTEGER_SAMPLES'
+-- * 'Graphics.GL.Tokens.GL_MAX_LABEL_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_MAX_LIGHTS'
+-- * 'Graphics.GL.Tokens.GL_MAX_LIST_NESTING'
+-- * 'Graphics.GL.Tokens.GL_MAX_MODELVIEW_STACK_DEPTH'
+-- * 'Graphics.GL.Tokens.GL_MAX_NAME_STACK_DEPTH'
+-- * 'Graphics.GL.Tokens.GL_MAX_PIXEL_MAP_TABLE'
+-- * 'Graphics.GL.Tokens.GL_MAX_PROGRAM_TEXEL_OFFSET'
+-- * 'Graphics.GL.Tokens.GL_MAX_PROJECTION_STACK_DEPTH'
+-- * 'Graphics.GL.Tokens.GL_MAX_RECTANGLE_TEXTURE_SIZE'
+-- * 'Graphics.GL.Tokens.GL_MAX_RENDERBUFFER_SIZE'
+-- * 'Graphics.GL.Tokens.GL_MAX_SAMPLE_MASK_WORDS'
+-- * 'Graphics.GL.Tokens.GL_MAX_SERVER_WAIT_TIMEOUT'
+-- * 'Graphics.GL.Tokens.GL_MAX_SHADER_STORAGE_BUFFER_BINDINGS'
+-- * 'Graphics.GL.Tokens.GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS'
+-- * 'Graphics.GL.Tokens.GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS'
+-- * 'Graphics.GL.Tokens.GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS'
+-- * 'Graphics.GL.Tokens.GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS'
+-- * 'Graphics.GL.Tokens.GL_MAX_TEXTURE_BUFFER_SIZE'
+-- * 'Graphics.GL.Tokens.GL_MAX_TEXTURE_IMAGE_UNITS'
+-- * 'Graphics.GL.Tokens.GL_MAX_TEXTURE_LOD_BIAS'
+-- * 'Graphics.GL.Tokens.GL_MAX_TEXTURE_SIZE'
+-- * 'Graphics.GL.Tokens.GL_MAX_TEXTURE_STACK_DEPTH'
+-- * 'Graphics.GL.Tokens.GL_MAX_UNIFORM_BLOCK_SIZE'
+-- * 'Graphics.GL.Tokens.GL_MAX_UNIFORM_BUFFER_BINDINGS'
+-- * 'Graphics.GL.Tokens.GL_MAX_UNIFORM_LOCATIONS'
+-- * 'Graphics.GL.Tokens.GL_MAX_VARYING_COMPONENTS' (alias: 'Graphics.GL.Tokens.GL_MAX_VARYING_FLOATS')
+-- * 'Graphics.GL.Tokens.GL_MAX_VARYING_VECTORS'
+-- * 'Graphics.GL.Tokens.GL_MAX_VERTEX_ATOMIC_COUNTERS'
+-- * 'Graphics.GL.Tokens.GL_MAX_VERTEX_ATTRIBS'
+-- * 'Graphics.GL.Tokens.GL_MAX_VERTEX_ATTRIB_BINDINGS'
+-- * 'Graphics.GL.Tokens.GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET'
+-- * 'Graphics.GL.Tokens.GL_MAX_VERTEX_OUTPUT_COMPONENTS'
+-- * 'Graphics.GL.Tokens.GL_MAX_VERTEX_SHADER_STORAGE_BLOCKS'
+-- * 'Graphics.GL.Tokens.GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS'
+-- * 'Graphics.GL.Tokens.GL_MAX_VERTEX_UNIFORM_BLOCKS'
+-- * 'Graphics.GL.Tokens.GL_MAX_VERTEX_UNIFORM_COMPONENTS'
+-- * 'Graphics.GL.Tokens.GL_MAX_VERTEX_UNIFORM_VECTORS'
+-- * 'Graphics.GL.Tokens.GL_MAX_VIEWPORTS'
+-- * 'Graphics.GL.Tokens.GL_MAX_VIEWPORT_DIMS'
+-- * 'Graphics.GL.Tokens.GL_MINMAX_EXT'
+-- * 'Graphics.GL.Tokens.GL_MINOR_VERSION'
+-- * 'Graphics.GL.Tokens.GL_MIN_MAP_BUFFER_ALIGNMENT'
+-- * 'Graphics.GL.Tokens.GL_MIN_PROGRAM_TEXEL_OFFSET'
+-- * 'Graphics.GL.Tokens.GL_MODELVIEW0_MATRIX_EXT' (alias: 'Graphics.GL.Tokens.GL_MODELVIEW_MATRIX')
+-- * 'Graphics.GL.Tokens.GL_MODELVIEW0_STACK_DEPTH_EXT' (alias: 'Graphics.GL.Tokens.GL_MODELVIEW_STACK_DEPTH')
+-- * 'Graphics.GL.Tokens.GL_MULTISAMPLE_SGIS'
+-- * 'Graphics.GL.Tokens.GL_NAME_STACK_DEPTH'
+-- * 'Graphics.GL.Tokens.GL_NORMALIZE'
+-- * 'Graphics.GL.Tokens.GL_NORMAL_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_NORMAL_ARRAY_COUNT_EXT'
+-- * 'Graphics.GL.Tokens.GL_NORMAL_ARRAY_STRIDE'
+-- * 'Graphics.GL.Tokens.GL_NORMAL_ARRAY_TYPE'
+-- * 'Graphics.GL.Tokens.GL_NUM_COMPRESSED_TEXTURE_FORMATS'
+-- * 'Graphics.GL.Tokens.GL_NUM_DEVICE_UUIDS_EXT'
+-- * 'Graphics.GL.Tokens.GL_NUM_EXTENSIONS'
+-- * 'Graphics.GL.Tokens.GL_NUM_PROGRAM_BINARY_FORMATS'
+-- * 'Graphics.GL.Tokens.GL_NUM_SHADER_BINARY_FORMATS'
+-- * 'Graphics.GL.Tokens.GL_PACK_ALIGNMENT'
+-- * 'Graphics.GL.Tokens.GL_PACK_CMYK_HINT_EXT'
+-- * 'Graphics.GL.Tokens.GL_PACK_IMAGE_DEPTH_SGIS'
+-- * 'Graphics.GL.Tokens.GL_PACK_IMAGE_HEIGHT' (alias: 'Graphics.GL.Tokens.GL_PACK_IMAGE_HEIGHT_EXT')
+-- * 'Graphics.GL.Tokens.GL_PACK_LSB_FIRST'
+-- * 'Graphics.GL.Tokens.GL_PACK_RESAMPLE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PACK_ROW_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_PACK_SKIP_IMAGES' (alias: 'Graphics.GL.Tokens.GL_PACK_SKIP_IMAGES_EXT')
+-- * 'Graphics.GL.Tokens.GL_PACK_SKIP_PIXELS'
+-- * 'Graphics.GL.Tokens.GL_PACK_SKIP_ROWS'
+-- * 'Graphics.GL.Tokens.GL_PACK_SKIP_VOLUMES_SGIS'
+-- * 'Graphics.GL.Tokens.GL_PACK_SUBSAMPLE_RATE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PACK_SWAP_BYTES'
+-- * 'Graphics.GL.Tokens.GL_PERSPECTIVE_CORRECTION_HINT'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_A_TO_A_SIZE'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_B_TO_B_SIZE'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_G_TO_G_SIZE'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_I_TO_A_SIZE'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_I_TO_B_SIZE'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_I_TO_G_SIZE'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_I_TO_I_SIZE'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_I_TO_R_SIZE'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_R_TO_R_SIZE'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_S_TO_S_SIZE'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_PACK_BUFFER_BINDING'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEXTURE_SGIS'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_MODE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TILE_BEST_ALIGNMENT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TILE_CACHE_INCREMENT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TILE_CACHE_SIZE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TILE_GRID_DEPTH_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TILE_GRID_HEIGHT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TILE_GRID_WIDTH_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TILE_HEIGHT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TILE_WIDTH_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_UNPACK_BUFFER_BINDING'
+-- * 'Graphics.GL.Tokens.GL_POINT_FADE_THRESHOLD_SIZE' (alias: 'Graphics.GL.Tokens.GL_POINT_FADE_THRESHOLD_SIZE_SGIS')
+-- * 'Graphics.GL.Tokens.GL_POINT_SIZE'
+-- * 'Graphics.GL.Tokens.GL_POINT_SIZE_GRANULARITY' (alias: 'Graphics.GL.Tokens.GL_SMOOTH_POINT_SIZE_GRANULARITY')
+-- * 'Graphics.GL.Tokens.GL_POINT_SIZE_MAX_SGIS'
+-- * 'Graphics.GL.Tokens.GL_POINT_SIZE_MIN_SGIS'
+-- * 'Graphics.GL.Tokens.GL_POINT_SIZE_RANGE' (alias: 'Graphics.GL.Tokens.GL_SMOOTH_POINT_SIZE_RANGE')
+-- * 'Graphics.GL.Tokens.GL_POINT_SMOOTH'
+-- * 'Graphics.GL.Tokens.GL_POINT_SMOOTH_HINT'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_MODE'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_OFFSET_BIAS_EXT'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_OFFSET_FACTOR'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_OFFSET_FILL'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_OFFSET_LINE'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_OFFSET_POINT'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_OFFSET_UNITS'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_SMOOTH'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_SMOOTH_HINT'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_STIPPLE'
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_ALPHA_BIAS_SGI'
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_ALPHA_SCALE_SGI'
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_BLUE_BIAS_SGI'
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_BLUE_SCALE_SGI'
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI'
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_GREEN_BIAS_SGI'
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_GREEN_SCALE_SGI'
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_RED_BIAS_SGI'
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_RED_SCALE_SGI'
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_ALPHA_BIAS_EXT'
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_ALPHA_SCALE_EXT'
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_BLUE_BIAS_EXT'
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_BLUE_SCALE_EXT'
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_COLOR_TABLE_SGI'
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_GREEN_BIAS_EXT'
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_GREEN_SCALE_EXT'
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_RED_BIAS_EXT'
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_RED_SCALE_EXT'
+-- * 'Graphics.GL.Tokens.GL_POST_TEXTURE_FILTER_BIAS_RANGE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_POST_TEXTURE_FILTER_SCALE_RANGE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PRIMITIVE_RESTART_INDEX'
+-- * 'Graphics.GL.Tokens.GL_PROGRAM_BINARY_FORMATS'
+-- * 'Graphics.GL.Tokens.GL_PROGRAM_PIPELINE_BINDING'
+-- * 'Graphics.GL.Tokens.GL_PROGRAM_POINT_SIZE'
+-- * 'Graphics.GL.Tokens.GL_PROJECTION_MATRIX'
+-- * 'Graphics.GL.Tokens.GL_PROJECTION_STACK_DEPTH'
+-- * 'Graphics.GL.Tokens.GL_PROVOKING_VERTEX'
+-- * 'Graphics.GL.Tokens.GL_READ_BUFFER' (aliases: 'Graphics.GL.Tokens.GL_READ_BUFFER_EXT', 'Graphics.GL.Tokens.GL_READ_BUFFER_NV')
+-- * 'Graphics.GL.Tokens.GL_READ_FRAMEBUFFER_BINDING'
+-- * 'Graphics.GL.Tokens.GL_RED_BIAS'
+-- * 'Graphics.GL.Tokens.GL_RED_BITS'
+-- * 'Graphics.GL.Tokens.GL_RED_SCALE'
+-- * 'Graphics.GL.Tokens.GL_REFERENCE_PLANE_EQUATION_SGIX'
+-- * 'Graphics.GL.Tokens.GL_REFERENCE_PLANE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_RENDERBUFFER_BINDING'
+-- * 'Graphics.GL.Tokens.GL_RENDER_MODE'
+-- * 'Graphics.GL.Tokens.GL_RESCALE_NORMAL_EXT'
+-- * 'Graphics.GL.Tokens.GL_RGBA_MODE'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_BINDING'
+-- * 'Graphics.GL.Tokens.GL_SAMPLES' (alias: 'Graphics.GL.Tokens.GL_SAMPLES_SGIS')
+-- * 'Graphics.GL.Tokens.GL_SAMPLE_ALPHA_TO_MASK_SGIS'
+-- * 'Graphics.GL.Tokens.GL_SAMPLE_ALPHA_TO_ONE_SGIS'
+-- * 'Graphics.GL.Tokens.GL_SAMPLE_BUFFERS' (alias: 'Graphics.GL.Tokens.GL_SAMPLE_BUFFERS_SGIS')
+-- * 'Graphics.GL.Tokens.GL_SAMPLE_COVERAGE_INVERT' (alias: 'Graphics.GL.Tokens.GL_SAMPLE_MASK_INVERT_SGIS')
+-- * 'Graphics.GL.Tokens.GL_SAMPLE_COVERAGE_VALUE' (alias: 'Graphics.GL.Tokens.GL_SAMPLE_MASK_VALUE_SGIS')
+-- * 'Graphics.GL.Tokens.GL_SAMPLE_MASK_SGIS'
+-- * 'Graphics.GL.Tokens.GL_SAMPLE_PATTERN_SGIS'
+-- * 'Graphics.GL.Tokens.GL_SCISSOR_BOX'
+-- * 'Graphics.GL.Tokens.GL_SCISSOR_TEST'
+-- * 'Graphics.GL.Tokens.GL_SELECTION_BUFFER_SIZE'
+-- * 'Graphics.GL.Tokens.GL_SEPARABLE_2D_EXT'
+-- * 'Graphics.GL.Tokens.GL_SHADER_COMPILER'
+-- * 'Graphics.GL.Tokens.GL_SHADER_STORAGE_BUFFER_BINDING'
+-- * 'Graphics.GL.Tokens.GL_SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT'
+-- * 'Graphics.GL.Tokens.GL_SHADER_STORAGE_BUFFER_SIZE'
+-- * 'Graphics.GL.Tokens.GL_SHADER_STORAGE_BUFFER_START'
+-- * 'Graphics.GL.Tokens.GL_SHADE_MODEL'
+-- * 'Graphics.GL.Tokens.GL_SHARED_TEXTURE_PALETTE_EXT'
+-- * 'Graphics.GL.Tokens.GL_SPRITE_AXIS_SGIX'
+-- * 'Graphics.GL.Tokens.GL_SPRITE_MODE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_SPRITE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_SPRITE_TRANSLATION_SGIX'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BACK_FAIL'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BACK_FUNC'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BACK_PASS_DEPTH_FAIL'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BACK_PASS_DEPTH_PASS'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BACK_REF'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BACK_VALUE_MASK'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BACK_WRITEMASK'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_BITS'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_CLEAR_VALUE'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_FAIL'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_FUNC'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_PASS_DEPTH_FAIL'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_PASS_DEPTH_PASS'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_REF'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_TEST'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_VALUE_MASK'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_WRITEMASK'
+-- * 'Graphics.GL.Tokens.GL_STEREO'
+-- * 'Graphics.GL.Tokens.GL_SUBPIXEL_BITS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_1D'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_2D'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_3D_BINDING_EXT' (alias: 'Graphics.GL.Tokens.GL_TEXTURE_BINDING_3D')
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_3D_EXT'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_4D_BINDING_SGIS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_4D_SGIS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BINDING_1D'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BINDING_1D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BINDING_2D'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BINDING_2D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BINDING_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BINDING_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BINDING_CUBE_MAP'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BINDING_RECTANGLE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COLOR_TABLE_SGI'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COMPRESSION_HINT'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COORD_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COORD_ARRAY_COUNT_EXT'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COORD_ARRAY_SIZE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COORD_ARRAY_STRIDE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COORD_ARRAY_TYPE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_GEN_Q'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_GEN_R'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_GEN_S'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_GEN_T'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MATRIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_STACK_DEPTH'
+-- * 'Graphics.GL.Tokens.GL_TIMESTAMP'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_BUFFER_BINDING'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_BUFFER_SIZE'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_BUFFER_START'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BUFFER_BINDING'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BUFFER_SIZE'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BUFFER_START'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_ALIGNMENT'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_CMYK_HINT_EXT'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_IMAGE_DEPTH_SGIS'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_IMAGE_HEIGHT' (alias: 'Graphics.GL.Tokens.GL_UNPACK_IMAGE_HEIGHT_EXT')
+-- * 'Graphics.GL.Tokens.GL_UNPACK_LSB_FIRST'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_RESAMPLE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_ROW_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_SKIP_IMAGES' (alias: 'Graphics.GL.Tokens.GL_UNPACK_SKIP_IMAGES_EXT')
+-- * 'Graphics.GL.Tokens.GL_UNPACK_SKIP_PIXELS'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_SKIP_ROWS'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_SKIP_VOLUMES_SGIS'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_SUBSAMPLE_RATE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_SWAP_BYTES'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ARRAY_BINDING'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ARRAY_COUNT_EXT'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ARRAY_SIZE'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ARRAY_STRIDE'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ARRAY_TYPE'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_BINDING_DIVISOR'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_BINDING_OFFSET'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_BINDING_STRIDE'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_PRECLIP_HINT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_PRECLIP_SGIX'
+-- * 'Graphics.GL.Tokens.GL_VIEWPORT'
+-- * 'Graphics.GL.Tokens.GL_VIEWPORT_BOUNDS_RANGE'
+-- * 'Graphics.GL.Tokens.GL_VIEWPORT_INDEX_PROVOKING_VERTEX'
+-- * 'Graphics.GL.Tokens.GL_VIEWPORT_SUBPIXEL_BITS'
+-- * 'Graphics.GL.Tokens.GL_ZOOM_X'
+-- * 'Graphics.GL.Tokens.GL_ZOOM_Y'
+--
+-- === #GetPixelMap# GetPixelMap
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_A_TO_A'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_B_TO_B'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_G_TO_G'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_I_TO_A'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_I_TO_B'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_I_TO_G'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_I_TO_I'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_I_TO_R'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_R_TO_R'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_S_TO_S'
+--
+-- === #GetPointervPName# GetPointervPName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_COLOR_ARRAY_POINTER' (alias: 'Graphics.GL.Tokens.GL_COLOR_ARRAY_POINTER_EXT')
+-- * 'Graphics.GL.Tokens.GL_EDGE_FLAG_ARRAY_POINTER' (alias: 'Graphics.GL.Tokens.GL_EDGE_FLAG_ARRAY_POINTER_EXT')
+-- * 'Graphics.GL.Tokens.GL_FEEDBACK_BUFFER_POINTER'
+-- * 'Graphics.GL.Tokens.GL_INDEX_ARRAY_POINTER' (alias: 'Graphics.GL.Tokens.GL_INDEX_ARRAY_POINTER_EXT')
+-- * 'Graphics.GL.Tokens.GL_INSTRUMENT_BUFFER_POINTER_SGIX'
+-- * 'Graphics.GL.Tokens.GL_NORMAL_ARRAY_POINTER' (alias: 'Graphics.GL.Tokens.GL_NORMAL_ARRAY_POINTER_EXT')
+-- * 'Graphics.GL.Tokens.GL_SELECTION_BUFFER_POINTER'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COORD_ARRAY_POINTER' (alias: 'Graphics.GL.Tokens.GL_TEXTURE_COORD_ARRAY_POINTER_EXT')
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ARRAY_POINTER' (alias: 'Graphics.GL.Tokens.GL_VERTEX_ARRAY_POINTER_EXT')
+-- * 'Graphics.GL.Tokens.GL_DEBUG_CALLBACK_FUNCTION'
+-- * 'Graphics.GL.Tokens.GL_DEBUG_CALLBACK_USER_PARAM'
+--
+-- === #GetTexBumpParameterATI# GetTexBumpParameterATI
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BUMP_ROT_MATRIX_ATI'
+-- * 'Graphics.GL.Tokens.GL_BUMP_ROT_MATRIX_SIZE_ATI'
+-- * 'Graphics.GL.Tokens.GL_BUMP_NUM_TEX_UNITS_ATI'
+-- * 'Graphics.GL.Tokens.GL_BUMP_TEX_UNITS_ATI'
+--
+-- === #GetTextureParameter# GetTextureParameter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DETAIL_TEXTURE_FUNC_POINTS_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DETAIL_TEXTURE_LEVEL_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DETAIL_TEXTURE_MODE_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DUAL_TEXTURE_SELECT_SGIS'
+-- * 'Graphics.GL.Tokens.GL_GENERATE_MIPMAP_SGIS'
+-- * 'Graphics.GL.Tokens.GL_POST_TEXTURE_FILTER_BIAS_SGIX'
+-- * 'Graphics.GL.Tokens.GL_POST_TEXTURE_FILTER_SCALE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_QUAD_TEXTURE_SELECT_SGIS'
+-- * 'Graphics.GL.Tokens.GL_SHADOW_AMBIENT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_SHARPEN_TEXTURE_FUNC_POINTS_SGIS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_4DSIZE_SGIS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_ALPHA_SIZE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BASE_LEVEL_SGIS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BLUE_SIZE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BORDER'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BORDER_COLOR' (alias: 'Graphics.GL.Tokens.GL_TEXTURE_BORDER_COLOR_NV')
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CLIPMAP_CENTER_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CLIPMAP_DEPTH_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CLIPMAP_FRAME_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CLIPMAP_LOD_OFFSET_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CLIPMAP_OFFSET_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CLIPMAP_VIRTUAL_DEPTH_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COMPARE_OPERATOR_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COMPARE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COMPONENTS' (alias: 'Graphics.GL.Tokens.GL_TEXTURE_INTERNAL_FORMAT')
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_DEPTH_EXT'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_FILTER4_SIZE_SGIS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_GEQUAL_R_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_GREEN_SIZE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_HEIGHT'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_INTENSITY_SIZE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_LEQUAL_R_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_LOD_BIAS_R_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_LOD_BIAS_S_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_LOD_BIAS_T_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_LUMINANCE_SIZE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MAG_FILTER'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MAX_CLAMP_R_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MAX_CLAMP_S_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MAX_CLAMP_T_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MAX_LEVEL_SGIS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MAX_LOD_SGIS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MIN_FILTER'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MIN_LOD_SGIS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_PRIORITY'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_RED_SIZE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_RESIDENT'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_WIDTH'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_WRAP_Q_SGIS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_WRAP_R_EXT'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_WRAP_S'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_WRAP_T'
+--
+-- === #GetVariantValueEXT# GetVariantValueEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_VARIANT_VALUE_EXT'
+-- * 'Graphics.GL.Tokens.GL_VARIANT_DATATYPE_EXT'
+-- * 'Graphics.GL.Tokens.GL_VARIANT_ARRAY_STRIDE_EXT'
+-- * 'Graphics.GL.Tokens.GL_VARIANT_ARRAY_TYPE_EXT'
+--
+-- === #GlslTypeToken# GlslTypeToken
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_VEC2'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_VEC3'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_VEC4'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_VEC2'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_VEC3'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_VEC4'
+-- * 'Graphics.GL.Tokens.GL_INT'
+-- * 'Graphics.GL.Tokens.GL_INT_VEC2'
+-- * 'Graphics.GL.Tokens.GL_INT_VEC3'
+-- * 'Graphics.GL.Tokens.GL_INT_VEC4'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_VEC2'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_VEC3'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_VEC4'
+-- * 'Graphics.GL.Tokens.GL_BOOL'
+-- * 'Graphics.GL.Tokens.GL_BOOL_VEC2'
+-- * 'Graphics.GL.Tokens.GL_BOOL_VEC3'
+-- * 'Graphics.GL.Tokens.GL_BOOL_VEC4'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT2'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT3'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT4'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT2x3'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT2x4'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT3x2'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT3x4'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT4x2'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT4x3'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT2'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT3'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT4'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_1D'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_3D'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_CUBE'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_1D_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_1D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_CUBE_MAP_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_1D_ARRAY_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_ARRAY_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_MULTISAMPLE_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_CUBE_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_RECT'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_RECT_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_1D'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_2D'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_3D'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_CUBE'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_1D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_2D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_CUBE_MAP_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_2D_RECT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_1D'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_2D'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_3D'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_CUBE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_1D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_2D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_2D_RECT'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_1D'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_2D'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_3D'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_2D_RECT'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_CUBE'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_1D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_2D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_CUBE_MAP_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_2D_MULTISAMPLE_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_1D'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_2D'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_3D'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_2D_RECT'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_CUBE'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_1D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_2D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_CUBE_MAP_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_INT_IMAGE_2D_MULTISAMPLE_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_1D'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_2D'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_3D'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_2D_RECT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_CUBE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_1D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_2D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_ATOMIC_COUNTER'
+--
+-- === #GraphicsResetStatus# GraphicsResetStatus
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_NO_ERROR'
+-- * 'Graphics.GL.Tokens.GL_GUILTY_CONTEXT_RESET'
+-- * 'Graphics.GL.Tokens.GL_INNOCENT_CONTEXT_RESET'
+-- * 'Graphics.GL.Tokens.GL_UNKNOWN_CONTEXT_RESET'
+--
+-- === #HintMode# HintMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DONT_CARE'
+-- * 'Graphics.GL.Tokens.GL_FASTEST'
+-- * 'Graphics.GL.Tokens.GL_NICEST'
+--
+-- === #HintTarget# HintTarget
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ALLOW_DRAW_FRG_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_ALLOW_DRAW_MEM_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_ALLOW_DRAW_OBJ_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_ALLOW_DRAW_WIN_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_ALWAYS_FAST_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_ALWAYS_SOFT_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_BACK_NORMALS_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_BINNING_CONTROL_HINT_QCOM'
+-- * 'Graphics.GL.Tokens.GL_CLIP_FAR_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_CLIP_NEAR_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_CLIP_VOLUME_CLIPPING_HINT_EXT'
+-- * 'Graphics.GL.Tokens.GL_CONSERVE_MEMORY_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_CONVOLUTION_HINT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FOG_HINT'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_SHADER_DERIVATIVE_HINT' (aliases: 'Graphics.GL.Tokens.GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB', 'Graphics.GL.Tokens.GL_FRAGMENT_SHADER_DERIVATIVE_HINT_OES')
+-- * 'Graphics.GL.Tokens.GL_FULL_STIPPLE_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_GENERATE_MIPMAP_HINT' (alias: 'Graphics.GL.Tokens.GL_GENERATE_MIPMAP_HINT_SGIS')
+-- * 'Graphics.GL.Tokens.GL_LINE_QUALITY_HINT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_LINE_SMOOTH_HINT'
+-- * 'Graphics.GL.Tokens.GL_MATERIAL_SIDE_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_MAX_VERTEX_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_MULTISAMPLE_FILTER_HINT_NV'
+-- * 'Graphics.GL.Tokens.GL_NATIVE_GRAPHICS_BEGIN_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_NATIVE_GRAPHICS_END_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_PACK_CMYK_HINT_EXT'
+-- * 'Graphics.GL.Tokens.GL_PERSPECTIVE_CORRECTION_HINT'
+-- * 'Graphics.GL.Tokens.GL_PHONG_HINT_WIN'
+-- * 'Graphics.GL.Tokens.GL_POINT_SMOOTH_HINT'
+-- * 'Graphics.GL.Tokens.GL_POLYGON_SMOOTH_HINT'
+-- * 'Graphics.GL.Tokens.GL_PREFER_DOUBLEBUFFER_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_PROGRAM_BINARY_RETRIEVABLE_HINT'
+-- * 'Graphics.GL.Tokens.GL_RECLAIM_MEMORY_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_SCALEBIAS_HINT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_STRICT_DEPTHFUNC_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_STRICT_LIGHTING_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_STRICT_SCISSOR_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COMPRESSION_HINT' (alias: 'Graphics.GL.Tokens.GL_TEXTURE_COMPRESSION_HINT_ARB')
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MULTI_BUFFER_HINT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_STORAGE_HINT_APPLE'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_HINT_APPLE'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_CMYK_HINT_EXT'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ARRAY_STORAGE_HINT_APPLE'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_CONSISTENT_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_DATA_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_PRECLIP_HINT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_PRECLIP_SGIX'
+-- * 'Graphics.GL.Tokens.GL_WIDE_LINE_HINT_PGI'
+--
+-- === #HintTargetPGI# HintTargetPGI
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_VERTEX_DATA_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_CONSISTENT_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_MATERIAL_SIDE_HINT_PGI'
+-- * 'Graphics.GL.Tokens.GL_MAX_VERTEX_HINT_PGI'
+--
+-- === #HistogramTargetEXT# HistogramTargetEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_HISTOGRAM' (alias: 'Graphics.GL.Tokens.GL_HISTOGRAM_EXT')
+-- * 'Graphics.GL.Tokens.GL_PROXY_HISTOGRAM' (alias: 'Graphics.GL.Tokens.GL_PROXY_HISTOGRAM_EXT')
+--
+-- === #IglooFunctionSelectSGIX# IglooFunctionSelectSGIX
+-- There are no values defined for this enumeration group.
+--
+--
+-- === #ImageTransformPNameHP# ImageTransformPNameHP
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_IMAGE_SCALE_X_HP'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_SCALE_Y_HP'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_TRANSLATE_X_HP'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_TRANSLATE_Y_HP'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_ROTATE_ANGLE_HP'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_ROTATE_ORIGIN_X_HP'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_ROTATE_ORIGIN_Y_HP'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_MAG_FILTER_HP'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_MIN_FILTER_HP'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_CUBIC_WEIGHT_HP'
+--
+-- === #ImageTransformTargetHP# ImageTransformTargetHP
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_IMAGE_TRANSFORM_2D_HP'
+--
+-- === #IndexFunctionEXT# IndexFunctionEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_NEVER'
+-- * 'Graphics.GL.Tokens.GL_ALWAYS'
+-- * 'Graphics.GL.Tokens.GL_LESS'
+-- * 'Graphics.GL.Tokens.GL_LEQUAL'
+-- * 'Graphics.GL.Tokens.GL_EQUAL'
+-- * 'Graphics.GL.Tokens.GL_GEQUAL'
+-- * 'Graphics.GL.Tokens.GL_GREATER'
+-- * 'Graphics.GL.Tokens.GL_NOTEQUAL'
+--
+-- === #IndexMaterialParameterEXT# IndexMaterialParameterEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_INDEX_OFFSET'
+--
+-- === #IndexPointerType# IndexPointerType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DOUBLE'
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_INT'
+-- * 'Graphics.GL.Tokens.GL_SHORT'
+--
+-- === #InterleavedArrayFormat# InterleavedArrayFormat
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_C3F_V3F'
+-- * 'Graphics.GL.Tokens.GL_C4F_N3F_V3F'
+-- * 'Graphics.GL.Tokens.GL_C4UB_V2F'
+-- * 'Graphics.GL.Tokens.GL_C4UB_V3F'
+-- * 'Graphics.GL.Tokens.GL_N3F_V3F'
+-- * 'Graphics.GL.Tokens.GL_T2F_C3F_V3F'
+-- * 'Graphics.GL.Tokens.GL_T2F_C4F_N3F_V3F'
+-- * 'Graphics.GL.Tokens.GL_T2F_C4UB_V3F'
+-- * 'Graphics.GL.Tokens.GL_T2F_N3F_V3F'
+-- * 'Graphics.GL.Tokens.GL_T2F_V3F'
+-- * 'Graphics.GL.Tokens.GL_T4F_C4F_N3F_V4F'
+-- * 'Graphics.GL.Tokens.GL_T4F_V4F'
+-- * 'Graphics.GL.Tokens.GL_V2F'
+-- * 'Graphics.GL.Tokens.GL_V3F'
+--
+-- === #InternalFormat# InternalFormat
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ALPHA12'
+-- * 'Graphics.GL.Tokens.GL_ALPHA16'
+-- * 'Graphics.GL.Tokens.GL_ALPHA4'
+-- * 'Graphics.GL.Tokens.GL_ALPHA8'
+-- * 'Graphics.GL.Tokens.GL_DUAL_ALPHA12_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DUAL_ALPHA16_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DUAL_ALPHA4_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DUAL_ALPHA8_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DUAL_INTENSITY12_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DUAL_INTENSITY16_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DUAL_INTENSITY4_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DUAL_INTENSITY8_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DUAL_LUMINANCE12_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DUAL_LUMINANCE16_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DUAL_LUMINANCE4_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DUAL_LUMINANCE8_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DUAL_LUMINANCE_ALPHA4_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DUAL_LUMINANCE_ALPHA8_SGIS'
+-- * 'Graphics.GL.Tokens.GL_INTENSITY'
+-- * 'Graphics.GL.Tokens.GL_INTENSITY12'
+-- * 'Graphics.GL.Tokens.GL_INTENSITY16'
+-- * 'Graphics.GL.Tokens.GL_INTENSITY4'
+-- * 'Graphics.GL.Tokens.GL_INTENSITY8'
+-- * 'Graphics.GL.Tokens.GL_LUMINANCE12'
+-- * 'Graphics.GL.Tokens.GL_LUMINANCE12_ALPHA12'
+-- * 'Graphics.GL.Tokens.GL_LUMINANCE12_ALPHA4'
+-- * 'Graphics.GL.Tokens.GL_LUMINANCE16'
+-- * 'Graphics.GL.Tokens.GL_LUMINANCE16_ALPHA16'
+-- * 'Graphics.GL.Tokens.GL_LUMINANCE4'
+-- * 'Graphics.GL.Tokens.GL_LUMINANCE4_ALPHA4'
+-- * 'Graphics.GL.Tokens.GL_LUMINANCE6_ALPHA2'
+-- * 'Graphics.GL.Tokens.GL_LUMINANCE8'
+-- * 'Graphics.GL.Tokens.GL_LUMINANCE8_ALPHA8'
+-- * 'Graphics.GL.Tokens.GL_QUAD_ALPHA4_SGIS'
+-- * 'Graphics.GL.Tokens.GL_QUAD_ALPHA8_SGIS'
+-- * 'Graphics.GL.Tokens.GL_QUAD_INTENSITY4_SGIS'
+-- * 'Graphics.GL.Tokens.GL_QUAD_INTENSITY8_SGIS'
+-- * 'Graphics.GL.Tokens.GL_QUAD_LUMINANCE4_SGIS'
+-- * 'Graphics.GL.Tokens.GL_QUAD_LUMINANCE8_SGIS'
+-- * 'Graphics.GL.Tokens.GL_RED' (alias: 'Graphics.GL.Tokens.GL_RED_EXT')
+-- * 'Graphics.GL.Tokens.GL_R8' (alias: 'Graphics.GL.Tokens.GL_R8_EXT')
+-- * 'Graphics.GL.Tokens.GL_R8_SNORM'
+-- * 'Graphics.GL.Tokens.GL_R16' (alias: 'Graphics.GL.Tokens.GL_R16_EXT')
+-- * 'Graphics.GL.Tokens.GL_R16_SNORM' (alias: 'Graphics.GL.Tokens.GL_R16_SNORM_EXT')
+-- * 'Graphics.GL.Tokens.GL_R16F' (alias: 'Graphics.GL.Tokens.GL_R16F_EXT')
+-- * 'Graphics.GL.Tokens.GL_R32F' (alias: 'Graphics.GL.Tokens.GL_R32F_EXT')
+-- * 'Graphics.GL.Tokens.GL_R8I'
+-- * 'Graphics.GL.Tokens.GL_R16I'
+-- * 'Graphics.GL.Tokens.GL_R32I'
+-- * 'Graphics.GL.Tokens.GL_R8UI'
+-- * 'Graphics.GL.Tokens.GL_R16UI'
+-- * 'Graphics.GL.Tokens.GL_R32UI'
+-- * 'Graphics.GL.Tokens.GL_RG'
+-- * 'Graphics.GL.Tokens.GL_RG8' (alias: 'Graphics.GL.Tokens.GL_RG8_EXT')
+-- * 'Graphics.GL.Tokens.GL_RG8_SNORM'
+-- * 'Graphics.GL.Tokens.GL_RG16' (alias: 'Graphics.GL.Tokens.GL_RG16_EXT')
+-- * 'Graphics.GL.Tokens.GL_RG16_SNORM' (alias: 'Graphics.GL.Tokens.GL_RG16_SNORM_EXT')
+-- * 'Graphics.GL.Tokens.GL_RG16F' (alias: 'Graphics.GL.Tokens.GL_RG16F_EXT')
+-- * 'Graphics.GL.Tokens.GL_RG32F' (alias: 'Graphics.GL.Tokens.GL_RG32F_EXT')
+-- * 'Graphics.GL.Tokens.GL_RG8I'
+-- * 'Graphics.GL.Tokens.GL_RG16I'
+-- * 'Graphics.GL.Tokens.GL_RG32I'
+-- * 'Graphics.GL.Tokens.GL_RG8UI'
+-- * 'Graphics.GL.Tokens.GL_RG16UI'
+-- * 'Graphics.GL.Tokens.GL_RG32UI'
+-- * 'Graphics.GL.Tokens.GL_RGB'
+-- * 'Graphics.GL.Tokens.GL_RGB2_EXT'
+-- * 'Graphics.GL.Tokens.GL_RGB4' (alias: 'Graphics.GL.Tokens.GL_RGB4_EXT')
+-- * 'Graphics.GL.Tokens.GL_RGB5' (alias: 'Graphics.GL.Tokens.GL_RGB5_EXT')
+-- * 'Graphics.GL.Tokens.GL_RGB8' (aliases: 'Graphics.GL.Tokens.GL_RGB8_EXT', 'Graphics.GL.Tokens.GL_RGB8_OES')
+-- * 'Graphics.GL.Tokens.GL_RGB8_SNORM'
+-- * 'Graphics.GL.Tokens.GL_RGB10' (alias: 'Graphics.GL.Tokens.GL_RGB10_EXT')
+-- * 'Graphics.GL.Tokens.GL_RGB12' (alias: 'Graphics.GL.Tokens.GL_RGB12_EXT')
+-- * 'Graphics.GL.Tokens.GL_RGB16' (alias: 'Graphics.GL.Tokens.GL_RGB16_EXT')
+-- * 'Graphics.GL.Tokens.GL_RGB16F' (aliases: 'Graphics.GL.Tokens.GL_RGB16F_ARB', 'Graphics.GL.Tokens.GL_RGB16F_EXT')
+-- * 'Graphics.GL.Tokens.GL_RGB16_SNORM' (alias: 'Graphics.GL.Tokens.GL_RGB16_SNORM_EXT')
+-- * 'Graphics.GL.Tokens.GL_RGB32F'
+-- * 'Graphics.GL.Tokens.GL_RGB8I'
+-- * 'Graphics.GL.Tokens.GL_RGB16I'
+-- * 'Graphics.GL.Tokens.GL_RGB32I'
+-- * 'Graphics.GL.Tokens.GL_RGB8UI'
+-- * 'Graphics.GL.Tokens.GL_RGB16UI'
+-- * 'Graphics.GL.Tokens.GL_RGB32UI'
+-- * 'Graphics.GL.Tokens.GL_SRGB' (alias: 'Graphics.GL.Tokens.GL_SRGB_EXT')
+-- * 'Graphics.GL.Tokens.GL_SRGB_ALPHA' (alias: 'Graphics.GL.Tokens.GL_SRGB_ALPHA_EXT')
+-- * 'Graphics.GL.Tokens.GL_SRGB8' (aliases: 'Graphics.GL.Tokens.GL_SRGB8_EXT', 'Graphics.GL.Tokens.GL_SRGB8_NV')
+-- * 'Graphics.GL.Tokens.GL_SRGB8_ALPHA8' (alias: 'Graphics.GL.Tokens.GL_SRGB8_ALPHA8_EXT')
+-- * 'Graphics.GL.Tokens.GL_R3_G3_B2'
+-- * 'Graphics.GL.Tokens.GL_R11F_G11F_B10F' (aliases: 'Graphics.GL.Tokens.GL_R11F_G11F_B10F_APPLE', 'Graphics.GL.Tokens.GL_R11F_G11F_B10F_EXT')
+-- * 'Graphics.GL.Tokens.GL_RGB9_E5' (aliases: 'Graphics.GL.Tokens.GL_RGB9_E5_APPLE', 'Graphics.GL.Tokens.GL_RGB9_E5_EXT')
+-- * 'Graphics.GL.Tokens.GL_RGBA'
+-- * 'Graphics.GL.Tokens.GL_RGBA4' (aliases: 'Graphics.GL.Tokens.GL_RGBA4_EXT', 'Graphics.GL.Tokens.GL_RGBA4_OES')
+-- * 'Graphics.GL.Tokens.GL_RGB5_A1' (aliases: 'Graphics.GL.Tokens.GL_RGB5_A1_EXT', 'Graphics.GL.Tokens.GL_RGB5_A1_OES')
+-- * 'Graphics.GL.Tokens.GL_RGBA8' (aliases: 'Graphics.GL.Tokens.GL_RGBA8_EXT', 'Graphics.GL.Tokens.GL_RGBA8_OES')
+-- * 'Graphics.GL.Tokens.GL_RGBA8_SNORM'
+-- * 'Graphics.GL.Tokens.GL_RGB10_A2' (alias: 'Graphics.GL.Tokens.GL_RGB10_A2_EXT')
+-- * 'Graphics.GL.Tokens.GL_RGBA12' (alias: 'Graphics.GL.Tokens.GL_RGBA12_EXT')
+-- * 'Graphics.GL.Tokens.GL_RGBA16' (alias: 'Graphics.GL.Tokens.GL_RGBA16_EXT')
+-- * 'Graphics.GL.Tokens.GL_RGBA16F' (aliases: 'Graphics.GL.Tokens.GL_RGBA16F_ARB', 'Graphics.GL.Tokens.GL_RGBA16F_EXT')
+-- * 'Graphics.GL.Tokens.GL_RGBA32F' (aliases: 'Graphics.GL.Tokens.GL_RGBA32F_ARB', 'Graphics.GL.Tokens.GL_RGBA32F_EXT')
+-- * 'Graphics.GL.Tokens.GL_RGBA8I'
+-- * 'Graphics.GL.Tokens.GL_RGBA16I'
+-- * 'Graphics.GL.Tokens.GL_RGBA32I'
+-- * 'Graphics.GL.Tokens.GL_RGBA8UI'
+-- * 'Graphics.GL.Tokens.GL_RGBA16UI'
+-- * 'Graphics.GL.Tokens.GL_RGBA32UI'
+-- * 'Graphics.GL.Tokens.GL_RGB10_A2UI'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_COMPONENT'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_COMPONENT16' (aliases: 'Graphics.GL.Tokens.GL_DEPTH_COMPONENT16_ARB', 'Graphics.GL.Tokens.GL_DEPTH_COMPONENT16_OES', 'Graphics.GL.Tokens.GL_DEPTH_COMPONENT16_SGIX')
+-- * 'Graphics.GL.Tokens.GL_DEPTH_COMPONENT24_ARB' (aliases: 'Graphics.GL.Tokens.GL_DEPTH_COMPONENT24_OES', 'Graphics.GL.Tokens.GL_DEPTH_COMPONENT24_SGIX')
+-- * 'Graphics.GL.Tokens.GL_DEPTH_COMPONENT32_ARB' (aliases: 'Graphics.GL.Tokens.GL_DEPTH_COMPONENT32_OES', 'Graphics.GL.Tokens.GL_DEPTH_COMPONENT32_SGIX')
+-- * 'Graphics.GL.Tokens.GL_DEPTH_COMPONENT32F'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_COMPONENT32F_NV'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_STENCIL' (aliases: 'Graphics.GL.Tokens.GL_DEPTH_STENCIL_EXT', 'Graphics.GL.Tokens.GL_DEPTH_STENCIL_NV', 'Graphics.GL.Tokens.GL_DEPTH_STENCIL_OES')
+-- * 'Graphics.GL.Tokens.GL_DEPTH_STENCIL_MESA'
+-- * 'Graphics.GL.Tokens.GL_DEPTH24_STENCIL8' (aliases: 'Graphics.GL.Tokens.GL_DEPTH24_STENCIL8_EXT', 'Graphics.GL.Tokens.GL_DEPTH24_STENCIL8_OES')
+-- * 'Graphics.GL.Tokens.GL_DEPTH32F_STENCIL8'
+-- * 'Graphics.GL.Tokens.GL_DEPTH32F_STENCIL8_NV'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_INDEX' (alias: 'Graphics.GL.Tokens.GL_STENCIL_INDEX_OES')
+-- * 'Graphics.GL.Tokens.GL_STENCIL_INDEX1' (aliases: 'Graphics.GL.Tokens.GL_STENCIL_INDEX1_EXT', 'Graphics.GL.Tokens.GL_STENCIL_INDEX1_OES')
+-- * 'Graphics.GL.Tokens.GL_STENCIL_INDEX4' (aliases: 'Graphics.GL.Tokens.GL_STENCIL_INDEX4_EXT', 'Graphics.GL.Tokens.GL_STENCIL_INDEX4_OES')
+-- * 'Graphics.GL.Tokens.GL_STENCIL_INDEX8' (aliases: 'Graphics.GL.Tokens.GL_STENCIL_INDEX8_EXT', 'Graphics.GL.Tokens.GL_STENCIL_INDEX8_OES')
+-- * 'Graphics.GL.Tokens.GL_STENCIL_INDEX16' (alias: 'Graphics.GL.Tokens.GL_STENCIL_INDEX16_EXT')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RED'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RG'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGB'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RED_RGTC1' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_RED_RGTC1_EXT')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SIGNED_RED_RGTC1' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_SIGNED_RED_RGTC1_EXT')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_R11_EAC'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SIGNED_R11_EAC'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RG_RGTC2'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SIGNED_RG_RGTC2'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_BPTC_UNORM'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGB8_ETC2'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ETC2'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA8_ETC2_EAC'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RG11_EAC'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SIGNED_RG11_EAC'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGB_S3TC_DXT1_EXT'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB_S3TC_DXT1_EXT'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_S3TC_DXT1_EXT'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_S3TC_DXT3_EXT'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_S3TC_DXT5_EXT'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_3x3x3_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_4x3x3_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_4x4' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_4x4_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_4x4x3_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_4x4x4_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_5x4' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_5x4_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_5x4x4_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_5x5' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_5x5_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_5x5x4_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_5x5x5_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_6x5' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_6x5_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_6x5x5_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_6x6' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_6x6_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_6x6x5_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_6x6x6_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_8x5' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_8x5_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_8x6' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_8x6_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_8x8' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_8x8_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_10x10' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_10x10_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_10x5' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_10x5_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_10x6' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_10x6_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_10x8' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_10x8_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_12x10' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_12x10_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_12x12' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_RGBA_ASTC_12x12_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_3x3x3_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x3x3_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4x3_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4x4_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4x4_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5x4_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5x5_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5x5_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x5_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x6_OES'
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x5' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x5_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x6' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x6_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x8' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x8_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x5' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x5_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x6' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x6_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x8' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x8_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR')
+-- * 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12' (alias: 'Graphics.GL.Tokens.GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR')
+--
+-- === #InternalFormatPName# InternalFormatPName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_NUM_SAMPLE_COUNTS'
+-- * 'Graphics.GL.Tokens.GL_SAMPLES'
+-- * 'Graphics.GL.Tokens.GL_INTERNALFORMAT_SUPPORTED'
+-- * 'Graphics.GL.Tokens.GL_INTERNALFORMAT_PREFERRED'
+-- * 'Graphics.GL.Tokens.GL_INTERNALFORMAT_RED_SIZE'
+-- * 'Graphics.GL.Tokens.GL_INTERNALFORMAT_GREEN_SIZE'
+-- * 'Graphics.GL.Tokens.GL_INTERNALFORMAT_BLUE_SIZE'
+-- * 'Graphics.GL.Tokens.GL_INTERNALFORMAT_ALPHA_SIZE'
+-- * 'Graphics.GL.Tokens.GL_INTERNALFORMAT_DEPTH_SIZE'
+-- * 'Graphics.GL.Tokens.GL_INTERNALFORMAT_STENCIL_SIZE'
+-- * 'Graphics.GL.Tokens.GL_INTERNALFORMAT_SHARED_SIZE'
+-- * 'Graphics.GL.Tokens.GL_INTERNALFORMAT_RED_TYPE'
+-- * 'Graphics.GL.Tokens.GL_INTERNALFORMAT_GREEN_TYPE'
+-- * 'Graphics.GL.Tokens.GL_INTERNALFORMAT_BLUE_TYPE'
+-- * 'Graphics.GL.Tokens.GL_INTERNALFORMAT_ALPHA_TYPE'
+-- * 'Graphics.GL.Tokens.GL_INTERNALFORMAT_DEPTH_TYPE'
+-- * 'Graphics.GL.Tokens.GL_INTERNALFORMAT_STENCIL_TYPE'
+-- * 'Graphics.GL.Tokens.GL_MAX_WIDTH'
+-- * 'Graphics.GL.Tokens.GL_MAX_HEIGHT'
+-- * 'Graphics.GL.Tokens.GL_MAX_DEPTH'
+-- * 'Graphics.GL.Tokens.GL_MAX_LAYERS'
+-- * 'Graphics.GL.Tokens.GL_COLOR_COMPONENTS'
+-- * 'Graphics.GL.Tokens.GL_COLOR_RENDERABLE'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_RENDERABLE'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_RENDERABLE'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_RENDERABLE'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_RENDERABLE_LAYERED'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_BLEND'
+-- * 'Graphics.GL.Tokens.GL_READ_PIXELS'
+-- * 'Graphics.GL.Tokens.GL_READ_PIXELS_FORMAT'
+-- * 'Graphics.GL.Tokens.GL_READ_PIXELS_TYPE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_IMAGE_FORMAT'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_IMAGE_TYPE'
+-- * 'Graphics.GL.Tokens.GL_GET_TEXTURE_IMAGE_FORMAT'
+-- * 'Graphics.GL.Tokens.GL_GET_TEXTURE_IMAGE_TYPE'
+-- * 'Graphics.GL.Tokens.GL_MIPMAP'
+-- * 'Graphics.GL.Tokens.GL_GENERATE_MIPMAP'
+-- * 'Graphics.GL.Tokens.GL_AUTO_GENERATE_MIPMAP'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ENCODING'
+-- * 'Graphics.GL.Tokens.GL_SRGB_READ'
+-- * 'Graphics.GL.Tokens.GL_SRGB_WRITE'
+-- * 'Graphics.GL.Tokens.GL_FILTER'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_TEXTURE'
+-- * 'Graphics.GL.Tokens.GL_TESS_CONTROL_TEXTURE'
+-- * 'Graphics.GL.Tokens.GL_TESS_EVALUATION_TEXTURE'
+-- * 'Graphics.GL.Tokens.GL_GEOMETRY_TEXTURE'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_TEXTURE'
+-- * 'Graphics.GL.Tokens.GL_COMPUTE_TEXTURE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_GATHER'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_GATHER_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_SHADER_IMAGE_LOAD'
+-- * 'Graphics.GL.Tokens.GL_SHADER_IMAGE_STORE'
+-- * 'Graphics.GL.Tokens.GL_SHADER_IMAGE_ATOMIC'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_TEXEL_SIZE'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_COMPATIBILITY_CLASS'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_PIXEL_FORMAT'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_PIXEL_TYPE'
+-- * 'Graphics.GL.Tokens.GL_IMAGE_FORMAT_COMPATIBILITY_TYPE'
+-- * 'Graphics.GL.Tokens.GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_TEST'
+-- * 'Graphics.GL.Tokens.GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_TEST'
+-- * 'Graphics.GL.Tokens.GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_WRITE'
+-- * 'Graphics.GL.Tokens.GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_WRITE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COMPRESSED'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COMPRESSED_BLOCK_WIDTH'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COMPRESSED_BLOCK_HEIGHT'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COMPRESSED_BLOCK_SIZE'
+-- * 'Graphics.GL.Tokens.GL_CLEAR_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_VIEW'
+-- * 'Graphics.GL.Tokens.GL_VIEW_COMPATIBILITY_CLASS'
+-- * 'Graphics.GL.Tokens.GL_CLEAR_TEXTURE'
+--
+-- === #InvalidateFramebufferAttachment# InvalidateFramebufferAttachment
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT0' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT0_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT0_NV', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT0_OES')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT1' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT1_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT1_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT2' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT2_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT2_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT3' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT3_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT3_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT4' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT4_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT4_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT5' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT5_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT5_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT6' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT6_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT6_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT7' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT7_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT7_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT8' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT8_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT8_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT9' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT9_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT9_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT10' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT10_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT10_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT11' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT11_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT11_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT12' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT12_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT12_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT13' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT13_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT13_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT14' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT14_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT14_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT15' (aliases: 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT15_EXT', 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT15_NV')
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT16'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT17'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT18'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT19'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT20'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT21'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT22'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT23'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT24'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT25'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT26'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT27'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT28'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT29'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT30'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT31'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_ATTACHMENT' (aliases: 'Graphics.GL.Tokens.GL_DEPTH_ATTACHMENT_EXT', 'Graphics.GL.Tokens.GL_DEPTH_ATTACHMENT_OES')
+-- * 'Graphics.GL.Tokens.GL_DEPTH_STENCIL_ATTACHMENT'
+-- * 'Graphics.GL.Tokens.GL_STENCIL' (alias: 'Graphics.GL.Tokens.GL_STENCIL')
+-- * 'Graphics.GL.Tokens.GL_STENCIL_ATTACHMENT_EXT' (alias: 'Graphics.GL.Tokens.GL_STENCIL_ATTACHMENT_OES')
+-- * 'Graphics.GL.Tokens.GL_COLOR'
+-- * 'Graphics.GL.Tokens.GL_DEPTH'
+-- * 'Graphics.GL.Tokens.GL_STENCIL' (alias: 'Graphics.GL.Tokens.GL_STENCIL')
+--
+-- === #LightEnvModeSGIX# LightEnvModeSGIX
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ADD'
+-- * 'Graphics.GL.Tokens.GL_MODULATE'
+-- * 'Graphics.GL.Tokens.GL_REPLACE'
+--
+-- === #LightEnvParameterSGIX# LightEnvParameterSGIX
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_LIGHT_ENV_MODE_SGIX'
+--
+-- === #LightModelColorControl# LightModelColorControl
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_SEPARATE_SPECULAR_COLOR' (alias: 'Graphics.GL.Tokens.GL_SEPARATE_SPECULAR_COLOR_EXT')
+-- * 'Graphics.GL.Tokens.GL_SINGLE_COLOR' (alias: 'Graphics.GL.Tokens.GL_SINGLE_COLOR_EXT')
+--
+-- === #LightModelParameter# LightModelParameter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_LIGHT_MODEL_AMBIENT'
+-- * 'Graphics.GL.Tokens.GL_LIGHT_MODEL_COLOR_CONTROL' (alias: 'Graphics.GL.Tokens.GL_LIGHT_MODEL_COLOR_CONTROL_EXT')
+-- * 'Graphics.GL.Tokens.GL_LIGHT_MODEL_LOCAL_VIEWER'
+-- * 'Graphics.GL.Tokens.GL_LIGHT_MODEL_TWO_SIDE'
+--
+-- === #LightName# LightName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT0_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT1_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT2_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT3_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT4_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT5_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT6_SGIX'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_LIGHT7_SGIX'
+-- * 'Graphics.GL.Tokens.GL_LIGHT0'
+-- * 'Graphics.GL.Tokens.GL_LIGHT1'
+-- * 'Graphics.GL.Tokens.GL_LIGHT2'
+-- * 'Graphics.GL.Tokens.GL_LIGHT3'
+-- * 'Graphics.GL.Tokens.GL_LIGHT4'
+-- * 'Graphics.GL.Tokens.GL_LIGHT5'
+-- * 'Graphics.GL.Tokens.GL_LIGHT6'
+-- * 'Graphics.GL.Tokens.GL_LIGHT7'
+--
+-- === #LightParameter# LightParameter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_AMBIENT'
+-- * 'Graphics.GL.Tokens.GL_CONSTANT_ATTENUATION'
+-- * 'Graphics.GL.Tokens.GL_DIFFUSE'
+-- * 'Graphics.GL.Tokens.GL_LINEAR_ATTENUATION'
+-- * 'Graphics.GL.Tokens.GL_POSITION'
+-- * 'Graphics.GL.Tokens.GL_QUADRATIC_ATTENUATION'
+-- * 'Graphics.GL.Tokens.GL_SPECULAR'
+-- * 'Graphics.GL.Tokens.GL_SPOT_CUTOFF'
+-- * 'Graphics.GL.Tokens.GL_SPOT_DIRECTION'
+-- * 'Graphics.GL.Tokens.GL_SPOT_EXPONENT'
+--
+-- === #LightTextureModeEXT# LightTextureModeEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_MATERIAL_EXT'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_NORMAL_EXT'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_DEPTH_EXT'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_COLOR_EXT'
+--
+-- === #LightTexturePNameEXT# LightTexturePNameEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ATTENUATION_EXT'
+-- * 'Graphics.GL.Tokens.GL_SHADOW_ATTENUATION_EXT'
+--
+-- === #ListMode# ListMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_COMPILE'
+-- * 'Graphics.GL.Tokens.GL_COMPILE_AND_EXECUTE'
+--
+-- === #ListNameType# ListNameType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_2_BYTES'
+-- * 'Graphics.GL.Tokens.GL_3_BYTES'
+-- * 'Graphics.GL.Tokens.GL_4_BYTES'
+-- * 'Graphics.GL.Tokens.GL_BYTE'
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_INT'
+-- * 'Graphics.GL.Tokens.GL_SHORT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_BYTE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_SHORT'
+--
+-- === #ListParameterName# ListParameterName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_LIST_PRIORITY_SGIX'
+--
+-- === #LogicOp# LogicOp
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_AND'
+-- * 'Graphics.GL.Tokens.GL_AND_INVERTED'
+-- * 'Graphics.GL.Tokens.GL_AND_REVERSE'
+-- * 'Graphics.GL.Tokens.GL_CLEAR'
+-- * 'Graphics.GL.Tokens.GL_COPY'
+-- * 'Graphics.GL.Tokens.GL_COPY_INVERTED'
+-- * 'Graphics.GL.Tokens.GL_EQUIV'
+-- * 'Graphics.GL.Tokens.GL_INVERT'
+-- * 'Graphics.GL.Tokens.GL_NAND'
+-- * 'Graphics.GL.Tokens.GL_NOOP'
+-- * 'Graphics.GL.Tokens.GL_NOR'
+-- * 'Graphics.GL.Tokens.GL_OR'
+-- * 'Graphics.GL.Tokens.GL_OR_INVERTED'
+-- * 'Graphics.GL.Tokens.GL_OR_REVERSE'
+-- * 'Graphics.GL.Tokens.GL_SET'
+-- * 'Graphics.GL.Tokens.GL_XOR'
+--
+-- === #MapAttribParameterNV# MapAttribParameterNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_MAP_ATTRIB_U_ORDER_NV'
+-- * 'Graphics.GL.Tokens.GL_MAP_ATTRIB_V_ORDER_NV'
+--
+-- === #MapBufferAccessMask# MapBufferAccessMask
+-- A bitwise combination of several of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_MAP_COHERENT_BIT' (alias: 'Graphics.GL.Tokens.GL_MAP_COHERENT_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_MAP_FLUSH_EXPLICIT_BIT' (alias: 'Graphics.GL.Tokens.GL_MAP_FLUSH_EXPLICIT_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_MAP_INVALIDATE_BUFFER_BIT' (alias: 'Graphics.GL.Tokens.GL_MAP_INVALIDATE_BUFFER_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_MAP_INVALIDATE_RANGE_BIT' (alias: 'Graphics.GL.Tokens.GL_MAP_INVALIDATE_RANGE_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_MAP_PERSISTENT_BIT' (alias: 'Graphics.GL.Tokens.GL_MAP_PERSISTENT_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_MAP_READ_BIT' (alias: 'Graphics.GL.Tokens.GL_MAP_READ_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_MAP_UNSYNCHRONIZED_BIT' (alias: 'Graphics.GL.Tokens.GL_MAP_UNSYNCHRONIZED_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_MAP_WRITE_BIT' (alias: 'Graphics.GL.Tokens.GL_MAP_WRITE_BIT_EXT')
+--
+-- === #MapParameterNV# MapParameterNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_MAP_TESSELLATION_NV'
+--
+-- === #MapQuery# MapQuery
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_COEFF'
+-- * 'Graphics.GL.Tokens.GL_ORDER'
+-- * 'Graphics.GL.Tokens.GL_DOMAIN'
+--
+-- === #MapTarget# MapTarget
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_GEOMETRY_DEFORMATION_SGIX'
+-- * 'Graphics.GL.Tokens.GL_MAP1_COLOR_4'
+-- * 'Graphics.GL.Tokens.GL_MAP1_INDEX'
+-- * 'Graphics.GL.Tokens.GL_MAP1_NORMAL'
+-- * 'Graphics.GL.Tokens.GL_MAP1_TEXTURE_COORD_1'
+-- * 'Graphics.GL.Tokens.GL_MAP1_TEXTURE_COORD_2'
+-- * 'Graphics.GL.Tokens.GL_MAP1_TEXTURE_COORD_3'
+-- * 'Graphics.GL.Tokens.GL_MAP1_TEXTURE_COORD_4'
+-- * 'Graphics.GL.Tokens.GL_MAP1_VERTEX_3'
+-- * 'Graphics.GL.Tokens.GL_MAP1_VERTEX_4'
+-- * 'Graphics.GL.Tokens.GL_MAP2_COLOR_4'
+-- * 'Graphics.GL.Tokens.GL_MAP2_INDEX'
+-- * 'Graphics.GL.Tokens.GL_MAP2_NORMAL'
+-- * 'Graphics.GL.Tokens.GL_MAP2_TEXTURE_COORD_1'
+-- * 'Graphics.GL.Tokens.GL_MAP2_TEXTURE_COORD_2'
+-- * 'Graphics.GL.Tokens.GL_MAP2_TEXTURE_COORD_3'
+-- * 'Graphics.GL.Tokens.GL_MAP2_TEXTURE_COORD_4'
+-- * 'Graphics.GL.Tokens.GL_MAP2_VERTEX_3'
+-- * 'Graphics.GL.Tokens.GL_MAP2_VERTEX_4'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_DEFORMATION_SGIX'
+--
+-- === #MapTextureFormatINTEL# MapTextureFormatINTEL
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_LAYOUT_DEFAULT_INTEL'
+-- * 'Graphics.GL.Tokens.GL_LAYOUT_LINEAR_CPU_CACHED_INTEL'
+-- * 'Graphics.GL.Tokens.GL_LAYOUT_LINEAR_INTEL'
+--
+-- === #MapTypeNV# MapTypeNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE'
+--
+-- === #MaterialFace# MaterialFace
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BACK'
+-- * 'Graphics.GL.Tokens.GL_FRONT'
+-- * 'Graphics.GL.Tokens.GL_FRONT_AND_BACK'
+--
+-- === #MaterialParameter# MaterialParameter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_AMBIENT'
+-- * 'Graphics.GL.Tokens.GL_AMBIENT_AND_DIFFUSE'
+-- * 'Graphics.GL.Tokens.GL_COLOR_INDEXES'
+-- * 'Graphics.GL.Tokens.GL_DIFFUSE'
+-- * 'Graphics.GL.Tokens.GL_EMISSION'
+-- * 'Graphics.GL.Tokens.GL_SHININESS'
+-- * 'Graphics.GL.Tokens.GL_SPECULAR'
+--
+-- === #MatrixIndexPointerTypeARB# MatrixIndexPointerTypeARB
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_BYTE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_SHORT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT'
+--
+-- === #MatrixMode# MatrixMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_MODELVIEW' (alias: 'Graphics.GL.Tokens.GL_MODELVIEW0_EXT')
+-- * 'Graphics.GL.Tokens.GL_PROJECTION'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE'
+--
+-- === #MemoryBarrierMask# MemoryBarrierMask
+-- A bitwise combination of several of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ALL_BARRIER_BITS' (alias: 'Graphics.GL.Tokens.GL_ALL_BARRIER_BITS_EXT')
+-- * 'Graphics.GL.Tokens.GL_ATOMIC_COUNTER_BARRIER_BIT' (alias: 'Graphics.GL.Tokens.GL_ATOMIC_COUNTER_BARRIER_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_BUFFER_UPDATE_BARRIER_BIT' (alias: 'Graphics.GL.Tokens.GL_BUFFER_UPDATE_BARRIER_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT' (alias: 'Graphics.GL.Tokens.GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_COMMAND_BARRIER_BIT' (alias: 'Graphics.GL.Tokens.GL_COMMAND_BARRIER_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_ELEMENT_ARRAY_BARRIER_BIT' (alias: 'Graphics.GL.Tokens.GL_ELEMENT_ARRAY_BARRIER_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER_BARRIER_BIT' (alias: 'Graphics.GL.Tokens.GL_FRAMEBUFFER_BARRIER_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_PIXEL_BUFFER_BARRIER_BIT' (alias: 'Graphics.GL.Tokens.GL_PIXEL_BUFFER_BARRIER_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_QUERY_BUFFER_BARRIER_BIT'
+-- * 'Graphics.GL.Tokens.GL_SHADER_GLOBAL_ACCESS_BARRIER_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_SHADER_IMAGE_ACCESS_BARRIER_BIT' (alias: 'Graphics.GL.Tokens.GL_SHADER_IMAGE_ACCESS_BARRIER_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_SHADER_STORAGE_BARRIER_BIT'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_FETCH_BARRIER_BIT' (alias: 'Graphics.GL.Tokens.GL_TEXTURE_FETCH_BARRIER_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_UPDATE_BARRIER_BIT' (alias: 'Graphics.GL.Tokens.GL_TEXTURE_UPDATE_BARRIER_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_BARRIER_BIT' (alias: 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_BARRIER_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BARRIER_BIT' (alias: 'Graphics.GL.Tokens.GL_UNIFORM_BARRIER_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT' (alias: 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT_EXT')
+--
+-- === #MemoryObjectParameterName# MemoryObjectParameterName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DEDICATED_MEMORY_OBJECT_EXT'
+-- * 'Graphics.GL.Tokens.GL_PROTECTED_MEMORY_OBJECT_EXT'
+--
+-- === #MeshMode1# MeshMode1
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_LINE'
+-- * 'Graphics.GL.Tokens.GL_POINT'
+--
+-- === #MeshMode2# MeshMode2
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FILL'
+-- * 'Graphics.GL.Tokens.GL_LINE'
+-- * 'Graphics.GL.Tokens.GL_POINT'
+--
+-- === #MinmaxTargetEXT# MinmaxTargetEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_MINMAX' (alias: 'Graphics.GL.Tokens.GL_MINMAX_EXT')
+--
+-- === #NormalPointerType# NormalPointerType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BYTE'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE'
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_INT'
+-- * 'Graphics.GL.Tokens.GL_SHORT'
+--
+-- === #ObjectIdentifier# ObjectIdentifier
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_SHADER'
+-- * 'Graphics.GL.Tokens.GL_PROGRAM'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_QUERY'
+-- * 'Graphics.GL.Tokens.GL_PROGRAM_PIPELINE'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE'
+-- * 'Graphics.GL.Tokens.GL_RENDERBUFFER'
+-- * 'Graphics.GL.Tokens.GL_FRAMEBUFFER'
+--
+-- === #ObjectTypeAPPLE# ObjectTypeAPPLE
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DRAW_PIXELS_APPLE'
+-- * 'Graphics.GL.Tokens.GL_FENCE_APPLE'
+--
+-- === #OcclusionQueryEventMaskAMD# OcclusionQueryEventMaskAMD
+-- A bitwise combination of several of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD'
+-- * 'Graphics.GL.Tokens.GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD'
+-- * 'Graphics.GL.Tokens.GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD'
+-- * 'Graphics.GL.Tokens.GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD'
+-- * 'Graphics.GL.Tokens.GL_QUERY_ALL_EVENT_BITS_AMD'
+--
+-- === #OcclusionQueryParameterNameNV# OcclusionQueryParameterNameNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PIXEL_COUNT_NV'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_COUNT_AVAILABLE_NV'
+--
+-- === #PNTrianglesPNameATI# PNTrianglesPNameATI
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PN_TRIANGLES_POINT_MODE_ATI'
+-- * 'Graphics.GL.Tokens.GL_PN_TRIANGLES_NORMAL_MODE_ATI'
+-- * 'Graphics.GL.Tokens.GL_PN_TRIANGLES_TESSELATION_LEVEL_ATI'
+--
+-- === #ParameterRangeEXT# ParameterRangeEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_NORMALIZED_RANGE_EXT'
+-- * 'Graphics.GL.Tokens.GL_FULL_RANGE_EXT'
+--
+-- === #PatchParameterName# PatchParameterName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PATCH_VERTICES'
+-- * 'Graphics.GL.Tokens.GL_PATCH_DEFAULT_OUTER_LEVEL'
+-- * 'Graphics.GL.Tokens.GL_PATCH_DEFAULT_INNER_LEVEL'
+--
+-- === #PathColor# PathColor
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PRIMARY_COLOR'
+-- * 'Graphics.GL.Tokens.GL_PRIMARY_COLOR_NV'
+-- * 'Graphics.GL.Tokens.GL_SECONDARY_COLOR_NV'
+--
+-- === #PathColorFormat# PathColorFormat
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_NONE'
+-- * 'Graphics.GL.Tokens.GL_LUMINANCE'
+-- * 'Graphics.GL.Tokens.GL_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_INTENSITY'
+-- * 'Graphics.GL.Tokens.GL_LUMINANCE_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_RGB'
+-- * 'Graphics.GL.Tokens.GL_RGBA'
+--
+-- === #PathCoordType# PathCoordType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CLOSE_PATH_NV'
+-- * 'Graphics.GL.Tokens.GL_MOVE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_MOVE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_LINE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_LINE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_HORIZONTAL_LINE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_HORIZONTAL_LINE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_VERTICAL_LINE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_VERTICAL_LINE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_QUADRATIC_CURVE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_QUADRATIC_CURVE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_CUBIC_CURVE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_CUBIC_CURVE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_SMOOTH_QUADRATIC_CURVE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_SMOOTH_QUADRATIC_CURVE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_SMOOTH_CUBIC_CURVE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_SMOOTH_CUBIC_CURVE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_SMALL_CCW_ARC_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_SMALL_CCW_ARC_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_SMALL_CW_ARC_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_SMALL_CW_ARC_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_LARGE_CCW_ARC_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_LARGE_CCW_ARC_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_LARGE_CW_ARC_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_LARGE_CW_ARC_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_CONIC_CURVE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_CONIC_CURVE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_ROUNDED_RECT_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_ROUNDED_RECT_NV'
+-- * 'Graphics.GL.Tokens.GL_ROUNDED_RECT2_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_ROUNDED_RECT2_NV'
+-- * 'Graphics.GL.Tokens.GL_ROUNDED_RECT4_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_ROUNDED_RECT4_NV'
+-- * 'Graphics.GL.Tokens.GL_ROUNDED_RECT8_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_ROUNDED_RECT8_NV'
+-- * 'Graphics.GL.Tokens.GL_RESTART_PATH_NV'
+-- * 'Graphics.GL.Tokens.GL_DUP_FIRST_CUBIC_CURVE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_DUP_LAST_CUBIC_CURVE_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_RECT_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_RECT_NV'
+-- * 'Graphics.GL.Tokens.GL_CIRCULAR_CCW_ARC_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_CIRCULAR_CW_ARC_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_CIRCULAR_TANGENT_ARC_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_ARC_TO_NV'
+-- * 'Graphics.GL.Tokens.GL_RELATIVE_ARC_TO_NV'
+--
+-- === #PathCoverMode# PathCoverMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CONVEX_HULL_NV'
+-- * 'Graphics.GL.Tokens.GL_BOUNDING_BOX_NV'
+-- * 'Graphics.GL.Tokens.GL_BOUNDING_BOX_OF_BOUNDING_BOXES_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_FILL_COVER_MODE_NV'
+--
+-- === #PathElementType# PathElementType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_UTF8_NV'
+-- * 'Graphics.GL.Tokens.GL_UTF16_NV'
+--
+-- === #PathFillMode# PathFillMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_INVERT'
+-- * 'Graphics.GL.Tokens.GL_COUNT_UP_NV'
+-- * 'Graphics.GL.Tokens.GL_COUNT_DOWN_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_FILL_MODE_NV'
+--
+-- === #PathFontStyle# PathFontStyle
+-- A bitwise combination of several of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_NONE'
+-- * 'Graphics.GL.Tokens.GL_BOLD_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_ITALIC_BIT_NV'
+--
+-- === #PathFontTarget# PathFontTarget
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_STANDARD_FONT_NAME_NV'
+-- * 'Graphics.GL.Tokens.GL_SYSTEM_FONT_NAME_NV'
+-- * 'Graphics.GL.Tokens.GL_FILE_NAME_NV'
+--
+-- === #PathGenMode# PathGenMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_NONE'
+-- * 'Graphics.GL.Tokens.GL_EYE_LINEAR'
+-- * 'Graphics.GL.Tokens.GL_OBJECT_LINEAR'
+-- * 'Graphics.GL.Tokens.GL_PATH_OBJECT_BOUNDING_BOX_NV'
+-- * 'Graphics.GL.Tokens.GL_CONSTANT'
+--
+-- === #PathHandleMissingGlyphs# PathHandleMissingGlyphs
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_SKIP_MISSING_GLYPH_NV'
+-- * 'Graphics.GL.Tokens.GL_USE_MISSING_GLYPH_NV'
+--
+-- === #PathListMode# PathListMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ACCUM_ADJACENT_PAIRS_NV'
+-- * 'Graphics.GL.Tokens.GL_ADJACENT_PAIRS_NV'
+-- * 'Graphics.GL.Tokens.GL_FIRST_TO_REST_NV'
+--
+-- === #PathMetricMask# PathMetricMask
+-- A bitwise combination of several of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_GLYPH_WIDTH_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_GLYPH_HEIGHT_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_GLYPH_HORIZONTAL_BEARING_X_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_GLYPH_HORIZONTAL_BEARING_Y_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_GLYPH_VERTICAL_BEARING_X_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_GLYPH_VERTICAL_BEARING_Y_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_GLYPH_HAS_KERNING_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_FONT_X_MIN_BOUNDS_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_FONT_Y_MIN_BOUNDS_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_FONT_X_MAX_BOUNDS_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_FONT_Y_MAX_BOUNDS_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_FONT_UNITS_PER_EM_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_FONT_ASCENDER_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_FONT_DESCENDER_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_FONT_HEIGHT_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_FONT_MAX_ADVANCE_WIDTH_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_FONT_MAX_ADVANCE_HEIGHT_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_FONT_UNDERLINE_POSITION_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_FONT_UNDERLINE_THICKNESS_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_FONT_HAS_KERNING_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_FONT_NUM_GLYPH_INDICES_BIT_NV'
+--
+-- === #PathParameter# PathParameter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PATH_STROKE_WIDTH_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_INITIAL_END_CAP_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_TERMINAL_END_CAP_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_JOIN_STYLE_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_MITER_LIMIT_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_INITIAL_DASH_CAP_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_TERMINAL_DASH_CAP_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_DASH_OFFSET_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_CLIENT_LENGTH_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_DASH_OFFSET_RESET_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_FILL_MODE_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_FILL_MASK_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_FILL_COVER_MODE_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_STROKE_COVER_MODE_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_STROKE_MASK_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_END_CAPS_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_DASH_CAPS_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_COMMAND_COUNT_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_COORD_COUNT_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_DASH_ARRAY_COUNT_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_COMPUTED_LENGTH_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_OBJECT_BOUNDING_BOX_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_FILL_BOUNDING_BOX_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_STROKE_BOUNDING_BOX_NV'
+--
+-- === #PathStringFormat# PathStringFormat
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PATH_FORMAT_SVG_NV'
+-- * 'Graphics.GL.Tokens.GL_PATH_FORMAT_PS_NV'
+--
+-- === #PathTransformType# PathTransformType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_NONE'
+-- * 'Graphics.GL.Tokens.GL_TRANSLATE_X_NV'
+-- * 'Graphics.GL.Tokens.GL_TRANSLATE_Y_NV'
+-- * 'Graphics.GL.Tokens.GL_TRANSLATE_2D_NV'
+-- * 'Graphics.GL.Tokens.GL_TRANSLATE_3D_NV'
+-- * 'Graphics.GL.Tokens.GL_AFFINE_2D_NV'
+-- * 'Graphics.GL.Tokens.GL_AFFINE_3D_NV'
+-- * 'Graphics.GL.Tokens.GL_TRANSPOSE_AFFINE_2D_NV'
+-- * 'Graphics.GL.Tokens.GL_TRANSPOSE_AFFINE_3D_NV'
+--
+-- === #PipelineParameterName# PipelineParameterName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ACTIVE_PROGRAM'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_SHADER'
+-- * 'Graphics.GL.Tokens.GL_TESS_CONTROL_SHADER'
+-- * 'Graphics.GL.Tokens.GL_TESS_EVALUATION_SHADER'
+-- * 'Graphics.GL.Tokens.GL_GEOMETRY_SHADER'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_SHADER'
+-- * 'Graphics.GL.Tokens.GL_INFO_LOG_LENGTH'
+--
+-- === #PixelCopyType# PixelCopyType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_COLOR' (alias: 'Graphics.GL.Tokens.GL_COLOR_EXT')
+-- * 'Graphics.GL.Tokens.GL_DEPTH' (alias: 'Graphics.GL.Tokens.GL_DEPTH_EXT')
+-- * 'Graphics.GL.Tokens.GL_STENCIL' (alias: 'Graphics.GL.Tokens.GL_STENCIL_EXT')
+--
+-- === #PixelDataRangeTargetNV# PixelDataRangeTargetNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_WRITE_PIXEL_DATA_RANGE_NV'
+-- * 'Graphics.GL.Tokens.GL_READ_PIXEL_DATA_RANGE_NV'
+--
+-- === #PixelFormat# PixelFormat
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ABGR_EXT'
+-- * 'Graphics.GL.Tokens.GL_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_BGR'
+-- * 'Graphics.GL.Tokens.GL_BGR_INTEGER'
+-- * 'Graphics.GL.Tokens.GL_BGRA'
+-- * 'Graphics.GL.Tokens.GL_BGRA_INTEGER'
+-- * 'Graphics.GL.Tokens.GL_BLUE'
+-- * 'Graphics.GL.Tokens.GL_BLUE_INTEGER'
+-- * 'Graphics.GL.Tokens.GL_CMYKA_EXT'
+-- * 'Graphics.GL.Tokens.GL_CMYK_EXT'
+-- * 'Graphics.GL.Tokens.GL_COLOR_INDEX'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_COMPONENT'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_STENCIL'
+-- * 'Graphics.GL.Tokens.GL_GREEN'
+-- * 'Graphics.GL.Tokens.GL_GREEN_INTEGER'
+-- * 'Graphics.GL.Tokens.GL_LUMINANCE'
+-- * 'Graphics.GL.Tokens.GL_LUMINANCE_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_RED' (alias: 'Graphics.GL.Tokens.GL_RED_EXT')
+-- * 'Graphics.GL.Tokens.GL_RED_INTEGER'
+-- * 'Graphics.GL.Tokens.GL_RG'
+-- * 'Graphics.GL.Tokens.GL_RG_INTEGER'
+-- * 'Graphics.GL.Tokens.GL_RGB'
+-- * 'Graphics.GL.Tokens.GL_RGB_INTEGER'
+-- * 'Graphics.GL.Tokens.GL_RGBA'
+-- * 'Graphics.GL.Tokens.GL_RGBA_INTEGER'
+-- * 'Graphics.GL.Tokens.GL_STENCIL_INDEX'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_SHORT'
+-- * 'Graphics.GL.Tokens.GL_YCRCB_422_SGIX'
+-- * 'Graphics.GL.Tokens.GL_YCRCB_444_SGIX'
+--
+-- === #PixelMap# PixelMap
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_A_TO_A'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_B_TO_B'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_G_TO_G'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_I_TO_A'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_I_TO_B'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_I_TO_G'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_I_TO_I'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_I_TO_R'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_R_TO_R'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAP_S_TO_S'
+--
+-- === #PixelStoreParameter# PixelStoreParameter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PACK_ALIGNMENT'
+-- * 'Graphics.GL.Tokens.GL_PACK_IMAGE_DEPTH_SGIS'
+-- * 'Graphics.GL.Tokens.GL_PACK_IMAGE_HEIGHT' (alias: 'Graphics.GL.Tokens.GL_PACK_IMAGE_HEIGHT_EXT')
+-- * 'Graphics.GL.Tokens.GL_PACK_LSB_FIRST'
+-- * 'Graphics.GL.Tokens.GL_PACK_RESAMPLE_OML'
+-- * 'Graphics.GL.Tokens.GL_PACK_RESAMPLE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PACK_ROW_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_PACK_SKIP_IMAGES' (alias: 'Graphics.GL.Tokens.GL_PACK_SKIP_IMAGES_EXT')
+-- * 'Graphics.GL.Tokens.GL_PACK_SKIP_PIXELS'
+-- * 'Graphics.GL.Tokens.GL_PACK_SKIP_ROWS'
+-- * 'Graphics.GL.Tokens.GL_PACK_SKIP_VOLUMES_SGIS'
+-- * 'Graphics.GL.Tokens.GL_PACK_SUBSAMPLE_RATE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PACK_SWAP_BYTES'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TILE_CACHE_SIZE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TILE_GRID_DEPTH_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TILE_GRID_HEIGHT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TILE_GRID_WIDTH_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TILE_HEIGHT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TILE_WIDTH_SGIX'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_ALIGNMENT'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_IMAGE_DEPTH_SGIS'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_IMAGE_HEIGHT' (alias: 'Graphics.GL.Tokens.GL_UNPACK_IMAGE_HEIGHT_EXT')
+-- * 'Graphics.GL.Tokens.GL_UNPACK_LSB_FIRST'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_RESAMPLE_OML'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_RESAMPLE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_ROW_LENGTH' (alias: 'Graphics.GL.Tokens.GL_UNPACK_ROW_LENGTH_EXT')
+-- * 'Graphics.GL.Tokens.GL_UNPACK_SKIP_IMAGES' (alias: 'Graphics.GL.Tokens.GL_UNPACK_SKIP_IMAGES_EXT')
+-- * 'Graphics.GL.Tokens.GL_UNPACK_SKIP_PIXELS' (alias: 'Graphics.GL.Tokens.GL_UNPACK_SKIP_PIXELS_EXT')
+-- * 'Graphics.GL.Tokens.GL_UNPACK_SKIP_ROWS' (alias: 'Graphics.GL.Tokens.GL_UNPACK_SKIP_ROWS_EXT')
+-- * 'Graphics.GL.Tokens.GL_UNPACK_SKIP_VOLUMES_SGIS'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_SUBSAMPLE_RATE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_UNPACK_SWAP_BYTES'
+--
+-- === #PixelStoreResampleMode# PixelStoreResampleMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_RESAMPLE_DECIMATE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_RESAMPLE_REPLICATE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_RESAMPLE_ZERO_FILL_SGIX'
+--
+-- === #PixelStoreSubsampleRate# PixelStoreSubsampleRate
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PIXEL_SUBSAMPLE_2424_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_SUBSAMPLE_4242_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_SUBSAMPLE_4444_SGIX'
+--
+-- === #PixelTexGenMode# PixelTexGenMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_LUMINANCE'
+-- * 'Graphics.GL.Tokens.GL_LUMINANCE_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_NONE'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_ALPHA_LS_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_ALPHA_MS_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_ALPHA_NO_REPLACE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_ALPHA_REPLACE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_RGB'
+-- * 'Graphics.GL.Tokens.GL_RGBA'
+--
+-- === #PixelTexGenModeSGIX# PixelTexGenModeSGIX
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_Q_CEILING_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_Q_FLOOR_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_Q_ROUND_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_ALPHA_LS_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_ALPHA_MS_SGIX'
+--
+-- === #PixelTexGenParameterNameSGIS# PixelTexGenParameterNameSGIS
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PIXEL_FRAGMENT_ALPHA_SOURCE_SGIS'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_FRAGMENT_RGB_SOURCE_SGIS'
+--
+-- === #PixelTransferParameter# PixelTransferParameter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ALPHA_BIAS'
+-- * 'Graphics.GL.Tokens.GL_ALPHA_SCALE'
+-- * 'Graphics.GL.Tokens.GL_BLUE_BIAS'
+-- * 'Graphics.GL.Tokens.GL_BLUE_SCALE'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_BIAS'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_SCALE'
+-- * 'Graphics.GL.Tokens.GL_GREEN_BIAS'
+-- * 'Graphics.GL.Tokens.GL_GREEN_SCALE'
+-- * 'Graphics.GL.Tokens.GL_INDEX_OFFSET'
+-- * 'Graphics.GL.Tokens.GL_INDEX_SHIFT'
+-- * 'Graphics.GL.Tokens.GL_MAP_COLOR'
+-- * 'Graphics.GL.Tokens.GL_MAP_STENCIL'
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_ALPHA_BIAS' (alias: 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_ALPHA_BIAS_SGI')
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_ALPHA_SCALE' (alias: 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_ALPHA_SCALE_SGI')
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_BLUE_BIAS' (alias: 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_BLUE_BIAS_SGI')
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_BLUE_SCALE' (alias: 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_BLUE_SCALE_SGI')
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_GREEN_BIAS' (alias: 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_GREEN_BIAS_SGI')
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_GREEN_SCALE' (alias: 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_GREEN_SCALE_SGI')
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_RED_BIAS' (alias: 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_RED_BIAS_SGI')
+-- * 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_RED_SCALE' (alias: 'Graphics.GL.Tokens.GL_POST_COLOR_MATRIX_RED_SCALE_SGI')
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_ALPHA_BIAS' (alias: 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_ALPHA_BIAS_EXT')
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_ALPHA_SCALE' (alias: 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_ALPHA_SCALE_EXT')
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_BLUE_BIAS' (alias: 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_BLUE_BIAS_EXT')
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_BLUE_SCALE' (alias: 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_BLUE_SCALE_EXT')
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_GREEN_BIAS' (alias: 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_GREEN_BIAS_EXT')
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_GREEN_SCALE' (alias: 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_GREEN_SCALE_EXT')
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_RED_BIAS' (alias: 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_RED_BIAS_EXT')
+-- * 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_RED_SCALE' (alias: 'Graphics.GL.Tokens.GL_POST_CONVOLUTION_RED_SCALE_EXT')
+-- * 'Graphics.GL.Tokens.GL_RED_BIAS'
+-- * 'Graphics.GL.Tokens.GL_RED_SCALE'
+--
+-- === #PixelTransformPNameEXT# PixelTransformPNameEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MAG_FILTER_EXT'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_MIN_FILTER_EXT'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_CUBIC_WEIGHT_EXT'
+--
+-- === #PixelTransformTargetEXT# PixelTransformTargetEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TRANSFORM_2D_EXT'
+--
+-- === #PixelType# PixelType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BITMAP'
+-- * 'Graphics.GL.Tokens.GL_BYTE'
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_INT'
+-- * 'Graphics.GL.Tokens.GL_SHORT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_BYTE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_BYTE_3_3_2' (alias: 'Graphics.GL.Tokens.GL_UNSIGNED_BYTE_3_3_2_EXT')
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_10_10_10_2' (alias: 'Graphics.GL.Tokens.GL_UNSIGNED_INT_10_10_10_2_EXT')
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_8_8_8_8' (alias: 'Graphics.GL.Tokens.GL_UNSIGNED_INT_8_8_8_8_EXT')
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_SHORT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_SHORT_4_4_4_4' (alias: 'Graphics.GL.Tokens.GL_UNSIGNED_SHORT_4_4_4_4_EXT')
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_SHORT_5_5_5_1' (alias: 'Graphics.GL.Tokens.GL_UNSIGNED_SHORT_5_5_5_1_EXT')
+--
+-- === #PointParameterNameARB# PointParameterNameARB
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_POINT_SIZE_MIN_EXT'
+-- * 'Graphics.GL.Tokens.GL_POINT_SIZE_MAX_EXT'
+-- * 'Graphics.GL.Tokens.GL_POINT_FADE_THRESHOLD_SIZE' (alias: 'Graphics.GL.Tokens.GL_POINT_FADE_THRESHOLD_SIZE_EXT')
+--
+-- === #PointParameterNameSGIS# PointParameterNameSGIS
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DISTANCE_ATTENUATION_EXT' (aliases: 'Graphics.GL.Tokens.GL_DISTANCE_ATTENUATION_SGIS', 'Graphics.GL.Tokens.GL_POINT_DISTANCE_ATTENUATION', 'Graphics.GL.Tokens.GL_POINT_DISTANCE_ATTENUATION_ARB')
+-- * 'Graphics.GL.Tokens.GL_POINT_FADE_THRESHOLD_SIZE' (aliases: 'Graphics.GL.Tokens.GL_POINT_FADE_THRESHOLD_SIZE_ARB', 'Graphics.GL.Tokens.GL_POINT_FADE_THRESHOLD_SIZE_EXT', 'Graphics.GL.Tokens.GL_POINT_FADE_THRESHOLD_SIZE_SGIS')
+-- * 'Graphics.GL.Tokens.GL_POINT_SIZE_MAX' (aliases: 'Graphics.GL.Tokens.GL_POINT_SIZE_MAX_ARB', 'Graphics.GL.Tokens.GL_POINT_SIZE_MAX_EXT', 'Graphics.GL.Tokens.GL_POINT_SIZE_MAX_SGIS')
+-- * 'Graphics.GL.Tokens.GL_POINT_SIZE_MIN' (aliases: 'Graphics.GL.Tokens.GL_POINT_SIZE_MIN_ARB', 'Graphics.GL.Tokens.GL_POINT_SIZE_MIN_EXT', 'Graphics.GL.Tokens.GL_POINT_SIZE_MIN_SGIS')
+--
+-- === #PolygonMode# PolygonMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FILL'
+-- * 'Graphics.GL.Tokens.GL_LINE'
+-- * 'Graphics.GL.Tokens.GL_POINT'
+--
+-- === #PrecisionType# PrecisionType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_LOW_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_MEDIUM_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_HIGH_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_LOW_INT'
+-- * 'Graphics.GL.Tokens.GL_MEDIUM_INT'
+-- * 'Graphics.GL.Tokens.GL_HIGH_INT'
+--
+-- === #PreserveModeATI# PreserveModeATI
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PRESERVE_ATI'
+-- * 'Graphics.GL.Tokens.GL_DISCARD_ATI'
+--
+-- === #PrimitiveType# PrimitiveType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_LINES'
+-- * 'Graphics.GL.Tokens.GL_LINES_ADJACENCY' (aliases: 'Graphics.GL.Tokens.GL_LINES_ADJACENCY_ARB', 'Graphics.GL.Tokens.GL_LINES_ADJACENCY_EXT')
+-- * 'Graphics.GL.Tokens.GL_LINE_LOOP'
+-- * 'Graphics.GL.Tokens.GL_LINE_STRIP'
+-- * 'Graphics.GL.Tokens.GL_LINE_STRIP_ADJACENCY' (aliases: 'Graphics.GL.Tokens.GL_LINE_STRIP_ADJACENCY_ARB', 'Graphics.GL.Tokens.GL_LINE_STRIP_ADJACENCY_EXT')
+-- * 'Graphics.GL.Tokens.GL_PATCHES' (alias: 'Graphics.GL.Tokens.GL_PATCHES_EXT')
+-- * 'Graphics.GL.Tokens.GL_POINTS'
+-- * 'Graphics.GL.Tokens.GL_POLYGON'
+-- * 'Graphics.GL.Tokens.GL_QUADS' (alias: 'Graphics.GL.Tokens.GL_QUADS_EXT')
+-- * 'Graphics.GL.Tokens.GL_QUAD_STRIP'
+-- * 'Graphics.GL.Tokens.GL_TRIANGLES'
+-- * 'Graphics.GL.Tokens.GL_TRIANGLES_ADJACENCY' (aliases: 'Graphics.GL.Tokens.GL_TRIANGLES_ADJACENCY_ARB', 'Graphics.GL.Tokens.GL_TRIANGLES_ADJACENCY_EXT')
+-- * 'Graphics.GL.Tokens.GL_TRIANGLE_FAN'
+-- * 'Graphics.GL.Tokens.GL_TRIANGLE_STRIP'
+-- * 'Graphics.GL.Tokens.GL_TRIANGLE_STRIP_ADJACENCY' (aliases: 'Graphics.GL.Tokens.GL_TRIANGLE_STRIP_ADJACENCY_ARB', 'Graphics.GL.Tokens.GL_TRIANGLE_STRIP_ADJACENCY_EXT')
+--
+-- === #ProgramFormat# ProgramFormat
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PROGRAM_FORMAT_ASCII_ARB'
+--
+-- === #ProgramInterface# ProgramInterface
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_UNIFORM'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BLOCK'
+-- * 'Graphics.GL.Tokens.GL_PROGRAM_INPUT'
+-- * 'Graphics.GL.Tokens.GL_PROGRAM_OUTPUT'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_SUBROUTINE'
+-- * 'Graphics.GL.Tokens.GL_TESS_CONTROL_SUBROUTINE'
+-- * 'Graphics.GL.Tokens.GL_TESS_EVALUATION_SUBROUTINE'
+-- * 'Graphics.GL.Tokens.GL_GEOMETRY_SUBROUTINE'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_SUBROUTINE'
+-- * 'Graphics.GL.Tokens.GL_COMPUTE_SUBROUTINE'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_SUBROUTINE_UNIFORM'
+-- * 'Graphics.GL.Tokens.GL_TESS_CONTROL_SUBROUTINE_UNIFORM'
+-- * 'Graphics.GL.Tokens.GL_TESS_EVALUATION_SUBROUTINE_UNIFORM'
+-- * 'Graphics.GL.Tokens.GL_GEOMETRY_SUBROUTINE_UNIFORM'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_SUBROUTINE_UNIFORM'
+-- * 'Graphics.GL.Tokens.GL_COMPUTE_SUBROUTINE_UNIFORM'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_VARYING'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_BUFFER_VARIABLE'
+-- * 'Graphics.GL.Tokens.GL_SHADER_STORAGE_BLOCK'
+--
+-- === #ProgramInterfacePName# ProgramInterfacePName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ACTIVE_RESOURCES'
+-- * 'Graphics.GL.Tokens.GL_MAX_NAME_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_MAX_NUM_ACTIVE_VARIABLES'
+-- * 'Graphics.GL.Tokens.GL_MAX_NUM_COMPATIBLE_SUBROUTINES'
+--
+-- === #ProgramParameterPName# ProgramParameterPName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PROGRAM_BINARY_RETRIEVABLE_HINT'
+-- * 'Graphics.GL.Tokens.GL_PROGRAM_SEPARABLE'
+--
+-- === #ProgramPropertyARB# ProgramPropertyARB
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DELETE_STATUS'
+-- * 'Graphics.GL.Tokens.GL_LINK_STATUS'
+-- * 'Graphics.GL.Tokens.GL_VALIDATE_STATUS'
+-- * 'Graphics.GL.Tokens.GL_INFO_LOG_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_ATTACHED_SHADERS'
+-- * 'Graphics.GL.Tokens.GL_ACTIVE_ATOMIC_COUNTER_BUFFERS'
+-- * 'Graphics.GL.Tokens.GL_ACTIVE_ATTRIBUTES'
+-- * 'Graphics.GL.Tokens.GL_ACTIVE_ATTRIBUTE_MAX_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_ACTIVE_UNIFORMS'
+-- * 'Graphics.GL.Tokens.GL_ACTIVE_UNIFORM_BLOCKS'
+-- * 'Graphics.GL.Tokens.GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_ACTIVE_UNIFORM_MAX_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_COMPUTE_WORK_GROUP_SIZE'
+-- * 'Graphics.GL.Tokens.GL_PROGRAM_BINARY_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_BUFFER_MODE'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_VARYINGS'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_GEOMETRY_VERTICES_OUT'
+-- * 'Graphics.GL.Tokens.GL_GEOMETRY_INPUT_TYPE'
+-- * 'Graphics.GL.Tokens.GL_GEOMETRY_OUTPUT_TYPE'
+--
+-- === #ProgramResourceProperty# ProgramResourceProperty
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ACTIVE_VARIABLES'
+-- * 'Graphics.GL.Tokens.GL_BUFFER_BINDING'
+-- * 'Graphics.GL.Tokens.GL_NUM_ACTIVE_VARIABLES'
+-- * 'Graphics.GL.Tokens.GL_ARRAY_SIZE'
+-- * 'Graphics.GL.Tokens.GL_ARRAY_STRIDE'
+-- * 'Graphics.GL.Tokens.GL_BLOCK_INDEX'
+-- * 'Graphics.GL.Tokens.GL_IS_ROW_MAJOR'
+-- * 'Graphics.GL.Tokens.GL_MATRIX_STRIDE'
+-- * 'Graphics.GL.Tokens.GL_ATOMIC_COUNTER_BUFFER_INDEX'
+-- * 'Graphics.GL.Tokens.GL_BUFFER_DATA_SIZE'
+-- * 'Graphics.GL.Tokens.GL_NUM_COMPATIBLE_SUBROUTINES'
+-- * 'Graphics.GL.Tokens.GL_COMPATIBLE_SUBROUTINES'
+-- * 'Graphics.GL.Tokens.GL_IS_PER_PATCH'
+-- * 'Graphics.GL.Tokens.GL_LOCATION'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM'
+-- * 'Graphics.GL.Tokens.GL_LOCATION_COMPONENT'
+-- * 'Graphics.GL.Tokens.GL_LOCATION_INDEX'
+-- * 'Graphics.GL.Tokens.GL_NAME_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_OFFSET'
+-- * 'Graphics.GL.Tokens.GL_REFERENCED_BY_VERTEX_SHADER'
+-- * 'Graphics.GL.Tokens.GL_REFERENCED_BY_TESS_CONTROL_SHADER'
+-- * 'Graphics.GL.Tokens.GL_REFERENCED_BY_TESS_EVALUATION_SHADER'
+-- * 'Graphics.GL.Tokens.GL_REFERENCED_BY_GEOMETRY_SHADER'
+-- * 'Graphics.GL.Tokens.GL_REFERENCED_BY_FRAGMENT_SHADER'
+-- * 'Graphics.GL.Tokens.GL_REFERENCED_BY_COMPUTE_SHADER'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_BUFFER_INDEX'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE'
+-- * 'Graphics.GL.Tokens.GL_TOP_LEVEL_ARRAY_SIZE'
+-- * 'Graphics.GL.Tokens.GL_TOP_LEVEL_ARRAY_STRIDE'
+-- * 'Graphics.GL.Tokens.GL_TYPE'
+--
+-- === #ProgramStagePName# ProgramStagePName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ACTIVE_SUBROUTINE_UNIFORMS'
+-- * 'Graphics.GL.Tokens.GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS'
+-- * 'Graphics.GL.Tokens.GL_ACTIVE_SUBROUTINES'
+-- * 'Graphics.GL.Tokens.GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_ACTIVE_SUBROUTINE_MAX_LENGTH'
+--
+-- === #ProgramStringProperty# ProgramStringProperty
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PROGRAM_STRING_ARB'
+--
+-- === #ProgramTarget# ProgramTarget
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_PROGRAM_ARB'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_PROGRAM_ARB'
+-- * 'Graphics.GL.Tokens.GL_TEXT_FRAGMENT_SHADER_ATI'
+-- * 'Graphics.GL.Tokens.GL_COMPUTE_PROGRAM_NV'
+-- * 'Graphics.GL.Tokens.GL_GEOMETRY_PROGRAM_NV'
+-- * 'Graphics.GL.Tokens.GL_TESS_CONTROL_PROGRAM_NV'
+-- * 'Graphics.GL.Tokens.GL_TESS_EVALUATION_PROGRAM_NV'
+--
+-- === #QueryCounterTarget# QueryCounterTarget
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_TIMESTAMP'
+--
+-- === #QueryObjectParameterName# QueryObjectParameterName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_QUERY_RESULT_AVAILABLE'
+-- * 'Graphics.GL.Tokens.GL_QUERY_RESULT'
+-- * 'Graphics.GL.Tokens.GL_QUERY_RESULT_NO_WAIT'
+-- * 'Graphics.GL.Tokens.GL_QUERY_TARGET'
+--
+-- === #QueryParameterName# QueryParameterName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CURRENT_QUERY'
+-- * 'Graphics.GL.Tokens.GL_QUERY_COUNTER_BITS'
+--
+-- === #QueryTarget# QueryTarget
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_SAMPLES_PASSED'
+-- * 'Graphics.GL.Tokens.GL_ANY_SAMPLES_PASSED'
+-- * 'Graphics.GL.Tokens.GL_ANY_SAMPLES_PASSED_CONSERVATIVE'
+-- * 'Graphics.GL.Tokens.GL_PRIMITIVES_GENERATED'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN'
+-- * 'Graphics.GL.Tokens.GL_TIME_ELAPSED'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_OVERFLOW'
+-- * 'Graphics.GL.Tokens.GL_VERTICES_SUBMITTED'
+-- * 'Graphics.GL.Tokens.GL_PRIMITIVES_SUBMITTED'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_SHADER_INVOCATIONS'
+--
+-- === #ReadBufferMode# ReadBufferMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_NONE' (alias: 'Graphics.GL.Tokens.GL_NONE_OES')
+-- * 'Graphics.GL.Tokens.GL_AUX0'
+-- * 'Graphics.GL.Tokens.GL_AUX1'
+-- * 'Graphics.GL.Tokens.GL_AUX2'
+-- * 'Graphics.GL.Tokens.GL_AUX3'
+-- * 'Graphics.GL.Tokens.GL_BACK'
+-- * 'Graphics.GL.Tokens.GL_BACK_LEFT'
+-- * 'Graphics.GL.Tokens.GL_BACK_RIGHT'
+-- * 'Graphics.GL.Tokens.GL_FRONT'
+-- * 'Graphics.GL.Tokens.GL_FRONT_LEFT'
+-- * 'Graphics.GL.Tokens.GL_FRONT_RIGHT'
+-- * 'Graphics.GL.Tokens.GL_LEFT'
+-- * 'Graphics.GL.Tokens.GL_RIGHT'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT0'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT1'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT2'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT3'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT4'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT5'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT6'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT7'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT8'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT9'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT10'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT11'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT12'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT13'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT14'
+-- * 'Graphics.GL.Tokens.GL_COLOR_ATTACHMENT15'
+--
+-- === #RenderbufferParameterName# RenderbufferParameterName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_RENDERBUFFER_WIDTH' (aliases: 'Graphics.GL.Tokens.GL_RENDERBUFFER_WIDTH_EXT', 'Graphics.GL.Tokens.GL_RENDERBUFFER_WIDTH_OES')
+-- * 'Graphics.GL.Tokens.GL_RENDERBUFFER_HEIGHT' (aliases: 'Graphics.GL.Tokens.GL_RENDERBUFFER_HEIGHT_EXT', 'Graphics.GL.Tokens.GL_RENDERBUFFER_HEIGHT_OES')
+-- * 'Graphics.GL.Tokens.GL_RENDERBUFFER_INTERNAL_FORMAT' (aliases: 'Graphics.GL.Tokens.GL_RENDERBUFFER_INTERNAL_FORMAT_EXT', 'Graphics.GL.Tokens.GL_RENDERBUFFER_INTERNAL_FORMAT_OES')
+-- * 'Graphics.GL.Tokens.GL_RENDERBUFFER_SAMPLES_IMG'
+-- * 'Graphics.GL.Tokens.GL_RENDERBUFFER_RED_SIZE' (aliases: 'Graphics.GL.Tokens.GL_RENDERBUFFER_RED_SIZE_EXT', 'Graphics.GL.Tokens.GL_RENDERBUFFER_RED_SIZE_OES')
+-- * 'Graphics.GL.Tokens.GL_RENDERBUFFER_GREEN_SIZE' (aliases: 'Graphics.GL.Tokens.GL_RENDERBUFFER_GREEN_SIZE_EXT', 'Graphics.GL.Tokens.GL_RENDERBUFFER_GREEN_SIZE_OES')
+-- * 'Graphics.GL.Tokens.GL_RENDERBUFFER_BLUE_SIZE' (aliases: 'Graphics.GL.Tokens.GL_RENDERBUFFER_BLUE_SIZE_EXT', 'Graphics.GL.Tokens.GL_RENDERBUFFER_BLUE_SIZE_OES')
+-- * 'Graphics.GL.Tokens.GL_RENDERBUFFER_ALPHA_SIZE' (aliases: 'Graphics.GL.Tokens.GL_RENDERBUFFER_ALPHA_SIZE_EXT', 'Graphics.GL.Tokens.GL_RENDERBUFFER_ALPHA_SIZE_OES')
+-- * 'Graphics.GL.Tokens.GL_RENDERBUFFER_DEPTH_SIZE' (aliases: 'Graphics.GL.Tokens.GL_RENDERBUFFER_DEPTH_SIZE_EXT', 'Graphics.GL.Tokens.GL_RENDERBUFFER_DEPTH_SIZE_OES')
+-- * 'Graphics.GL.Tokens.GL_RENDERBUFFER_STENCIL_SIZE' (aliases: 'Graphics.GL.Tokens.GL_RENDERBUFFER_STENCIL_SIZE_EXT', 'Graphics.GL.Tokens.GL_RENDERBUFFER_STENCIL_SIZE_OES')
+-- * 'Graphics.GL.Tokens.GL_RENDERBUFFER_STORAGE_SAMPLES_AMD'
+-- * 'Graphics.GL.Tokens.GL_RENDERBUFFER_COVERAGE_SAMPLES_NV' (aliases: 'Graphics.GL.Tokens.GL_RENDERBUFFER_SAMPLES', 'Graphics.GL.Tokens.GL_RENDERBUFFER_SAMPLES_ANGLE', 'Graphics.GL.Tokens.GL_RENDERBUFFER_SAMPLES_APPLE', 'Graphics.GL.Tokens.GL_RENDERBUFFER_SAMPLES_EXT', 'Graphics.GL.Tokens.GL_RENDERBUFFER_SAMPLES_NV')
+-- * 'Graphics.GL.Tokens.GL_RENDERBUFFER_COLOR_SAMPLES_NV'
+--
+-- === #RenderbufferTarget# RenderbufferTarget
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_RENDERBUFFER' (alias: 'Graphics.GL.Tokens.GL_RENDERBUFFER_OES')
+--
+-- === #RenderingMode# RenderingMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FEEDBACK'
+-- * 'Graphics.GL.Tokens.GL_RENDER'
+-- * 'Graphics.GL.Tokens.GL_SELECT'
+--
+-- === #ReplacementCodeTypeSUN# ReplacementCodeTypeSUN
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_BYTE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_SHORT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT'
+--
+-- === #SamplePatternEXT# SamplePatternEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_1PASS_EXT'
+-- * 'Graphics.GL.Tokens.GL_2PASS_0_EXT'
+-- * 'Graphics.GL.Tokens.GL_2PASS_1_EXT'
+-- * 'Graphics.GL.Tokens.GL_4PASS_0_EXT'
+-- * 'Graphics.GL.Tokens.GL_4PASS_1_EXT'
+-- * 'Graphics.GL.Tokens.GL_4PASS_2_EXT'
+-- * 'Graphics.GL.Tokens.GL_4PASS_3_EXT'
+--
+-- === #SamplePatternSGIS# SamplePatternSGIS
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_1PASS_EXT' (alias: 'Graphics.GL.Tokens.GL_1PASS_SGIS')
+-- * 'Graphics.GL.Tokens.GL_2PASS_0_EXT' (alias: 'Graphics.GL.Tokens.GL_2PASS_0_SGIS')
+-- * 'Graphics.GL.Tokens.GL_2PASS_1_EXT' (alias: 'Graphics.GL.Tokens.GL_2PASS_1_SGIS')
+-- * 'Graphics.GL.Tokens.GL_4PASS_0_EXT' (alias: 'Graphics.GL.Tokens.GL_4PASS_0_SGIS')
+-- * 'Graphics.GL.Tokens.GL_4PASS_1_EXT' (alias: 'Graphics.GL.Tokens.GL_4PASS_1_SGIS')
+-- * 'Graphics.GL.Tokens.GL_4PASS_2_EXT' (alias: 'Graphics.GL.Tokens.GL_4PASS_2_SGIS')
+-- * 'Graphics.GL.Tokens.GL_4PASS_3_EXT' (alias: 'Graphics.GL.Tokens.GL_4PASS_3_SGIS')
+--
+-- === #SamplerParameterF# SamplerParameterF
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BORDER_COLOR'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MIN_LOD'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MAX_LOD'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MAX_ANISOTROPY'
+--
+-- === #SamplerParameterI# SamplerParameterI
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_WRAP_S'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_WRAP_T'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_WRAP_R'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MIN_FILTER'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MAG_FILTER'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COMPARE_MODE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COMPARE_FUNC'
+--
+-- === #ScalarType# ScalarType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_BYTE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_SHORT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT'
+--
+-- === #SecondaryColorPointerTypeIBM# SecondaryColorPointerTypeIBM
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_SHORT'
+-- * 'Graphics.GL.Tokens.GL_INT'
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE'
+--
+-- === #SemaphoreParameterName# SemaphoreParameterName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_D3D12_FENCE_VALUE_EXT'
+--
+-- === #SeparableTargetEXT# SeparableTargetEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_SEPARABLE_2D' (alias: 'Graphics.GL.Tokens.GL_SEPARABLE_2D_EXT')
+--
+-- === #ShaderParameterName# ShaderParameterName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_SHADER_TYPE'
+-- * 'Graphics.GL.Tokens.GL_DELETE_STATUS'
+-- * 'Graphics.GL.Tokens.GL_COMPILE_STATUS'
+-- * 'Graphics.GL.Tokens.GL_INFO_LOG_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_SHADER_SOURCE_LENGTH'
+--
+-- === #ShaderType# ShaderType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_COMPUTE_SHADER'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_SHADER' (alias: 'Graphics.GL.Tokens.GL_VERTEX_SHADER_ARB')
+-- * 'Graphics.GL.Tokens.GL_TESS_CONTROL_SHADER'
+-- * 'Graphics.GL.Tokens.GL_TESS_EVALUATION_SHADER'
+-- * 'Graphics.GL.Tokens.GL_GEOMETRY_SHADER'
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_SHADER' (alias: 'Graphics.GL.Tokens.GL_FRAGMENT_SHADER_ARB')
+--
+-- === #ShadingModel# ShadingModel
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FLAT'
+-- * 'Graphics.GL.Tokens.GL_SMOOTH'
+--
+-- === #SpriteParameterNameSGIX# SpriteParameterNameSGIX
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_SPRITE_MODE_SGIX'
+--
+-- === #StencilFaceDirection# StencilFaceDirection
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FRONT'
+-- * 'Graphics.GL.Tokens.GL_BACK'
+-- * 'Graphics.GL.Tokens.GL_FRONT_AND_BACK'
+--
+-- === #StencilFunction# StencilFunction
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ALWAYS'
+-- * 'Graphics.GL.Tokens.GL_EQUAL'
+-- * 'Graphics.GL.Tokens.GL_GEQUAL'
+-- * 'Graphics.GL.Tokens.GL_GREATER'
+-- * 'Graphics.GL.Tokens.GL_LEQUAL'
+-- * 'Graphics.GL.Tokens.GL_LESS'
+-- * 'Graphics.GL.Tokens.GL_NEVER'
+-- * 'Graphics.GL.Tokens.GL_NOTEQUAL'
+--
+-- === #StencilOp# StencilOp
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DECR'
+-- * 'Graphics.GL.Tokens.GL_DECR_WRAP'
+-- * 'Graphics.GL.Tokens.GL_INCR'
+-- * 'Graphics.GL.Tokens.GL_INCR_WRAP'
+-- * 'Graphics.GL.Tokens.GL_INVERT'
+-- * 'Graphics.GL.Tokens.GL_KEEP'
+-- * 'Graphics.GL.Tokens.GL_REPLACE'
+-- * 'Graphics.GL.Tokens.GL_ZERO'
+--
+-- === #StringName# StringName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_EXTENSIONS'
+-- * 'Graphics.GL.Tokens.GL_RENDERER'
+-- * 'Graphics.GL.Tokens.GL_VENDOR'
+-- * 'Graphics.GL.Tokens.GL_VERSION'
+-- * 'Graphics.GL.Tokens.GL_SHADING_LANGUAGE_VERSION'
+--
+-- === #SubgroupSupportedFeatures# SubgroupSupportedFeatures
+-- A bitwise combination of several of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_SUBGROUP_FEATURE_BASIC_BIT_KHR'
+-- * 'Graphics.GL.Tokens.GL_SUBGROUP_FEATURE_VOTE_BIT_KHR'
+-- * 'Graphics.GL.Tokens.GL_SUBGROUP_FEATURE_ARITHMETIC_BIT_KHR'
+-- * 'Graphics.GL.Tokens.GL_SUBGROUP_FEATURE_BALLOT_BIT_KHR'
+-- * 'Graphics.GL.Tokens.GL_SUBGROUP_FEATURE_SHUFFLE_BIT_KHR'
+-- * 'Graphics.GL.Tokens.GL_SUBGROUP_FEATURE_SHUFFLE_RELATIVE_BIT_KHR'
+-- * 'Graphics.GL.Tokens.GL_SUBGROUP_FEATURE_CLUSTERED_BIT_KHR'
+-- * 'Graphics.GL.Tokens.GL_SUBGROUP_FEATURE_QUAD_BIT_KHR'
+-- * 'Graphics.GL.Tokens.GL_SUBGROUP_FEATURE_PARTITIONED_BIT_NV'
+--
+-- === #SubroutineParameterName# SubroutineParameterName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_NUM_COMPATIBLE_SUBROUTINES'
+-- * 'Graphics.GL.Tokens.GL_COMPATIBLE_SUBROUTINES'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_SIZE'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_NAME_LENGTH'
+--
+-- === #SwizzleOpATI# SwizzleOpATI
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_SWIZZLE_STR_ATI'
+-- * 'Graphics.GL.Tokens.GL_SWIZZLE_STQ_ATI'
+-- * 'Graphics.GL.Tokens.GL_SWIZZLE_STR_DR_ATI'
+-- * 'Graphics.GL.Tokens.GL_SWIZZLE_STQ_DQ_ATI'
+--
+-- === #SyncCondition# SyncCondition
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_SYNC_GPU_COMMANDS_COMPLETE'
+--
+-- === #SyncObjectMask# SyncObjectMask
+-- A bitwise combination of several of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_SYNC_FLUSH_COMMANDS_BIT' (alias: 'Graphics.GL.Tokens.GL_SYNC_FLUSH_COMMANDS_BIT_APPLE')
+--
+-- === #SyncParameterName# SyncParameterName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_OBJECT_TYPE'
+-- * 'Graphics.GL.Tokens.GL_SYNC_STATUS'
+-- * 'Graphics.GL.Tokens.GL_SYNC_CONDITION'
+-- * 'Graphics.GL.Tokens.GL_SYNC_FLAGS'
+--
+-- === #SyncStatus# SyncStatus
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ALREADY_SIGNALED'
+-- * 'Graphics.GL.Tokens.GL_TIMEOUT_EXPIRED'
+-- * 'Graphics.GL.Tokens.GL_CONDITION_SATISFIED'
+-- * 'Graphics.GL.Tokens.GL_WAIT_FAILED'
+--
+-- === #TangentPointerTypeEXT# TangentPointerTypeEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BYTE'
+-- * 'Graphics.GL.Tokens.GL_SHORT'
+-- * 'Graphics.GL.Tokens.GL_INT'
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE' (alias: 'Graphics.GL.Tokens.GL_DOUBLE_EXT')
+--
+-- === #TexBumpParameterATI# TexBumpParameterATI
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BUMP_ROT_MATRIX_ATI'
+--
+-- === #TexCoordPointerType# TexCoordPointerType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DOUBLE'
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_INT'
+-- * 'Graphics.GL.Tokens.GL_SHORT'
+--
+-- === #TextureCompareMode# TextureCompareMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_NONE'
+-- * 'Graphics.GL.Tokens.GL_COMPARE_REF_TO_TEXTURE' (alias: 'Graphics.GL.Tokens.GL_COMPARE_R_TO_TEXTURE')
+--
+-- === #TextureCoordName# TextureCoordName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_S'
+-- * 'Graphics.GL.Tokens.GL_T'
+-- * 'Graphics.GL.Tokens.GL_R'
+-- * 'Graphics.GL.Tokens.GL_Q'
+--
+-- === #TextureEnvMode# TextureEnvMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_ADD'
+-- * 'Graphics.GL.Tokens.GL_BLEND'
+-- * 'Graphics.GL.Tokens.GL_DECAL'
+-- * 'Graphics.GL.Tokens.GL_MODULATE'
+-- * 'Graphics.GL.Tokens.GL_REPLACE_EXT'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_ENV_BIAS_SGIX'
+--
+-- === #TextureEnvParameter# TextureEnvParameter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_ENV_COLOR'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_ENV_MODE'
+--
+-- === #TextureEnvTarget# TextureEnvTarget
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_ENV'
+--
+-- === #TextureFilterFuncSGIS# TextureFilterFuncSGIS
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FILTER4_SGIS'
+--
+-- === #TextureFilterSGIS# TextureFilterSGIS
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FILTER4_SGIS'
+--
+-- === #TextureGenMode# TextureGenMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_EYE_DISTANCE_TO_LINE_SGIS'
+-- * 'Graphics.GL.Tokens.GL_EYE_DISTANCE_TO_POINT_SGIS'
+-- * 'Graphics.GL.Tokens.GL_EYE_LINEAR'
+-- * 'Graphics.GL.Tokens.GL_OBJECT_DISTANCE_TO_LINE_SGIS'
+-- * 'Graphics.GL.Tokens.GL_OBJECT_DISTANCE_TO_POINT_SGIS'
+-- * 'Graphics.GL.Tokens.GL_OBJECT_LINEAR'
+-- * 'Graphics.GL.Tokens.GL_SPHERE_MAP'
+--
+-- === #TextureGenParameter# TextureGenParameter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_EYE_LINE_SGIS'
+-- * 'Graphics.GL.Tokens.GL_EYE_PLANE'
+-- * 'Graphics.GL.Tokens.GL_EYE_POINT_SGIS'
+-- * 'Graphics.GL.Tokens.GL_OBJECT_LINE_SGIS'
+-- * 'Graphics.GL.Tokens.GL_OBJECT_PLANE'
+-- * 'Graphics.GL.Tokens.GL_OBJECT_POINT_SGIS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_GEN_MODE'
+--
+-- === #TextureLayout# TextureLayout
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_LAYOUT_GENERAL_EXT'
+-- * 'Graphics.GL.Tokens.GL_LAYOUT_COLOR_ATTACHMENT_EXT'
+-- * 'Graphics.GL.Tokens.GL_LAYOUT_DEPTH_STENCIL_ATTACHMENT_EXT'
+-- * 'Graphics.GL.Tokens.GL_LAYOUT_DEPTH_STENCIL_READ_ONLY_EXT'
+-- * 'Graphics.GL.Tokens.GL_LAYOUT_SHADER_READ_ONLY_EXT'
+-- * 'Graphics.GL.Tokens.GL_LAYOUT_TRANSFER_SRC_EXT'
+-- * 'Graphics.GL.Tokens.GL_LAYOUT_TRANSFER_DST_EXT'
+-- * 'Graphics.GL.Tokens.GL_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_EXT'
+-- * 'Graphics.GL.Tokens.GL_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_EXT'
+--
+-- === #TextureMagFilter# TextureMagFilter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FILTER4_SGIS'
+-- * 'Graphics.GL.Tokens.GL_LINEAR'
+-- * 'Graphics.GL.Tokens.GL_LINEAR_DETAIL_ALPHA_SGIS'
+-- * 'Graphics.GL.Tokens.GL_LINEAR_DETAIL_COLOR_SGIS'
+-- * 'Graphics.GL.Tokens.GL_LINEAR_DETAIL_SGIS'
+-- * 'Graphics.GL.Tokens.GL_LINEAR_SHARPEN_ALPHA_SGIS'
+-- * 'Graphics.GL.Tokens.GL_LINEAR_SHARPEN_COLOR_SGIS'
+-- * 'Graphics.GL.Tokens.GL_LINEAR_SHARPEN_SGIS'
+-- * 'Graphics.GL.Tokens.GL_NEAREST'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_Q_CEILING_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_Q_FLOOR_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_Q_ROUND_SGIX'
+--
+-- === #TextureMinFilter# TextureMinFilter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FILTER4_SGIS'
+-- * 'Graphics.GL.Tokens.GL_LINEAR'
+-- * 'Graphics.GL.Tokens.GL_LINEAR_CLIPMAP_LINEAR_SGIX'
+-- * 'Graphics.GL.Tokens.GL_LINEAR_CLIPMAP_NEAREST_SGIX'
+-- * 'Graphics.GL.Tokens.GL_LINEAR_MIPMAP_LINEAR'
+-- * 'Graphics.GL.Tokens.GL_LINEAR_MIPMAP_NEAREST'
+-- * 'Graphics.GL.Tokens.GL_NEAREST'
+-- * 'Graphics.GL.Tokens.GL_NEAREST_CLIPMAP_LINEAR_SGIX'
+-- * 'Graphics.GL.Tokens.GL_NEAREST_CLIPMAP_NEAREST_SGIX'
+-- * 'Graphics.GL.Tokens.GL_NEAREST_MIPMAP_LINEAR'
+-- * 'Graphics.GL.Tokens.GL_NEAREST_MIPMAP_NEAREST'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_Q_CEILING_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_Q_FLOOR_SGIX'
+-- * 'Graphics.GL.Tokens.GL_PIXEL_TEX_GEN_Q_ROUND_SGIX'
+--
+-- === #TextureNormalModeEXT# TextureNormalModeEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PERTURB_EXT'
+--
+-- === #TextureParameterName# TextureParameterName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DETAIL_TEXTURE_LEVEL_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DETAIL_TEXTURE_MODE_SGIS'
+-- * 'Graphics.GL.Tokens.GL_DUAL_TEXTURE_SELECT_SGIS'
+-- * 'Graphics.GL.Tokens.GL_GENERATE_MIPMAP' (alias: 'Graphics.GL.Tokens.GL_GENERATE_MIPMAP_SGIS')
+-- * 'Graphics.GL.Tokens.GL_POST_TEXTURE_FILTER_BIAS_SGIX'
+-- * 'Graphics.GL.Tokens.GL_POST_TEXTURE_FILTER_SCALE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_QUAD_TEXTURE_SELECT_SGIS'
+-- * 'Graphics.GL.Tokens.GL_SHADOW_AMBIENT_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BORDER_COLOR' (alias: 'Graphics.GL.Tokens.GL_TEXTURE_BORDER_COLOR_NV')
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CLIPMAP_CENTER_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CLIPMAP_DEPTH_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CLIPMAP_FRAME_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CLIPMAP_LOD_OFFSET_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CLIPMAP_OFFSET_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CLIPMAP_VIRTUAL_DEPTH_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COMPARE_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_LOD_BIAS_R_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_LOD_BIAS_S_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_LOD_BIAS_T_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MAG_FILTER'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MAX_CLAMP_R_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MAX_CLAMP_S_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MAX_CLAMP_T_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MIN_FILTER'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_PRIORITY' (alias: 'Graphics.GL.Tokens.GL_TEXTURE_PRIORITY_EXT')
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_WRAP_Q_SGIS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_WRAP_R' (aliases: 'Graphics.GL.Tokens.GL_TEXTURE_WRAP_R_EXT', 'Graphics.GL.Tokens.GL_TEXTURE_WRAP_R_OES')
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_WRAP_S'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_WRAP_T'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BASE_LEVEL' (alias: 'Graphics.GL.Tokens.GL_TEXTURE_BASE_LEVEL_SGIS')
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COMPARE_MODE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COMPARE_FUNC'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_LOD_BIAS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MIN_LOD' (alias: 'Graphics.GL.Tokens.GL_TEXTURE_MIN_LOD_SGIS')
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MAX_LOD' (alias: 'Graphics.GL.Tokens.GL_TEXTURE_MAX_LOD_SGIS')
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MAX_LEVEL' (alias: 'Graphics.GL.Tokens.GL_TEXTURE_MAX_LEVEL_SGIS')
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_SWIZZLE_R'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_SWIZZLE_G'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_SWIZZLE_B'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_SWIZZLE_A'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_SWIZZLE_RGBA'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_TILING_EXT'
+-- * 'Graphics.GL.Tokens.GL_DEPTH_STENCIL_TEXTURE_MODE'
+-- * 'Graphics.GL.Tokens.GL_DETAIL_TEXTURE_FUNC_POINTS_SGIS'
+-- * 'Graphics.GL.Tokens.GL_SHARPEN_TEXTURE_FUNC_POINTS_SGIS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_4DSIZE_SGIS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_ALPHA_SIZE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BLUE_SIZE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_BORDER'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COMPARE_OPERATOR_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_COMPONENTS' (alias: 'Graphics.GL.Tokens.GL_TEXTURE_INTERNAL_FORMAT')
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_DEPTH_EXT'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_FILTER4_SIZE_SGIS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_GEQUAL_R_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_GREEN_SIZE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_HEIGHT'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_INTENSITY_SIZE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_LEQUAL_R_SGIX'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_LUMINANCE_SIZE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_RED_SIZE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_RESIDENT'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_WIDTH'
+--
+-- === #TextureStorageMaskAMD# TextureStorageMaskAMD
+-- A bitwise combination of several of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_STORAGE_SPARSE_BIT_AMD'
+--
+-- === #TextureSwizzle# TextureSwizzle
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_RED'
+-- * 'Graphics.GL.Tokens.GL_GREEN'
+-- * 'Graphics.GL.Tokens.GL_BLUE'
+-- * 'Graphics.GL.Tokens.GL_ALPHA'
+-- * 'Graphics.GL.Tokens.GL_ZERO'
+-- * 'Graphics.GL.Tokens.GL_ONE'
+--
+-- === #TextureTarget# TextureTarget
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DETAIL_TEXTURE_2D_SGIS'
+-- * 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_1D' (alias: 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_1D_EXT')
+-- * 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_1D_ARRAY' (alias: 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_1D_ARRAY_EXT')
+-- * 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_2D' (alias: 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_2D_EXT')
+-- * 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_2D_ARRAY' (alias: 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_2D_ARRAY_EXT')
+-- * 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_3D' (alias: 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_3D_EXT')
+-- * 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_4D_SGIS'
+-- * 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_CUBE_MAP' (aliases: 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_CUBE_MAP_ARB', 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_CUBE_MAP_EXT')
+-- * 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_CUBE_MAP_ARRAY' (alias: 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_CUBE_MAP_ARRAY_ARB')
+-- * 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_RECTANGLE' (aliases: 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_RECTANGLE_ARB', 'Graphics.GL.Tokens.GL_PROXY_TEXTURE_RECTANGLE_NV')
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_1D'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_2D'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_3D' (aliases: 'Graphics.GL.Tokens.GL_TEXTURE_3D_EXT', 'Graphics.GL.Tokens.GL_TEXTURE_3D_OES')
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_4D_SGIS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_RECTANGLE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CUBE_MAP'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CUBE_MAP_POSITIVE_X'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CUBE_MAP_NEGATIVE_X'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CUBE_MAP_POSITIVE_Y'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CUBE_MAP_NEGATIVE_Y'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CUBE_MAP_POSITIVE_Z'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CUBE_MAP_NEGATIVE_Z'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_CUBE_MAP_ARRAY' (aliases: 'Graphics.GL.Tokens.GL_TEXTURE_CUBE_MAP_ARRAY_ARB', 'Graphics.GL.Tokens.GL_TEXTURE_CUBE_MAP_ARRAY_EXT', 'Graphics.GL.Tokens.GL_TEXTURE_CUBE_MAP_ARRAY_OES')
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_1D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_2D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_2D_MULTISAMPLE_ARRAY'
+--
+-- === #TextureUnit# TextureUnit
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_TEXTURE0'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE1'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE2'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE3'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE4'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE5'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE6'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE7'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE8'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE9'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE10'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE11'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE12'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE13'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE14'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE15'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE16'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE17'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE18'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE19'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE20'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE21'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE22'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE23'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE24'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE25'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE26'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE27'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE28'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE29'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE30'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE31'
+--
+-- === #TextureWrapMode# TextureWrapMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CLAMP'
+-- * 'Graphics.GL.Tokens.GL_CLAMP_TO_BORDER' (aliases: 'Graphics.GL.Tokens.GL_CLAMP_TO_BORDER_ARB', 'Graphics.GL.Tokens.GL_CLAMP_TO_BORDER_NV', 'Graphics.GL.Tokens.GL_CLAMP_TO_BORDER_SGIS')
+-- * 'Graphics.GL.Tokens.GL_CLAMP_TO_EDGE' (alias: 'Graphics.GL.Tokens.GL_CLAMP_TO_EDGE_SGIS')
+-- * 'Graphics.GL.Tokens.GL_REPEAT'
+-- * 'Graphics.GL.Tokens.GL_LINEAR_MIPMAP_LINEAR'
+-- * 'Graphics.GL.Tokens.GL_MIRRORED_REPEAT'
+--
+-- === #TransformFeedbackBufferMode# TransformFeedbackBufferMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_INTERLEAVED_ATTRIBS'
+-- * 'Graphics.GL.Tokens.GL_SEPARATE_ATTRIBS'
+--
+-- === #TransformFeedbackPName# TransformFeedbackPName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_BUFFER_BINDING'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_BUFFER_START'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_BUFFER_SIZE'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_PAUSED'
+-- * 'Graphics.GL.Tokens.GL_TRANSFORM_FEEDBACK_ACTIVE'
+--
+-- === #UniformBlockPName# UniformBlockPName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BLOCK_BINDING'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BLOCK_DATA_SIZE'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BLOCK_NAME_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_CONTROL_SHADER'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_EVALUATION_SHADER'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BLOCK_REFERENCED_BY_COMPUTE_SHADER'
+--
+-- === #UniformPName# UniformPName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_TYPE'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_SIZE'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_NAME_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_BLOCK_INDEX'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_OFFSET'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_ARRAY_STRIDE'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_MATRIX_STRIDE'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_IS_ROW_MAJOR'
+-- * 'Graphics.GL.Tokens.GL_UNIFORM_ATOMIC_COUNTER_BUFFER_INDEX'
+--
+-- === #UniformType# UniformType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_INT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT'
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_VEC2'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_VEC3'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_VEC4'
+-- * 'Graphics.GL.Tokens.GL_INT_VEC2'
+-- * 'Graphics.GL.Tokens.GL_INT_VEC3'
+-- * 'Graphics.GL.Tokens.GL_INT_VEC4'
+-- * 'Graphics.GL.Tokens.GL_BOOL'
+-- * 'Graphics.GL.Tokens.GL_BOOL_VEC2'
+-- * 'Graphics.GL.Tokens.GL_BOOL_VEC3'
+-- * 'Graphics.GL.Tokens.GL_BOOL_VEC4'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT2'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT3'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT4'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_1D'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_3D'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_CUBE'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_1D_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_RECT'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_RECT_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT2x3'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT2x4'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT3x2'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT3x4'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT4x2'
+-- * 'Graphics.GL.Tokens.GL_FLOAT_MAT4x3'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_1D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_1D_ARRAY_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_ARRAY_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_CUBE_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_VEC2'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_VEC3'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_VEC4'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_1D'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_2D'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_3D'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_CUBE'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_2D_RECT'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_1D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_2D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_1D'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_2D'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_3D'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_CUBE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_2D_RECT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_1D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_2D_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_BUFFER'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT2'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT3'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT4'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT2x3'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT2x4'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT3x2'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT3x4'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT4x2'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_MAT4x3'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_VEC2'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_VEC3'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE_VEC4'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_CUBE_MAP_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_CUBE_MAP_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE'
+-- * 'Graphics.GL.Tokens.GL_SAMPLER_2D_MULTISAMPLE_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY'
+--
+-- === #UseProgramStageMask# UseProgramStageMask
+-- A bitwise combination of several of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_VERTEX_SHADER_BIT' (alias: 'Graphics.GL.Tokens.GL_VERTEX_SHADER_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_FRAGMENT_SHADER_BIT' (alias: 'Graphics.GL.Tokens.GL_FRAGMENT_SHADER_BIT_EXT')
+-- * 'Graphics.GL.Tokens.GL_GEOMETRY_SHADER_BIT' (aliases: 'Graphics.GL.Tokens.GL_GEOMETRY_SHADER_BIT_EXT', 'Graphics.GL.Tokens.GL_GEOMETRY_SHADER_BIT_OES')
+-- * 'Graphics.GL.Tokens.GL_TESS_CONTROL_SHADER_BIT' (aliases: 'Graphics.GL.Tokens.GL_TESS_CONTROL_SHADER_BIT_EXT', 'Graphics.GL.Tokens.GL_TESS_CONTROL_SHADER_BIT_OES')
+-- * 'Graphics.GL.Tokens.GL_TESS_EVALUATION_SHADER_BIT' (aliases: 'Graphics.GL.Tokens.GL_TESS_EVALUATION_SHADER_BIT_EXT', 'Graphics.GL.Tokens.GL_TESS_EVALUATION_SHADER_BIT_OES')
+-- * 'Graphics.GL.Tokens.GL_COMPUTE_SHADER_BIT'
+-- * 'Graphics.GL.Tokens.GL_MESH_SHADER_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_TASK_SHADER_BIT_NV'
+-- * 'Graphics.GL.Tokens.GL_ALL_SHADER_BITS' (alias: 'Graphics.GL.Tokens.GL_ALL_SHADER_BITS_EXT')
+--
+-- === #VariantCapEXT# VariantCapEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_VARIANT_ARRAY_EXT'
+--
+-- === #VertexArrayPName# VertexArrayPName
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_ENABLED'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_SIZE'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_STRIDE'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_TYPE'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_NORMALIZED'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_INTEGER'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_LONG'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_DIVISOR'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_RELATIVE_OFFSET'
+--
+-- === #VertexArrayPNameAPPLE# VertexArrayPNameAPPLE
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_STORAGE_CLIENT_APPLE'
+-- * 'Graphics.GL.Tokens.GL_STORAGE_CACHED_APPLE'
+-- * 'Graphics.GL.Tokens.GL_STORAGE_SHARED_APPLE'
+--
+-- === #VertexAttribEnum# VertexAttribEnum
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_ENABLED'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_SIZE'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_STRIDE'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_TYPE'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_NORMALIZED'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_INTEGER'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_DIVISOR'
+-- * 'Graphics.GL.Tokens.GL_CURRENT_VERTEX_ATTRIB'
+--
+-- === #VertexAttribEnumNV# VertexAttribEnumNV
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_PROGRAM_PARAMETER_NV'
+--
+-- === #VertexAttribIType# VertexAttribIType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BYTE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_BYTE'
+-- * 'Graphics.GL.Tokens.GL_SHORT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_SHORT'
+-- * 'Graphics.GL.Tokens.GL_INT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT'
+--
+-- === #VertexAttribLType# VertexAttribLType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DOUBLE'
+--
+-- === #VertexAttribPointerPropertyARB# VertexAttribPointerPropertyARB
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_POINTER' (alias: 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB')
+--
+-- === #VertexAttribPointerType# VertexAttribPointerType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BYTE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_BYTE'
+-- * 'Graphics.GL.Tokens.GL_SHORT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_SHORT'
+-- * 'Graphics.GL.Tokens.GL_INT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT'
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE'
+-- * 'Graphics.GL.Tokens.GL_HALF_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_FIXED'
+-- * 'Graphics.GL.Tokens.GL_INT_2_10_10_10_REV'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_2_10_10_10_REV'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_10F_11F_11F_REV'
+-- * 'Graphics.GL.Tokens.GL_INT64_ARB' (alias: 'Graphics.GL.Tokens.GL_INT64_NV')
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT64_ARB' (alias: 'Graphics.GL.Tokens.GL_UNSIGNED_INT64_NV')
+--
+-- === #VertexAttribPropertyARB# VertexAttribPropertyARB
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_ENABLED'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_SIZE'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_STRIDE'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_TYPE'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_NORMALIZED'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_INTEGER' (alias: 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_INTEGER_EXT')
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_LONG'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_ARRAY_DIVISOR'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_BINDING'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_ATTRIB_RELATIVE_OFFSET'
+-- * 'Graphics.GL.Tokens.GL_CURRENT_VERTEX_ATTRIB'
+--
+-- === #VertexAttribType# VertexAttribType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BYTE'
+-- * 'Graphics.GL.Tokens.GL_SHORT'
+-- * 'Graphics.GL.Tokens.GL_INT'
+-- * 'Graphics.GL.Tokens.GL_FIXED'
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_HALF_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_BYTE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_SHORT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT'
+-- * 'Graphics.GL.Tokens.GL_INT_2_10_10_10_REV'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_2_10_10_10_REV'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT_10F_11F_11F_REV'
+--
+-- === #VertexBufferObjectParameter# VertexBufferObjectParameter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BUFFER_ACCESS'
+-- * 'Graphics.GL.Tokens.GL_BUFFER_ACCESS_FLAGS'
+-- * 'Graphics.GL.Tokens.GL_BUFFER_IMMUTABLE_STORAGE'
+-- * 'Graphics.GL.Tokens.GL_BUFFER_MAPPED'
+-- * 'Graphics.GL.Tokens.GL_BUFFER_MAP_LENGTH'
+-- * 'Graphics.GL.Tokens.GL_BUFFER_MAP_OFFSET'
+-- * 'Graphics.GL.Tokens.GL_BUFFER_SIZE'
+-- * 'Graphics.GL.Tokens.GL_BUFFER_STORAGE_FLAGS'
+-- * 'Graphics.GL.Tokens.GL_BUFFER_USAGE'
+--
+-- === #VertexBufferObjectUsage# VertexBufferObjectUsage
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_STREAM_DRAW'
+-- * 'Graphics.GL.Tokens.GL_STREAM_READ'
+-- * 'Graphics.GL.Tokens.GL_STREAM_COPY'
+-- * 'Graphics.GL.Tokens.GL_STATIC_DRAW'
+-- * 'Graphics.GL.Tokens.GL_STATIC_READ'
+-- * 'Graphics.GL.Tokens.GL_STATIC_COPY'
+-- * 'Graphics.GL.Tokens.GL_DYNAMIC_DRAW'
+-- * 'Graphics.GL.Tokens.GL_DYNAMIC_READ'
+-- * 'Graphics.GL.Tokens.GL_DYNAMIC_COPY'
+--
+-- === #VertexPointerType# VertexPointerType
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_DOUBLE'
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_INT'
+-- * 'Graphics.GL.Tokens.GL_SHORT'
+--
+-- === #VertexProvokingMode# VertexProvokingMode
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FIRST_VERTEX_CONVENTION'
+-- * 'Graphics.GL.Tokens.GL_LAST_VERTEX_CONVENTION'
+--
+-- === #VertexShaderCoordOutEXT# VertexShaderCoordOutEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_X_EXT'
+-- * 'Graphics.GL.Tokens.GL_Y_EXT'
+-- * 'Graphics.GL.Tokens.GL_Z_EXT'
+-- * 'Graphics.GL.Tokens.GL_W_EXT'
+-- * 'Graphics.GL.Tokens.GL_NEGATIVE_X_EXT'
+-- * 'Graphics.GL.Tokens.GL_NEGATIVE_Y_EXT'
+-- * 'Graphics.GL.Tokens.GL_NEGATIVE_Z_EXT'
+-- * 'Graphics.GL.Tokens.GL_NEGATIVE_W_EXT'
+-- * 'Graphics.GL.Tokens.GL_ZERO_EXT'
+-- * 'Graphics.GL.Tokens.GL_ONE_EXT'
+-- * 'Graphics.GL.Tokens.GL_NEGATIVE_ONE_EXT'
+--
+-- === #VertexShaderOpEXT# VertexShaderOpEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_OP_INDEX_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_NEGATE_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_DOT3_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_DOT4_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_MUL_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_ADD_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_MADD_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_FRAC_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_MAX_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_MIN_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_SET_GE_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_SET_LT_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_CLAMP_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_FLOOR_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_ROUND_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_EXP_BASE_2_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_LOG_BASE_2_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_POWER_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_RECIP_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_RECIP_SQRT_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_SUB_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_CROSS_PRODUCT_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_MULTIPLY_MATRIX_EXT'
+-- * 'Graphics.GL.Tokens.GL_OP_MOV_EXT'
+--
+-- === #VertexShaderParameterEXT# VertexShaderParameterEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CURRENT_VERTEX_EXT'
+-- * 'Graphics.GL.Tokens.GL_MVP_MATRIX_EXT'
+--
+-- === #VertexShaderStorageTypeEXT# VertexShaderStorageTypeEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_VARIANT_EXT'
+-- * 'Graphics.GL.Tokens.GL_INVARIANT_EXT'
+-- * 'Graphics.GL.Tokens.GL_LOCAL_CONSTANT_EXT'
+-- * 'Graphics.GL.Tokens.GL_LOCAL_EXT'
+--
+-- === #VertexShaderTextureUnitParameter# VertexShaderTextureUnitParameter
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_CURRENT_TEXTURE_COORDS'
+-- * 'Graphics.GL.Tokens.GL_TEXTURE_MATRIX'
+--
+-- === #VertexShaderWriteMaskEXT# VertexShaderWriteMaskEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_TRUE'
+-- * 'Graphics.GL.Tokens.GL_FALSE'
+--
+-- === #VertexStreamATI# VertexStreamATI
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_VERTEX_STREAM0_ATI'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_STREAM1_ATI'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_STREAM2_ATI'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_STREAM3_ATI'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_STREAM4_ATI'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_STREAM5_ATI'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_STREAM6_ATI'
+-- * 'Graphics.GL.Tokens.GL_VERTEX_STREAM7_ATI'
+--
+-- === #VertexWeightPointerTypeEXT# VertexWeightPointerTypeEXT
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+--
+-- === #WeightPointerTypeARB# WeightPointerTypeARB
+-- One of the following values:
+--
+-- * 'Graphics.GL.Tokens.GL_BYTE'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_BYTE'
+-- * 'Graphics.GL.Tokens.GL_SHORT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_SHORT'
+-- * 'Graphics.GL.Tokens.GL_INT'
+-- * 'Graphics.GL.Tokens.GL_UNSIGNED_INT'
+-- * 'Graphics.GL.Tokens.GL_FLOAT'
+-- * 'Graphics.GL.Tokens.GL_DOUBLE'

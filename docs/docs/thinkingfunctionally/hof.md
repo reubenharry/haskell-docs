@@ -92,24 +92,30 @@ Or in its general polymorphic form:
 
 Instead of writing `func x = not (even x)`, one can write `func = not . even`, which avoids having to name a variable `x` at all. 
 
-todo with point
-```
-import gloss todo 
-picture = 
-    rotate 90
-    $ translate 20 20
-    $ scale 30 30
-    circle 2
-```
+!!! Hint
 
-```
-import gloss todo 
-picture = transform (circle 2) where 
-    transform =
+    Here is a point*ful* style:
+
+    ```hs
+    Graphics.Gloss.Data.Picture
+    picture :: Picture
+    picture = 
         rotate 90
-        . translate 20 20
-        . scale 30 30
-```
+        $ translate 20 20
+        $ scale 30 30
+        circle 2
+    ```
+
+    And here is a point*free* style:
+
+    ```hs
+    picture :: Picture
+    picture = transform (circle 2) where 
+        transform =
+            rotate 90
+            . translate 20 20
+            . scale 30 30
+    ```
 
 ## Map, fold, scan and zip
 

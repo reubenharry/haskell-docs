@@ -13,16 +13,44 @@ import Witch
 import Control.Monad.State (execState)
 import Control.Monad.RWS (modify)
 
+data ChessSquare = Square Int Int
+-- data Color = Black | White
+
+squareColor :: ChessSquare -> Color
+squareColor (Square i j) 
+    | even (i+j) = White
+    | otherwise = Black
+
+correct :: Color
+correct =  squareColor (Square 2 4)
+
+
+
 class Length f where
     len :: f a -> Int
 
-data Color' = Black' | White'
-data Piece' = Bishop' Color | Knight' Color 
+float :: Float
+float = 4
 
-getColor :: Either a Piece' -> Maybe Color
-getColor (Right (Bishop' c)) = Just c
-getColor (Right (Knight' c)) = Just c
-getColor (Left _) = Nothing
+double = into @Double float
+
+str :: String
+str = "hello"
+
+text :: Text
+text = into str
+
+class Functor' (f :: * -> *) where 
+    fmal' :: f a
+
+
+
+data List a = EmptyList | HeadThenList a (List a)
+
+-- getLeft :: Either a b -> Maybe a
+getLeft :: Either Bool b -> Maybe Bool
+getLeft (Left x) = Just (not x)
+getLeft (Right _) = Nothing
 
 -- instance Length [] where
 --     len (x: xs) = length 
@@ -118,7 +146,7 @@ toEntity (Right bool) = Player bool
 -- data Square = Sq Int Int 
 
 data ChessPiece = Piece PieceType Color 
-data Color = Black | White
+data Color = Black | White deriving Show
 data PieceType = Bishop | Rook
 -- data Square = Sq Int Int 
 

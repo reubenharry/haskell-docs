@@ -1,4 +1,4 @@
-A Haskell program won't compile unless the types work out, and no coercion of types will take place automatically:
+A Haskell program won't compile unless the types are consistent, and no coercion of types will take place automatically:
 
 ```haskell
 intToBool :: Int -> Bool
@@ -13,6 +13,32 @@ badInput = intToBool True
 The compiler will provide an error which tells you this:
 
 ![Type checking](/img/typecheck.png)
+
+
+### Why this is useful
+
+In conjunction with Haskell's [ability to create custom types](/basics/createdata), static typing allows you to enforce conceptual distinctions, which can vastly increase code safety and understanding:
+
+```haskell
+data ChessSquare = Square Int Int
+data Color = Black | White deriving Show
+
+squareColor :: ChessSquare -> Color
+squareColor (Square i j) 
+    | even (i+j) = White
+    | otherwise = Black
+
+correct =  squareColor (Square 2 4)
+
+-- this line won't type check, and your program won't compile!
+incorrect = squareColor (2,4)
+```
+
+`incorrect` won't compile, because it fails to *typecheck*: it tries to apply `squareColor` to a tuple `(Int, Int)`, but `squareColor` takes a `ChessSquare` as input.
+
+Even though a `ChessSquare` is a pair of integers "under the hood", it *represents* a square on a chess board, and your code (such as `squareColor`) will respect this distinction.
+ 
+This is particularly useful if you limit the ways to create or transform a `ChessSquare`, see todo (link to case study example)
 
 ## How to debug a type error
 

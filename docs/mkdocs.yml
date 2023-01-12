@@ -48,30 +48,33 @@ theme:
   icon:
     logo: logo
 
-# extra:
-#   analytics:
-#     provider: google
-#     property: G-XXXXXXXXXX
+extra:
+  analytics:
+    provider: google
+    property: G-349252613
 
-# extra:
-#   analytics: 
-#     feedback:
-#       title: Was this page helpful?
-#       ratings:
-#         - icon: material/emoticon-happy-outline
-#           name: This page was helpful
-#           data: 1
-#           note: >-
-#             Thanks for your feedback!
-#         - icon: material/emoticon-sad-outline
-#           name: This page could be improved
-#           data: 0
-#           note: >- 
-#             Thanks for your feedback! Help us improve this page by
-#             using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+extra:
+  analytics: 
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
 
+extra_javascript:
+  - javascripts/feedback.js
 
 plugins:
+  # - social
   - git-revision-date-localized:
       enable_creation_date: true
   - search:
@@ -103,7 +106,7 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.magiclink:
       repo_url_shorthand: true
-      user: squidfunk
+      user: reubenharry
       repo: mkdocs-material
   - pymdownx.mark
   - pymdownx.smartsymbols
@@ -128,8 +131,8 @@ nav:
     - Configuration: gettingstarted/versions.md
   - Basics:
     - Values and Types: basics/types.md
-    - Functions: basics/functions.md
     - Making Data: basics/createData.md
+    - Functions: basics/functions.md
     - Syntactic constructs: basics/syntax.md
   - Thinking in Haskell:
     - Type Checking: thinkingfunctionally/typechecking.md
@@ -137,23 +140,17 @@ nav:
     - Purity: thinkingfunctionally/purity.md
     - Immutability: thinkingfunctionally/immutability.md
     - Thinking functionally: thinkingfunctionally/hof.md
-  # - Common functions: common/common.md
-  # - Syntax:
-  #   - Overview: syntax/overview.md
-  #   - Let: syntax/let.md
-  #   - Where: syntax/where.md
-  #   - Case: syntax/case.md
-  #   - Guards: syntax/guards.md
-
-  # - Extensions: extensions/extensions.md
   - Typeclasses:
     - Typeclasses: typeclasses/overview.md
     - Important typeclasses: typeclasses/survey.md
     - Make instances: typeclasses/createinstances.md
   - Laziness:
-    Laziness: laziness/laziness.md
+    - Laziness: laziness/laziness.md
   - Libraries:
     - Overview: packages/overview.md
+    - mtl: packages/mtl.md
+    - megaparsec: packages/megaparsec.md
+    - aeson: packages/aeson.md
   - Case Study:
     - Overview: casestudy/overview.md
     - Chess Logic: casestudy/chess.md
@@ -170,10 +167,10 @@ nav:
     - fmap with a function: gotchas/functionFunctor.md
     - Length of tuple: gotchas/tupleLength.md
   - FAQ:
-    - Folding: faqs/foldl.md
     - Multiple Arguments: faqs/multipleArguments.md
     - Optional Arguments: faqs/optionalArguments.md
     - Numbers: faqs/numbers.md
+    - Coercions: faqs/convertingnumbers.md
     - Converting Numbers: faqs/numbers.md
     - Debugging: faqs/debugging.md
     - I/O: faqs/io.md
