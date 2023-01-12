@@ -29,7 +29,7 @@ With that in mind, it should be:
 | Community editable | :white_check_mark: | :x:                | :x:                | :pushpin:          | :white_check_mark: | :x:                |
 | Beginner friendy   | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Up-to-date         | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Looks nice         | :x:                | :white_check_mark: | :x:                | :shrug:            | :white_check_mark: | :white_check_mark: |
+| Looks nice         | :x:                | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Supports comments  | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :x:                |
 
 
