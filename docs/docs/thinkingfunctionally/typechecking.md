@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 A Haskell program won't compile unless the types are consistent, and no coercion of types will take place automatically:
 
 ```haskell
@@ -38,7 +42,7 @@ incorrect = squareColor (2,4)
 
 Even though a `ChessSquare` is a pair of integers "under the hood", it *represents* a square on a chess board, and your code (such as `squareColor`) will respect this distinction.
  
-This is particularly useful if you limit the ways to create or transform a `ChessSquare`, see todo (link to case study example)
+<!-- This is particularly useful if you limit the ways to create or transform a `ChessSquare`, see (link to case study example) -->
 
 ## How to debug a type error
 

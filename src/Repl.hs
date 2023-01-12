@@ -17,15 +17,15 @@ import Control.Monad.Except (runExcept, runExceptT)
 initBoard = undefined 
 initBoard :: Board 
 
-data Instruction = Set Square Piece | CloseRepl | Display
-newtype Board where
-  Lookup :: (Rank -> File -> SquareState) -> Board
 data Command where
   BoardUpdate :: (Board -> Board) -> Command
   DisplayBoard :: Command
   Quit :: Command
-
-
+  
+data Instruction = Set Square Piece | CloseRepl | Display
+newtype Board where
+  Lookup :: (Rank -> File -> SquareState) -> Board
+  
 main :: IO ()
 main = runInputT defaultSettings $ flip evalStateT initBoard $ forever $ do
     line <- lift requestLine 
@@ -39,10 +39,12 @@ main = runInputT defaultSettings $ flip evalStateT initBoard $ forever $ do
 
     where 
 
+        evaluate = undefined
+
         -- evaluate :: Board -> ReaderT Board (Except) Command
-        evaluate instr board = flip runReader board $ runExceptT $ case instr of
-            CloseRepl -> pure Quit
-            Display -> pure DisplayBoard
+        -- evaluate instr board = flip runReader board $ runExceptT $ case instr of
+        --     CloseRepl -> pure Quit
+        --     Display -> pure DisplayBoard
 
         requestLine :: InputT IO Text
         requestLine = do 

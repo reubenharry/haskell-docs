@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 ## Managing software
 
 To change your version of GHC, cabal, or the Haskell Language Server:

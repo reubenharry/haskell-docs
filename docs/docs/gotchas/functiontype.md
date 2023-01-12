@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 The input type and output type of a function are fixed. So you can't write something like:
 
 ```haskell

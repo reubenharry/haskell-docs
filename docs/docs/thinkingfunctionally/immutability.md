@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 When you write a definition in your code, like:
 
 ```haskell

@@ -13,7 +13,7 @@ Here is some discussion of its most salient features, if you want to learn more:
 
 - [functional](/thinkingfunctionally/hof)
 - [pure](/thinkingfunctionally/purity) and [immutable](/thinkingfunctionally/immutability)
-- [statically typed](/thinkingfunctionally/typechecking)
+- [custom static types](/basics/createdata) with [inference](/thinkingfunctionally/typeinference)
 - [lazy](/laziness/laziness)
 
 

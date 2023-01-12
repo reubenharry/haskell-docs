@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 Haskell is able to *infer* the type of most expressions.
 
 A simple example you can run in the repl:
@@ -35,36 +39,39 @@ One can also mouse over any expression in the program:
 
 The expressive types and automatic inference let you develop a complicated program top-down, by starting with the type signature of the whole program and filling in gaps incrementally. For example:
 
-```haskell
-complicatedFunction :: ChessPiece -> [Int]
-complicatedFunction chesspiece = case chesspiece of
-    Piece _ Black -> numMovesBlack
-    Piece _ White -> numMovesWhite
+```haskell hl_lines="6 14"
+main :: IO ()
+main = runInputT defaultSettings $ flip evalStateT initBoard $ forever $ do
+    line <- lift requestLine 
+    let instruction = parseInput line
+    board <- get
+    let result = evaluate instruction board
+    case result of
+        Right (BoardUpdate update) -> modify update
+        Right DisplayBoard -> lift $ outputStr $ T.unpack $ display board
+        Left err -> lift $ outputStr err
 
-    where
-        numMovesBlack = filter isValidMove allMoves
-        numMovesWhite = undefined
-        isValidMove = undefined
-        allMoves = undefined
+    where 
+
+        evaluate = undefined
+        display = undefined
 ```
 
-todo fix ^^
 
-Here, each occurence of `undefined` stands for a piece of code that is yet to be written. The compiler will typecheck this program, even with the `undefined`s left in, so you can be sure that it is consistent, before proceeding to fill in the gaps.
+Here, `undefined` stands for a piece of code that is yet to be written. The compiler will typecheck this program, even with the `undefined`s left in, so you can be sure that it is consistent, before proceeding to fill in the gaps.
 
 More importantly, it will infer the type of each `undefined`, like so:
 
-todo example
+![Inference](/img/typedirected.png)
 
 Especially for more complex programs, the compiler's understanding of the types of unwritten parts of your program can be invaluable.
 
 ### Type based refactoring
 
-Because type errors are static, refactoring a codebase can be performed with the help of the compiler:
+Because types are expressive in Haskell, and type errors are static, refactoring a codebase can be performed with the help of the compiler:
 
 ```hs
 type Position = (Double, Double)
+```
 
-Here, if we changed the definition of `Position` to `#!hs type Position = (Double, Double, Double)`, we would be shown a list of compiler
-
-    todo
+Here, if we changed the definition of `Position` to `#!hs type Position = (Double, Double, Double)`, we would be shown a list of compiler errors (in the `Problems` tab in VSCode's terminal), which we could then fix one-by-one until the code compiles again.

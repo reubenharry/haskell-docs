@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 How can I write a function which returns one type sometimes and another type other times?
 
 The key is to use `Either`. For example, suppose you want to write a function that returns the square of a number if the number is positive, but otherwise an error message text. Do this:

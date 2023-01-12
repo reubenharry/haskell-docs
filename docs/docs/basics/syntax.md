@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 ## Indentation
 
 Haskell is indentation sensitive, like Python. Tabs or spaces are fine.

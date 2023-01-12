@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 How do I give multiple arguments to a function?
 
 ## Answer

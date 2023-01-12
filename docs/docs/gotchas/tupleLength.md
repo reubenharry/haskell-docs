@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 When I ask for the length of a tuple, I get:
 
 ```hs

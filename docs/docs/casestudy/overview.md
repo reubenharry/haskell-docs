@@ -1,7 +1,8 @@
+# Under :construction:
+
 The following is a walkthrough of a Haskell project for displaying and updating a chess board via the command line:
 
-Example: TODO
-
+```
 update board
 which square?
 knight
@@ -13,6 +14,7 @@ which piece
 black knight
 which color 
 black
+```
 
 The goal of this walkthrough is to show how to write a simple, but non-trivial application in Haskell, using 
 

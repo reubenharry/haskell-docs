@@ -1,6 +1,8 @@
-Common typeclasses include: `Show`, `Eq`, `Ord`, `Num`, `Monoid`, `Foldable`, `Functor` and `Monad`
+---
+comments: true
+---
 
-todo: explain each one
+# Under :construction:
 
 ## Show
 

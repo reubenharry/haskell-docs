@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 !!! Warning 
 
     It is recommended that you avoid creating your own type classes unless it is entirely necessary.

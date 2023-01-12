@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 ```hs title="repl example"
 > func = fmap not (\x -> x > 3) 
 > func 2

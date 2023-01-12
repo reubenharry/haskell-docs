@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 "I wrote a simple piece of code to update the value of `x`, but it hangs."
 
 === "In a repl"

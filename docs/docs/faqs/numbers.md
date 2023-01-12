@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 What does the type of number literals mean, e.g. `#!hs 5 :: Num a => a` (or more verbosely: `#!hs 5 :: forall a. Num a => a`)?
 
 Read `n :: Num a => a` as saying: `n` has any type whatsoever, *as long as that type is an instance of the `Num` typeclass*.

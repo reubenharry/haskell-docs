@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 Haskell only evaluates an expression if it is needed for the computation as a whole:
 
 ```hs title="repl example"
@@ -53,6 +57,7 @@ primes = filterPrime [2..]
     The consequences of laziness for algorithmic complexity analysis of purity and laziness are wide-ranging. For a good overview, see [this article](https://en.wikipedia.org/wiki/Purely_functional_data_structure#Design_and_implementation)
 
 ## Mutual recursion
+
 
 ```hs
 func1 = 1 : func2

@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 Typeclasses add constraints to polymorphic types:
 
 ```haskell
@@ -82,20 +86,16 @@ The compiler will reason in this way, even if you don't write a type signature.
 
 ## Inheritance
 
+Under :construction:
+
+
 Semigroup a => Monoid a
 
-todo 
 
-more interesting: for any type `a`, if `a` has an `Eq` instance, then `[a]` also has an `Eq` instance.
+For any type `a`, if `a` has an `Eq` instance, then `[a]` also has an `Eq` instance.
 
-Haskell is capable of making more complex deductions:
-    todo
-
-    Here,
-        is an instance of `Eq` because 
-
-    for example, if some type `X` is an instance of `Ord`, then 
-    transitivity
+Haskell is capable of making more complex deductions. For example, if some type `X` is an instance of `Ord`, then Haskell can deduce that `[X]` is an instance of `Eq`. 
+    
 
 !!! Tip
     A common difficulty that you may encounter is that you don't know what instance of a typeclass is being invoked:

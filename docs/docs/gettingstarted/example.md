@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 An example Haskell file. This defines a *module* which can be imported by other modules in project.
 
 ```hs

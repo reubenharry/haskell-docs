@@ -1,3 +1,6 @@
+---
+comments: true
+---
 
 ## The type of Booleans
 
@@ -83,7 +86,7 @@ exampleText = "hello world!"
 Every expression (that includes all programs) in the language has a unique type. -->
 
 
-## Functions
+## The type of functions
 
 A function in Haskell means the same as a function in mathematics: it takes an input and produces an output. The type of the function depends on the type of the input and the type of the output. 
 

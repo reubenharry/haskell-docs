@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 ## Function application
 
 Given a function, such as:

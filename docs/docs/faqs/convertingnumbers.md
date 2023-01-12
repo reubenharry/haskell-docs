@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 "I have a `Float` but want a `Double`". Or: I have a `String` but want a `Text`.
 
 

@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 Getting set up with Haskell is very easy, here is the recommended route:
 
 ## Step 1 (installation)
@@ -17,7 +21,7 @@ In a directory of your choice, create a new Haskell project by running:
 cabal init --interactive
 ```
 
-or if you prefer, clone [the repository from these very docs](todo), which is itself a Haskell project.
+or if you prefer, clone [the repository from these very docs](https://github.com/reubenharry/haskell-docs), which is itself a Haskell project.
 
 This will create a file ending in the suffix `.cabal`, which is where you will specify package requirements and other build details. For instance:
 
@@ -74,6 +78,8 @@ which you can run with:
 ```bash
 cabal run haskell-book
 ```
+
+This will run whatever program is labeled `main` in `/app/Main.hs`. 
 
 ## Step 3 (set up the Haskell Language Server)
 

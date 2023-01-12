@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 
 Given a function, for example a function `f` of type `Int -> Bool`, the effect of calling the function on an `Int` must be nothing other than returning a `Bool`.
 
@@ -112,6 +116,6 @@ x :: a
 
 `undefined` has the type `forall a. a`, so it can appear anywhere in a program and assume the correct type (see here for [more details on how polymorphism works](/basics/types/#how-to-use)). 
 
-As such, it is useful as a "todo" marker (see [type driven development](/thinkingfunctionally/typeinference/#type-driven-development)).
+As such, it is useful as a "to do" marker (see [type driven development](/thinkingfunctionally/typeinference/#type-driven-development)).
 
 

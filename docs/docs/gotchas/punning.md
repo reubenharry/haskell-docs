@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 It is common to see type definitions like the following:
 
 ```haskell

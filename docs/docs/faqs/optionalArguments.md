@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 How do I give optional arguments to a function? For example, in
 
 ```hs

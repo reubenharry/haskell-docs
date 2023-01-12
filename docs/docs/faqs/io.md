@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 How do I run code with side effects in Haskell, like printing or reading lines?
 
 ## Answer

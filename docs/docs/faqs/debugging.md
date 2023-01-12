@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 How do I debug, since `print` statements change the type?
 
 Because Haskell is pure and functional, the approach of debugging by adding `print` statements is not needed as often. Instead, you can inspect the subcomponents of your program and their types in isolation, and check their behavior in the repl. 
