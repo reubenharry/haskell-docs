@@ -15,9 +15,8 @@ data Piece where -- (3)!
     Rook   :: Piece
 
 isBishop :: Piece -> Bool
-isBishop = \case
-    Bishop -> True
-    _ -> False
+isBishop Bishop = True
+isBishop _ = False
 ```
 
 1. Language extensions go here.
