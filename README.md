@@ -23,14 +23,15 @@ With that in mind, it should be:
 
 ## What's wrong with existing resources?
 
-|                     | Wiki | LYAH | Real world Haskell | These Docs | Various Books
-| ----- | ----- | ----------------- | -------- | -------- | -- |
-| Free   |     :white_check_mark:    | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:
-| Community editable | :white_check_mark:  | :x: | :x: | :white_check_mark: | :x:
-| Beginner friendy   | :x:   | :white_check_mark: | :white_check_mark: |  :white_check_mark: | :white_check_mark:
-| Up-to-date   | :x:  | :x: | :x: | :white_check_mark: | :white_check_mark:
-| Looks nice   | :x:    | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark:
-| Supports comments   | :x:        | :x: | :x: | :white_check_mark: | :x:
+|                    | Wiki               | LYAH               | RWH                | LHBG               | These Docs         | Various Books      |
+| ------------------ | ------------------ | -----------------  | ------------------ | ------------------ | ------------------ | ------------------ |
+| Free               | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                |
+| Community editable | :white_check_mark: | :x:                | :x:                | :pushpin:          | :white_check_mark: | :x:                |
+| Beginner friendy   | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Up-to-date         | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Looks nice         | :x:                | :white_check_mark: | :x:                | :shrug:            | :white_check_mark: | :white_check_mark: |
+| Supports comments  | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :x:                |
+
 
 
 There are many great resources, but:
