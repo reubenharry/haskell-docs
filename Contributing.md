@@ -34,9 +34,9 @@ The best way to get a sense of the style is to browse https://haskell-docs.netli
 
 The following are some high level principles.
 
-## Style
+# Style
 
-### Documentation > Book
+## Documentation > Book
 
 The Haskell Guide aims to be more like documentation than a book
 
@@ -44,7 +44,7 @@ Rather than having a linear structure, information should be compartmentalized i
 
 Use [boxes](https://squidfunk.github.io/mkdocs-material/reference/admonitions/) to put parenthetical information. For example, boxes named `Tip`, `Note`, `Warning`, or `Gotcha` can be used to highlight a nuance or a complexity without interrupting the flow of the documentation.
 
-#### Example
+### Example
 
 You are writing a code example, but realize that `5 :: Num a => a` could be confusing.
 
@@ -52,7 +52,7 @@ You are writing a code example, but realize that `5 :: Num a => a` could be conf
 
 **Don't**: put an explanation of typeclasses and `Num` in the main body of the text of the current section.
 
-### less > more
+## less > more
 
 Try to include only information that, if absent, would impede this person's understanding. 
 
@@ -62,7 +62,7 @@ It is ok if features of Haskell are either a) never mentioned, or b) mentioned b
 - not knowing these features wouldn't impede a fundamental understanding of the how and why of Haskell
 
 
-#### Example
+### Example
 
 **Do**: have explanation of currying and partial application in the guide.
 
@@ -74,7 +74,7 @@ It is ok if features of Haskell are either a) never mentioned, or b) mentioned b
 
 **Maybe** mention instance signatures and the corresponding extension. But probably don't, because once a user understands enough, they can learn about this themselves.
 
-### show > tell
+## show > tell
 
 Where possible, illustrate an idea with a demonstration in ghci rather than a natural language explanation. You can begin the codeblock with " ```hs title="repl example... ". 
 
@@ -85,7 +85,7 @@ Add [code comments](https://squidfunk.github.io/mkdocs-material/reference/code-b
 Use highlighting and line numbering where useful.
 
 
-### non-numeric > numeric
+## non-numeric > numeric
 
 When possible, use examples from a domain that isn't too number-centric.
 

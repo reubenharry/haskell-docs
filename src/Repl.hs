@@ -2,8 +2,8 @@
 -- UNDER CONSTRUCTION!!
 --
 
-{-# LANGUAGE GADTs #-}
-{-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE OverloadedStrings #-}
+
 module Repl where
 import Control.Monad (forever)
 import System.Console.Haskeline (getInputLine, runInputT, defaultSettings, InputT, outputStr)
@@ -15,7 +15,7 @@ import Control.Monad (void)
 import qualified Data.Text as T
 import Chess
 import Control.Monad.Reader (runReader, ReaderT (runReaderT))
-import Control.Monad.Except (runExcept, runExceptT)
+import Control.Monad.Except (runExcept, runExceptT, Except, MonadError (throwError))
 
 
 initBoard = undefined 
@@ -26,10 +26,15 @@ data Command where
   DisplayBoard :: Command
   Quit :: Command
   
-data Instruction = Set Square Piece | CloseRepl | Display
+data Instruction where
+  Set :: Square -> Piece -> Instruction
+  ReplInstruction :: Text -> Instruction
+
 newtype Board where
   Lookup :: (Rank -> File -> SquareState) -> Board
   
+data ChessError = ReplError Text deriving Show
+
 main :: IO ()
 main = runInputT defaultSettings $ flip evalStateT initBoard $ forever $ do
     line <- lift requestLine 
@@ -39,16 +44,14 @@ main = runInputT defaultSettings $ flip evalStateT initBoard $ forever $ do
     case result of
         Right (BoardUpdate update) -> modify update
         Right DisplayBoard -> lift $ outputStr $ T.unpack $ display board
-        Left err -> lift $ outputStr err
+        Left err -> lift $ outputStr $ show err
 
     where 
 
-        evaluate = undefined
-
-        -- evaluate :: Board -> ReaderT Board (Except) Command
-        -- evaluate instr board = flip runReader board $ runExceptT $ case instr of
-        --     CloseRepl -> pure Quit
-        --     Display -> pure DisplayBoard
+        evaluate instr board = flip runReader board $ runExceptT $ case instr of
+            ReplInstruction "quit" -> pure Quit
+            ReplInstruction "display" -> pure DisplayBoard
+            ReplInstruction _ -> throwError $ ReplError "no such instruction"
 
         requestLine :: InputT IO Text
         requestLine = do 
