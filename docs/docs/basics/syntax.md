@@ -183,3 +183,30 @@ example = val1 where
 ```
 
 See [here](https://wiki.haskell.org/Let_vs._Where) for differences .
+
+## Do-notation
+
+Do-notation is a syntax for imperative style programming. It can be used in conjunction with the [IO](/basics/types/#the-io-type) type:
+
+```hs
+example :: IO ()
+example = do
+  userInput <- getLine
+  let reversed = reverse userInput
+  writeFile "file/path" reversed
+  print reversed
+```
+
+Here, the order of operations is top-down (read line, write file, print), and the `<-` arrow gives a name to the result of an operation (like `userInput`, which is the result of reading from stdIn with `getLine`) which can be used later.
+
+!!! Note
+    Do-notation gets converted to the following:
+
+    Under :construction:
+
+    === "with do"
+
+    === "without do"
+
+Under :construction:
+
