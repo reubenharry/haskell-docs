@@ -44,9 +44,3 @@ There are many great resources, but:
 Of these, the first is the most important: making an *OK* intro guide to Haskell that is very easy for many people to continuously improve, edit and maintain, and which is easy to collect user feedback about, seems preferable to making a really good intro guide which will never be edited, improved or maintained.
 
 
-## General "philosophy":
-
-- avoid digressions: e.g. no history of Haskell, or discussion of the reason for the `String` type 
-- show, don't tell: prefer code examples, visual cues, highlighting and unfoldable comments to paragraphs of prose explaining an idea
-- don't be exhaustive: avoid being an exhaustive reference API like the Haskell report; if you believe a feature can be understood easily by the average Python coder without explanation, don't explain it. Explain currying, but don't bother explaining whether `[0..9]` includes `9`, since a user can easily figure that out. Don't even explain `if` statements.
-- prefer non-numerical examples: e.g. instead of examples about calculating primes, give examples involving chess. (Motivation: only having numerical examples suggests misleadingly that Haskell is not a general purpose language or is hard to use practically)

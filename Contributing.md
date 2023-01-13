@@ -27,6 +27,12 @@ The following are some high level principles.
 
 The audience is someone who has been exposed to Python (or similar). The audience is *not* a complete newcomer to programming.
 
+### What should the audience learn?
+
+They should learn the core principles of Haskell (the type system, laziness, functional style, purity, immutability), be comfortable looking at real Haskell code, and understand what the appeal of Haskell is.
+
+This guide isn't intended to teach them everything, but it should ideally be a large stepping stone to engaging with the language more seriously.
+
 ### Be concise
 
 Try to include only information that, if absent, would impede this person's understanding. 
@@ -81,4 +87,5 @@ If you want to contribute, but are not sure where, here are some suggestions:
 
 - search for "under :construction:" in the repo. These are places that have not yet been completed.
 - look at the issues for the repo
+- look through the docs for [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) and [PyMdown](https://facelessuser.github.io/pymdown-extensions/) to find features that could be useful, and integrate them. E.g. better code highlighting or social cards.
 

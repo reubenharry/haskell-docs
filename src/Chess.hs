@@ -2,12 +2,10 @@
 -- UNDER CONSTRUCTION!!
 --
 
-{-# LANGUAGE GADTs #-}
-
 module Chess where
 
 
-data PieceType = Bishop | Rook | Knight | Pawn | King | Queen
+data PieceType = Bishop | Rook | Knight | Pawn | King | Queen -- (1)!
 data Color = Black | White
 data Piece = Piece PieceType Color
 

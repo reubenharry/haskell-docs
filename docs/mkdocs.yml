@@ -45,9 +45,9 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-  favicon: assets/favicon.png
+  favicon: simple/haskell
   icon:
-    logo: logo
+    logo: simple/haskell
 
 extra:
   analytics:
