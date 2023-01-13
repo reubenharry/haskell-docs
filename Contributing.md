@@ -14,45 +14,69 @@ Currently, I will review contributions. Likely feedback:
 
 - wording or formatting suggestions
 - request for more/less detail
+- request to add more internal links
 - suggestion of `MkDocs` features to use.
 
 
-## Style Guide
+# A guide for contributing to the Haskell Guide
 
-The best way to get a sense of the style is to browse https://haskell-docs.netlify.app/.  
-
-The following are some high level principles.
-
-### Who is the audience? 
+## Who is the audience? 
 
 The audience is someone who has been exposed to Python (or similar). The audience is *not* a complete newcomer to programming.
 
-### What should the audience learn?
+## What should the audience learn?
 
 They should learn the core principles of Haskell (the type system, laziness, functional style, purity, immutability), be comfortable looking at real Haskell code, and understand what the appeal of Haskell is.
 
 This guide isn't intended to teach them everything, but it should ideally be a large stepping stone to engaging with the language more seriously.
 
-### Be concise
+The best way to get a sense of the style is to browse https://haskell-docs.netlify.app/.  
 
-Try to include only information that, if absent, would impede this person's understanding. 
+The following are some high level principles.
 
-It is ok if features of Haskell are either a) never mentioned, or b) mentioned but never explained, **as long as** these features would be reasonably obvious to the target audience.
+## Style
 
-For example, little if any explanation of `if` statements is needed, since these are unlikely to trip up a newcomer when they encounter them in Haskell. `case` statements, on the other hand, require explanation.
+### Documentation > Book
 
-Similarly, don't bother explaining whether `[0..9]` includes `9`, since a user can try for themselves. But do explain that `[..]` is infinite, and explain laziness, since that is likely to be unfamiliar. Parenthetically mention Python's iterators for comparison.
+The Haskell Guide aims to be more like documentation than a book
 
-
-### Use visual cues
+Rather than having a linear structure, information should be compartmentalized in sections, with heavy cross-referencing. Links should be of the form: `/folder/#section-name-in-lowercase-with-hyphens`, e.g. `/basics/types/#universal-types`.
 
 Use [boxes](https://squidfunk.github.io/mkdocs-material/reference/admonitions/) to put parenthetical information. For example, boxes named `Tip`, `Note`, `Warning`, or `Gotcha` can be used to highlight a nuance or a complexity without interrupting the flow of the documentation.
 
-Cross-reference heavily: where possible when mentioning a construction, supply a link to the section of the docs which mentions it. Links should be of the form: `/folder/#section-name-in-lowercase-with-hyphens`, e.g. `/basics/types/#universal-types`.
+!!! Example
 
-### Show, don't tell
+    You are writing a code example, but realize that `5 :: Num a => a` could be confusing.
 
-Where possible, illustrate an idea with a demonstration in ghci. You can begin the codeblock with " ```hs title="repl example... ". 
+    **Do**: write a [code annotation](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#adding-annotations) or info box that links to the FAQ on numbers.
+
+    **Don't**: put an explanation of typeclasses and `Num` in the main body of the text of the current section.
+
+### less > more
+
+Try to include only information that, if absent, would impede this person's understanding. 
+
+It is ok if features of Haskell are either a) never mentioned, or b) mentioned but never explained, as long as either:
+
+- these features would be reasonably obvious to the target audience.
+- not knowing these features wouldn't impede a fundamental understanding of the how and why of Haskell
+
+
+!!! Example
+
+    **Do**: have explanation of currying and partial application in the guide.
+
+    **Don't**: have explanation of `if` statements. At most, include them by example without explanation.
+    
+    **Do** have explanation that `[..]` is infinite, and of laziness, since that is likely to be unfamiliar. Parenthetically mention Python's iterators for comparison.
+   
+    **Don't**: explain whether `[0..9]` includes `9`, since a user can try for themselves. 
+
+    **Maybe** mention instance signatures and the corresponding extension. But probably don't, because once a user understands enough, they can learn about this themselves.
+
+### show > tell
+
+Where possible, illustrate an idea with a demonstration in ghci rather than a natural language explanation. You can begin the codeblock with " ```hs title="repl example... ". 
 
 For longer code examples, where ghci is too restrictive, make sure to include all necessary imports and extensions. 
 
@@ -61,7 +85,7 @@ Add [code comments](https://squidfunk.github.io/mkdocs-material/reference/code-b
 Use highlighting and line numbering where useful.
 
 
-### Prefer non-numeric examples
+### non-numeric > numeric
 
 When possible, use examples from a domain that isn't too number-centric.
 
@@ -76,12 +100,18 @@ isBishop _ = False
 
 The case study is also built around a chess example.
 
-Reasons:
 
-- numbers are confusing in Haskell because of typeclasses
-- too many numeric examples gives the misleading impression that Haskell is just for number-processing which people may incorrect have from the common motto that Haskell is a "mathematically inspired language"
 
-## Suggested changes
+!!! Reasons
+
+    - numbers are confusing in Haskell because of typeclasses
+    - too many numeric examples gives the misleading impression that Haskell is just for number-processing which people may incorrect have from the common motto that Haskell is a "mathematically inspired language"
+
+
+
+# Where to contribute
+
+Feel free to contribute to absolutely any part of the Guide, either to edit existing material, or to add more. (Or even to argue for the removal of material).
 
 If you want to contribute, but are not sure where, here are some suggestions:
 
