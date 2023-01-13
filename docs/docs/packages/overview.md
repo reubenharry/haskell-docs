@@ -21,4 +21,6 @@ We can then understand what `Picture` is by following the link, to see its defin
 
 ![Picture](/img/picture.png)
 
+## Default libraries
 
+Haskell's [Prelude](https://hackage.haskell.org/package/base) library is automatically imported into every module, and includes many familiar functions and types, like `take` and `Maybe`. It is 

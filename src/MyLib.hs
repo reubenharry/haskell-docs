@@ -25,6 +25,21 @@ squareColor (Square i j)
     | even (i+j) = White
     | otherwise = Black
 
+
+
+
+
+
+
+
+
+
+
+func = fmap not (\x -> x > 3) 
+
+
+
+
 correct :: Color
 correct =  squareColor (Square 2 4)
 
@@ -155,6 +170,34 @@ data PieceType = Bishop | Rook
 -- data Square = Sq Int Int 
 
 data Piece c = Bish c | Knight c | King c
+
+data Piece' = Bishop' | Knight' | Rook' deriving Show
+
+class SemiGrop a where 
+    (<||>) :: a -> a -> a
+
+class SemiGrop a => Monoud a where 
+    mampty :: a
+
+-- instance SemiGrop Text where
+--     t1 <||> t2 = undefined
+
+fooo :: Ord a => ([a], [a]) -> Bool
+fooo (x, y) = x == y
+
+exa = foldr best Bishop' [Bishop', Knight', Rook', Bishop'] 
+    
+    where
+    
+        best piece1 piece2
+            | value piece1 >= value piece2 = piece1
+            | otherwise = piece2
+
+        value piece = case piece of
+            Bishop' -> 3
+            Knight' -> 3
+            Rook' -> 5
+
 
 
 

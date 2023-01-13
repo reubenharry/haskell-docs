@@ -27,6 +27,13 @@ Feel free also to use this guide as a reference. For example, you can search the
 
 ![](/img/search.png)
 
+Ask questions about pages you don't understand via the `Comments` section at the bottom of each page.
+
+
+### Contributing
+
+Contribution from the Haskell community is heavily encouraged! See [here](https://github.com/reubenharry/haskell-docs/blob/main/Contributing.md).
+
 
 !!! disclaimer
     This documentation is a personal project, and not official Haskell documentation. Contributions are encouraged, by submitting a PR (see the button in the upper right corner of each page!)

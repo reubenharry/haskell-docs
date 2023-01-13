@@ -1,4 +1,5 @@
-Under :construction:
+# Under :construction:
 
-(use snippets)
-
+```hs title="REPL.hs" linenums="1"
+--8<-- "../src/REPL.hs"
+```

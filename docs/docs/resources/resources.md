@@ -12,6 +12,8 @@ comments: true
 
 [Learn Haskell by building a blog generator](https://lhbg-book.link) is a free book that takes a project-based approach to learning Haskell.
 
+[This tutorial](https://github.com/lsmor/snake-fury#snake-fury) challenges the user to build the game *snake* 
+
 ## Community
 
 Haskell has an active [subreddit](https://www.reddit.com/r/haskell/).
@@ -31,6 +33,8 @@ It also has a [forum](https://discourse.haskell.org/).
 ### Friendly libraries
 
 [pipes](https://hackage.haskell.org/package/pipes) is a useful library which has very friendly documentation including a [tutorial](https://hackage.haskell.org/package/pipes-4.3.16/docs/Pipes-Tutorial.html)
+
+[Gloss](https://hackage.haskell.org/package/gloss) is a simple library for building 2D animations and games.
 
 ### Compiler
 

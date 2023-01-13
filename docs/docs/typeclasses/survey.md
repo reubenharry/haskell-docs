@@ -4,7 +4,26 @@ comments: true
 
 # Under :construction:
 
-## Show
+The best way to understand any given typeclass is to find its documentation online. This is usually easy with Google, or failing that, Hoogle.
+
+## [Show](https://hackage.haskell.org/package/base-4.17.0.0/docs/GHC-Show.html#t:Show)
+
+A class for converting a type into a `String`, which can be displayed. `String` is a [legacy](/gotchas/strings) type, but `Show` is widely used, and can be derived by Haskell:
+
+```hs title="repl example"
+> data Piece = Bishop | Knight deriving Show
+> show Bishop
+"Bishop"
+```
+
+!!! Gotcha
+
+    ```hs title="repl example"
+    > show (+)
+    "No instance for (Show (Integer -> Integer -> Integer))..."
+    ```
+
+    Haskell won't show arbitrary functions, because they don't have a `Show` instance. This makes sense, since it is impossible to show all the (infinite) input-output pairs of a function.
 
 ## Eq
 

@@ -18,7 +18,7 @@ theme:
     # - navigation.expand
     - navigation.footer
     - navigation.indexes
-    # - navigation.instant
+    - navigation.instant
     # - navigation.prune
     - navigation.sections
     - navigation.tabs
@@ -90,6 +90,7 @@ markdown_extensions:
   - def_list
   - footnotes
   - md_in_html
+  - pymdownx.snippets
   - toc:
       permalink: true
   - pymdownx.arithmatex:
@@ -132,7 +133,7 @@ nav:
     - Configuration: gettingstarted/versions.md
   - Basics:
     - Values and Types: basics/types.md
-    - Making Data: basics/createData.md
+    - Creating types: basics/createData.md
     - Functions: basics/functions.md
     - Syntactic constructs: basics/syntax.md
   - Thinking in Haskell:
@@ -144,7 +145,6 @@ nav:
   - Typeclasses:
     - Typeclasses: typeclasses/overview.md
     - Important typeclasses: typeclasses/survey.md
-    - Make instances: typeclasses/createinstances.md
   - Laziness:
     - Laziness: laziness/laziness.md
   - Libraries:
@@ -165,13 +165,13 @@ nav:
     - Strings: gotchas/strings.md
     - Updating a variable: gotchas/mutation.md
     - Varying output type: gotchas/functiontype.md
-    - fmap with a function: gotchas/functionFunctor.md
     - Length of tuple: gotchas/tupleLength.md
-  - FAQ:
+  - FAQs:
     - Multiple Arguments: faqs/multipleArguments.md
     - Optional Arguments: faqs/optionalArguments.md
     - Numbers: faqs/numbers.md
     - Coercions: faqs/convertingnumbers.md
+    - fmap with a function: faqs/functionFunctor.md
     - Converting Numbers: faqs/numbers.md
     - Debugging: faqs/debugging.md
     - I/O: faqs/io.md
