@@ -2,89 +2,222 @@
 comments: true
 ---
 
-## The type of Booleans
+Haskell's type system is such an important feature, and so useful for understanding the language, that it is a good place to begin.  This section will explore different Haskell values and their types.
 
-`True` is a value in Haskell. Its *type* is `Bool`. In Haskell, we can state this as:
+## The type of Boolean values
+
+Here are three words that are central to understanding Haskell.
+
+* An *expression* is a piece of Haskell source code that describes a value.
+* A *value* is the meaning of an expression.
+* A *type* is a category of values or expressions that can be used in the same ways.
+
+For example, `True` is a Haskell *value*. Its *type* is `Bool`. There are several other Haskell *expressions* (like `True && True` or `False || True`) that have the same value. In Haskell, we can state this as:
 
 === "In a repl"
 
     ```haskell
     True :: Bool -- (1)!
+    True && True :: Bool -- (2)!
+    False || True :: Bool
     ```
 
-    1.  Read "X :: Y" as: "the value X has the type Y"
+    1.  Read "X :: Y" as: "X has the type Y"
+    2.  `::` has a lower precedence than any other operator, so this is read as: "`True && True` has the type `Bool`"
 
 === "In a file"
 
     ```haskell
-    example :: Bool
-    example = True
+    example1 :: Bool -- (1)!
+    example1 = True
+
+    example2 :: Bool
+    example2 = True && True
+
+    example3 :: Bool
+    example3 = False || True
     ```
 
-Similarly, 
+    1. A source file contains *declarations* instead expressions, so we define new variables. It's also possible write `example1 = True :: Bool`, but it's unusual. More commonly, Haskell source files contain the type of a definition on a separate line from the value as shown here.
 
-```haskell
-False :: Bool
-```
+Similarly, these are expressions for the value `False`, which also has the type `Bool`.
+
+=== "In a repl"
+
+    ```haskell
+    False :: Bool
+    False && True :: Bool
+    False || False :: Bool
+    ```
+
+=== "In a file"
+
+    ```haskell
+    example4 :: Bool
+    example4 = False
+
+    example5 :: Bool
+    example5 = False && True
+
+    example6 :: Bool
+    example6 = False || False
+    ```
+
+These expressions makes an explicit statement about the type, and it's written that way above to demonstrate the relationship between values and types, and show the meaning of `::`, which can be read as "has the type". In general, though, you are not required to include the type every time you use a value in Haskell. Because it's optional but can be attached to a value for clarity, `:: Bool` is called a *type* *annotation*.
+
+In the REPL, you can also ask for the type of an expression using `:t`, like this:
+
+=== "In a repl"
+
+    ```haskell
+    > :t True
+    True :: Bool
+    
+    > :t False
+    False :: Bool
+    
+    > :t True && False
+    True && False :: Bool
+    ```
 
 !!! Note
-    In Haskell, everything from simple values like `True` to complex programs have a unique type. 
+    In Haskell, every value, from a simple value like `True` to a complex program, has a type.
 
 !!! Tip
-    Haskell types can be quite complex. To understand a type, always ask: what do the values belonging to this type look like?
+    'Bool' is a simple type, but Haskell types can become quite complex, too. To understand a type, always start by asking: what do the values belonging to this type look like?
 
     For example, the values belonging to `Bool` are `True` and `False`.
 
-## The type of integers
+## Types of integers
 
-`Int` is a type for integers, as in:
+`Int` is one type for integers. An `Int` is a signed integer with a fixed number of bits, but the exact number of bits depends on the Haskell implementation and architecture.
 
-```haskell
-5 :: Int
-```
+=== "In a repl"
+
+    ```haskell
+    5 :: Int
+    ```
+
+=== "In a file"
+
+    ```haskell
+    x :: Int
+    x = 5
+    ```
+
+Sometimes you might want to work with integers whose values can be arbitrarily large.  For this, there's another type: `Integer`. The same expression, `5`, can be used to describe an `Integer`, as well!
+
+=== "In a repl"
+
+    ```haskell
+    5 :: Integer
+    5 * 1000000000000000000 :: Integer
+    ```
+
+=== "In a file"
+
+    ```haskell
+    y1 :: Integer
+    y1 = 5
+
+    y2 :: Integer
+    y2 = 5 * 1000000000000000000
+    ```
+
+An expression like `5` that can more than one type is said to be *overloaded*. It can describe different values depending on the type it's used as.
 
 ??? Gotcha
-    `5` can have a more general type in Haskell. See [here](/faq/numbers.md)
+    If you ask for the type of `5` in the REPL, you'll see neither the type `Int` nor `Integer`, but rather `Num a => a`. This will make more sense once you understand type variables and type classes, but it just means the expression `5` can represent a value of any number type. See [here](/faq/numbers.md)
 
-## The type of real numbers
+## Types of real numbers
 
-There are several available options. A good general choice is `Double`:
+When it comes to numbers with a fractional part, Haskell again provides several possible types.
 
-```haskell
-5.0 :: Double
-```
+A good general choice is `Double`, which represents an IEEE double-precision floating point number:
 
-## The type of text
+=== "In a repl"
 
-`Char` is the type of single characters:
+    ```haskell
+    5 :: Double -- (1)!
+    3.14 :: Double
+    ```
 
-```hs title="repl example"
-> :t 'a'
-'a' :: Char
+    1. The same expression, `5`, can also be a `Double`.  To be more explicit, you can also write `5.0`.
 
-> :t 'b'
-'b' :: Char
-```
+=== "In a file"
 
-`Text` is the type of sequences of characters:
+    ```haskell
+    z1 :: Double
+    z1 = 5
 
-```haskell
-{-# LANGUAGE OverloadedStrings #-} --(1)!
-import Data.Text (Text)
+    z2 :: Double
+    z2 = 3.14
+    ```
 
-exampleText :: Text 
-exampleText = "hello world!"
-``` 
+Floating point numbers are fixed precision, so doing computations with them can result in rounding error.  An exact option for numbers with a fractional part is `Rational`, which can represent any rational number (that is, any fraction) exactly.
 
-1. See [here](/gotchas/strings) for why this extension is needed.
+=== "In a repl"
 
+    ```haskell
+    5 :: Rational
+    3.14 :: Rational
+    ```
 
+=== "In a file"
 
+    ```haskell
+    z3 :: Rational
+    z3 = 5
 
-<!-- Haskell's type system is such an important feature, and so useful for understanding the language, that it is a good place to begin.
+    z4 :: Rational
+    z4 = 3.14
+    ```
 
-Every expression (that includes all programs) in the language has a unique type. -->
+??? Gotcha
+    If you ask for the type of `3.14` in the REPL, you'll see neither `Double` nor `Rational`, but rather `Fractional a => a`. This will make more sense once you understand type variables and type classes, but it just means the expression `3.14` can represent a value of any fractional number type. See [here](/faq/numbers.md)
 
+## Text types
+
+`Char` is the type of single characters.  These are written in single quotes.
+
+=== "In a repl"
+
+    ```haskell
+    'A' :: Char
+    'b' :: Char
+    ```
+
+=== "In a file"
+
+    c1 :: Char
+    c1 = 'A'
+
+    c2 :: Char
+    c2 = 'b'
+
+`Text` is the best type for most sequences of characters.  However, there's a bit of boilerplate needed to use it.
+
+=== "In a repl"
+
+    ```haskell
+    :set -XOverloadedStrings
+    import Data.Text (Text)
+
+    "hello world!" :: Text
+    ```
+
+=== "In a file"
+
+    ```haskell
+    {-# LANGUAGE OverloadedStrings #-}
+    import Data.Text (Text)
+
+    exampleText :: Text 
+    exampleText = "hello world!"
+    ``` 
+
+??? Gotcha
+    See [here](/gotchas/strings) for why the `OverloadedStrings` language extension is needed.
 
 ## The type of functions
 
