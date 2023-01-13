@@ -6,7 +6,7 @@ comments: true
 
 [These notes](https://www.seas.upenn.edu/~cis1940/fall16/lectures/01-intro.html) are excellent.
 
-[Learn You a Haskell](http://learnyouahaskell.com/) is a friendly introductory book.
+[Learn You a Haskell](http://learnyouahaskell.com/) is a friendly introductory book, with an [interactive notebook version](https://github.com/IHaskell/learn-you-a-haskell-notebook).
 
 ### Project-based learning
 
