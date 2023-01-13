@@ -6,6 +6,13 @@
 ```
 
 1. A [sum](/basics/createdata/#sums) type.
+2. 
+3. 
+4. 
+
+## Comments
+
+## Alternative approaches
 
 === "original"
 

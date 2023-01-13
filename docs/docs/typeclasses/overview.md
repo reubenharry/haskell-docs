@@ -18,7 +18,7 @@ The type of `notEqual` states: for any type `a` **such that `a` is an instance o
 
     `Eq` is referred to as a typeclass.
 
-## Typeclasses
+## Basics
 
 Typeclasses, such as `Eq`, are defined as follows:
 
@@ -55,6 +55,14 @@ False
 > sort [Knight, Bishop]
 [Bishop,Knight]
 ```
+
+## Different instances for the same type
+
+A single type can have at most one instance for a typeclass.
+
+Under :construction:
+
+<!-- Often useful to create multiple newtype equivalents: Sum, Product -->
 
 ## Constraint implication (classes)
 

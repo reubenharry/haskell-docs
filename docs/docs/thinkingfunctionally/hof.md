@@ -95,12 +95,12 @@ Or in its general polymorphic form:
 
 Instead of writing `func x = not (even x)`, one can write `func = not . even`, which avoids having to name a variable `x` at all. 
 
-!!! Hint
 
-    Here is a point*ful* style:
+
+=== "pointful style"
 
     ```hs
-    Graphics.Gloss.Data.Picture
+    import Graphics.Gloss.Data.Picture -- (1)!
     picture :: Picture
     picture = 
         rotate 90
@@ -109,9 +109,12 @@ Instead of writing `func x = not (even x)`, one can write `func = not . even`, w
         circle 2
     ```
 
-    And here is a point*free* style:
+    1. Requires the `gloss` package.
 
+=== "pointfree style"
+    
     ```hs
+    import Graphics.Gloss.Data.Picture
     picture :: Picture
     picture = transform (circle 2) where 
         transform =
@@ -119,6 +122,8 @@ Instead of writing `func x = not (even x)`, one can write `func = not . even`, w
             . translate 20 20
             . scale 30 30
     ```
+
+<!-- todo: pointfree with const, flip, \case, and sections -->
 
 ## Map, fold, scan and zip
 
@@ -177,23 +182,23 @@ findBestPiece = foldr best Bishop [Bishop, Knight, Rook, Bishop]
     In Haskell, it is often preferable to rely on functions like `foldr` instead of writing explicit recursion yourself.
 
     === "Explicit recursion"
-        ```
+        ```hs
         sumList (x:xs) = x + sumList xs
         sumList [x] = x
         ```
 
     === "Using higher-order function"
 
-        ```
+        ```hs
         sumList = foldr 0 (+) -- (1)!
         ```
 
         1. In fact, Haskell already provides this function, and calls it `sum`.
 
-        This is for two reasons:
+    This is for two reasons:
 
-        1. It avoids buggy code. For example, `sumList` fails on the empty list `[]`.
-        2. It is easier to understand. Explicit recursion can create "goto" like control flow.
+    1. It avoids buggy code. For example, `sumList` fails on the empty list `[]`.
+    2. It is easier to understand. Explicit recursion can create "goto" like control flow.
 
 
 ### Scans

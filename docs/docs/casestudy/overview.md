@@ -2,6 +2,8 @@
 
 This section is a walkthrough of a [project](https://github.com/reubenharry/haskell-docs) with the [code](https://github.com/reubenharry/haskell-docs/tree/main/src) intended to display how to write a simple but real-world application in Haskell.
 
+The subsections are ordered by difficulty.
+
 !!! Tip
     If you encounter an expression in this codebase that you don't understand, use Haskell's purity and immutability to your advantage: you can't always break it down into its parts and understand them separately.
 
@@ -37,30 +39,3 @@ This section is a walkthrough of a [project](https://github.com/reubenharry/hask
 
     Consider this the Haskell analogue of inserting print statements.
 
-
- for displaying and updating a chess board via the command line:
-
-```
-update board
-which square?
-knight
-that is not a square. You need to specify a square
-a4
-options:
-    add piece / remove piece
-which piece
-black knight
-which color 
-black
-```
-
-The goal of this walkthrough is to show how to write a simple, but non-trivial application in Haskell, using 
-
-- how to read files
-- how to handle exceptions
-- how to write an interactive program
-- how to parse text
-- how to implement a domain specific language
-
-
-    exception handling, common packages (`megaparsec`, `aeson` and `haskeline`)

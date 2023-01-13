@@ -94,6 +94,8 @@ Under :construction:
 
 ## Foldable
 
+## Alternative
+
 ## [Functor](https://hackage.haskell.org/package/base-4.17.0.0/docs/Data-Functor.html#t:Functor)
 
 ```hs

@@ -16,7 +16,6 @@ data SquareState where
   Empty :: SquareState
   HasPiece :: Piece -> SquareState
 
--- foo = s
 mkRank :: Int -> Maybe Rank -- (2)!
 mkRank i  
     | inRange i = Just $ R i -- (3)!
