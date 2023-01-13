@@ -44,13 +44,13 @@ Rather than having a linear structure, information should be compartmentalized i
 
 Use [boxes](https://squidfunk.github.io/mkdocs-material/reference/admonitions/) to put parenthetical information. For example, boxes named `Tip`, `Note`, `Warning`, or `Gotcha` can be used to highlight a nuance or a complexity without interrupting the flow of the documentation.
 
-!!! Example
+#### Example
 
-    You are writing a code example, but realize that `5 :: Num a => a` could be confusing.
+You are writing a code example, but realize that `5 :: Num a => a` could be confusing.
 
-    **Do**: write a [code annotation](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#adding-annotations) or info box that links to the FAQ on numbers.
+**Do**: write a [code annotation](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#adding-annotations) or info box that links to the FAQ on numbers.
 
-    **Don't**: put an explanation of typeclasses and `Num` in the main body of the text of the current section.
+**Don't**: put an explanation of typeclasses and `Num` in the main body of the text of the current section.
 
 ### less > more
 
@@ -62,17 +62,17 @@ It is ok if features of Haskell are either a) never mentioned, or b) mentioned b
 - not knowing these features wouldn't impede a fundamental understanding of the how and why of Haskell
 
 
-!!! Example
+#### Example
 
-    **Do**: have explanation of currying and partial application in the guide.
+**Do**: have explanation of currying and partial application in the guide.
 
-    **Don't**: have explanation of `if` statements. At most, include them by example without explanation.
-    
-    **Do** have explanation that `[..]` is infinite, and of laziness, since that is likely to be unfamiliar. Parenthetically mention Python's iterators for comparison.
-   
-    **Don't**: explain whether `[0..9]` includes `9`, since a user can try for themselves. 
+**Don't**: have explanation of `if` statements. At most, include them by example without explanation.
 
-    **Maybe** mention instance signatures and the corresponding extension. But probably don't, because once a user understands enough, they can learn about this themselves.
+**Do** have explanation that `[..]` is infinite, and of laziness, since that is likely to be unfamiliar. Parenthetically mention Python's iterators for comparison.
+
+**Don't**: explain whether `[0..9]` includes `9`, since a user can try for themselves. 
+
+**Maybe** mention instance signatures and the corresponding extension. But probably don't, because once a user understands enough, they can learn about this themselves.
 
 ### show > tell
 
@@ -102,10 +102,10 @@ The case study is also built around a chess example.
 
 
 
-!!! Reasons
+Reasons:
 
-    - numbers are confusing in Haskell because of typeclasses
-    - too many numeric examples gives the misleading impression that Haskell is just for number-processing which people may incorrect have from the common motto that Haskell is a "mathematically inspired language"
+- numbers are confusing in Haskell because of typeclasses
+- too many numeric examples gives the misleading impression that Haskell is just for number-processing which people may incorrect have from the common motto that Haskell is a "mathematically inspired language"
 
 
 
