@@ -189,11 +189,13 @@ Floating point numbers are fixed precision, so doing computations with them can 
 
 === "In a file"
 
+    ```haskell
     c1 :: Char
     c1 = 'A'
 
     c2 :: Char
     c2 = 'b'
+    ```
 
 `Text` is the best type for most sequences of characters.  However, there's a bit of boilerplate needed to use it.
 
