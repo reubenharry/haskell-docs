@@ -28,6 +28,7 @@ It also has a [forum](https://discourse.haskell.org/).
 
 
 
+
 ## More advanced resources
 
 [This reference guide/tutorial](https://smunix.github.io/dev.stephendiehl.com/hask/tutorial.pdf) carefully and clearly details important advanced concepts and features in Haskell.
