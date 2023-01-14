@@ -24,8 +24,6 @@ It also has a [forum](https://discourse.haskell.org/).
 
 [This guide](https://github.com/Gabriella439/post-rfc/blob/main/sotu.md) is very useful for understanding what Haskell packages to use for what tasks.
 
-### Hackage and Stackage 
-There exist two major package repositories for Haskell, [Hackage](https://hackage.haskell.org/) and [Stackage](https://www.stackage.org/), with the main difference that Stackage provides a more stable subset of Hackage, the main repository with the biggest amount of packages. 
 
 ## More advanced resources
 

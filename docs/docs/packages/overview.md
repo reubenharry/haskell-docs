@@ -9,6 +9,9 @@ For well-maintained packages, you should expect to find some explanation of the 
 
     In general, avoid packages if they have not been updated for a few years.
 
+## Hackage and Stackage 
+There exist two major package repositories for Haskell, [Hackage](https://hackage.haskell.org/) and [Stackage](https://www.stackage.org/), with the main difference that Stackage provides a more stable subset of Hackage, the main repository with the biggest amount of packages. 
+
 ## How to read Haskell documentation
 
 Haskell's expressive types are usually very helpful in understanding how to use a library. For example, the following function appears near the top of [the docs in the top level module](https://hackage.haskell.org/package/gloss-1.13.2.2/docs/Graphics-Gloss.html):
