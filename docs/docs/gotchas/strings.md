@@ -16,3 +16,5 @@ which allows you to write text in the obvious way:
 exampleText :: Text
 exampleText = "blahblah"
 ```
+
+You may also use `OverloadedStrings` for other text representations, such as `ByteString`.

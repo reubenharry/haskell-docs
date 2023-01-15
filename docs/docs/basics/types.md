@@ -154,7 +154,7 @@ If you have two types, say `Bool` and `Int`, then you can generate a new type wh
     Right :: Int -> Either Bool Int
     ``` 
 
-    1. Actually, the type is more general: `forall a. a -> Either a Int`. See the section on polymorphism.
+    1. Actually, the type is more general: `forall a. a -> Either a Int`. See the section on [universally quantified types](/basics/types/#universal-types).
 
 ### Maybe
 
@@ -238,7 +238,7 @@ main = ...
 
 ## Universal types
 
-Here is an example of polymorphism, or universal quantification over types:
+Here is an example of *polymorphism*, or universal quantification over types:
 
 === "Quantifiers implicit"
 
@@ -265,7 +265,7 @@ Specific types are always uppercase, but a variable ranging over types like `a` 
    "any type" really means *any* type. That includes `Bool`, `Int`, `Text`, `[Bool]`, `[(Bool, Int)]`, functions like `(Int -> Bool)` or `(Int -> Int) -> Bool`, custom types you defined (e.g. `ChessPiece`), `Either Bool [Int]`, `IO Int`, and so on.
 
 !!! Tip
-    Polymorphic types are not like `Any` in Python. For example, the Boolean negation function `not :: Bool -> Bool` does not also have the type `a -> a`.
+    Universally quantified types are not like `Any` in Python. For example, the Boolean negation function `not :: Bool -> Bool` does not also have the type `a -> a`.
 
     In `forall a. (a, b) -> (b, a)`, both occurrences of `a` must be the same, and both occurrences of `b` must be the same. so `(Bool, Int) -> (Int, Bool)` or `(Text, Double) -> (Double, Text)`, but not `(Bool, Int) -> (Double, Text)`. 
     
@@ -275,7 +275,7 @@ Specific types are always uppercase, but a variable ranging over types like `a` 
 
 ### How to use
 
-If you have a function with a polymorphic type as *input*, you can always call it on any particular types. For example:
+If you have a function with a universally quantified type as *input*, you can always call it on any particular types. For example:
 
 ```hs title="repl example"
 > let swap (a,b) = (b,a)
@@ -285,7 +285,7 @@ If you have a function with a polymorphic type as *input*, you can always call i
 (3,'a')
 ```
 
-If you have a non-function value of a polymorphic type, like [undefined](/thinkingfunctionally/purity/#caveats) `:: forall a . a` , you may use it as the argument to *any function*.
+If you have a non-function value of a universally quantified type, like [undefined](/thinkingfunctionally/purity/#caveats) `:: forall a . a` , you may use it as the argument to *any function*.
 
 ```hs title="repl example"
 > :t not
@@ -356,7 +356,7 @@ Either Int :: (* -> *)
 !!! Tip
     Make sure to use the `GHC2021` [extension](/gettingstarted/versions/#extensions) or add the language extensions recommended by Haskell Language Server for this section.
 
-In a polymorphic type like `forall a. a`, we can explicitly specify the *kind* of types that the quantifier `forall` ranges over:
+In a universally quantified type like `forall a. a`, we can explicitly specify the *kind* of types that the quantifier `forall` ranges over:
 
 ```hs
 swap :: forall (a :: *) (b :: *) . (a, b) -> (b, a)

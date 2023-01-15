@@ -8,7 +8,7 @@ The best way to understand any given typeclass is to find its documentation onli
 
 Here is an example, the `Semigroup` class:
 
-![](/img/semigroup)
+![](/img/semigroup.png)
 
 To understand what methods the class requires for its instances, see "minimal complete definition" where `(<>)` is the only (required) method. See below for its type.
 
@@ -18,7 +18,7 @@ To understand what methods the class requires for its instances, see "minimal co
 
 The next step is to inspect some instances, which are also listed below, like:
 
-![](/img/semigrouplist)
+![](/img/semigrouplist.png)
 
 
 ## [Show](https://hackage.haskell.org/package/base-4.17.0.0/docs/GHC-Show.html#t:Show)
@@ -145,9 +145,7 @@ Nothing
 ### `instance Functor (Either a)`
 
 !!! Note
-    `Either a` is `Either` [partially applied]() to `a`, and has [kind]() `* -> *` as required.
-
-    Under :construction:
+    `Either a` is `Either` [partially applied](/basics/functions/#partial-application-for-types) to `a`, and has [kind](/basics/types/#types-for-types) `* -> *` as required.
 
 
 ```hs title="repl example"

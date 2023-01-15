@@ -11,4 +11,6 @@ However, when you do need `print` statements, you can use `trace` from `Debug.Tr
 ```hs title="repl example"
 > import Debug.Trace (trace)
 > let output = take 10 [1..] in trace (("Length: " <> show (length output))) output
+Length: 10
+[1,2,3,4,5,6,7,8,9,10]
 ```

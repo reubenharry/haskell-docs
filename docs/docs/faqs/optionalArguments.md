@@ -2,7 +2,7 @@
 comments: true
 ---
 
-How do I give optional arguments to a function? For example, in
+How do I give optional arguments (i.e. inputs) to a function? For example, in
 
 ```hs
 shiftByFour :: Bool -> Int -> Int

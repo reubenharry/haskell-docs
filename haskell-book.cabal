@@ -27,10 +27,10 @@ extra-source-files:
 
 library
     exposed-modules:  
-        MyLib
         Repl
         Chess
         Parser
+        Scratch
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -44,7 +44,10 @@ library
         aeson,
         megaparsec,
         haskeline,
-        witch
+        witch,
+        bytestring,
+        containers
+        -- lens
     hs-source-dirs:   src
     default-language: GHC2021
 

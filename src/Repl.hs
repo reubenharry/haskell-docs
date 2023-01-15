@@ -32,10 +32,12 @@ data Command where
 data ChessError = ReplError Text | ParseError Text deriving Show
 
 main :: IO ()
-main = runInputT defaultSettings $ flip evalStateT initBoard $ forever $ do
+main = runInputT defaultSettings $ withBoard $ forever $ do -- (1)!
     line <- lift requestLine 
-    let instruction = parseInput line
-    board <- get
+    let instruction = case runParser parser "" line of
+          Left err -> Left $ ParseError $ T.pack $ errorBundlePretty @_ @Void err
+          Right x -> Right x
+    board <- get -- (2)!
     let result = evaluate board =<< instruction
     case result of
         Right (BoardUpdate update) -> modify update
@@ -45,6 +47,9 @@ main = runInputT defaultSettings $ flip evalStateT initBoard $ forever $ do
 
     where 
 
+        withBoard = flip evalStateT initBoard
+
+        
         evaluate board instr = flip runReader board $ runExceptT $ case instr of
             ReplInstruction "quit" -> error ""
             ReplInstruction "display" -> pure DisplayBoard
@@ -57,13 +62,6 @@ main = runInputT defaultSettings $ flip evalStateT initBoard $ forever $ do
                 Nothing -> requestLine
                 Just line -> pure $ T.pack line
 
-        parseInput :: Text -> Either ChessError Instruction
-        parseInput inputText = case runParser parser "" inputText of 
-          Left err -> Left $ ParseError $ T.pack $ errorBundlePretty @Text @Void undefined 
-          Right instr -> Right instr 
           
           
           
-        display :: Board -> Text
-        display = undefined
-

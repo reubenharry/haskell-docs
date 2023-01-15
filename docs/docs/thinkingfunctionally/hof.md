@@ -14,7 +14,7 @@ False
 > test notEven
 
 -- a more concise definition
-> equivalentNotEven = not . even
+> equivalentNotEven = not . even -- (2)!
 > equivalentNotEven 3
 True
 > equivalentNotEven 4
@@ -23,13 +23,15 @@ False
 True
 
 -- even more direct!
-> test (not . even) -- (2)!
+> test (not . even) -- (3)!
 True
 ```
 
 1. Takes a function of type `Int -> Bool` and tests if it returns `False` for `10` even numbers.
 
-2. It's not even necessary to assign a variable name to the input function at all: just pass in `not . even` as an argument.
+2. See [this section](/thinkingfunctionally/hof/#pointfree-code)
+
+3. It's not even necessary to assign a variable name to the input function at all: just pass in `not . even` as an argument.
 
 Functions can also return functions:
 
@@ -46,7 +48,31 @@ True
 
 1. The result of `mkNotEven`, when applied to `even`, is a *function* to tell if a number is odd. 
 
-A common use case for functions returning functions is [currying](/basics/functions/#currying).
+!!! Note
+
+    A common use case for functions returning functions is [currying](/basics/functions/#currying). In fact, the functions `curry` and `uncurry` exist:
+
+    ```hs title="repl example"
+    > conjunction x y = x && y
+    > :t conjunction
+    conjunction :: Bool -> Bool -> Bool
+    > conjunction True False
+    False
+
+    (uncurry conjunction) :: (Bool, Bool) -> Bool
+    > (uncurry conjunction) (True, False)
+    False
+
+    > conjunction2 (x, y) = x && y
+    > :t conjunction2
+    conjunction2 :: (Bool, Bool) -> Bool
+    > conjunction2 (True, False)
+    False
+    > :t (curry conjunction2)
+    (curry conjunction2) :: Bool -> Bool -> Bool
+    > (curry conjunction2) True False
+    False
+    ```
 
 ## Composition
 
@@ -114,13 +140,40 @@ Instead of writing `func x = not (even x)`, one can write `func = not . even`, w
 === "pointfree style"
     
     ```hs
-    import Graphics.Gloss.Data.Picture
+    import Graphics.Gloss.Data.Picture -- (1)!
     picture :: Picture
     picture = transform (circle 2) where 
         transform =
             rotate 90
             . translate 20 20
             . scale 30 30
+    ```
+
+    1. Requires the `gloss` package.
+
+Using `flip`:
+
+=== "pointful style"
+
+    ```hs
+    > threeMinusN n = subtract n 3 
+    > threeMinusN 6
+    -3
+
+    -- or 
+    > translateXBy n = subtract n 0
+    ```
+
+
+=== "pointfree style (with `flip`)"
+    
+    ```hs
+    > threeMinusN = flip subtract 3
+    > threeMinusN 6
+    -3
+
+    -- or
+    > translateXBy = flip translate 0
     ```
 
 <!-- todo: pointfree with const, flip, \case, and sections -->
@@ -211,7 +264,7 @@ findBestPiece = foldr best Bishop [Bishop, Knight, Rook, Bishop]
 !!! Tip
     This corresponds to code that you would write with an accumulator in a non-functional language.
 
-### Some further examples
+### Illustrative examples
 
 Under :construction:
 

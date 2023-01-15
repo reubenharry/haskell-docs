@@ -31,7 +31,7 @@ True
 
 ## The benefit of purity
 
-Haskell's purity lends itself to modular code, and easy refactoring.
+Because of purity, a function will give the same answer no matter where or when it is called, as long as the input is the same. This lends itself to modular code, and easy refactoring.
 
 ```hs
 graphicalUserInterface = runWith complexFunction
@@ -113,7 +113,7 @@ x :: a
 "*** Exception: Prelude.undefined..."
 ```
 
-`undefined` has the type `forall a. a`, so it can appear anywhere in a program and assume the correct type (see here for [more details on how polymorphism works](/basics/types/#how-to-use)). 
+`undefined` has the type `forall a. a`, so it can appear anywhere in a program and assume the correct type (see here for [more details on how universal quantification works](/basics/types/#how-to-use)). 
 
 As such, it is useful as a "to do" marker (see [type driven development](/thinkingfunctionally/typeinference/#type-driven-development)).
 

@@ -2,21 +2,30 @@
 comments: true
 ---
 
-Typeclasses add constraints to polymorphic types:
+Typeclasses allow the user to add *constraints* to [universally quantified types](/basics/types/#universal-types):
 
-```haskell
-notEqual :: Eq a => (a, a) -> Bool -- (1)!
-notEqual (x,y) = not (x == y)
-```
+=== "without explicit quantifier (standard)"
 
-1. As usual, one can (with the `ExplicitForall` extension), write this: `forall a. Eq a => (a, a) -> Bool`, which you may find clearer.
+    ```haskell
+    notEqual :: Eq a => (a, a) -> Bool 
+    notEqual (x,y) = not (x == y)
+    ```
+
+=== "with explicit quantifier"
+
+    ```haskell
+    notEqual :: forall a. Eq a => (a, a) -> Bool -- (1)!
+    notEqual (x,y) = not (x == y)
+    ```
+
+    1. Requires the `ExplicitForall` extension.
 
 The type of `notEqual` states: for any type `a` **such that `a` is an instance of the `Eq` typeclass**, give me a pair of `a`s and I will return a `Bool`.
 
 !!! Note
-    `Eq a` is not a type, but rather a different *kind* of entity, called a constraint.
+    `Eq a` is not a type, but rather a different *kind* of entity, called a **constraint**.
 
-    `Eq` is referred to as a typeclass.
+    `Eq` is referred to as a **typeclass**.
 
 ## Basics
 
@@ -60,7 +69,54 @@ False
 
 A single type can have at most one instance for a typeclass.
 
-Under :construction:
+However, two types which are [isomorphic](/basics/createData/#isomorphic-types) can have different instances:
+
+```hs
+import qualified Data.Text as T
+
+data InterspersedText = MkI {getText :: T.Text} deriving Show -- (1)!
+
+instance Semigroup InterspersedText where  --(2)!
+    (MkI t1) <> (MkI t2) = MkI 
+        $ T.concat 
+        $ fmap (\(c1, c2) -> T.pack [c1,c2]) 
+        $ T.zip t1 t2
+```
+
+1. `InterspersedText` and `Text` contain the same data in the sense that `MkI :: Text -> InterspersedText` and `getText :: InterspersedText -> Text` map back and forth [losslessly](todo).
+
+2. This isn't a sensible instance in practice and is only exemplary, not least because it breaks [the associativity law](/typeclasses/survey/#semigroup) for `Semigroup`
+
+`InterspersedText` and `Text` contain the same information, but have different `Semigroup` instances. 
+
+```hs title="repl example"
+> (MkI "foo") <> (MkI "bar")
+MkI "fboaor"
+
+> "foo" <> "bar"
+"foobar"
+```
+
+The `Monoid` instances [Sum](/typeclasses/survey/#sum) and [Product](/typeclasses/survey/#product) yield a more practical example:
+
+```hs title="repl example"
+
+-- the (Sum Int) Monoid
+> Sum 4
+Sum {getSum = 4}
+> :t Sum 4
+Sum 4 :: Num a => Sum a
+> Sum 4 <> Sum 5
+Sum {getSum = 9}
+
+-- the (Product Int) Monoid
+> Product 4
+Product {getProduct = 4}
+> :t Product 4
+Product 4 :: Num a => Product a
+> Product 4 <> Product 5
+Product {getProduct = 20}
+```
 
 <!-- Often useful to create multiple newtype equivalents: Sum, Product -->
 
@@ -143,7 +199,28 @@ The error is raised because `sort` has type `#!hs sort :: Ord a => [a] -> [a]`, 
     Instead, rely on existing type classes from libraries. 
 
 
-### Constraints propagate
+### Constraints float up
+
+```hs title="repl example"
+5 :: Num a => a
+
+> :t 5
+5 :: Num a => a
+> :t [5, 4]
+[5, 4] :: Num a => [a] -- (1)!
+
+> :t (True, 4)
+(True, 4) :: Num b => (Bool, b)
+
+-- with custom type
+> data Square a = Empty | Piece a
+> :t Piece 4
+Piece 4 :: Num a => Square a
+```
+
+1. **Not** `#!hs [forall a . Num a => a]` which is a [very different type](todo impredicativity), beyond the scope of this guide.
+
+Similarly, if a function which requires a constraint is used as part of a larger program, that constraint floats to the top:
 
 ```hs
 complexFunction :: Eq a => a -> ...
@@ -152,7 +229,7 @@ complexFunction x = let y = notEqual (x, x) in ...
 
 Because `notEqual` is called on `(x, x)`, `x` must be of a type that is an instance of `Eq`. 
 
-The compiler will reason in this way, even if you don't write a type signature.
+The compiler will reason in this way, even if you don't write down the type signature yourself.
 
 
 

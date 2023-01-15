@@ -140,6 +140,19 @@ example x
     | otherwise = False
 ```
 
+!!! Note 
+
+    `otherwise` is not a keyword, in fact it is just the value `True`:
+
+    ```hs title="repl example"
+    > otherwise
+    True
+    > :t otherwise
+    otherwise :: Bool
+    ```
+
+    For this reason, `otherwise` will always satisfy the guard, and so is an appropriate catch-all final line.
+
 ## Let-in
 
 
@@ -200,13 +213,49 @@ example = do
 Here, the order of operations is top-down (read line, write file, print), and the `<-` arrow gives a name to the result of an operation (like `userInput`, which is the result of reading from stdIn with `getLine`) which can be used later.
 
 !!! Note
-    Do-notation gets converted to the following:
+    Do-notation gets converted in the following way:
 
-    Under :construction:
+    === "with do"
+        ```hs
+        do 
+            x <- m
+            f x
+        ```
+    === "without do"
+
+        ```hs
+        m >>= (\x -> f x)
+        ```
+
+    Or for the above example:
+
 
     === "with do"
 
+        ```hs
+        example :: IO ()
+        example = do
+            userInput <- getLine
+            let reversed = reverse userInput
+            writeFile "file/path" reversed
+            print reversed
+        ```
+
+
     === "without do"
 
-Under :construction:
+        ```hs
+        example :: IO ()
+        example = getLine >>= (\userInput -> 
+            let reversed = reverse userInput
+            in (writeFile "file/path" reversed >>= 
+            (\_ -> print reversed)))
+        ```
+
+    As this shows, not only `IO`, but any type `f :: * -> *` which is an instance of `Monad` (and thus implements `>>=`) can be used with do-notation.  For this reason, do-notation is common in Haskell code with many different `Monad` [instances](/typeclasses/survey/#monad).
+
+<!-- (options (===): list, maybe, probability, state, see effects section for more ) -->
+
+    
+
 

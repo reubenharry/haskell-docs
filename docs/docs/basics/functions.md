@@ -19,6 +19,19 @@ add1 2
 
 One can also write `add1(2)`, but Haskell convention is to avoid brackets where possible.
 
+!!! Note
+
+    One can choose any name for a variable (provided it is alphanumeric and starts with a lowercase letter).
+
+    If you have named something else by the same name elsewhere, that is fine:
+
+    ```hs linenums="1" 
+    x = True
+    add1 x = x + 1
+    ```
+
+    The occurrence of `x` on the right of line 2 refers to the occurrence on the left of line 2, not the occurrence on line 1.
+
 ## Arguments
 
 In Haskell, a function has a single argument, but that argument can be a tuple of multiple values:

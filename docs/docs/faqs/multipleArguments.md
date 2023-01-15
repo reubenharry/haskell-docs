@@ -2,7 +2,7 @@
 comments: true
 ---
 
-How do I give multiple arguments to a function?
+How do I give multiple arguments (i.e. inputs) to a function?
 
 ## Answer
 

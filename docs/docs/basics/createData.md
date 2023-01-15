@@ -6,13 +6,27 @@ comments: true
 
 You can make your own types like this:
 
-```haskell
-data Square = Sq Int Int -- (1)!
-```
+=== "Traditional"
 
-1. The choice of the names `Square` and `Sq` are both arbitrary. Both must be capitalized.
+    ```haskell
+    data Square = Sq Int Int -- (1)!
+    ```
+    
+    1. The choice of the names `Square` and `Sq` are both arbitrary. Both must be capitalized.
 
-This creates a new type `Square`, where values of type `Square` look like `Sq i j`, where `i` and `j` are `Int`s:
+=== "Modern (GADT)"
+
+    ```hs
+    data Square where -- (1)!
+        Sq :: Int -> Int -> Square
+    ```
+
+    1. This requires the GADT extension, which is included with [GHC2021](/gettingstarted/versions/#extensions).
+
+
+This creates a new type `Square`; values of type `Square` look like `Sq i j`, where `i` and `j` are `Int`s.
+
+`Sq` is referred to as a *data constructor*, and is a Haskell function, with type shown explicitly in the "modern" version above.
 
 ```haskell title="repl example"
 > :t Sq 5 4
@@ -28,6 +42,7 @@ Sq 3 :: Int -> Square -- (2)!
 1. Actually, the repl will drop the brackets, and show: `#!haskell Int -> Int -> Square`.
 
 2. If this is unclear, see [here](/basics/functions/#currying) for more info.
+
 
 ??? Tip
     The type `Square` contains the same information as the product type `(Int, Int)`. These types are different, in the sense that code which expects one will not work with the other, but it is easy to write loss-less functions between them:
@@ -54,9 +69,17 @@ Sq 3 :: Int -> Square -- (2)!
 
 You can also name entries:
 
-```hs 
-data Entity = Sq {row :: Int, col :: Int}
-```
+=== "Traditional"
+
+    ```hs 
+    data Entity = Sq {row :: Int, col :: Int}
+    ```
+=== "Modern (GADT)"
+
+    ```hs
+    data Entity where
+      Sq :: {row :: Int, col :: Int} -> Entity
+    ```
 
 `row` and `col` are now accessing functions:
 
@@ -76,14 +99,30 @@ col :: Entity -> Int
 
 ## Sums
 
+=== "Traditional"
 
-```haskell
-data Entity = Sq Int Int | Player Bool -- (1)!
-```
+    ```haskell
+    data Entity = Sq Int Int | Player Bool -- (1)!
+    ```
+    
+    1. `Entity` is a *type*, but `Sq` and `Player` are values belonging to that type
 
-1. `Entity` is a type*, but `Sq` and `Player` are values belonging to that type
+    The vertical bar `|` indicates that an `Entity` is *either* made with `Sq` *or* with `Piece`:
 
-The vertical bar `|` indicates that an `Entity` is *either* made with `Sq` *or* with `Piece`:
+=== "Modern (GADT)"
+
+    ```haskell
+    data Entity where
+        Sq :: Int -> Int -> Entity -- (1)!
+        Player :: Bool -> Entity
+    ```
+
+    1. This requires the GADT extension, which is included with [GHC2021](/gettingstarted/versions/#extensions).
+
+    The newline indicates that an `Entity` is *either* made with `Sq` *or* with `Player`:
+
+
+
 
 ```haskell title="repl example"
 > Sq 4 6
@@ -94,8 +133,8 @@ Player False :: Entity
 Player :: Bool -> Entity
 ```
 
-??? Note
-    The type `Entity` contains the same information as the type `#!haskell Either (Int, Int) Bool`, and one could write functions between them:
+??? Tip
+    The type `Entity` contains the same information as the type `#!haskell Either (Int, Int) Bool`, and one can write loss-less functions between them:
 
     ```haskell
     fromEntity :: Entity -> Either (Int, Int) Bool
@@ -110,7 +149,7 @@ Player :: Bool -> Entity
 
 
 
-!!! Tip 
+!!! Note 
 
     You can combine products and sums, using your own types:
 
@@ -151,7 +190,7 @@ King (King True) :: Piece (Piece Bool)
 ??? Note
     One can think of `Piece` as a *function on types*, which gives a type `c`, produces a type `Piece c`. 
 
-    To make this idea explicit, one can say that `Piece` has *kind* `Type -> Type`, where *kind* is a name for the types that types themselves have. 
+    To make this idea explicit, one can say that `Piece` has [kind](basics/types/#types-for-types) `Type -> Type`, where *kind* is a name for the types that types themselves have. 
 
 ## Recursive types
 
@@ -215,7 +254,6 @@ machine = machine1 where
 
     In fact, the `[a]` type in Haskell is defined in this way, with the `[1,2,3]` being extra syntax for convenience.
 
-
 ## Synonyms
 
 One can also give new names to existing types:
@@ -231,3 +269,39 @@ type Failure = Text
 data Result = ...
 type Program = Either Failure Result
 ```
+
+## Isomorphic types
+
+Two types are *isomorphic* (or more colloquially, the same) if there are functions to convert between them in both directions that are loss-less:
+
+```hs title="repl example"
+data WrappedInt = MkW {getInt :: Int}
+
+> :t MkW 
+MkW :: Int -> WrappedInt -- one direction
+> :t getInt 
+getInt :: WrappedInt -> Int -- the other direction
+
+> :t (getInt . MkW)
+(getInt . MkW) :: Int -> Int
+> (getInt . MkW) 4 -- (getInt . MkW) is the identity function
+4
+
+> :t (MkW . getInt)
+(MkW . getInt) :: WrappedInt -> WrappedInt -- also the identity
+```
+
+## Reference table of isomorphic types
+
+| A type | An isomorphic type |
+| ------------------ | ------------------ |
+| `#!hs data WrappedInt = MkW X`[^1]              | `#!hs X ` |
+| `#!hs data Unit = U`               | `#!hs () ` |
+| `#!hs data Pair = P Int Bool`               | `#!hs (Int, Bool)` |
+| `#!hs data OneOf = I Int | B Bool `               | `#!hs Either Int Bool` |
+| `X -> Y -> Z`                | `(X, Y) -> Z` |
+| `#!hs Bool -> X `               | `#!hs (X, X) ` |
+| `#!hs Maybe X`               | `#!hs Either () X` |
+| `#!hs data CharStream = MkS Char Stream`               | `#!hs Int -> Char` |
+
+[^1]: Here using `X`, `Y`, `Z` to stand in for arbitrary types, to avoid potential confusions involving universally quantified types.

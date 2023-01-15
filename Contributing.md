@@ -70,9 +70,9 @@ It is ok if features of Haskell are either a) never mentioned, or b) mentioned b
 
 **Do** have explanation that `[..]` is infinite, and of laziness, since that is likely to be unfamiliar. Parenthetically mention Python's iterators for comparison.
 
-**Don't**: explain whether `[0..9]` includes `9`, since a user can try for themselves. 
+**Don't**: explain whether `[0..9]` includes `9`, since a user can try for themselves, or see from examples in the docs. 
 
-**Maybe** mention instance signatures and the corresponding extension. But probably don't, because once a user understands enough, they can learn about this themselves.
+**Maybe** mention instance signatures and the corresponding extension. But probably don't, because the Haskell Language Server will make it easy to discover it.
 
 ## show > tell
 

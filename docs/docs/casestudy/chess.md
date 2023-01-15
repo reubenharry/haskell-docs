@@ -6,7 +6,7 @@
 ```
 
 1. A [sum](/basics/createdata/#sums) type.
-2. 
+2. A [product](/basics/createdata/#products) type.
 3. 
 4. 
 

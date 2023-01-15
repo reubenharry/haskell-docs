@@ -149,9 +149,10 @@ nav:
     - Laziness: laziness/laziness.md
   - Libraries:
     - Overview: packages/overview.md
-    - mtl: packages/mtl.md
-    - megaparsec: packages/megaparsec.md
-    - aeson: packages/aeson.md
+    - Dictionaries and sets: packages/containers.md
+    - JSON: packages/aeson.md
+    - Side-Effects: packages/mtl.md
+    - Parsing: packages/megaparsec.md
   - Case Study:
     - Overview: casestudy/overview.md
     - Chess Logic: casestudy/chess.md
@@ -163,6 +164,7 @@ nav:
     - Lists: gotchas/lists.md
     - Punning: gotchas/punning.md
     - Strings: gotchas/strings.md
+    - Show value: gotchas/show.md
     - Updating a variable: gotchas/mutation.md
     - Varying output type: gotchas/functiontype.md
     - Length of tuple: gotchas/tupleLength.md
