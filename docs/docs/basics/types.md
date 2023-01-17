@@ -79,13 +79,6 @@ exampleText = "hello world!"
 1. See [here](/gotchas/strings) for why this extension is needed.
 
 
-
-
-<!-- Haskell's type system is such an important feature, and so useful for understanding the language, that it is a good place to begin.
-
-Every expression (that includes all programs) in the language has a unique type. -->
-
-
 ## The type of functions
 
 A function in Haskell means the same as a function in mathematics: it takes an input and produces an output. The type of the function depends on the type of the input and the type of the output. 

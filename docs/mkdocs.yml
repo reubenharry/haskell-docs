@@ -156,10 +156,10 @@ nav:
   - Case Study:
     - Overview: casestudy/overview.md
     - Chess Logic: casestudy/chess.md
-    - Reading JSON: casestudy/json.md
-    - REPL: casestudy/repl.md
     - Parsing: casestudy/parser.md
     - Evaluator: casestudy/evaluator.md
+    - REPL: casestudy/repl.md
+    # - Reading JSON: casestudy/json.md
   - Gotchas:
     - Lists: gotchas/lists.md
     - Punning: gotchas/punning.md
@@ -179,7 +179,8 @@ nav:
     - I/O: faqs/io.md
     - Output depends on input: faqs/dependentOutput.md
   - Resources:
-    - Resources: resources/resources.md
+    - Overview: resources/resources.md
+    - Articles: resources/articles.md
   
   
 

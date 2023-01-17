@@ -15,7 +15,22 @@ example input = result <> " tree" where
 
 ## Infixing and sections
 
-For operators like `+` or `/` that are written *infix* (i.e. in between their two arguments), as opposed to *prefix* (before their arguments), Haskell has some syntactic sugar:
+Given a function `f`, one can write it *infix* (i.e. in between its two arguments):
+
+```hs title="repl example"
+-- treating a prefix function as an infix function
+> let subtract x y = x - y
+> subtract 6 4
+2
+> 6 `subtract` 4
+2
+```
+
+Functions whose names are symbols, like `+`, `$` and `.`, are written infix by default. An order of precedence is defined, to avoid the need for bracketing. For example, `f a . f b` means `(f a) . (f b)`, and similarly, `f a $ f b` means `(f a) $ (f b)`. 
+
+
+
+For functions like `+` or `/` that are written by default *infix*, Haskell has some syntactic sugar to convert functions from infix to  *prefix* (before their arguments):
 
 ```haskell title="repl example"
 
@@ -30,13 +45,6 @@ For operators like `+` or `/` that are written *infix* (i.e. in between their tw
 0.4
 > (5 /)  2
 2.5
-
--- treating a prefix function as an infix function
-> let subtract x y = x - y
-> subtract 6 4
-2
-> 6 `subtract` 4
-2
 ```
 
 1. Whether infix or not, the type of `(/)` is `#!haskell Double -> (Double -> Double)`.

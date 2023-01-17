@@ -25,8 +25,15 @@ The line `$dFunctor :: Functor ((->) Integer)` means that the instance of `Funct
 !!! Tip
     If it is unclear what `((->) Integer)` means, see [here](/basics/functions/#partial-application-for-types) and [here](/basics/syntax/#infixing-in-types).
 
+The instance of `Functor` for `#!hs ((->) Integer)` is:
 
+```hs
+instance Functor ((->) r) where
+    fmap f g = f . g -- (1)! 
+```
 
-# Under :construction: 
+1. Or in [pointfree](/thinkingfunctionally/hof/#pointfree-code) style: fmap = (.)
+
+and this is what is being used in the examples above.
 
     

@@ -1,5 +1,5 @@
 cabal-version:      2.4
-name:               haskell-book
+name:               chess-repl
 version:            0.1.0.0
 
 -- A short (one-line) description of the package.
@@ -27,9 +27,10 @@ extra-source-files:
 
 library
     exposed-modules:  
-        Repl
         Chess
         Parser
+        Evaluator
+        Repl
         Scratch
 
     -- Modules included in this library but not exported.
@@ -49,9 +50,13 @@ library
         containers
         -- lens
     hs-source-dirs:   src
+    default-extensions:
+        OverloadedStrings
+        LambdaCase
+
     default-language: GHC2021
 
-executable haskell-book
+executable chess-repl
     main-is:          Main.hs
 
     -- Modules included in this executable, other than Main.
@@ -61,7 +66,7 @@ executable haskell-book
     -- other-extensions:
     build-depends:
         base ^>=4.16.3.0,
-        haskell-book
+        chess-repl
 
     hs-source-dirs:   app
     default-language: Haskell2010

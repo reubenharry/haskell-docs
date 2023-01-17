@@ -1,3 +1,6 @@
+---
+comments: true
+---
 
 `Data.Aeson`, from the `aeson` package, is a library for encoding/decoding Haskell values to/from JSON.
 

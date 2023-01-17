@@ -118,8 +118,6 @@ Product 4 :: Num a => Product a
 Product {getProduct = 20}
 ```
 
-<!-- Often useful to create multiple newtype equivalents: Sum, Product -->
-
 ## Constraint implication (classes)
 
 One typeclass may depend on another:

@@ -1,51 +1,72 @@
---
--- UNDER CONSTRUCTION!!
---
+module Chess where -- (3)!
 
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE DeriveAnyClass #-}
+import Data.Char (toUpper)
+import Data.List (intercalate, intersperse)
+import Data.Text qualified as T
+import Witch (into)
 
 
-module Chess where
-
-import qualified Data.Text as T
-import Data.Aeson (encode, ToJSON)
-import GHC.Generics (Generic)
-import Data.ByteString.Lazy (ByteString)
-import qualified Data.Map as M
-
+-- (14)!
 data PieceType = Bishop | Rook | Knight | Pawn | King | Queen -- (1)!
+  deriving (Eq, Show) -- (4)!
+
 data Color = Black | White
-data Piece = Piece PieceType Color  -- (2)!
+  deriving (Eq, Show)
 
+data Piece = Piece PieceType Color -- (2)!
+  deriving (Eq, Show)
 
-a :: ByteString
-a = encode (M.fromList [('a', 'b')])
+data File = A | B | C | D | E | F | G | H
+  deriving (Eq, Ord, Show, Enum) -- (5)!
 
-data Rank = R Int 
-data File = F Int
+data Rank = One | Two | Three | Four | Five | Six | Seven | Eight
+  deriving (Eq, Ord, Show, Enum)
 
-data SquareState where
+data SquareState where -- (7)!
   Empty :: SquareState
   HasPiece :: Piece -> SquareState
 
-mkRank :: Int -> Maybe Rank -- (3)!
-mkRank i  
-    | inRange i = Just $ R i -- (4)!
-    | otherwise = Nothing
+-- (15)!
+newtype Board where -- (14)!
+  Board :: (File -> Rank -> SquareState) -> Board
 
-    where -- (5)!
+initBoard :: Board -- (6)!
+initBoard = Board $ \f r -> Empty
 
-        inRange n = n `elem` [1..8]
+display :: Board -> T.Text
+display (Board boardFunc) =
+  into @T.Text $ -- (9)!
+    intercalate "\n" $
+      map (intersperse '|') $
+        group 8 flatBoard
+  where
 
+    -- (10)!
+    flatBoard =
+      [ showSquare (boardFunc file rank)
+        | file <- [A .. H],
+          rank <- [One .. Eight] -- (8)!
+      ]
 
-initBoard :: Board 
-initBoard = undefined 
+    showPiece (Piece pieceType color) = letterCase color $ case pieceType of
+      Bishop -> 'b'
+      King -> 'k'
+      Knight -> 'n'
+      Queen -> 'q'
+      Rook -> 'r'
+      Pawn -> 'p'
 
-newtype Board where
-  Lookup :: (Rank -> File -> SquareState) -> Board
-  
-display :: p -> T.Text
-display _ = T.concat $ take 8 $ repeat "| | | | | | | | |\n"
+    showSquare = \case
+      -- (11)!
+      Empty -> '_'
+      HasPiece p -> showPiece p
 
--- use flip, const
+    letterCase = \case
+      Black -> toUpper -- (12)!
+      White -> id -- (13)!
+
+-- helper function: split list into chunks of size n
+group :: Int -> [a] -> [[a]]
+group _ [] = []
+group n l = (take n l) : (group n (drop n l))
+

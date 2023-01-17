@@ -89,7 +89,7 @@ In VSCode, activate it by installing the *Haskell* extension:
 
 ![](/img/hls.png)
 
-This will make learning Haskell much smoother, by continuously checking your program, underlining type errors, showing inferred types by mouse-over, adding type signatures automatically, and adding language extensions and imports when needed.
+This will make learning Haskell much smoother, by continuously checking your program, underlining type errors, showing inferred types by mouse-over, adding type signatures automatically, adding language extensions and imports when needed, and linting and formatting.
 
 ## Step 4 (Hoogle)
 

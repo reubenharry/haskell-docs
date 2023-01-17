@@ -1,5 +1,3 @@
-# **Under :construction: !!**
-
 # Introduction to Haskell
 
 This is the github repository for [an introductory guide to learning Haskell](https://haskell-docs.netlify.app/).
@@ -25,8 +23,8 @@ With that in mind, it should be:
 
 |                    | Wiki               | LYAH               | RWH                | LHBG               | These Docs         | Various Books      |
 | ------------------ | ------------------ | -----------------  | ------------------ | ------------------ | ------------------ | ------------------ |
-| Free               | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                |
 | Community editable | :white_check_mark: | :x:                | :x:                | :pushpin:          | :white_check_mark: | :x:                |
+| Free               | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                |
 | Beginner friendy   | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Up-to-date         | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Looks nice         | :x:                | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: |
