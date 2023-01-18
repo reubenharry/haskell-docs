@@ -83,5 +83,5 @@ _|_|_|_|_|_|_|_
         ...
     ```
 
-    Consider this the Haskell analogue of inserting print statements.
+    Consider this the Haskell debugging analogue of inserting print statements.
 

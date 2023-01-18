@@ -4,7 +4,7 @@ comments: true
 
 ## For newcomers
 
-[These notes](https://www.seas.upenn.edu/~cis1940/fall16/lectures/01-intro.html) are excellent.
+[These notes](https://www.seas.upenn.edu/~cis1940/fall16/lectures/01-intro.html) are a widely used introduction to Haskell.
 
 [Learn You a Haskell](http://learnyouahaskell.com/) is a friendly introductory book, with an [interactive notebook version](https://github.com/IHaskell/learn-you-a-haskell-notebook).
 
@@ -37,9 +37,13 @@ It also has a [forum](https://discourse.haskell.org/).
 
 ### Friendly libraries
 
-[pipes](https://hackage.haskell.org/package/pipes) is a useful library which has very friendly documentation including a [tutorial](https://hackage.haskell.org/package/pipes-4.3.16/docs/Pipes-Tutorial.html)
+[pipes](https://hackage.haskell.org/package/pipes) is a useful library for *streaming* which has very friendly documentation including a [tutorial](https://hackage.haskell.org/package/pipes-4.3.16/docs/Pipes-Tutorial.html). This is a good library to understand how to think functionally, and how to use monads practically.
 
-[Gloss](https://hackage.haskell.org/package/gloss) is a simple library for building 2D animations and games.
+[foldl](https://hackage.haskell.org/package/foldl) is a beautifully documented library for writing folds (aka reduces) that are efficient and makes one pass over data. This is a good library to expand your understanding of `Functor` and `Applicative`, and to understand efficiency concerns in a functional language.
+
+[diagrams](https://archives.haskell.org/projects.haskell.org/diagrams/) is a very well documented library for constructing 2D diagrams.
+
+[Gloss](https://hackage.haskell.org/package/gloss) is a simple but easy to use library for building 2D animations and games.
 
 ### Compiler
 

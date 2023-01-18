@@ -20,6 +20,7 @@
 12. [do-notation](/basics/syntax/#do-notation) used to build a complex parser out of a series of simpler ones and their results.
 13. Explicit imports like this are useful both for readability and to avoid namespace clashes.
 14. Another way to avoid namespace clashes. Common for both `Data.Map` and `Data.Text`.
+15. [Void](/basics/types/#the-empty-type) is the empty type. This says that the custom error type is `Void` (i.e. doesn't exist), and that the type of the input sequence is `Text`.
 
 ## Analysis
 

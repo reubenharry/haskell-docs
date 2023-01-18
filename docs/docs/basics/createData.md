@@ -45,7 +45,7 @@ Sq 3 :: Int -> Square -- (2)!
 
 
 ??? Tip
-    The type `Square` contains the same information as the product type `(Int, Int)`. These types are different, in the sense that code which expects one will not work with the other, but it is easy to write loss-less functions between them:
+    The type `Square` contains the same information as the product type `(Int, Int)`. These types are different, in the sense that code which expects one will not work with the other, but it is easy to write [loss-less](/basics/createdata/#isomorphic-types) functions between them:
 
     ```haskell
     fromSq :: Square -> (Int, Int)
@@ -134,7 +134,7 @@ Player :: Bool -> Entity
 ```
 
 ??? Tip
-    The type `Entity` contains the same information as the type `#!haskell Either (Int, Int) Bool`, and one can write loss-less functions between them:
+    The type `Entity` contains the same information as the type `#!haskell Either (Int, Int) Bool`, and one can write [loss-less](/basics/createdata/#isomorphic-types) functions between them:
 
     ```haskell
     fromEntity :: Entity -> Either (Int, Int) Bool
@@ -235,6 +235,9 @@ Branch (Leaf True) (Leaf False) :: BinTree Bool
 Here is a more complex recursive type and a program of that type:
 
 ```hs
+
+data Machine a b = M (a -> (b, Machine a b))
+
 machine :: Machine Int Int
 machine = machine1 where 
     
@@ -252,7 +255,13 @@ machine = machine1 where
     data List a = EmptyList | HeadThenList a (List a)
     ```
 
-    In fact, the `[a]` type in Haskell is defined in this way, with the `[1,2,3]` being extra syntax for convenience.
+    In fact, the `[a]` type in Haskell is defined in this way, with the `[1,2,3]` being extra syntax for convenience:
+
+    ```hs
+    data [] a = [] | a : [a] -- (1)!
+    ```
+
+    1. `:` is the data constructor, analogous to `HeadThenList` above, but written *infix*. `[]` is analogous to `EmptyList`.
 
 ## Synonyms
 
@@ -262,6 +271,14 @@ One can also give new names to existing types:
 type Number = Double
 ```
 
+!!! Note
+    
+    Here, `Number` and `Double` are not distinguished as separate types by the compiler, so replacing one by the other in a type signature will always be fine. This would not be true for:
+
+    ```hs
+    data Number = N Double
+    ```
+
 This can be useful for readability, particularly for quite complex types:
 
 ```hs
@@ -269,6 +286,7 @@ type Failure = Text
 data Result = ...
 type Program = Either Failure Result
 ```
+
 
 ## Isomorphic types
 
@@ -284,24 +302,34 @@ getInt :: WrappedInt -> Int -- the other direction
 
 > :t (getInt . MkW)
 (getInt . MkW) :: Int -> Int
-> (getInt . MkW) 4 -- (getInt . MkW) is the identity function
+> (getInt . MkW) 4 -- (1)!
 4
 
 > :t (MkW . getInt)
-(MkW . getInt) :: WrappedInt -> WrappedInt -- also the identity
+(MkW . getInt) :: WrappedInt -> WrappedInt -- (2)!
 ```
 
-## Reference table of isomorphic types
+1. `#!hs (getInt . MkW)` is the identity function.
+2. `#!hs (MkW . getInt)` is also the identity function.
+
+### Reference table of isomorphic types
+
 
 | A type | An isomorphic type |
 | ------------------ | ------------------ |
-| `#!hs data WrappedInt = MkW X`[^1]              | `#!hs X ` |
+| `#!hs data WrappedInt = MkW Int`              | `#!hs Int ` |
+| `#!hs data Wrapped a = MkW a`              | `#!hs a ` |
 | `#!hs data Unit = U`               | `#!hs () ` |
 | `#!hs data Pair = P Int Bool`               | `#!hs (Int, Bool)` |
 | `#!hs data OneOf = I Int | B Bool `               | `#!hs Either Int Bool` |
-| `X -> Y -> Z`                | `(X, Y) -> Z` |
-| `#!hs Bool -> X `               | `#!hs (X, X) ` |
-| `#!hs Maybe X`               | `#!hs Either () X` |
-| `#!hs data CharStream = MkS Char Stream`               | `#!hs Int -> Char` |
+| `a -> b -> c`                | `(a, b) -> c` |
+| `#!hs Bool -> a `               | `#!hs (a, a) ` |
+| `#!hs Maybe a`               | `#!hs Either () a` |
+| `#!hs Reader e a`               | `#!hs e -> a` |
+| `#!hs State s a`               | `#!hs s -> (a, s)` |
+| `#!hs Except err a`               | `#!hs Either err a` |
+| `#!hs ReaderT e m a`               | `#!hs e -> m a` |
+| `#!hs StateT s m a`               | `#!hs s -> m (a, s)` |
+| `#!hs ExceptT err m a`               | `#!hs m (Either err a)` |
 
-[^1]: Here using `X`, `Y`, `Z` to stand in for arbitrary types, to avoid potential confusions involving universally quantified types.
+<!-- [^1]: Here using `X`, `Y`, `Z` to stand in for arbitrary types, to avoid potential confusions involving universally quantified types. -->

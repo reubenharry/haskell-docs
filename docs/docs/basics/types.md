@@ -44,7 +44,7 @@ False :: Bool
 ```
 
 ??? Gotcha
-    `5` can have a more general type in Haskell. See [here](/faq/numbers.md)
+    `5` can have a more general type in Haskell. See [here](/faqs/numbers)
 
 ## The type of real numbers
 
@@ -130,14 +130,14 @@ If you have two types, say `Bool` and `Int`, then you can generate a new type wh
 
 ```haskell
 (Left True) :: Either Bool Int -- (1)!
-(Left False) :: Either Bool Int -- (2)!
-(Right 3) :: Either Bool Int
+(Left False) :: Either Bool Int 
+(Right 3) :: Either Bool Int -- (2)!
 (Right 7) :: Either Bool Int
 ```
 
 1.  `Left` is a function which takes `True` as an argument. In other languages, this might be written `Left(True)`
 
-2.  `Right` is a function which takes `True` as an argument. In other languages, this might be written `Right(True)`
+2.  `Right` is a function which takes `3` as an argument. In other languages, this might be written `Right(3)`
 
 !!! Note
     `Left` and `Right` are functions. 
@@ -255,9 +255,10 @@ Read this type as saying: for **any** type `a`, and **any** type `b`, this funct
 Specific types are always uppercase, but a variable ranging over types like `a` and `b` above are always lowercase.
 
 !!! Note
-   "any type" really means *any* type. That includes `Bool`, `Int`, `Text`, `[Bool]`, `[(Bool, Int)]`, functions like `(Int -> Bool)` or `(Int -> Int) -> Bool`, custom types you defined (e.g. `ChessPiece`), `Either Bool [Int]`, `IO Int`, and so on.
+    "any type" really means *any* type. That includes `Bool`, `Int`, `Text`, `[Bool]`, `[(Bool, Int)]`, functions like `(Int -> Bool)` or `(Int -> Int) -> Bool`, custom types you defined (e.g. `ChessPiece`), `Either Bool [Int]`, `IO Int`, and so on.
 
 !!! Tip
+
     Universally quantified types are not like `Any` in Python. For example, the Boolean negation function `not :: Bool -> Bool` does not also have the type `a -> a`.
 
     In `forall a. (a, b) -> (b, a)`, both occurrences of `a` must be the same, and both occurrences of `b` must be the same. so `(Bool, Int) -> (Int, Bool)` or `(Text, Double) -> (Double, Text)`, but not `(Bool, Int) -> (Double, Text)`. 
@@ -278,25 +279,33 @@ If you have a function with a universally quantified type as *input*, you can al
 (3,'a')
 ```
 
-If you have a non-function value of a universally quantified type, like [undefined](/thinkingfunctionally/purity/#caveats) `:: forall a . a` , you may use it as the argument to *any function*.
+If you have a non-function value of a universally quantified type, like [undefined](/thinkingfunctionally/purity/#caveats) `:: forall a . a` , you may use it as the argument to *any function* (although actually running the code with throw an error if `undefined` is evaluated.)
 
 ```hs title="repl example"
 > :t not
 not :: Bool -> Bool
 > :t not undefined
 not undefined :: Bool
-> 
 ```
 
 ### Usage with parametrized types
 
 Universally quantified types can appear as the parameters of other types:
 
-```hs
-getLeft :: Either a b -> Maybe a
-getLeft (Left x) = Just x
-getLeft (Right _) = Nothing
-```
+=== "standard"
+    ```hs
+    getLeft :: Either a b -> Maybe a
+    getLeft (Left x) = Just x
+    getLeft (Right _) = Nothing
+    ```
+
+=== "with explicit quantifiers"
+
+    ```hs
+    getLeft :: forall a b. Either a b -> Maybe a
+    getLeft (Left x) = Just x
+    getLeft (Right _) = Nothing
+    ```
 
 The universally quantified `a` and `b` indicate that `getLeft` is only manipulating the structure of the input, but nothing more. For example, if a function like `not` was called on `x`, then `a` could no longer be universally quantified:
 
@@ -335,14 +344,14 @@ Either Int :: (* -> *)
 > :k []
 [] :: * -> *
 ```
-1. `*` is the *kind* for all types that can have values, like `Bool`, `Either Bool Int`, `[Bool]` and so on.
 
+1. `*` is the *kind* for all types that can have values, like `Bool`, `Either Bool Int`, `[Bool]` and so on.
 2. Consult [this section](/basics/functions/#partial-application-for-types) if this is unclear. Note also that it will be displayed: ` * -> * -> *` by the repl.
 
 !!! Note
     The ability to have types of "higher kinds" (i.e. kinds like `* -> *`, or `* -> * -> *`) is a central feature that makes Haskell's type system more sophisticated than many languages.
 
-    In codebases, it is common to encounter types like `ReaderT` which has kind `* -> (* -> *) -> * -> *` or `Fix` of kind `(* -> *) -> *`
+    In codebases, it is common to encounter types like `ReaderT` which has kind `* -> (* -> *) -> * -> *` or `Fix`, which has kind `(* -> *) -> *`
 
 ### Universal quantification for other kinds than `*`
 

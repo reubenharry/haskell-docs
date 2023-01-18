@@ -21,7 +21,7 @@ One can also write `add1(2)`, but Haskell convention is to avoid brackets where 
 
 !!! Note
 
-    One can choose any name for a variable (provided it is alphanumeric and starts with a lowercase letter).
+    One can choose any name for an argument (provided it is alphanumeric and starts with a lowercase letter).
 
     If you have named something else by the same name elsewhere, that is fine:
 
@@ -59,7 +59,13 @@ Accordingly, we can apply `exampleFunc` to an integer, say `5`, and obtain an "a
 ```haskell
 > :t exampleFunc 4
 (Int -> Int)
-> (exampleFunc 4) 5 --(1)!
+
+> add4 = exampleFunc 4
+> add4 5
+9
+
+-- or directly
+> (exampleFunc 4) 5 -- (1)!
 9
 ```
 
@@ -72,7 +78,7 @@ This is often referred to as *partial application*. `exampleFunc` would be descr
 
 ## Partial application for types
 
-The same holds for types:
+The same holds for types and their [kinds](/basics/types/#types-for-types):
 
 ```hs title="repl example"
 > :kind Either
@@ -87,7 +93,7 @@ Either Bool Int :: *
 
 
 
-## Pattern matching
+## Pattern matching on sum types
 
 When defining a function, you can *pattern match*:
 
@@ -133,17 +139,41 @@ Then:
 
 because line 3 would be matched before line 4 was reached.
 
-!!! Note
-    Pattern matching follows the definition of types, including custom types:
+## Pattern matching on product types
 
-    ```hs title="repl example" hl_lines="4"
-    > data Color = White | Black deriving (Show)
-    > data PieceType = Bishop | Knight deriving (Show)
-    > data Piece = P PieceType Color deriving (Show)
-    > getColor (P _ c) = c
-    > getColor (P Bishop White)
-    White
-    ```
+The above example concerns a type that is *either* a `Right True` *or* a `Right False` *or* a  `Left 0`, or a `Left 1`...In other words, it is a [sum type](/basics/createData/#sums).
+
+Pattern matching also works with products (and products of sums, sums of products, and so on):
+
+```hs title="repl example"
+> ex = (True, False)
+> (b1, b2) = ex
+> b1
+True
+> b2
+False
+
+-- with a custom type
+> data Entity = Sq Int Bool
+> entity = Sq 4 False
+> Sq i b = entity
+> i
+4
+> b
+False
+```
+
+This works also in functions:
+
+```hs title="repl example" hl_lines="4"
+> data Color = White | Black deriving Show
+> data PieceType = Bishop | Knight deriving Show
+> data Piece = P PieceType Color deriving Show
+> getColor (P _ c) = c
+> getColor (P Bishop White)
+White
+```
+
 
 !!! Note
     Patterns can be arbitrarily deeply nested, as in:
@@ -158,7 +188,7 @@ because line 3 would be matched before line 4 was reached.
     getColor (Left _) = Nothing
     ```
 
-    And also with [recursive types](/basics/createdata/#recursive-types)
+    And also used with [recursive types](/basics/createdata/#recursive-types)
 
     ```hs title="repl example" hl_lines="2"
     > data BinTree = Leaf Char | Branches BinTree BinTree
@@ -170,7 +200,7 @@ because line 3 would be matched before line 4 was reached.
 
 ### Pattern matching lists
 
-This also applies to [lists](/basics/types/#the-list-type):
+Pattern matching also applies to [lists](/basics/types/#the-list-type), since they are [recursive types](/basics/createData/#recursive-types):
 
 ```hs title="repl example"
 > ls@(head:tail) = [1,2,3]
@@ -181,6 +211,16 @@ This also applies to [lists](/basics/types/#the-list-type):
 > ls
 [1,2,3]
 ```
+
+!!! Tip
+
+    A classic example of returning an error when getting the first element of an empty list:
+
+    ```hs
+    getFirstElement :: [b] -> Either String b
+    getFirstElement ( x : _ ) = Right x
+    getFirstElement [] = Left "the list is empty"
+    ```
 
 ### Using @ in patterns
 
@@ -208,6 +248,8 @@ True
 > left
 (True,())
 ```
+
+And in a function:
 
 ```hs
 exampleFunc :: (Int, Bool) -> (Int, Bool)

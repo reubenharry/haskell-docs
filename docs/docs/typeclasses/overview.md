@@ -20,7 +20,7 @@ Typeclasses allow the user to add *constraints* to [universally quantified types
 
     1. Requires the `ExplicitForall` extension.
 
-The type of `notEqual` states: for any type `a` **such that `a` is an instance of the `Eq` typeclass**, give me a pair of `a`s and I will return a `Bool`.
+The type of `notEqual` states: for any type `a` **such that `a` is an instance of the `Eq` typeclass**, given a pair of `a`s, this will return a `Bool`.
 
 !!! Note
     `Eq a` is not a type, but rather a different *kind* of entity, called a **constraint**.
@@ -83,7 +83,7 @@ instance Semigroup InterspersedText where  --(2)!
         $ T.zip t1 t2
 ```
 
-1. `InterspersedText` and `Text` contain the same data in the sense that `MkI :: Text -> InterspersedText` and `getText :: InterspersedText -> Text` map back and forth [losslessly](todo).
+1. `InterspersedText` and `Text` contain the same data in the sense that `MkI :: Text -> InterspersedText` and `getText :: InterspersedText -> Text` map back and forth [losslessly](/basics/createData/#isomorphic-types).
 
 2. This isn't a sensible instance in practice and is only exemplary, not least because it breaks [the associativity law](/typeclasses/survey/#semigroup) for `Semigroup`
 
@@ -143,8 +143,13 @@ instance Eq a => Eq [a] where
 
 Read this as saying: for *any* type `a`, **if** `a` is an instance of `Eq`, **then** `[a]` is also an instance of `Eq`. 
 
-!!! Warning
-    Haskell can be a little picky about when you are allowed to do this, but bear in mind that mostly you will be *using* typeclasses and instances, rather than writing your own.
+Similarly:
+
+```hs
+instance Num a => Monoid (Sum a)
+```
+
+This states that if `a` is an instance of `Num` (as are e.g. `Int` and `Double`) then `Sum a` (or concretely, `Sum Int` or `Sum Int`) are instances of `Monoid`.
 
 This allows Haskell's type checker to make potentially quite complex deductions. For example:
 
@@ -216,7 +221,7 @@ The error is raised because `sort` has type `#!hs sort :: Ord a => [a] -> [a]`, 
 Piece 4 :: Num a => Square a
 ```
 
-1. **Not** `#!hs [forall a . Num a => a]` which is a [very different type](todo impredicativity), beyond the scope of this guide.
+1. **Not** `#!hs [forall a . Num a => a]` which is a [very different type](https://ghc.gitlab.haskell.org/ghc/doc/users_guide/exts/impredicative_types.html), beyond the scope of this guide.
 
 Similarly, if a function which requires a constraint is used as part of a larger program, that constraint floats to the top:
 
@@ -271,4 +276,27 @@ True
 
 ## Type classes over others *kinds*
 
-Under :construction:
+In the typeclass `Eq`, types which are instances are normal types like `Int`, `Bool`, or `Either Int Bool`, i.e. types with [kind](/basics/types/#types-for-types) `*`.
+
+
+??? Note
+    Accordingly, a type signature like 
+
+    ```hs
+    (==) :: Eq a => a -> a -> Bool
+    ```
+
+    can be [more explicitly stated as](/basics/types/#universal-quantification-for-other-kinds-than):
+
+    ```hs
+    (==) :: forall (a :: *). Eq a => a -> a -> Bool
+    ```
+
+However, for many important typeclasses, the types which are instances have other kinds, like `* -> *`. For instance:
+
+```hs
+class Functor (f :: * -> *) where
+  fmap :: (a -> b) -> f a -> f b
+```
+
+This means that `[]` or `Maybe` are candidates to be instances of `Functor`, but `Int`, `Bool`, (or even `[Int]`) are not.

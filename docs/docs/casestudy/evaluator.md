@@ -17,7 +17,7 @@ comments: true
 
 ## Analysis
 
-`MonadError` and `MonadState` are [typeclasses](/typeclasses/overview) for types with the ability to throw errors and mutate local state respectively. See the [monad transformer library (mtl)](todo) for more.
+`MonadError` and `MonadState` are [typeclasses](/typeclasses/overview) for types with the ability to throw errors and mutate local state respectively. See the [monad transformer library (mtl)](https://haskell-docs.netlify.app/packages/mtl/) for more.
 
 With that in mind, read the type signature of `evaluate` as follows: `evaluate` is a function that takes an `Instruction` and returns `Text`, but with the possibility of throwing an error of type `ChessError`, and of changing the state (of type `Board`).
 

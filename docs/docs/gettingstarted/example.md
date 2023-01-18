@@ -10,7 +10,8 @@ An example Haskell file. This defines a *module* which can be imported by other 
 module Chess where -- (2)!
 
 
-data Piece where -- (3)!
+-- (3)!
+data Piece where 
     Bishop :: Piece
     Rook   :: Piece
 

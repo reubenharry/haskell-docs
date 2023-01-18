@@ -45,7 +45,7 @@ graphicalUserInterface = runWith complexFunction
 Suppose we want to replace `complexFunction` with `simpleFunction`, also of type `UserInput -> Picture`.
 
 
-Because Haskell is pure (see /thinkingfunctionall/purity/#caveats) and so `complexFunction` is not creating/mutating global variables, or opening or closing files, we can be confident that there will be no unexpected implications of making the change, such as a subtle error when `runWith` takes `complexFunction` as input. 
+Because Haskell is pure (but see [caveats](/thinkingfunctionally/purity/#caveats)) and so `complexFunction` is not creating/mutating global variables, or opening or closing files, we can be confident that there will be no unexpected implications of making the change, such as a subtle error when `runWith` takes `complexFunction` as input. 
 
 ## Equational reasoning
 
@@ -97,7 +97,18 @@ exampleProgram = someFunction "a4"
 
     This technique is **always applicable**, no mater how complex the program.
 
+## Totality
 
+A function is total if it returns a result for any possible input. For example, `head` is not total:
+
+```hs title="repl example"
+> head [1,2]
+1
+> head []
+*** Exception: Prelude.head: empty list
+```
+
+In Haskell, non-total (aka *partial*) functions are permitted, although they are discouraged. Functions may be partial by throwing an runtime error on some inputs (like `head`), or by running indefinitely, (like `last [1..]`). Haskell will generally warn you about the first kind, but not the second, since it is harder to detect.
 
 ### Caveats
 

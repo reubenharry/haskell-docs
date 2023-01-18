@@ -8,8 +8,6 @@ For well-maintained packages, you should expect to find some explanation of the 
 
     Many published packages are experimental code, not intended for serious use. To get a sense of which packages to use, see [this guide](https://github.com/Gabriella439/post-rfc/blob/main/sotu.md).
 
-    In general, avoid packages if they have not been updated for a few years.
-
 ## Hackage and Stackage 
 
 There exist two major package repositories for Haskell, [Hackage](https://hackage.haskell.org/) and [Stackage](https://www.stackage.org/), with the main difference that Stackage provides a stabler subset of Hackage, which is more extensive. 
@@ -28,4 +26,10 @@ We can then understand what `Picture` is by following the link, to see its defin
 
 ## Default libraries
 
-Haskell's [Prelude](https://hackage.haskell.org/package/base) library is automatically imported into every module, and includes many familiar functions and types, like `take` and `Maybe`. It is 
+Haskell's [Prelude](https://hackage.haskell.org/package/base) library is automatically imported into every module, and includes many familiar functions and types, like `take` and `Maybe`. 
+
+!!! Note
+
+    `Prelude` is sometimes replaced by a different base library in large projects, since it includes legacy features and outdated design decisions. For example, the function `head` is *unsafe* in the sense that it throws a hard error when you take the head of an empty list: `head []`.
+
+    A good modern alternative can be found [here](https://kowainik.github.io/projects/relude).

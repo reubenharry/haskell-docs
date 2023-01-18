@@ -5,8 +5,7 @@ Haskell is a general purpose programming language. It is unique in being both ve
 - Pros: highly modular code, low boilerplate, easy and safe refactoring
 - Cons: no manual memory management, some [gaps in ecosystem](https://github.com/Gabriella439/post-rfc/blob/main/sotu.md)
 
-Here is some discussion of its most salient features, if you want to learn more:
-
+Salient properties include:
 
 - [functional](/thinkingfunctionally/hof)
 - [pure](/thinkingfunctionally/purity) and [immutable](/thinkingfunctionally/immutability)
@@ -27,12 +26,5 @@ Feel free also to use this guide as a reference. For example, you can search the
 Ask questions about pages you don't understand via the `Comments` section at the bottom of each page.
 
 
-### Contributing
-
-Contribution from the Haskell community is heavily encouraged! See [here](https://github.com/reubenharry/haskell-docs/blob/main/Contributing.md).
-
-
 !!! disclaimer
-    This documentation is a personal project, and not official Haskell documentation. Contributions are encouraged, by submitting a PR (see the button in the upper right corner of each page!).
-
-    If you don't want to submit a PR, but you see a mistake or have a question, please feel free to write a comment at the bottom of most pages.
+    This documentation is a personal project, and not official Haskell documentation. Contributions are encouraged, by submitting a PR. See here for a [style guide](https://github.com/reubenharry/haskell-docs/blob/main/Contributing.md).

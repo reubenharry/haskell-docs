@@ -5,7 +5,7 @@ comments: true
 Haskell only evaluates an expression if it is needed for the computation as a whole:
 
 ```hs title="repl example"
-> let x = undefined in x
+> let x = undefined in x -- (3)!
 " *** Exception: undefined"
 > let x = undefined in 3 + 5 -- (1)!
 8
@@ -15,6 +15,7 @@ True
 
 1. `x` is never used, so is never evaluated, and the error never gets triggered.
 2. `x` is never used here either, because if the first argument of `||` is `True`, it returns `True` without evaluating the second.
+3. [undefined](/thinkingfunctionally/purity/#caveats) is a value that will throw a runtime error when evaluated.
 
 ## Infinite data
 

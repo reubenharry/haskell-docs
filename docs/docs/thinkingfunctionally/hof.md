@@ -50,7 +50,7 @@ True
 
 !!! Note
 
-    A common use case for functions returning functions is [currying](/basics/functions/#currying). In fact, the functions `curry` and `uncurry` exist:
+    A common use case for functions returning functions is [currying](/basics/functions/#currying). Relatedly, there are functions `curry` and `uncurry`:
 
     ```hs title="repl example"
     > conjunction x y = x && y
@@ -111,7 +111,7 @@ The composition operator `.` is not a special syntax; it is a function, typicall
 (.) :: (Char -> Bool) -> (Text -> Char) -> (Text -> Bool)
 ```
 
-Or in its general polymorphic form:
+Or in its [general](/basics/types/#universal-types) form:
 
 ```haskell
 (.) :: (b -> c) -> (a -> b) -> (a -> c)
@@ -160,8 +160,8 @@ Using `flip`:
     > threeMinusN 6
     -3
 
-    -- or 
-    > translateXBy n = subtract n 0
+    -- or (re the above example)
+    > translateXBy n = translate n 0
     ```
 
 
@@ -172,11 +172,10 @@ Using `flip`:
     > threeMinusN 6
     -3
 
-    -- or
+    -- or (re the above example)
     > translateXBy = flip translate 0
     ```
 
-<!-- todo: pointfree with const, flip, \case, and sections -->
 
 ## Map, fold, scan and zip
 
@@ -211,7 +210,13 @@ Note that `map`'s type [ranges over all types](/basics/types/#universal-types) `
 ```hs title="repl example"
 > foldr (+) 0 [1..10]
 55
+> :t foldr
+foldr :: (a -> b -> b) -> b -> [a] -> b -- (1)!
 ```
+
+1. Actually, the repl will give a more general type: `#!hs foldr :: Foldable t => (a -> b -> b) -> b -> t a -> b`. This generalizes `foldr` from lists to any kind of "container" type that is an instance of the `Foldable` typeclass. 
+
+The first argument (here `(+)`) is a function of type `a -> (b -> b)` (or here specifically: `Int -> (Int -> Int)`) to combine the list elements. The second argument (here `0`) is an initial value, to be returned if the input list is the empty list `[]`. The third argument is the input list to be folded, here `[1,2,3,4,5,6,7,8,9,10]`.
 
 This is by no means restricted to numerical code:
 
@@ -252,6 +257,33 @@ findBestPiece = foldr best Bishop [Bishop, Knight, Rook, Bishop]
 
     1. It avoids buggy code. For example, `sumList` fails on the empty list `[]`.
     2. It is easier to understand. Explicit recursion can create "goto" like control flow.
+
+    Many programs can be expressed as folds (or unfolds!) over lists or other data structures, and Haskell has a range of [intermediate](https://hackage.haskell.org/package/foldl) and [advanced](https://hackage.haskell.org/package/recursion-schemes) libraries to write time/space efficient one-pass folds over complex data.
+
+### Unfolds
+
+```hs title="repl example"
+import Data.List
+> unfoldr (\x -> if x > 20 then Nothing else Just (even x, x + 3)) 0
+[True,False,True,False,True,False,True]
+```    
+
+!!! Tip
+
+    Use [laziness](/laziness/laziness/#infinite-data) to unfold an infinite structure and then fold it back.
+
+    ```hs title="repl example"
+    > let evens = unfoldr (\x -> Just (x + 2, x + 2)) 0 -- (1)!
+    
+    > foldr (+) 0 (take 10 evens)
+    110
+
+    > any (>10) evens -- (2)!
+    True
+    ```
+
+    1. An infinite list of even numbers.
+    2. `any` is really just a fold, and can be defined in terms of `foldr`.
 
 
 ### Scans

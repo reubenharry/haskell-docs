@@ -18,7 +18,7 @@ import Text.Megaparsec.Char.Lexer (lexeme)
 import qualified Data.Map as M -- (14)!
 import Witch (into)
 
-type Parser = Parsec Void T.Text
+type Parser = Parsec Void T.Text -- (15)!
 
 data ChessError = ReplError Text | ParseError Text | Exit deriving Show -- (1)!
 
