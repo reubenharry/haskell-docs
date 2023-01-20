@@ -26,5 +26,10 @@ Feel free also to use this guide as a reference. For example, you can search the
 Ask questions about pages you don't understand via the `Comments` section at the bottom of each page.
 
 
-!!! disclaimer
+!!! Disclaimer
     This documentation is a personal project, and not official Haskell documentation. Contributions are encouraged, by submitting a PR. See here for a [style guide](https://github.com/reubenharry/haskell-docs/blob/main/Contributing.md).
+
+??? Copyright
+
+    Copyright (C)  2023  Reuben Cohn-Gordon.
+    Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the section entitled "License.md".
