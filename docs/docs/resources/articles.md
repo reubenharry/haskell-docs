@@ -7,15 +7,16 @@ There is a variety of great articles written by Haskellers on all sorts of inter
 
 [How to think about types](https://lexi-lambda.github.io/blog/2020/08/13/types-as-axioms-or-playing-god-with-static-types/)
 
-## Guides 
+## Purity
+
+[Equational reasoning](https://www.haskellforall.com/2013/12/equational-reasoning.html)
+
+## Idiomatic Haskell 
 
 [Style guide](https://kowainik.github.io/posts/2019-02-06-style-guide)
 
 [Naming conventions](https://kowainik.github.io/posts/naming-conventions)
 
-## Purity
-
-[Equational reasoning](https://www.haskellforall.com/2013/12/equational-reasoning.html)
 
 ## Recursion and recursive types
 
@@ -52,7 +53,7 @@ A series on recursion schemes:
 
 [Intro to Template Haskell](https://www.parsonsmatt.org/2015/11/15/template_haskell.html)
 
-## Advanced types
+## Advanced uses of types
 
 [Type level programming](https://www.parsonsmatt.org/2017/04/26/basic_type_level_programming_in_haskell.html)
 
