@@ -7,6 +7,11 @@ There is a variety of great articles written by Haskellers on all sorts of inter
 
 ## For newcomers
 
+### Why Haskell?
+
+[Edward Kmett's opinion (on Quora)](https://www.quora.com/What-is-your-review-of-Haskell-programming-language/review/Edward-Kmett)
+
+
 
 ### Types
 
@@ -31,6 +36,13 @@ There is a variety of great articles written by Haskellers on all sorts of inter
 
 ## For Intermediate Haskellers
 
+### Laziness and performance
+
+An old but classic article on [laziness and modularity](https://www.cs.kent.ac.uk/people/staff/dat/miranda/whyfp90.pdf)
+
+[A guide to lazy evaluation](https://apfelmus.nfshost.com/articles/lazy-eval.html), with sections on [time](https://apfelmus.nfshost.com/articles/debit-method.html) and [space](https://apfelmus.nfshost.com/blog/2013/08/21-space-invariants.html) performance.
+
+The Haskell wiki on [laziness](https://wiki.haskell.org/Performance/Laziness)
 ### Recursion and recursive types
 
 [A tour of some useful recursive types](https://jtobin.io/tour-of-some-recursive-types)
@@ -48,16 +60,16 @@ A series on recursion schemes:
 
 [Another kind of recursion scheme (prepromorphism)](https://jtobin.io/promorphisms-pre-post)
 
-### Typeclasses
-
-[Typeclass metaprogramming](https://lexi-lambda.github.io/blog/2021/03/25/an-introduction-to-typeclass-metaprogramming/)
-
-
-### Types
+### The type system
 
 [Type level programming](https://www.parsonsmatt.org/2017/04/26/basic_type_level_programming_in_haskell.html)
 
 [Dependent types](https://blog.jle.im/entry/introduction-to-singletons-1.html)
+
+### Typeclasses
+
+[Typeclass metaprogramming](https://lexi-lambda.github.io/blog/2021/03/25/an-introduction-to-typeclass-metaprogramming/)
+
 
 ### Exceptions
 
@@ -78,10 +90,26 @@ A series on recursion schemes:
 
 [JIT compilation](https://www.stephendiehl.com/posts/monads_machine_code.html)
 
+[Implementing variable binding](https://www.schoolofhaskell.com/user/edwardk/bound)
+
+
 ### Algorithms and data structures
 
 [Efficient queues](https://well-typed.com/blog/2016/01/efficient-queues/)
 
+[Finger trees](https://apfelmus.nfshost.com/articles/monoid-fingertree.html)
+
+## Algorithms (advanced)
+
+[The codensity monad optimization](http://blog.ezyang.com/2012/01/problem-set-the-codensity-transformation/)
+
+Articles by Ed Kmett:
+
+- [Parsing](https://www.schoolofhaskell.com/user/edwardk/heap-of-successes)
+- [Lowest common ancestor](https://www.schoolofhaskell.com/user/edwardk/online-lca)
+- [Moore machines](https://www.schoolofhaskell.com/user/edwardk/moore/for-less)
+- [Automata](https://www.schoolofhaskell.com/user/edwardk/cellular-automata)
+- [Deamortization](https://www.schoolofhaskell.com/user/edwardk/oblivious/deamortized-st)
 ### Template Haskell (metaprogramming)
 
 [Intro to Template Haskell](https://www.parsonsmatt.org/2015/11/15/template_haskell.html)

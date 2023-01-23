@@ -12,8 +12,6 @@ comments: true
 
 [Learn Haskell by building a blog generator](https://lhbg-book.link) is a free book that takes a project-based approach to learning Haskell.
 
-[This tutorial](https://github.com/lsmor/snake-fury#snake-fury) challenges the user to build the game *snake* 
-
 ## Community
 
 Haskell has an active [subreddit](https://www.reddit.com/r/haskell/).
@@ -25,7 +23,6 @@ It also has a [forum](https://discourse.haskell.org/).
 [This package overview](https://github.com/Gabriella439/post-rfc/blob/main/sotu.md) is very useful for quickly understanding what Haskell packages to use for what tasks.
 
 [haskell-links.org](https://haskell-links.org) presents links from #haskell IRC/Matrix chatters, with a fast search interface.
-
 
 
 
@@ -41,10 +38,7 @@ It also has a [forum](https://discourse.haskell.org/).
 
 [foldl](https://hackage.haskell.org/package/foldl) is a beautifully documented library for writing folds (aka reduces) that are efficient and makes one pass over data. This is a good library to expand your understanding of `Functor` and `Applicative`, and to understand efficiency concerns in a functional language.
 
-[diagrams](https://archives.haskell.org/projects.haskell.org/diagrams/) is a very well documented library for constructing 2D diagrams.
-
-[Gloss](https://hackage.haskell.org/package/gloss) is a simple but easy to use library for building 2D animations and games.
-
+[diagrams](https://archives.haskell.org/projects.haskell.org/diagrams/) is a very well documented and powerful library for constructing 2D diagrams.
 ### Compiler
 
 [This is the guide to the Haskell compiler, GHC](https://ghc.gitlab.haskell.org/ghc/doc/users_guide/)
