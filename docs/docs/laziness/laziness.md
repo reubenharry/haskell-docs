@@ -66,3 +66,7 @@ func2 = 2 : func1
 ```
 
 Then, `#!hs take 10 func1` gives `[1,2,1,2,1,2,1,2,1,2]`.
+
+## A deeper dive
+
+See [here](/resources/articles/#laziness-and-performance) for more resources on lazy algorithms and the performance implications of laziness.

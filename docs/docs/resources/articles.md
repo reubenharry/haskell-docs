@@ -1,24 +1,49 @@
 There is a variety of great articles written by Haskellers on all sorts of intermediate and advanced topics. See [here](https://guide.aelve.com/haskell/popular-blogs-dila2lox) for an overview of popular blogs.
 
 
-## Types
+## Industry Haskell
+
+[Interviews with industry Haskell projects](https://serokell.io/blog/haskell-in-production)
+
+## For newcomers
+
+### Why Haskell?
+
+[Edward Kmett's opinion (on Quora)](https://www.quora.com/What-is-your-review-of-Haskell-programming-language/review/Edward-Kmett)
+
+
+
+### Types
 
 [Parse, don't validate](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/)
 
 [How to think about types](https://lexi-lambda.github.io/blog/2020/08/13/types-as-axioms-or-playing-god-with-static-types/)
 
-## Purity
+### Purity
 
 [Equational reasoning](https://www.haskellforall.com/2013/12/equational-reasoning.html)
 
-## Idiomatic Haskell 
+### Idiomatic Haskell 
 
 [Style guide](https://kowainik.github.io/posts/2019-02-06-style-guide)
 
 [Naming conventions](https://kowainik.github.io/posts/naming-conventions)
 
+### Syntax
 
-## Recursion and recursive types
+[Overview](https://www.haskellforall.com/2014/10/how-to-desugar-haskell-code.html)
+
+
+## For Intermediate Haskellers
+
+### Laziness and performance
+
+An old but classic article on [laziness and modularity](https://www.cs.kent.ac.uk/people/staff/dat/miranda/whyfp90.pdf)
+
+[A guide to lazy evaluation](https://apfelmus.nfshost.com/articles/lazy-eval.html), with sections on [time](https://apfelmus.nfshost.com/articles/debit-method.html) and [space](https://apfelmus.nfshost.com/blog/2013/08/21-space-invariants.html) performance.
+
+The Haskell wiki on [laziness](https://wiki.haskell.org/Performance/Laziness)
+### Recursion and recursive types
 
 [A tour of some useful recursive types](https://jtobin.io/tour-of-some-recursive-types)
 
@@ -35,34 +60,74 @@ A series on recursion schemes:
 
 [Another kind of recursion scheme (prepromorphism)](https://jtobin.io/promorphisms-pre-post)
 
-
-## Industry Haskell
-
-[Reflections on Haskell in production](https://www.stephendiehl.com/posts/production.html)
-
-
-## Compilation
-
-[Jit compilation](https://www.stephendiehl.com/posts/monads_machine_code.html)
-
-## Typeclasses
-
-[Typeclass metaprogramming](https://lexi-lambda.github.io/blog/2021/03/25/an-introduction-to-typeclass-metaprogramming/)
-
-## Template Haskell (metaprogramming)
-
-[Intro to Template Haskell](https://www.parsonsmatt.org/2015/11/15/template_haskell.html)
-
-## Advanced uses of types
+### The type system
 
 [Type level programming](https://www.parsonsmatt.org/2017/04/26/basic_type_level_programming_in_haskell.html)
 
 [Dependent types](https://blog.jle.im/entry/introduction-to-singletons-1.html)
 
-## Comonads
+### Typeclasses
 
-[Conway's Game of Life](https://chrispenner.ca/posts/conways-game-of-life)
+[Typeclass metaprogramming](https://lexi-lambda.github.io/blog/2021/03/25/an-introduction-to-typeclass-metaprogramming/)
 
-## Writing documentation
+
+### Exceptions
+
+[Exceptions](https://markkarpov.com/tutorial/exceptions.html)
+
+### Miscellaneous
+
+[Comonads](https://chrispenner.ca/posts/conways-game-of-life)
+
+
+## For Advanced Haskellers
+
+### Compilation
+
+[Inlining](https://mpickering.github.io/posts/2017-03-20-inlining-and-specialisation.html)
+
+[GHC](https://www.stephendiehl.com/posts/ghc_01.html)
+
+[JIT compilation](https://www.stephendiehl.com/posts/monads_machine_code.html)
+
+[Implementing variable binding](https://www.schoolofhaskell.com/user/edwardk/bound)
+
+
+### Algorithms and data structures
+
+[Efficient queues](https://well-typed.com/blog/2016/01/efficient-queues/)
+
+[Finger trees](https://apfelmus.nfshost.com/articles/monoid-fingertree.html)
+
+## Algorithms (advanced)
+
+[The codensity monad optimization](http://blog.ezyang.com/2012/01/problem-set-the-codensity-transformation/)
+
+Articles by Ed Kmett:
+
+- [Parsing](https://www.schoolofhaskell.com/user/edwardk/heap-of-successes)
+- [Lowest common ancestor](https://www.schoolofhaskell.com/user/edwardk/online-lca)
+- [Moore machines](https://www.schoolofhaskell.com/user/edwardk/moore/for-less)
+- [Automata](https://www.schoolofhaskell.com/user/edwardk/cellular-automata)
+- [Deamortization](https://www.schoolofhaskell.com/user/edwardk/oblivious/deamortized-st)
+### Template Haskell (metaprogramming)
+
+[Intro to Template Haskell](https://www.parsonsmatt.org/2015/11/15/template_haskell.html)
+
+
+
+
+
+## For Developers
+
+### Writing documentation
 
 [Using Haddock](https://kowainik.github.io/posts/haddock-tips)
+
+[Stack vs Cabal](https://www.fpcomplete.com/blog/2015/06/why-is-stack-not-cabal/)
+
+[Nix](https://blog.ocharles.org.uk/blog/posts/2014-02-04-how-i-develop-with-nixos.html)
+
+### Advice on large projects
+
+[Reflections on Haskell in production](https://www.stephendiehl.com/posts/production.html)

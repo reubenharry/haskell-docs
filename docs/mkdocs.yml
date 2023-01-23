@@ -179,9 +179,12 @@ nav:
     - Debugging: faqs/debugging.md
     - I/O: faqs/io.md
     - Output depends on input: faqs/dependentOutput.md
+    - Newtype: faqs/newtype.md
   - Resources:
     - Overview: resources/resources.md
     - Articles: resources/articles.md
+    - Books: resources/books.md
+    - Stack Overflow: resources/stackoverflow.md
   
   
 
