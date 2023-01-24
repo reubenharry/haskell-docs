@@ -153,6 +153,7 @@ nav:
     - JSON: packages/aeson.md
     - Side-Effects: packages/mtl.md
     - Parsing: packages/megaparsec.md
+    - Lenses: packages/lens.md
   - Case Study:
     - Overview: casestudy/overview.md
     - Chess Logic: casestudy/chess.md

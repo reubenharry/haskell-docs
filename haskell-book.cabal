@@ -47,7 +47,9 @@ library
         haskeline,
         witch,
         bytestring,
-        containers
+        containers,
+        lens
+        -- representable-tries
         -- lens
     hs-source-dirs:   src
     default-extensions:
