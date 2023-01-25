@@ -133,7 +133,23 @@ fromList [("John",(True,4)),("Sally",(False,1))]
 
 ## Custom data
 
-Under :construction:
+You can write lenses for custom types, or generate them automatically with [Template Haskell](/resources/articles/#template-haskell-metaprogramming) (a macro extension to Haskell):
+
+```hs
+{-# LANGUAGE TemplateHaskell #-} 
+import Control.Lens
+
+data Point a
+  = Point { _x :: a, _y :: a }
+makeLenses ''Point -- (1)!
+
+example = Point {_x = 2, _y = 3}
+
+xVal = example ^. x
+yVal = example ^. y
+```
+
+1. This is the syntax for a Template Haskell macro, here `makeLenses`, which `Control.Lens` exports.
 
 ## Useful examples
 
@@ -170,10 +186,150 @@ False
 
 1. `coerced` is a lens, which points towards the `Bool` inside a `B`.
 
-### Plated
+### JSON
 
-Under :construction:
+Lenses are particularly useful for working with JSON data, and can automate almost any querying or updating task, even very complex ones.
 
-### iFoldMap
+Let's use this JSON as an example, saved in `"data/file.json"`:
 
-Under :construction:
+```json
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "isAlive": true,
+  "age": 27,
+  "address": {
+    "streetAddress": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10021-3100"
+  },
+  "phoneNumbers": [
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+    {
+      "type": "office",
+      "number": "646 555-4567"
+    }
+  ],
+  "children": [
+      "Catherine",
+      "Thomas",
+      "Trevor"
+  ],
+  "spouse": null
+}
+```
+
+```hs title="repl example"
+-- read into a string
+> json <- readFile "data/file.json"
+> json
+"{\n    \"firstName\": \"John\",\n    \"lastName\": \"Smith\",\n    \"isAlive\": true,\n    \"age\": 27,\n    \"address\": {\n      \"streetAddress\": \"21 2nd Street\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"postalCode\": \"10021-3100\"\n    },\n    \"phoneNumbers\": [\n      {\n        \"type\": \"home\",\n        \"number\": \"212 555-1234\"\n      },\n      {\n        \"type\": \"office\",\n        \"number\": \"646 555-4567\"\n      }\n    ],\n    \"children\": [\n        \"Catherine\",\n        \"Thomas\",\n        \"Trevor\"\n    ],\n    \"spouse\": null\n  }"
+
+-- imports
+> import Data.Aeson
+> import Data.Aeson.Lens
+> import Text.Pretty.Simple
+> import Control.Lens
+
+-- view the underlying JSON data structure as a Haskell value "inside" the string:
+> pPrint $ json ^.. _Value -- (3)!
+[ Object
+    ( fromList
+        [
+            ( "address"
+            , Object
+                ( fromList
+                    [
+                        ( "city"
+                        , String "New York"
+                        )
+                    ,
+                        ( "postalCode"
+                        , String "10021-3100"
+                        )
+                    ,
+                        ( "state"
+                        , String "NY"
+                        )
+                    ,
+                        ( "streetAddress"
+                        , String "21 2nd Street"
+                        )
+                    ]
+                )
+            )
+...
+
+> query (_Value . key "address" . key "city") -- (2)!
+[ String "New York" ]
+
+> query (_Value . key "children" . nth 2)
+[ String "Trevor" ]
+
+> query (_Value . key "children" . nth 1)
+[ String "Thomas" ]
+
+> query (_Value . key "spouse" . nth 1) -- (4)!
+[]
+
+> query (_Value . key "children" . values)
+[ String "Catherine"
+, String "Thomas"
+, String "Trevor"
+]
+
+```
+
+
+1. This is a Haskell data structure (of type `Value` from `Data.Aeson`) which represents the JSON. 
+2. As usual, we can compose lenses
+3. `pPrint` is a pretty printing function. The *lens* (or more precisely, the *traversal*) is `_Value`.
+4. Since there is no list inside the entry for "spouse", this returns no results.
+
+The most powerful use cases involve recursively searching the JSON, using a lens which (lazily) points to every JSON subpart in the JSON as a whole:
+
+
+```hs title="repl example"
+
+-- for all Strings in the JSON, show them
+> pPrint $ json ^.. _Value . cosmos . _String
+[ "New York"
+, "10021-3100"
+, "NY"
+, "21 2nd Street"
+, "Catherine"
+, "Thomas"
+, "Trevor"
+, "John"
+, "Smith"
+, "212 555-1234"
+, "home"
+, "646 555-4567"
+, "office"
+]
+
+-- for all Strings in the JSON underneath the key "address", show them:
+> pPrint $ json ^.. _Value . key "address" . cosmos . _String
+[ "New York"
+, "10021-3100"
+, "NY"
+, "21 2nd Street"
+]
+
+-- for all arrays in the JSON that contain at least 3 elements, show the third:
+> pPrint $ json ^.. _Value . cosmos . _Array . ix 2
+[ String "Trevor" ]
+
+```
+
+One can similarly update the raw JSON string in a structured way with lenses:
+
+```hs title="repl example"
+-- modify the string corresponding to the address's city to be uppercase
+> json & _JSON' @String @Value . key "address" . key "city" . _String %~ T.map toUpper
+"{\"address\":{\"city\":\"NEW YORK\",\"postalCode\":\"10021-3100\",\"state\":\"NY\",\"streetAddress\":\"21 2nd Street\"},\"age\":27,\"children\":[\"Catherine\",\"Thomas\",\"Trevor\"],\"firstName\":\"John\",\"isAlive\":true,\"lastName\":\"Smith\",\"phoneNumbers\":[{\"number\":\"212 555-1234\",\"type\":\"home\"},{\"number\":\"646 555-4567\",\"type\":\"office\"}],\"spouse\":null}"
+```

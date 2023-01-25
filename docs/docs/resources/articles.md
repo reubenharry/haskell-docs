@@ -110,9 +110,12 @@ Articles by Ed Kmett:
 - [Moore machines](https://www.schoolofhaskell.com/user/edwardk/moore/for-less)
 - [Automata](https://www.schoolofhaskell.com/user/edwardk/cellular-automata)
 - [Deamortization](https://www.schoolofhaskell.com/user/edwardk/oblivious/deamortized-st)
+
 ### Template Haskell (metaprogramming)
 
 [Intro to Template Haskell](https://www.parsonsmatt.org/2015/11/15/template_haskell.html)
+
+[Tutorial on Template Haskell](https://markkarpov.com/tutorial/th.html)
 
 
 

@@ -48,7 +48,9 @@ library
         witch,
         bytestring,
         containers,
-        lens
+        lens,
+        lens-aeson,
+        pretty-simple
         -- representable-tries
         -- lens
     hs-source-dirs:   src
