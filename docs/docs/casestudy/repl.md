@@ -1,6 +1,6 @@
 
-```hs title="REPL.hs" linenums="1"
---8<-- "../src/REPL.hs"
+```hs title="Repl.hs" linenums="1"
+--8<-- "../src/Repl.hs"
 ```
 
 1. Allows writing e.g. `functionOf do ...` instead of `functionOf $ do`.
