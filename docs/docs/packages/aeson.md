@@ -94,3 +94,6 @@ Right (Person {name = "Joe", age = 12})
 2. A library used for automatic derivations, among other things.
 3. The JSON bytestring.
 
+## With lenses
+
+Lenses are an extremely useful tool for working with JSON in Haskell. See [here](/packages/lens/#json)
