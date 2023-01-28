@@ -13,7 +13,10 @@ Salient properties include:
 - [lazy](/laziness/laziness)
 
 
-[**Get started**](gettingstarted/overview.md){ .md-button .md-button--primary }
+[**Try it online**](https://code.world/haskell#PcIhU_JQliX5KxN8Rh7xIaA){ .md-button .md-button--primary }
+
+[**Get set up**](gettingstarted/overview.md){ .md-button .md-button--primary }
+
 
 ## How to use this guide
 
