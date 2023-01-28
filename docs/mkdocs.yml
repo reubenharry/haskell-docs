@@ -169,6 +169,7 @@ nav:
     - Updating a variable: gotchas/mutation.md
     - Varying output type: gotchas/functiontype.md
     - Length of tuple: gotchas/tupleLength.md
+    - Confusing type and value: gotchas/typevsvalue.md
   - FAQs:
     - Multiple Arguments: faqs/multipleArguments.md
     - Optional Arguments: faqs/optionalArguments.md
