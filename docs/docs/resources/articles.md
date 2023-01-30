@@ -60,11 +60,36 @@ A series on recursion schemes:
 
 [Another kind of recursion scheme (prepromorphism)](https://jtobin.io/promorphisms-pre-post)
 
+### Testing, profiling and benchmarking
+
+
+[Property based tests](https://begriffs.com/posts/2017-01-14-design-use-quickcheck.html)
+
+[Unit tests](https://mmhaskell.com/testing/test-driven-development)
+
+[Benchmarking](https://mmhaskell.com/testing/profiling)
+
+### Algorithms and data structures
+
+[Common data structures](https://mmhaskell.com/data-structures)
+
+[Efficient queues](https://well-typed.com/blog/2016/01/efficient-queues/)
+
+[Finger trees](https://apfelmus.nfshost.com/articles/monoid-fingertree.html)
+
+### Web
+
+[Databases and servers](https://mmhaskell.com/real-world)
+
+[A web framework](https://www.yesodweb.com/)
+
+
 ### The type system
 
 [Type level programming](https://www.parsonsmatt.org/2017/04/26/basic_type_level_programming_in_haskell.html)
 
 [Dependent types](https://blog.jle.im/entry/introduction-to-singletons-1.html)
+
 
 ### Typeclasses
 
@@ -80,7 +105,7 @@ A series on recursion schemes:
 [Comonads](https://chrispenner.ca/posts/conways-game-of-life)
 
 
-## For Advanced Haskellers
+## Advanced level resources
 
 ### Compilation
 
@@ -93,17 +118,12 @@ A series on recursion schemes:
 [Implementing variable binding](https://www.schoolofhaskell.com/user/edwardk/bound)
 
 
+
 ### Algorithms and data structures
-
-[Efficient queues](https://well-typed.com/blog/2016/01/efficient-queues/)
-
-[Finger trees](https://apfelmus.nfshost.com/articles/monoid-fingertree.html)
-
-## Algorithms (advanced)
 
 [The codensity monad optimization](http://blog.ezyang.com/2012/01/problem-set-the-codensity-transformation/)
 
-Articles by Ed Kmett:
+Articles by Ed Kmett[^1]:
 
 - [Parsing](https://www.schoolofhaskell.com/user/edwardk/heap-of-successes)
 - [Lowest common ancestor](https://www.schoolofhaskell.com/user/edwardk/online-lca)
@@ -111,6 +131,7 @@ Articles by Ed Kmett:
 - [Automata](https://www.schoolofhaskell.com/user/edwardk/cellular-automata)
 - [Deamortization](https://www.schoolofhaskell.com/user/edwardk/oblivious/deamortized-st)
 
+[^1]: Ed Kmett is a hugely prolific Haskell library contributor. His libraries tend to be aimed to more advanced users, and to lean into Haskell's capabilities to write very general abstract code.
 ### Template Haskell (metaprogramming)
 
 [Intro to Template Haskell](https://www.parsonsmatt.org/2015/11/15/template_haskell.html)

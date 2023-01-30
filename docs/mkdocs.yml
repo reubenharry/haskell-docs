@@ -150,6 +150,7 @@ nav:
   - Libraries:
     - Overview: packages/overview.md
     - Dictionaries and sets: packages/containers.md
+    - Property-based testing: packages/quickcheck.md 
     - JSON: packages/aeson.md
     - Side-Effects: packages/mtl.md
     - Parsing: packages/megaparsec.md
