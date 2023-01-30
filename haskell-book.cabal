@@ -48,11 +48,8 @@ library
         witch,
         bytestring,
         containers,
-        lens,
-        lens-aeson,
-        pretty-simple
-        -- representable-tries
-        -- lens
+        pretty-simple,
+        QuickCheck
     hs-source-dirs:   src
     default-extensions:
         OverloadedStrings
