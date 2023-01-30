@@ -1,6 +1,6 @@
 
-```hs title="REPL.hs" linenums="1"
---8<-- "../src/REPL.hs"
+```hs title="Repl.hs" linenums="1"
+--8<-- "../src/Repl.hs"
 ```
 
 1. Allows writing e.g. `functionOf do ...` instead of `functionOf $ do`.
@@ -29,24 +29,24 @@ This module is responsible for producing the actual runnable program (of type `I
     ```hs
     main :: IO ()
     main =
-    void $ -- (2)!
-        runReplWithBoard $
-        displayLine "Welcome!\n\n" >> forever do -- (3)!
+        void $ 
+            runReplWithBoard $
+            displayLine "Welcome!\n\n" >> forever do
 
-            line <- requestLine "> " -- (4)!
-            let instruction = parse line -- (5)!
-            board <- get -- (6)!
-            result <-
-            case instruction of
-                Left (ParseError err) -> pure err -- (8)!
-                Left (ReplError err) -> pure err
-                Right instr -> evaluate instr
-                `catchError` ( \case -- (9)!
-                                ReplError txt -> pure txt
-                                err -> throwError err -- (11)!
-                            )
+                line <- requestLine "> "
+                let instruction = parse line
+                board <- get
+                result <-
+                case instruction of
+                    Left (ParseError err) -> pure err
+                    Left (ReplError err) -> pure err
+                    Right instr -> evaluate instr
+                    `catchError` ( \case
+                                    ReplError txt -> pure txt
+                                    err -> throwError err 
+                                )
 
-            displayLine result -- (10)!
+                displayLine result 
     ```
 
 === "without `forever`"
@@ -57,22 +57,22 @@ This module is responsible for producing the actual runnable program (of type `I
         runReplWithBoard $
         displayLine "Welcome!\n\n" >> loop where 
             
-            loop = do -- (3)!
+            loop = do
 
-            line <- requestLine "> " -- (4)!
-            let instruction = parse line -- (5)!
-            board <- get -- (6)!
+            line <- requestLine "> "
+            let instruction = parse line
+            board <- get
             result <-
                 case instruction of
-                Left (ParseError err) -> pure err -- (8)!
+                Left (ParseError err) -> pure err
                 Left (ReplError err) -> pure err
                 Right instr -> evaluate instr
-                    `catchError` ( \case -- (9)!
+                    `catchError` ( \case
                                     ReplError txt -> pure txt
-                                    err -> throwError err -- (11)!
+                                    err -> throwError err 
                                 )
 
-            displayLine result -- (10)!
+            displayLine result 
             loop
     ```
 
@@ -82,21 +82,21 @@ This module is responsible for producing the actual runnable program (of type `I
     main :: IO ()
     main = do
         runReplWithBoard $
-            displayLine "Welcome!\n\n" >> forever do -- (3)!
+            displayLine "Welcome!\n\n" >> forever do
 
-                line <- requestLine "> " -- (4)!
-                let instruction = parse line -- (5)!
-                board <- get -- (6)!
+                line <- requestLine "> "
+                let instruction = parse line
+                board <- get
                 result <-
                 case instruction of
-                    Left (ParseError err) -> pure err -- (8)!
+                    Left (ParseError err) -> pure err
                     Left (ReplError err) -> pure err
                     Right instr -> evaluate instr
-                    `catchError` ( \case -- (9)!
+                    `catchError` ( \case
                                     ReplError txt -> pure txt
-                                    err -> throwError err -- (11)!
+                                    err -> throwError err 
                                 )
 
-                displayLine result -- (10)!
+                displayLine result 
         pure ()
     ```
