@@ -9,7 +9,7 @@ Salient properties include:
 
 - [functional](/thinkingfunctionally/hof)
 - [pure](/thinkingfunctionally/purity) and [immutable](/thinkingfunctionally/immutability)
-- [custom static types](/basics/createdata) with [inference](/thinkingfunctionally/typeinference)
+- [custom static types](/basics/createdata) and [automatically inferred](/thinkingfunctionally/typeinference) type annotations
 - [lazy](/laziness/laziness)
 
 

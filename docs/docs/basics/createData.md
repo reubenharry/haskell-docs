@@ -312,6 +312,8 @@ getInt :: WrappedInt -> Int -- the other direction
 1. `#!hs (getInt . MkW)` is the identity function.
 2. `#!hs (MkW . getInt)` is also the identity function.
 
+Types which are isomorphic can be regarded as "the same" for practical purposes, since you can always convert between them, although they may have different performance characteristics. They may also have [different typeclass instances](/typeclasses/overview/#different-instances-for-the-same-type).
+
 ### Reference table of isomorphic types
 
 
