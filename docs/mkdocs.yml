@@ -49,6 +49,9 @@ theme:
   icon:
     logo: simple/haskell
 
+edit_uri: 'edit/main/docs/docs/'
+
+
 extra:
   analytics:
     provider: google
