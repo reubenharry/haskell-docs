@@ -87,9 +87,15 @@ Parser combinator libraries provide not just simple parsers like the above, but 
 
 Here are examples from `megaparsec`:
 
-```hs
-import Text.Megaparsec
+```haskell
 
+{-# LANGUAGE OverloadedStrings #-}
+module Main where 
+import Text.Megaparsec
+import Data.Text 
+import Data.Void (Void)
+ 
+main = pure ()
 type Parser = Parsec Void Text
 
 -- helper function to run parser

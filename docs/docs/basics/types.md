@@ -8,7 +8,7 @@ comments: true
 
 === "In a repl"
 
-    ```haskell
+    ```hs
     True :: Bool -- (1)!
     ```
 
