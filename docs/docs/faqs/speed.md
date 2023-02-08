@@ -1,0 +1,2 @@
+Is Haskell fast?
+

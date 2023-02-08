@@ -42,3 +42,5 @@ It also has a [forum](https://discourse.haskell.org/).
 ### Compiler
 
 [This is the guide to the Haskell compiler, GHC](https://ghc.gitlab.haskell.org/ghc/doc/users_guide/)
+
+A guide on [how to implement an interpreter](http://www.andres-loeh.de/LambdaPi/) (with sophisticated types)
