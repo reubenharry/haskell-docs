@@ -4,6 +4,11 @@ This is the github repository for [an introductory guide to learning Haskell](ht
 
 If you're interested in making contribution to the guide, see [here](/Contributing.md) for more information.
 
+```haskell
+main :: IO ()
+main = putStrLn "That was easy!"
+```
+
 ## Goals
 
 The goal for this project is that it serves as a go-to resource for newcomers who have programming experience in a language like Python. It should contain all the information needed to write basic Haskell (roughly the content of "Learn You a Haskell"), but in the style of a reference guide.

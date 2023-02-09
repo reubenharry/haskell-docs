@@ -68,8 +68,8 @@ However, these types (sometimes referred to as *monad transformer stacks*) tend 
 
 === "with `if`"
 
-    ```hs
-    example :: (MonadError Text m, MonadState Bool m) => m Bool
+    ```haskell
+   example :: (MonadError Text m, MonadState Bool m) => m Bool
     example = do
         flag <- get
         if flag
@@ -82,8 +82,8 @@ However, these types (sometimes referred to as *monad transformer stacks*) tend 
 
 === "with `when`"
 
-    ```hs
-    example :: (MonadError Text m, MonadState Bool m) => m Bool
+    ```haskell
+   example :: (MonadError Text m, MonadState Bool m) => m Bool
     example = do
         flag <- get
         when flag $ 
@@ -98,8 +98,8 @@ Depending on how `example` is called, either of these can end up being the concr
 
 === "Error over state"
 
-    ```hs
-    errorOverState :: Bool -> IO ()
+    ```haskell
+   errorOverState :: Bool -> IO ()
     errorOverState flagVal = 
         let (result, state) = flip runState flagVal $ runExceptT example
         in do

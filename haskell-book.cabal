@@ -71,3 +71,14 @@ executable chess-repl
 
     hs-source-dirs:   app
     default-language: Haskell2010
+
+executable doctests
+
+  main-is: docs/docs/packages/megaparsec.lhs
+  build-depends:  
+    base, 
+    megaparsec,
+    text,
+    markdown-unlit
+  ghc-options:    -pgmL markdown-unlit
+  build-tool-depends: markdown-unlit:markdown-unlit

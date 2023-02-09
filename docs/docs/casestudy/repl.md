@@ -26,8 +26,8 @@ This module is responsible for producing the actual runnable program (of type `I
 
 === "original"
 
-    ```hs
-    main :: IO ()
+    ```haskell
+   main :: IO ()
     main =
         void $ 
             runReplWithBoard $
@@ -51,8 +51,8 @@ This module is responsible for producing the actual runnable program (of type `I
 
 === "without `forever`"
 
-    ```hs
-    main :: IO ()
+    ```haskell
+   main :: IO ()
     main =
         runReplWithBoard $
         displayLine "Welcome!\n\n" >> loop where 
@@ -78,8 +78,8 @@ This module is responsible for producing the actual runnable program (of type `I
 
 === "without `void`"
 
-    ```hs
-    main :: IO ()
+    ```haskell
+   main :: IO ()
     main = do
         runReplWithBoard $
             displayLine "Welcome!\n\n" >> forever do

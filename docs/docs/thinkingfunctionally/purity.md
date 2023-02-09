@@ -64,8 +64,8 @@ exampleProgram = someFunction "a4"
 !!! Tip
     Use this fact to understand complex programs, by substituting complex expressions for their values:
 
-    ```hs
-    data Piece = Bishop | Rook | King
+    ```haskell
+   data Piece = Bishop | Rook | King
     take 2 [Bishop, Rook, Bishop]
     ```
 
@@ -79,16 +79,16 @@ exampleProgram = someFunction "a4"
 
     Following this definition, we replace `take 2 [1,2,3]` (or more explicitly, `#1hs take 2 (1 : [2,3])`) with the pattern that it matches:
 
-    ```hs
-    take 2 (Bishop : [Rook, Bishop]) 
+    ```haskell
+   take 2 (Bishop : [Rook, Bishop]) 
         = Bishop : take (2-1) [Rook, Bishop] 
         = Bishop : take 1 (Rook : [Bishop])
     ```
 
     We can continue in this vein, repeatedly consulting the definition of `take`:
 
-    ```hs
-    = Bishop : take 1 (Rook : [Bishop])
+    ```haskell
+   = Bishop : take 1 (Rook : [Bishop])
         = Bishop : (Rook : take (1 - 1) [Bishop])
         = Bishop : (Rook : take 0 [Bishop]) 
         = Bishop : (Rook : [])
