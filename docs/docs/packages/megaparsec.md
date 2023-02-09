@@ -91,7 +91,7 @@ Here are examples from `megaparsec`:
 
 {-# LANGUAGE OverloadedStrings #-}
 module Main where 
-import Text.Megaparsec
+import Tex.Megaparsec
 import Data.Text 
 import Data.Void (Void)
  
