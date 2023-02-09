@@ -1,1 +1,1 @@
-[{"version": "9.3", "title": "9.3", "aliases": []}, {"version": "9.2.5", "title": "9.2.5", "aliases": []}, {"version": "9.2", "title": "9.2", "aliases": ["def"]}, {"version": "0.1", "title": "0.1", "aliases": ["latest"]}]
+[{"version": "9.3", "title": "9.3", "aliases": []}, {"version": "9.2.5", "title": "GHC", "aliases": ["stable"]}, {"version": "9.2", "title": "9.2", "aliases": ["def"]}, {"version": "0.1", "title": "0.1", "aliases": ["latest"]}]
