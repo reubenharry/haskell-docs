@@ -3,9 +3,6 @@ comments: true
 ---
 
 
-
-
-
 *Parser combinators* are a technique for parsing. 
 
 `megaparsec` (and a more restrictive but faster library, `attoparsec`) are industrial strength parser combinator libraries in Haskell.
@@ -89,13 +86,15 @@ Here are examples from `megaparsec`:
 
 ```haskell
 
+
 {-# LANGUAGE OverloadedStrings #-}
-module Main where 
-import Tex.Megaparsec
-import Data.Text 
+
+import Text.Megaparsec
+import Data.Text ( Text, unpack ) 
 import Data.Void (Void)
- 
-main = pure ()
+import Text.Megaparsec.Char (space)
+
+
 type Parser = Parsec Void Text
 
 -- helper function to run parser
@@ -124,6 +123,9 @@ abbaParser = do
 -- parse either 'ba' or 'ab'
 baOrabParser :: Parser Text
 baOrabParser = baParser <|> abParser -- (6)!
+
+main :: IO ()
+main = parseAndPrint baOrabParser "ab"
 ```
 
 This runs as follows:
@@ -163,7 +165,8 @@ expecting "ab"
 
 One of the [main appeals](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/) of Haskell's parser combinators is that the output of your parser can be a custom type:
 
-```hs
+```haskell
+
 data PieceType = Bishop | Rook deriving Show
 data Color = White | Black deriving Show
 data Piece = Piece PieceType Color deriving Show
