@@ -6,7 +6,6 @@ import Data.Text qualified as T
 import Witch (into)
 
 
--- (14)!
 data PieceType = Bishop | Rook | Knight | Pawn | King | Queen -- (1)!
   deriving (Eq, Show) -- (4)!
 
