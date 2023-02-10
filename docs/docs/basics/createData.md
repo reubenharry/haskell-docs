@@ -8,7 +8,7 @@ You can make your own types like this:
 
 === "Traditional"
 
-    ```haskell
+    ```hs
     data Square = Sq Int Int -- (1)!
     ```
     
@@ -16,7 +16,7 @@ You can make your own types like this:
 
 === "Modern (GADT)"
 
-    ```haskell
+    ```hs
    data Square where -- (1)!
         Sq :: Int -> Int -> Square
     ```
@@ -47,7 +47,7 @@ Sq 3 :: Int -> Square -- (2)!
 ??? Tip
     The type `Square` contains the same information as the product type `(Int, Int)`. These types are different, in the sense that code which expects one will not work with the other, but it is easy to write [loss-less](/basics/createdata/#isomorphic-types) functions between them:
 
-    ```haskell
+    ```hs
     fromSq :: Square -> (Int, Int)
     fromSq (Sq i j) = (i, j)
 
@@ -76,7 +76,7 @@ You can also name entries:
     ```
 === "Modern (GADT)"
 
-    ```haskell
+    ```hs
    data Entity where
       Sq :: {row :: Int, col :: Int} -> Entity
     ```
@@ -101,7 +101,7 @@ col :: Entity -> Int
 
 === "Traditional"
 
-    ```haskell
+    ```hs
     data Entity = Sq Int Int | Player Bool -- (1)!
     ```
     
@@ -111,7 +111,7 @@ col :: Entity -> Int
 
 === "Modern (GADT)"
 
-    ```haskell
+    ```hs
     data Entity where
         Sq :: Int -> Int -> Entity -- (1)!
         Player :: Bool -> Entity
@@ -136,7 +136,7 @@ Player :: Bool -> Entity
 ??? Tip
     The type `Entity` contains the same information as the type `#!haskell Either (Int, Int) Bool`, and one can write [loss-less](/basics/createdata/#isomorphic-types) functions between them:
 
-    ```haskell
+    ```hs
     fromEntity :: Entity -> Either (Int, Int) Bool
     fromEntity (Sq i j) = Left (i, j)
     fromEntity (Player bool) = Right bool
@@ -153,7 +153,7 @@ Player :: Bool -> Entity
 
     You can combine products and sums, using your own types:
 
-    ```haskell
+    ```hs
     data ChessPiece = Piece PieceType Color | SquareType Square -- (1)!
     data Color = Black | White
     data PieceType = Bishop | Rook
@@ -170,7 +170,7 @@ Player :: Bool -> Entity
 
 One can also create types which take another type as a parameter:
 
-```haskell
+```hs
 data Piece c = Bishop c | Knight c | King c
 ```
 
@@ -251,13 +251,13 @@ machine = machine1 where
 !!! Note
     The list type can be defined recursively in this way:
 
-    ```haskell
+    ```hs
    data List a = EmptyList | HeadThenList a (List a)
     ```
 
     In fact, the `[a]` type in Haskell is defined in this way, with the `[1,2,3]` being extra syntax for convenience:
 
-    ```haskell
+    ```hs
    data [] a = [] | a : [a] -- (1)!
     ```
 
@@ -275,7 +275,7 @@ type Number = Double
     
     Here, `Number` and `Double` are not distinguished as separate types by the compiler, so replacing one by the other in a type signature will always be fine. This would not be true for:
 
-    ```haskell
+    ```hs
    data Number = N Double
     ```
 

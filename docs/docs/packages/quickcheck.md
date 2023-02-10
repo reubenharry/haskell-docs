@@ -50,8 +50,8 @@ import Test.QuickCheck -- (1)!
 
 Properties involving custom types require that you provide an instance of the `Arbitrary` typeclass for your type, like so:
 
-```hs
-import Test.QuickCheck (Arbitrary (arbitrary), elements)
+```haskell
+import Test.QuickCheck (Arbitrary (arbitrary), elements, quickCheck)
 import Data.List (sort)
 
 
@@ -62,6 +62,9 @@ instance Arbitrary Piece where
 
 exampleProperty :: [Piece] -> Bool -- (2)!
 exampleProperty ls = sort ls == [Bishop, Rook]
+
+main :: IO ()
+main = quickCheck exampleProperty
 ```
 
 1. `arbitrary` is the function which generates a `Piece`. This implementation says: draw it as random from the list `[Rook, Bishop]`.
