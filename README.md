@@ -1,21 +1,25 @@
-# Introduction to Haskell
+# [The Haskell Guide](https://haskell-docs.netlify.app/)
 
 This is the github repository for [an introductory guide to learning Haskell](https://haskell-docs.netlify.app/).
 
 If you're interested in making contribution to the guide, see [here](/Contributing.md) for more information.
 
+```haskell
+main :: IO ()
+main = putStrLn "That was easy!"
+```
+
 ## Goals
 
-The goal for this project is that it serves as a go-to resource for newcomers who have programming experience in a language like Python. It should contain all the information needed to write basic Haskell (roughly the content of "Learn You a Haskell"), but in the style of a reference guide.
+The goal for this project is that it serves as a go-to pathway into Haskell for newcomers who have programming experience in a language like Python. In other words, it should assume no knowledge of Haskell, and make it as effortless as possible to understand Haskell's core ideas.
 
 With that in mind, it should be:
 
 - **free and online**
-- **maintainable**: mostly just markdown, easy for anyone to update via a PR
-- **commentable**: easy for a reader to provide feedback where they don't understand
+- **maintainable**: just markdown, easy for anyone to update via a PR
 - **ergonomic**: pleasing to look at and use, good search, easy navigation
 - **friendly**: clear usage examples of code, FAQs and gotchas, pointers to other resources, unambiguous set up instructions for Haskell, contains an example project with best practices
-- **concise but not too concise**: avoids long prose where possible 
+- **concise**: avoids prose where possible 
 
 `Mkdocs Material` is a great platform for these goals. It's very easy to maintain (click Edit icon on any page to submit PR), is designed to look nice and display information well (info boxes, code comments, tabs and search for navigation), and it can be connected to Google Analytics to allow users to write feedback where they get stuck.
 
@@ -39,6 +43,6 @@ There are many great resources, but:
 - many are not online
 - most are long-form books or lecture notes, not a concise "cheatsheet"
 
-Of these, the first is the most important: making an *OK* intro guide to Haskell that is very easy for many people to continuously improve, edit and maintain, and which is easy to collect user feedback about, seems preferable to making a really good intro guide which will never be edited, improved or maintained.
+Of these, the first is the most important: making an *OK* intro guide to Haskell that is very easy for many people to continuously improve, edit, maintain and collect user feedback about, seems preferable to making a really good intro guide which will never be edited, improved or maintained.
 
 

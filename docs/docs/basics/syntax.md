@@ -32,7 +32,7 @@ Functions whose names are symbols, like `+`, `$` and `.`, are written infix by d
 
 For functions like `+` or `/` that are written by default *infix*, Haskell has some syntactic sugar to convert functions from infix to  *prefix* (before their arguments):
 
-```haskell title="repl example"
+```hs title="repl example"
 
 -- treating an infix function as a prefix function
 > 5 / 2
@@ -224,15 +224,15 @@ Here, the order of operations is top-down (read line, write file, print), and th
     Do-notation gets converted in the following way:
 
     === "with do"
-        ```hs
-        do 
+        ```haskell
+       do 
             x <- m
             f x
         ```
     === "without do"
 
-        ```hs
-        m >>= (\x -> f x)
+        ```haskell
+       m >>= (\x -> f x)
         ```
 
     Or for the above example:
@@ -240,8 +240,8 @@ Here, the order of operations is top-down (read line, write file, print), and th
 
     === "with do"
 
-        ```hs
-        example :: IO ()
+        ```haskell
+       example :: IO ()
         example = do
             userInput <- getLine
             let reversed = reverse userInput
@@ -252,8 +252,8 @@ Here, the order of operations is top-down (read line, write file, print), and th
 
     === "without do"
 
-        ```hs
-        example :: IO ()
+        ```haskell
+       example :: IO ()
         example = getLine >>= (\userInput -> 
             let reversed = reverse userInput
             in (writeFile "file/path" reversed >>= 

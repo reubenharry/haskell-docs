@@ -70,4 +70,26 @@ executable chess-repl
         chess-repl
 
     hs-source-dirs:   app
-    default-language: Haskell2010
+    default-language: GHC2021
+
+executable doctests
+
+  main-is: docs/docs/packages/megaparsec.lhs
+  main-is: docs/docs/packages/lens.lhs
+  main-is: docs/docs/packages/quickcheck.lhs
+  main-is: docs/docs/packages/mtl.lhs
+  main-is: docs/docs/packages/recursion-schemes.lhs
+  build-depends:  
+    base, 
+    megaparsec,
+    data-fix,
+    text,
+    lens,
+    mtl,
+    recursion-schemes,
+    containers,
+    QuickCheck,
+    markdown-unlit
+  ghc-options:    -pgmL markdown-unlit
+  build-tool-depends: markdown-unlit:markdown-unlit
+  default-language: GHC2021

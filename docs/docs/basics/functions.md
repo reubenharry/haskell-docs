@@ -216,8 +216,8 @@ Pattern matching also applies to [lists](/basics/types/#the-list-type), since th
 
     A classic example of returning an error when getting the first element of an empty list:
 
-    ```hs
-    getFirstElement :: [b] -> Either String b
+    ```haskell
+   getFirstElement :: [b] -> Either String b
     getFirstElement ( x : _ ) = Right x
     getFirstElement [] = Left "the list is empty"
     ```

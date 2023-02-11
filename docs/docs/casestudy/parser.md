@@ -32,8 +32,8 @@ Note the use of `word`, a function which takes a parser and returns a new parser
 
 === "original"
 
-    ```hs
-    parsePiece :: Ord a => Parsec a Text Piece
+    ```haskell
+   parsePiece :: Ord a => Parsec a Text Piece
     parsePiece = do
     color <- word $ (const White <$> "white") <|> (const Black <$> "black")
     pieceType <-
@@ -51,8 +51,8 @@ Note the use of `word`, a function which takes a parser and returns a new parser
 
 === "abstracted"
 
-    ```hs
-    parsePiece :: Ord a => Parsec a Text Piece
+    ```haskell
+   parsePiece :: Ord a => Parsec a Text Piece
     parsePiece = do
     color <- word $ (const White <$> "white") <|> (const Black <$> "black")
     pieceType <-
@@ -64,8 +64,8 @@ Note the use of `word`, a function which takes a parser and returns a new parser
 
 === "Using `<$`"
 
-    ```hs
-    parsePiece :: Ord a => Parsec a Text Piece
+    ```haskell
+   parsePiece :: Ord a => Parsec a Text Piece
     parsePiece = do
     color <- word $ ( White <$ "white") <|> ( Black <$ "black")
     pieceType <-
@@ -79,8 +79,8 @@ Note the use of `word`, a function which takes a parser and returns a new parser
 
 === "original"
 
-    ```hs
-    parseRank :: Rank -> Parser Rank
+    ```haskell
+   parseRank :: Rank -> Parser Rank
     parseRank x =
     const x
         <$> char
@@ -98,8 +98,8 @@ Note the use of `word`, a function which takes a parser and returns a new parser
 
 === "with a `Map`"
 
-    ```hs
-    import qualified Data.Map as M
+    ```haskell
+   import qualified Data.Map as M
 
     parseRank :: Rank -> Parser Rank
     parseRank x =  const x <$>
