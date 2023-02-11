@@ -8,15 +8,17 @@ comments: true
 
 [Learn You a Haskell](http://learnyouahaskell.com/) is a friendly introductory book, with an [interactive notebook version](https://github.com/IHaskell/learn-you-a-haskell-notebook).
 
+[This Youtube series](https://github.com/haskell-beginners-2022/course-plan) is a popular video tutorial for Haskell.
+
 ### Project-based learning
 
 [Learn Haskell by building a blog generator](https://lhbg-book.link) is a free book that takes a project-based approach to learning Haskell.
 
 ## Community
 
-Haskell has an active [subreddit](https://www.reddit.com/r/haskell/).
+Haskell has an active [subreddit](https://www.reddit.com/r/haskell/) with a [dedicated section](https://www.reddit.com/r/haskell/collection/f998970b-a622-480a-aed4-f8d9ad64ee7b) for questions.
 
-It also has a [forum](https://discourse.haskell.org/).
+It also has its own [forum](https://discourse.haskell.org/).
 
 ## Understanding the ecosystem
 
@@ -29,6 +31,8 @@ It also has a [forum](https://discourse.haskell.org/).
 ## More advanced resources
 
 [This reference guide/tutorial](https://smunix.github.io/dev.stephendiehl.com/hask/tutorial.pdf) carefully and clearly details important advanced concepts and features in Haskell.
+
+[This performance guide](https://input-output-hk.github.io/hs-opt-handbook.github.io/) explains how to engineer programs in Haskell to be as fast as possible.
 
 [The Haskell report](https://www.haskell.org/onlinereport/haskell2010/) is an exhaustive and carefully written reference manual of all of Haskell.
 

@@ -6,6 +6,9 @@ This section is a walkthrough of a [project](https://github.com/reubenharry/hask
 
 The subsections are ordered by difficulty.
 
+The code is written for the compiler version [GHC 9.2.5](/#haskell-version). Getting set up is [easy](/gettingstarted/overview/)!
+
+
 !!! Tip
     We strongly encourage reading Haskell code in a text editor with the [IDE](/gettingstarted/overview/#step-3-set-up-the-haskell-language-server) activated: mousing over variables will show their type and where they are defined, which is especially helpful when learning. ++command++ + `click` to jump to a definition.
 
