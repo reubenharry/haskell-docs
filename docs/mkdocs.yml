@@ -156,7 +156,8 @@ nav:
   - Laziness:
     - Laziness: laziness/laziness.md
   - Libraries:
-    - Overview: packages/overview.md
+    - How to use libraries: packages/overview.md
+    - Overview of the ecosystem: packages/survey.md
     - Dictionaries and sets: packages/containers.md
     - Property-based testing: packages/quickcheck.md 
     - JSON: packages/aeson.md

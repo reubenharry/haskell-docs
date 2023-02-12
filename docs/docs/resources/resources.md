@@ -22,7 +22,7 @@ It also has its own [forum](https://discourse.haskell.org/).
 
 ## Understanding the ecosystem
 
-[This package overview](https://github.com/Gabriella439/post-rfc/blob/main/sotu.md) is very useful for quickly understanding what Haskell packages to use for what tasks.
+[This package overview](/packages/survey/) is very useful for quickly understanding what Haskell packages to use for what tasks.
 
 [haskell-links.org](https://haskell-links.org) presents links from #haskell IRC/Matrix chatters, with a fast search interface.
 
@@ -46,3 +46,5 @@ It also has its own [forum](https://discourse.haskell.org/).
 ### Compiler
 
 [This is the guide to the Haskell compiler, GHC](https://ghc.gitlab.haskell.org/ghc/doc/users_guide/)
+
+A guide on [how to implement an interpreter](http://www.andres-loeh.de/LambdaPi/) (with sophisticated types)
