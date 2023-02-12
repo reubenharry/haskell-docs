@@ -1,8 +1,48 @@
 
 !!! Disclaimer
 
-    This section is adapted from todo 
-    (from Gabriella Gonzalez)
+    This section is adapted from Gabriella Gonzalez' [State of the Ecosystem](https://github.com/Gabriella439/post-rfc/blob/main/sotu.md), which is licensed [here](https://github.com/Gabriella439/post-rfc/blob/main/LICENSE.md).
+
+    Some of the text has been cropped or modified.
+
+    ??? Contributors 
+
+        * Aaron Levin
+        * Alois Cochard
+        * Ben Kovach
+        * Benno Fünfstück
+        * Carlo Hamalainen
+        * Chris Allen
+        * Curtis Gagliardi
+        * Deech
+        * David Howlett
+        * David Johnson
+        * Edward Cho
+        * Greg Weber
+        * Gregor Uhlenheuer
+        * Juan Pedro Villa Isaza
+        * Kazu Yamamoto
+        * Kevin Cantu
+        * Kirill Zaborsky
+        * Liam O'Connor-Davis
+        * Luke Randall
+        * Marcio Klepacz
+        * Mitchell Rosen
+        * Nicolas Kaiser
+        * Oliver Charles
+        * Pierre Radermecker
+        * Rodrigo B. de Oliveira
+        * Stephen Diehl
+        * Tim Docker
+        * Tran Ma
+        * Yuriy Syrovetskiy
+        * @bburdette
+        * @co-dan
+        * @ExternalReality
+        * @GetContented
+        * @psibi
+        * @newswim
+
 
   
 !!! Legend
@@ -11,9 +51,9 @@
 
     🥈 = **Mature**: suitable for most programmers
 
-    🌱 = **Immature**: only acceptable for early-adopters
+    🌱 = **Immature**: acceptable for early-adopters
 
-    ⛔ = **Bad**: pretty unusable
+    ⛔ = **Undeveloped**
 
 
 ## 🏆 Compilers
@@ -66,7 +106,7 @@
 
     * [Oden restrospective on rewrite from Racket to Haskell](https://github.com/oden-lang/oden-lang.github.io/blob/master/blog/_posts/2016-01-17-the-haskell-rewrite.md)
 
-## 🏆 Maintenance
+<!-- ## 🏆 Maintenance
 
 ??? Commentary
 
@@ -122,7 +162,7 @@
     you don't need to reorder or delete those data structures.  They will just
     sit around patiently waiting until they are actually needed, if ever, before
     they are evaluated.
-
+ -->
 
 ## 🏆 Single-machine Concurrency
 
@@ -209,7 +249,7 @@
 
 **Parsing libraries:**
 
-* [`parsec`](https://hackage.haskell.org/package/parsec) - Best overall "value"
+<!-- * [`parsec`](https://hackage.haskell.org/package/parsec) - Best overall "value" -->
 * [`megaparsec`](https://hackage.haskell.org/package/megaparsec) - Modern, actively maintained fork of `parsec`
 * [`attoparsec`](https://hackage.haskell.org/package/attoparsec) - Extremely fast backtracking parser
 * [`Earley`](https://hackage.haskell.org/package/Earley) - Earley parsing
@@ -351,7 +391,7 @@
 
     * [IHP Cloud](https://ihpcloud.com/)
 
-## 🥈 Domain-specific languages (DSLs)
+<!-- ## 🥈 Domain-specific languages (DSLs)
 
 ??? Commentary
 
@@ -379,7 +419,7 @@
     * [Monad comprehensions](https://downloads.haskell.org/ghc/latest/docs/users_guide/exts/monad_comprehensions.html)
     * [Overloaded strings](https://www.fpcomplete.com/school/to-infinity-and-beyond/pick-of-the-week/guide-to-ghc-extensions/basic-syntax-extensions#overloadedstrings)
 
-
+ -->
 
 ## 🥈 Testing
 
@@ -463,7 +503,7 @@
 
 * [`criterion`](https://hackage.haskell.org/package/criterion)
 * [`gauge`](http://hackage.haskell.org/package/gauge) offers a similar feature set as `criterion` but has much fewer dependencies
-* [`tasty-bench`](https://hackage.haskell.org/package/tasty-bench) even lighter than `guage` with support for comparing benchmarks
+* [`tasty-bench`](https://hackage.haskell.org/package/tasty-bench) even lighter than `gauge` with support for comparing benchmarks
 
 ??? Commentary
 
@@ -510,7 +550,7 @@
 
 **Notable libraries:**
 
-* [`conduit`](https://hackage.haskell.org/package/conduit) / [`io-streams`](https://hackage.haskell.org/package/io-streams) / [`pipes`](https://hackage.haskell.org/package/pipes) / [`streaming`](https://hackage.haskell.org/package/streaming) / [`streamly`](http://hackage.haskell.org/package/streamly) - Stream programming libraries (Full disclosure: I authored `pipes` and wrote the official `io-streams` tutorial)
+* [`conduit`](https://hackage.haskell.org/package/conduit) / [`io-streams`](https://hackage.haskell.org/package/io-streams) / [`pipes`](https://hackage.haskell.org/package/pipes) / [`streaming`](https://hackage.haskell.org/package/streaming) / [`streamly`](http://hackage.haskell.org/package/streamly) - Stream programming libraries
 * [`machines`](https://hackage.haskell.org/package/machines) - Networked stream transducers library
 
 ??? Commentary 
@@ -530,6 +570,7 @@
 
     **Educational resources:**
 
+    * [The official `streamly` manual](https://streamly.composewell.com/)
     * [The official `conduit` tutorial](https://www.fpcomplete.com/school/to-infinity-and-beyond/pick-of-the-week/conduit-overview)
     * [The official `pipes` tutorial](http://hackage.haskell.org/package/pipes/docs/Pipes-Tutorial.html)
     * [The official `io-streams` tutorial](http://hackage.haskell.org/package/io-streams/docs/System-IO-Streams-Tutorial.html)
@@ -693,7 +734,8 @@ Haskell has tools for automatic code formatting:
 * [`Sparkle`](https://github.com/tweag/sparkle) - Haskell-to-Spark bridge
 * [`cassava`](https://hackage.haskell.org/package/cassava) - CSV encoding and decoding
 * [`Frames`](https://hackage.haskell.org/package/Frames) - Haskell data analysis tool analogous to Python's `pandas`
-* [`statistics`](https://hackage.haskell.org/package/statistics) - Statistics (duh!)
+* [`statistics`](https://hackage.haskell.org/package/statistics)
+* [`hvega`](https://hackage.haskell.org/package/hvega) - Plots via JS: quite powerful and well documented
 * [`Chart`](https://hackage.haskell.org/package/Chart) / [`Chart-*`](https://hackage.haskell.org/packages/search?terms=Chart) - Charting library
 
 
@@ -1180,7 +1222,7 @@ Haskell has tools for automatic code formatting:
 
 
 
-## ⛔ Systems / embedded programming
+## 🌱 Systems / embedded programming
 
 
 **Educational resources:**
@@ -1215,41 +1257,3 @@ Haskell has tools for automatic code formatting:
     * [`atom`](https://hackage.haskell.org/package/atom) / [`ivory`](https://hackage.haskell.org/package/ivory) - DSL for generating embedded programs
     * [`improve`](https://hackage.haskell.org/package/improve) - High-assurance DSL for embedded code that generates C and Ada
 
-
-## Contributors
-
-* Aaron Levin
-* Alois Cochard
-* Ben Kovach
-* Benno Fünfstück
-* Carlo Hamalainen
-* Chris Allen
-* Curtis Gagliardi
-* Deech
-* David Howlett
-* David Johnson
-* Edward Cho
-* Greg Weber
-* Gregor Uhlenheuer
-* Juan Pedro Villa Isaza
-* Kazu Yamamoto
-* Kevin Cantu
-* Kirill Zaborsky
-* Liam O'Connor-Davis
-* Luke Randall
-* Marcio Klepacz
-* Mitchell Rosen
-* Nicolas Kaiser
-* Oliver Charles
-* Pierre Radermecker
-* Rodrigo B. de Oliveira
-* Stephen Diehl
-* Tim Docker
-* Tran Ma
-* Yuriy Syrovetskiy
-* @bburdette
-* @co-dan
-* @ExternalReality
-* @GetContented
-* @psibi
-* @newswim

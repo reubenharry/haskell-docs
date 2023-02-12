@@ -10,7 +10,7 @@ For well-maintained packages, you should expect to find some explanation of the 
 
 !!! Warning
 
-    Many published packages are experimental code, not intended for serious use. To get a sense of which packages to use, see [this guide](https://github.com/Gabriella439/post-rfc/blob/main/sotu.md).
+    Many published packages are experimental code, not intended for serious use. To get a sense of which packages to use, see [this guide](/packages/survey/).
 
 ## Hackage and Stackage 
 

@@ -20,7 +20,7 @@ It also has a [forum](https://discourse.haskell.org/).
 
 ## Understanding the ecosystem
 
-[This package overview](https://github.com/Gabriella439/post-rfc/blob/main/sotu.md) is very useful for quickly understanding what Haskell packages to use for what tasks.
+[This package overview](/packages/survey/) is very useful for quickly understanding what Haskell packages to use for what tasks.
 
 [haskell-links.org](https://haskell-links.org) presents links from #haskell IRC/Matrix chatters, with a fast search interface.
 
