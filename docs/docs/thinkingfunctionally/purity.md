@@ -31,7 +31,25 @@ True
 
 ## The benefit of purity
 
-Because of purity, a function will give the same answer no matter where or when it is called, as long as the input is the same. This lends itself to modular code, and easy refactoring.
+Because of purity, a function will give the same answer no matter where or when it is called, as long as the input is the same. This makes parallelism easy, often almost trivial:
+
+=== "Run tests sequentially"
+
+    ```hs
+    main :: IO ()
+    main = hspec $ do
+        ... tests ...
+    ```
+
+=== "Run tests in parallel"
+
+    ```hs
+    main :: IO ()
+    main = hspec $ parallel $ do
+        ... tests ...
+    ```
+
+Purity also lends itself to modular code, and easy refactoring. Consider:
 
 ```hs
 graphicalUserInterface = runWith complexFunction
@@ -42,10 +60,11 @@ graphicalUserInterface = runWith complexFunction
         runWith = ... -- e.g., a handler function
 ```
 
-Suppose we want to replace `complexFunction` with `simpleFunction`, also of type `UserInput -> Picture`.
+Suppose we want to replace `complexFunction` with `simpleFunction`, which also has the type 
+`#!hs UserInput -> Picture`.
 
 
-Because Haskell is pure (but see [caveats](/thinkingfunctionally/purity/#caveats)) and so `complexFunction` is not creating/mutating global variables, or opening or closing files, we can be confident that there will be no unexpected implications of making the change, such as a subtle error when `runWith` takes `complexFunction` as input. 
+Because Haskell is pure (but see [caveats](/thinkingfunctionally/purity/#caveats)) and so `complexFunction` is not creating/mutating global variables, or opening or closing files, we can be confident that there will be no unexpected implications of making the change, such as a subtle error with changed variable assignment, when `runWith` takes `complexFunction` as input. 
 
 ## Equational reasoning
 
@@ -65,7 +84,7 @@ exampleProgram = someFunction "a4"
     Use this fact to understand complex programs, by substituting complex expressions for their values:
 
     ```haskell
-   data Piece = Bishop | Rook | King
+    data Piece = Bishop | Rook | King
     take 2 [Bishop, Rook, Bishop]
     ```
 
@@ -80,7 +99,7 @@ exampleProgram = someFunction "a4"
     Following this definition, we replace `take 2 [1,2,3]` (or more explicitly, `#1hs take 2 (1 : [2,3])`) with the pattern that it matches:
 
     ```haskell
-   take 2 (Bishop : [Rook, Bishop]) 
+        take 2 (Bishop : [Rook, Bishop]) 
         = Bishop : take (2-1) [Rook, Bishop] 
         = Bishop : take 1 (Rook : [Bishop])
     ```
@@ -88,7 +107,7 @@ exampleProgram = someFunction "a4"
     We can continue in this vein, repeatedly consulting the definition of `take`:
 
     ```haskell
-   = Bishop : take 1 (Rook : [Bishop])
+        = Bishop : take 1 (Rook : [Bishop])
         = Bishop : (Rook : take (1 - 1) [Bishop])
         = Bishop : (Rook : take 0 [Bishop]) 
         = Bishop : (Rook : [])
