@@ -2,6 +2,7 @@ cabal-version:      2.4
 name:               chess-repl
 version:            0.1.0.0
 
+
 -- A short (one-line) description of the package.
 -- synopsis:
 
@@ -25,7 +26,7 @@ extra-source-files:
     CHANGELOG.md
     README.md
 
-library
+library 
     exposed-modules:  
         Chess
         Parser
@@ -56,6 +57,7 @@ library
         LambdaCase
 
     default-language: GHC2021
+    ghc-options:    -O2
 
 executable chess-repl
     main-is:          Main.hs
@@ -71,13 +73,14 @@ executable chess-repl
 
     hs-source-dirs:   app
     default-language: GHC2021
+    ghc-options:    -O2
 
 executable doctests
 
-  main-is: docs/docs/packages/megaparsec.lhs
-  main-is: docs/docs/packages/lens.lhs
-  main-is: docs/docs/packages/quickcheck.lhs
-  main-is: docs/docs/packages/mtl.lhs
+--   main-is: docs/docs/packages/megaparsec.lhs
+--   main-is: docs/docs/packages/lens.lhs
+--   main-is: docs/docs/packages/quickcheck.lhs
+--   main-is: docs/docs/packages/mtl.lhs
   main-is: docs/docs/packages/recursion-schemes.lhs
   build-depends:  
     base, 
@@ -93,3 +96,14 @@ executable doctests
   ghc-options:    -pgmL markdown-unlit
   build-tool-depends: markdown-unlit:markdown-unlit
   default-language: GHC2021
+
+Test-Suite tests
+    type:       exitcode-stdio-1.0
+    main-is:    test/tests.hs
+    default-language: GHC2021
+    build-depends: 
+        base,
+        chess-repl,
+        HUnit,
+        hspec,
+        QuickCheck

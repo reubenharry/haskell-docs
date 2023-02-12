@@ -169,6 +169,7 @@ nav:
     - Parsing: casestudy/parser.md
     - Evaluator: casestudy/evaluator.md
     - REPL: casestudy/repl.md
+    - Tests: casestudy/tests.md
     # - Reading JSON: casestudy/json.md
   - Gotchas:
     - Lists: gotchas/lists.md

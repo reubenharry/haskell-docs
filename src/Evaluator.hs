@@ -1,5 +1,6 @@
 module Evaluator where
 
+
 import Chess ( display, Board(..), SquareState(HasPiece) )
 import Control.Monad.Except ( MonadError(throwError) )
 import Control.Monad.State ( MonadState(put, get), gets, modify ) 
