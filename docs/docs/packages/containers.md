@@ -8,7 +8,7 @@ A number of useful data structures are defined in the `containers` package.
 
 Like a Python dictionary, this has unique (and [orderable](/typeclasses/survey/#ord)) keys, and arbitrary values. These must be of a single type.
 
-```hs
+```hs title="repl example"
 import qualified Data.Map as M
 
 > hasRedHat = M.fromList [("John", True), ("Sally", False), ("Jane", True)]

@@ -36,7 +36,7 @@ library
     default-language: GHC2021
 ```
 
-Packages are hosted [here](https://hackage.haskell.org/).
+Packages are hosted [here](https://hackage.haskell.org/), but you can find out more about what packages to use for what [here](https://github.com/Gabriella439/post-rfc/blob/main/sotu.md).
 
 ## Extensions
 

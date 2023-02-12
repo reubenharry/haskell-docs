@@ -60,7 +60,7 @@ Lenses are the way to access and update parts of data structures in a pure funct
 
 You can also use the `lens` library to access or update multiple (or optional) parts of a data structure:
 
-```hs
+```hs title="repl example"
 import Control.Lens
 
 -- access multiple fields
@@ -135,7 +135,7 @@ fromList [("John",(True,4)),("Sally",(False,1))]
 
 You can write lenses for custom types, or generate them automatically with [Template Haskell](/resources/articles/#template-haskell-metaprogramming) (a macro extension to Haskell):
 
-```hs
+```haskell
 {-# LANGUAGE TemplateHaskell #-} 
 import Control.Lens
 
@@ -147,6 +147,8 @@ example = Point {_x = 2, _y = 3}
 
 xVal = example ^. x
 yVal = example ^. y
+
+main = print xVal
 ```
 
 1. This is the syntax for a Template Haskell macro, here `makeLenses`, which `Control.Lens` exports.

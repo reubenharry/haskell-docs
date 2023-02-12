@@ -1,4 +1,4 @@
-# Introduction to Haskell
+# [The Haskell Guide](https://haskell-docs.netlify.app/)
 
 This is the github repository for [an introductory guide to learning Haskell](https://haskell-docs.netlify.app/).
 
@@ -6,39 +6,33 @@ If you're interested in making contribution to the guide, see [here](/Contributi
 
 ## Goals
 
-The goal for this project is that it serves as a go-to resource for newcomers who have programming experience in a language like Python. It should contain all the information needed to write basic Haskell (roughly the content of "Learn You a Haskell"), but in the style of a reference guide.
+The goal for this project is that it serves as a go-to pathway into Haskell for newcomers who have programming experience in a language like Python. In other words, it should assume no knowledge of Haskell, and make it as effortless as possible to understand Haskell's core ideas.
 
 With that in mind, it should be:
 
 - **free and online**
-- **maintainable**: mostly just markdown, easy for anyone to update via a PR
-- **commentable**: easy for a reader to provide feedback where they don't understand
+- **maintainable**: just markdown, easy for anyone to update via a PR
 - **ergonomic**: pleasing to look at and use, good search, easy navigation
 - **friendly**: clear usage examples of code, FAQs and gotchas, pointers to other resources, unambiguous set up instructions for Haskell, contains an example project with best practices
-- **concise but not too concise**: avoids long prose where possible 
+- **concise**: avoids prose where possible 
 
-`Mkdocs Material` is a great platform for these goals. It's very easy to maintain (click Edit icon on any page to submit PR), is designed to look nice and display information well (info boxes, code comments, tabs and search for navigation), and it can be connected to Google Analytics to allow users to write feedback where they get stuck.
+`Mkdocs Material` is a great platform for these goals. It's very easy for anyone to propose changes (click Edit icon on any page to submit PR), and is designed to display information well (info boxes, code comments, tabs, columns, automatic contents, and search for navigation).
 
 ## What's wrong with existing resources?
 
-|                    | Wiki               | LYAH               | RWH                | LHBG               | These Docs         | Various Books      |
-| ------------------ | ------------------ | -----------------  | ------------------ | ------------------ | ------------------ | ------------------ |
-| Community editable | :white_check_mark: | :x:                | :x:                | :pushpin:          | :white_check_mark: | :x:                |
-| Free               | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                |
-| Beginner friendy   | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Up-to-date         | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Looks nice         | :x:                | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Supports comments  | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :x:                |
+Well, nothing actually! There's a large range of great resources, both for beginners and intermediate Haskell programmers. 
+
+These often have quite different goals to The Haskell Guide, however. They (usually) aim to provide a complete introduction to Haskell, either to a coding beginner or a Haskell newcomer, and do so in a linear way (a series of written chapters, projects, or videos).
+
+By contrast, The Haskell Guide is less interested in providing a didactically complete experience, and much more interested in getting newcomers, who might have no reason to think Haskell is worthwhile, over the hurdles that traditionally make Haskell inaccessible. These include:
+
+- hard to find simple examples of code doing simple practical things
+- hard to find concise examples of how the syntax works
+- hard to find concise explanations of why one might want to use Haskell (purity, algebraic types, etc)
+- hard to get oriented (installation, toolchain, ecosystem, core resources) 
+
+The Haskell Guide is founded on the hunch that removing these hurdles via a free, ergonomic, clear online reference guide could have a much bigger effect on Haskell uptake than even an extremely high quality book, which already requires buy-in from a newcomer.
 
 
-
-There are many great resources, but:
-
-- many are out of date and are hard to update
-- many are not free 
-- many are not online
-- most are long-form books or lecture notes, not a concise "cheatsheet"
-
-Of these, the first is the most important: making an *OK* intro guide to Haskell that is very easy for many people to continuously improve, edit and maintain, and which is easy to collect user feedback about, seems preferable to making a really good intro guide which will never be edited, improved or maintained.
 
 

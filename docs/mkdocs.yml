@@ -49,6 +49,9 @@ theme:
   icon:
     logo: simple/haskell
 
+edit_uri: 'edit/main/docs/docs/'
+
+
 extra:
   analytics:
     provider: google
@@ -90,6 +93,8 @@ markdown_extensions:
   - def_list
   - footnotes
   - md_in_html
+  - pymdownx.critic:
+      mode: view
   - pymdownx.snippets
   - toc:
       permalink: true
@@ -123,6 +128,9 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
+# extra:
+#   version:
+#     provider: mike
 
 
 nav:
@@ -162,6 +170,7 @@ nav:
     - Parsing: casestudy/parser.md
     - Evaluator: casestudy/evaluator.md
     - REPL: casestudy/repl.md
+    - Tests: casestudy/tests.md
     # - Reading JSON: casestudy/json.md
   - Gotchas:
     - Lists: gotchas/lists.md

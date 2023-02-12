@@ -8,7 +8,7 @@ You can make your own types like this:
 
 === "Traditional"
 
-    ```haskell
+    ```hs
     data Square = Sq Int Int -- (1)!
     ```
     
@@ -17,7 +17,7 @@ You can make your own types like this:
 === "Modern (GADT)"
 
     ```hs
-    data Square where -- (1)!
+   data Square where -- (1)!
         Sq :: Int -> Int -> Square
     ```
 
@@ -28,7 +28,7 @@ This creates a new type `Square`; values of type `Square` look like `Sq i j`, wh
 
 `Sq` is referred to as a *data constructor*, and is a Haskell function, with type shown explicitly in the "modern" version above.
 
-```haskell title="repl example"
+```hs title="repl example"
 > :t Sq 5 4
 Sq 5 4 :: Square
 > :t Sq 5 True
@@ -47,7 +47,7 @@ Sq 3 :: Int -> Square -- (2)!
 ??? Tip
     The type `Square` contains the same information as the product type `(Int, Int)`. These types are different, in the sense that code which expects one will not work with the other, but it is easy to write [loss-less](/basics/createdata/#isomorphic-types) functions between them:
 
-    ```haskell
+    ```hs
     fromSq :: Square -> (Int, Int)
     fromSq (Sq i j) = (i, j)
 
@@ -57,7 +57,7 @@ Sq 3 :: Int -> Square -- (2)!
 
 !!! Note 
     The number of types following `Sq` can be 0 or more. For example:
-    ```haskell title="repl example"
+    ```hs title="repl example"
     > data SquareAlt = SqAlt Int
     > data SquareAlt2 = SqAlt2
     > :t SqAlt 
@@ -77,7 +77,7 @@ You can also name entries:
 === "Modern (GADT)"
 
     ```hs
-    data Entity where
+   data Entity where
       Sq :: {row :: Int, col :: Int} -> Entity
     ```
 
@@ -101,7 +101,7 @@ col :: Entity -> Int
 
 === "Traditional"
 
-    ```haskell
+    ```hs
     data Entity = Sq Int Int | Player Bool -- (1)!
     ```
     
@@ -111,7 +111,7 @@ col :: Entity -> Int
 
 === "Modern (GADT)"
 
-    ```haskell
+    ```hs
     data Entity where
         Sq :: Int -> Int -> Entity -- (1)!
         Player :: Bool -> Entity
@@ -124,7 +124,7 @@ col :: Entity -> Int
 
 
 
-```haskell title="repl example"
+```hs title="repl example"
 > Sq 4 6
 Sq 4 6 :: Entity
 > :t Player False
@@ -136,7 +136,7 @@ Player :: Bool -> Entity
 ??? Tip
     The type `Entity` contains the same information as the type `#!haskell Either (Int, Int) Bool`, and one can write [loss-less](/basics/createdata/#isomorphic-types) functions between them:
 
-    ```haskell
+    ```hs
     fromEntity :: Entity -> Either (Int, Int) Bool
     fromEntity (Sq i j) = Left (i, j)
     fromEntity (Player bool) = Right bool
@@ -153,7 +153,7 @@ Player :: Bool -> Entity
 
     You can combine products and sums, using your own types:
 
-    ```haskell
+    ```hs
     data ChessPiece = Piece PieceType Color | SquareType Square -- (1)!
     data Color = Black | White
     data PieceType = Bishop | Rook
@@ -170,7 +170,7 @@ Player :: Bool -> Entity
 
 One can also create types which take another type as a parameter:
 
-```haskell
+```hs
 data Piece c = Bishop c | Knight c | King c
 ```
 
@@ -200,7 +200,7 @@ data BinTree = Leaf Int | Branch BinTree BinTree
 
 Here, `BinTree` is being used *recursively* in its own definition. Values of `BinTree` include:
 
-```haskell title="repl example"
+```hs title="repl example"
 
 > data BinTree = Leaf Int | Branch BinTree BinTree
 > :t Leaf 4
@@ -252,13 +252,13 @@ machine = machine1 where
     The list type can be defined recursively in this way:
 
     ```hs
-    data List a = EmptyList | HeadThenList a (List a)
+   data List a = EmptyList | HeadThenList a (List a)
     ```
 
     In fact, the `[a]` type in Haskell is defined in this way, with the `[1,2,3]` being extra syntax for convenience:
 
     ```hs
-    data [] a = [] | a : [a] -- (1)!
+   data [] a = [] | a : [a] -- (1)!
     ```
 
     1. `:` is the data constructor, analogous to `HeadThenList` above, but written *infix*. `[]` is analogous to `EmptyList`.
@@ -276,7 +276,7 @@ type Number = Double
     Here, `Number` and `Double` are not distinguished as separate types by the compiler, so replacing one by the other in a type signature will always be fine. This would not be true for:
 
     ```hs
-    data Number = N Double
+   data Number = N Double
     ```
 
 This can be useful for readability, particularly for quite complex types:
@@ -311,6 +311,8 @@ getInt :: WrappedInt -> Int -- the other direction
 
 1. `#!hs (getInt . MkW)` is the identity function.
 2. `#!hs (MkW . getInt)` is also the identity function.
+
+Types which are isomorphic can be regarded as "the same" for practical purposes, since you can always convert between them, although they may have different performance characteristics. They may also have [different typeclass instances](/typeclasses/overview/#different-instances-for-the-same-type).
 
 ### Reference table of isomorphic types
 

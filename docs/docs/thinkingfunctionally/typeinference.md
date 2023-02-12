@@ -2,7 +2,9 @@
 comments: true
 ---
 
-Haskell is able to *infer* the type of most expressions.
+Haskell is able to *infer* the type of all expressions[^1].
+
+[^1]: There are exceptions, but they involve advanced techniques.
 
 A simple example you can run in the repl:
 

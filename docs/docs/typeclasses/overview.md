@@ -97,12 +97,12 @@ MkI "fboaor"
 "foobar"
 ```
 
-The `Monoid` instances [Sum](/typeclasses/survey/#sum) and [Product](/typeclasses/survey/#product) yield a more practical example:
+For a practical example, see the [Sum](/typeclasses/survey/#sum) and [Product](/typeclasses/survey/#product) types. The type `Sum Int` is [isomorphic](/basics/createData/#isomorphic-types) to `Int`, but they have different `Monoid` instances.
 
 ```hs title="repl example"
 
 -- the (Sum Int) Monoid
-> Sum 4
+> Sum 4 -- (1)!
 Sum {getSum = 4}
 > :t Sum 4
 Sum 4 :: Num a => Sum a
@@ -117,6 +117,32 @@ Product 4 :: Num a => Product a
 > Product 4 <> Product 5
 Product {getProduct = 20}
 ```
+
+1. `Sum` is both the function which maps a number to a value of the `Sum` type, and the name of the type. See this page on [punning](/gotchas/punning/).
+
+??? Note
+    One other useful example is the logarithm type `Log`, from the `log-domain` package.
+
+    ```haskell
+   > import Numeric.Log
+    > :i Log -- (1)!
+    newtype Log a = Exp {ln :: a} -- (2)!
+    ...
+    instance RealFloat a => Num (Log a) --(3)!
+
+    > Exp 0 
+    1.0 -- (4)!
+    > Exp 0 * Exp 0 -- (5)!
+    2.0
+
+    ```
+
+    1. `:i` prompts the repl to give info about an expression.
+    2. The definition of the `Log` type.
+    3. Read this as saying: "if the type `a` is an instance of `RealFloat`, then the type `Log a` is an instance of `Num`. See [this section](/typeclasses/overview/#constraint-implication-instances) for more.
+    4. `Exp 0` represents the real number `1`, but under the hood, stores it in log-space as `0`.
+    5. The definition of `*` (which is part of the instance for `Num`) adds the log-space numbers, rather than multiplying the real-space numbers. 
+
 
 ## Constraint implication (classes)
 
@@ -282,14 +308,14 @@ In the typeclass `Eq`, types which are instances are normal types like `Int`, `B
 ??? Note
     Accordingly, a type signature like 
 
-    ```hs
-    (==) :: Eq a => a -> a -> Bool
+    ```haskell
+   (==) :: Eq a => a -> a -> Bool
     ```
 
     can be [more explicitly stated as](/basics/types/#universal-quantification-for-other-kinds-than):
 
-    ```hs
-    (==) :: forall (a :: *). Eq a => a -> a -> Bool
+    ```haskell
+   (==) :: forall (a :: *). Eq a => a -> a -> Bool
     ```
 
 However, for many important typeclasses, the types which are instances have other kinds, like `* -> *`. For instance:

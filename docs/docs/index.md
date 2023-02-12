@@ -1,4 +1,4 @@
-# Haskell
+# Haskell ([9.2.5](/#haskell-version))
 
 Haskell is a general purpose programming language. It is unique in being both very principled in its design (pure functions only, simple syntax, very expressive types), but also practical (heavily-engineered compiler that can generate fast code).
 
@@ -9,7 +9,7 @@ Salient properties include:
 
 - [functional](/thinkingfunctionally/hof)
 - [pure](/thinkingfunctionally/purity) and [immutable](/thinkingfunctionally/immutability)
-- [custom static types](/basics/createdata) with [inference](/thinkingfunctionally/typeinference)
+- [custom static types](/basics/createdata) and [automatically inferred](/thinkingfunctionally/typeinference) type annotations
 - [lazy](/laziness/laziness)
 
 
@@ -32,3 +32,6 @@ Ask questions about pages you don't understand via the `Comments` section at the
 !!! Disclaimer
     This documentation is a personal project, and not official Haskell documentation. Contributions are encouraged, by submitting a PR. See here for a [style guide](https://github.com/reubenharry/haskell-docs/blob/main/Contributing.md).
 
+## Haskell Version
+
+This guide is written for series 9 of the Glasgow Haskell Compiler (GHC). Almost all the content is applicable to older versions, but if in doubt, use [GHC 9.2.5](/gettingstarted/versions/#managing-software).

@@ -6,7 +6,6 @@ import Data.Text qualified as T
 import Witch (into)
 
 
--- (14)!
 data PieceType = Bishop | Rook | Knight | Pawn | King | Queen -- (1)!
   deriving (Eq, Show) -- (4)!
 
@@ -25,6 +24,7 @@ data Rank = One | Two | Three | Four | Five | Six | Seven | Eight
 data SquareState where -- (7)!
   Empty :: SquareState
   HasPiece :: Piece -> SquareState
+  deriving (Show, Eq)
 
 -- (15)!
 newtype Board where -- (14)!
@@ -32,6 +32,9 @@ newtype Board where -- (14)!
 
 initBoard :: Board -- (6)!
 initBoard = Board $ \f r -> Empty
+
+getSquare :: Board -> (File, Rank) -> SquareState
+getSquare (Board board) (f,r) = board f r
 
 display :: Board -> T.Text
 display (Board boardFunc) =

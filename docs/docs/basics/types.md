@@ -9,7 +9,7 @@ comments: true
 === "In a repl"
 
     ```haskell
-    True :: Bool -- (1)!
+   True :: Bool -- (1)!
     ```
 
     1.  Read "X :: Y" as: "the value X has the type Y"
@@ -195,7 +195,7 @@ More generally, for *any type `a`*, `[a]` is the type of lists of values of type
 
 Write a list as in Python, like `[True, False, True]`. `:` is an operator to append to the front of a list. Examples:
 
-```haskell title="repl example"
+```hs title="repl example"
 > 4 : [3, 1]
 [4, 3, 1]
 > 4 : []
@@ -293,16 +293,16 @@ not undefined :: Bool
 Universally quantified types can appear as the parameters of other types:
 
 === "standard"
-    ```hs
-    getLeft :: Either a b -> Maybe a
+    ```haskell
+   getLeft :: Either a b -> Maybe a
     getLeft (Left x) = Just x
     getLeft (Right _) = Nothing
     ```
 
 === "with explicit quantifiers"
 
-    ```hs
-    getLeft :: forall a b. Either a b -> Maybe a
+    ```haskell
+   getLeft :: forall a b. Either a b -> Maybe a
     getLeft (Left x) = Just x
     getLeft (Right _) = Nothing
     ```
@@ -368,8 +368,8 @@ swap (x, y) = (y, x)
 The kind does not need to be `*`. For example, here is the type of `fmap` (see [this section about typeclasses](/typeclasses/survey/#functor)):
 
 === "With kinds shown explicitly"
-    ```hs
-    fmap ::forall (f :: * -> *) (a::*) (b::*). Functor f => (a -> b) -> (f a -> f b)
+    ```haskell
+   fmap ::forall (f :: * -> *) (a::*) (b::*). Functor f => (a -> b) -> (f a -> f b)
     ```
 
 === "Without kinds shown explicitly (standard)"

@@ -1,3 +1,4 @@
+
 !!! Warning
 
     Understand monads, do-notation, and in particular the `State` and `Except` monads in advance will make the content of this page more transparent.
@@ -13,7 +14,13 @@ In imperative programming languages, it is straightforward to write code which p
 
 A standard way in Haskell to have these abilities in a pure functional setting is with the use of types like `Maybe`, `State` or `Reader`. Because these have `Monad` [instances](/typeclasses/survey/#monad), one can write imperative style code like:
 
-```hs
+```haskell
+{-# LANGUAGE OverloadedStrings #-}
+import Control.Monad.State
+import Control.Monad.Reader
+import Control.Monad.Except
+import Data.Text (Text)
+
 example :: State Bool ()
 example = do
     flag <- get
@@ -68,9 +75,9 @@ However, these types (sometimes referred to as *monad transformer stacks*) tend 
 
 === "with `if`"
 
-    ```hs
-    example :: (MonadError Text m, MonadState Bool m) => m Bool
-    example = do
+    ```haskell
+    example2 :: (MonadError Text m, MonadState Bool m) => m Bool
+    example2 = do
         flag <- get
         if flag
             then 
@@ -82,9 +89,9 @@ However, these types (sometimes referred to as *monad transformer stacks*) tend 
 
 === "with `when`"
 
-    ```hs
-    example :: (MonadError Text m, MonadState Bool m) => m Bool
-    example = do
+    ```haskell
+    example3 :: (MonadError Text m, MonadState Bool m) => m Bool
+    example3 = do
         flag <- get
         when flag $ 
             put (not flag) 
@@ -98,13 +105,18 @@ Depending on how `example` is called, either of these can end up being the concr
 
 === "Error over state"
 
-    ```hs
+    ```haskell
     errorOverState :: Bool -> IO ()
     errorOverState flagVal = 
-        let (result, state) = flip runState flagVal $ runExceptT example
+        let (result, state) = flip runState flagVal $ runExceptT example2
         in do
             putStrLn ("Result: " <> show result)
             putStrLn ("State: " <> show state)
+
+    main :: IO ()
+    main = do
+        errorOverState True
+        errorOverState False
     ```
 
     results in:

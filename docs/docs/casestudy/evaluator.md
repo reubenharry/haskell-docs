@@ -27,8 +27,8 @@ We can think of `evaluate` as taking a synactic description of an `Instruction` 
 
 === "original"
 
-    ```hs
-    evaluate :: (MonadError ChessError m, MonadState Board m) => 
+    ```haskell
+   evaluate :: (MonadError ChessError m, MonadState Board m) => 
         Instruction -> m Text
     evaluate instr = case instr of
         ReplInstruction "quit" -> throwError Exit
@@ -71,8 +71,8 @@ We can think of `evaluate` as taking a synactic description of an `Instruction` 
 
 === "with `modify` and `gets`"
 
-    ```hs
-    evaluate :: (MonadError ChessError m, MonadState Board m) => 
+    ```haskell
+   evaluate :: (MonadError ChessError m, MonadState Board m) => 
         Instruction -> m Text
     evaluate instr = case instr of
         ReplInstruction "quit" -> throwError Exit

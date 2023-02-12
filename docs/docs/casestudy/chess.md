@@ -37,22 +37,22 @@ A good example of [type-based refactoring](/thinkingfunctionally/typeinference/#
 
 === "original"
 
-    ```hs
-    initBoard :: Board
+    ```haskell
+   initBoard :: Board
     initBoard = Board $ \f r -> Empty
     ```
 
 === "wildcards"
 
-    ```hs
-    initBoard :: Board
+    ```haskell
+   initBoard :: Board
     initBoard = Board $ \_ _ -> Empty
     ```
 
 === "with `curry` and `const`"
 
-    ```hs
-    initBoard :: Board
+    ```haskell
+   initBoard :: Board
     initBoard = Board $ curry $ const Empty
     ```
 
@@ -69,8 +69,8 @@ A good example of [type-based refactoring](/thinkingfunctionally/typeinference/#
 
 === "original"
 
-    ```hs
-    data SquareState where 
+    ```haskell
+   data SquareState where 
         Empty :: SquareState
         HasPiece :: Piece -> SquareState
 
@@ -92,8 +92,8 @@ A good example of [type-based refactoring](/thinkingfunctionally/typeinference/#
 
 === "original"
 
-    ```hs
-    mkRank :: Int -> Maybe Rank 
+    ```haskell
+   mkRank :: Int -> Maybe Rank 
     mkRank i  
         | inRange i = Just $ R i 
         | otherwise = Nothing
@@ -105,8 +105,8 @@ A good example of [type-based refactoring](/thinkingfunctionally/typeinference/#
 
 === "with brackets"
 
-    ```hs
-    mkRank :: Int -> Maybe Rank 
+    ```haskell
+   mkRank :: Int -> Maybe Rank 
     mkRank i  
         | inRange i = Just (R i)
         | otherwise = Nothing
@@ -132,8 +132,8 @@ A good example of [type-based refactoring](/thinkingfunctionally/typeinference/#
 
 === "with section"
 
-    ```hs
-    mkRank :: Int -> Maybe Rank 
+    ```haskell
+   mkRank :: Int -> Maybe Rank 
     mkRank i  
         | inRange i = Just $ R i 
         | otherwise = Nothing

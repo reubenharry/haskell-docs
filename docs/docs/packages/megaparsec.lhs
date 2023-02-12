@@ -84,7 +84,7 @@ Parser combinator libraries provide not just simple parsers like the above, but 
 
 Here are examples from `megaparsec`:
 
-```haskell
+```haskell title="GHC 9.2.5"
 
 
 {-# LANGUAGE OverloadedStrings #-}
@@ -165,7 +165,7 @@ expecting "ab"
 
 One of the [main appeals](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/) of Haskell's parser combinators is that the output of your parser can be a custom type:
 
-```haskell
+```haskell title="GHC 9.2.5"
 
 data PieceType = Bishop | Rook deriving Show
 data Color = White | Black deriving Show

@@ -78,7 +78,7 @@ True
 
 `.` chains together (or *composes*) functions:
 
-```haskell title="repl example"
+```hs title="repl example"
 
 import qualified Data.Text as T
 :set -XOverloadedStrings
@@ -125,8 +125,8 @@ Instead of writing `func x = not (even x)`, one can write `func = not . even`, w
 
 === "pointful style"
 
-    ```hs
-    import Graphics.Gloss.Data.Picture -- (1)!
+    ```haskell
+   import Graphics.Gloss.Data.Picture -- (1)!
     picture :: Picture
     picture = 
         rotate 90
@@ -139,8 +139,8 @@ Instead of writing `func x = not (even x)`, one can write `func = not . even`, w
 
 === "pointfree style"
     
-    ```hs
-    import Graphics.Gloss.Data.Picture -- (1)!
+    ```haskell
+   import Graphics.Gloss.Data.Picture -- (1)!
     picture :: Picture
     picture = transform (circle 2) where 
         transform =
@@ -155,8 +155,8 @@ Using `flip`:
 
 === "pointful style"
 
-    ```hs
-    > threeMinusN n = subtract n 3 
+    ```haskell
+   > threeMinusN n = subtract n 3 
     > threeMinusN 6
     -3
 
@@ -167,8 +167,8 @@ Using `flip`:
 
 === "pointfree style (with `flip`)"
     
-    ```hs
-    > threeMinusN = flip subtract 3
+    ```haskell
+   > threeMinusN = flip subtract 3
     > threeMinusN 6
     -3
 
@@ -240,15 +240,15 @@ findBestPiece = foldr best Bishop [Bishop, Knight, Rook, Bishop]
     In Haskell, it is often preferable to rely on functions like `foldr` instead of writing explicit recursion yourself.
 
     === "Explicit recursion"
-        ```hs
-        sumList (x:xs) = x + sumList xs
+        ```haskell
+       sumList (x:xs) = x + sumList xs
         sumList [x] = x
         ```
 
     === "Using higher-order function"
 
-        ```hs
-        sumList = foldr 0 (+) -- (1)!
+        ```haskell
+       sumList = foldr 0 (+) -- (1)!
         ```
 
         1. In fact, Haskell already provides this function, and calls it `sum`.
