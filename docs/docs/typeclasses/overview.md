@@ -124,7 +124,7 @@ Product {getProduct = 20}
     One other useful example is the logarithm type `Log`, from the `log-domain` package.
 
     ```haskell
-   > import Numeric.Log
+    > import Numeric.Log
     > :i Log -- (1)!
     newtype Log a = Exp {ln :: a} -- (2)!
     ...
@@ -309,13 +309,13 @@ In the typeclass `Eq`, types which are instances are normal types like `Int`, `B
     Accordingly, a type signature like 
 
     ```haskell
-   (==) :: Eq a => a -> a -> Bool
+    (==) :: Eq a => a -> a -> Bool
     ```
 
     can be [more explicitly stated as](/basics/types/#universal-quantification-for-other-kinds-than):
 
     ```haskell
-   (==) :: forall (a :: *). Eq a => a -> a -> Bool
+    (==) :: forall (a :: *). Eq a => a -> a -> Bool
     ```
 
 However, for many important typeclasses, the types which are instances have other kinds, like `* -> *`. For instance:

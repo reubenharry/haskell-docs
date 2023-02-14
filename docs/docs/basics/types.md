@@ -9,7 +9,7 @@ comments: true
 === "In a repl"
 
     ```haskell
-   True :: Bool -- (1)!
+    True :: Bool -- (1)!
     ```
 
     1.  Read "X :: Y" as: "the value X has the type Y"
@@ -179,7 +179,14 @@ The type `()` contains a single value, which is also written `()`.
 
 ## The empty type
 
-`Void` is the type with *no* values. It can be useful, but at an introductory level is fairly rare. 
+`Void` is the type with *no* values. It can be useful (mostly as a building block for more complex types), but at an introductory level is fairly rare. 
+
+```hs
+example :: Void
+example = ??? -- (1)!
+```
+
+1. Nothing can go here except something like [`undefined`](/basics/types/?h=undefined#how-to-use), which throws a runtime error.
 
 ## The list type
 
@@ -279,7 +286,7 @@ If you have a function with a universally quantified type as *input*, you can al
 (3,'a')
 ```
 
-If you have a non-function value of a universally quantified type, like [undefined](/thinkingfunctionally/purity/#caveats) `:: forall a . a` , you may use it as the argument to *any function* (although actually running the code with throw an error if `undefined` is evaluated.)
+If you have a non-function value of a universally quantified type, like [undefined](/thinkingfunctionally/purity/#caveats) `:: forall a . a` , you may use it as the argument to *any function* (although actually running the code will throw an error if `undefined` is evaluated.)
 
 ```hs title="repl example"
 > :t not
@@ -294,7 +301,7 @@ Universally quantified types can appear as the parameters of other types:
 
 === "standard"
     ```haskell
-   getLeft :: Either a b -> Maybe a
+    getLeft :: Either a b -> Maybe a
     getLeft (Left x) = Just x
     getLeft (Right _) = Nothing
     ```
@@ -302,7 +309,7 @@ Universally quantified types can appear as the parameters of other types:
 === "with explicit quantifiers"
 
     ```haskell
-   getLeft :: forall a b. Either a b -> Maybe a
+    getLeft :: forall a b. Either a b -> Maybe a
     getLeft (Left x) = Just x
     getLeft (Right _) = Nothing
     ```
@@ -369,7 +376,7 @@ The kind does not need to be `*`. For example, here is the type of `fmap` (see [
 
 === "With kinds shown explicitly"
     ```haskell
-   fmap ::forall (f :: * -> *) (a::*) (b::*). Functor f => (a -> b) -> (f a -> f b)
+    fmap ::forall (f :: * -> *) (a::*) (b::*). Functor f => (a -> b) -> (f a -> f b)
     ```
 
 === "Without kinds shown explicitly (standard)"

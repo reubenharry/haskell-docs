@@ -164,7 +164,7 @@ Sum {getSum = 0}
 === "with explicit kind signature"
 
     ```haskell
-   class Functor (f :: * -> *) where -- (1)!
+    class Functor (f :: * -> *) where -- (1)!
         fmap :: (a -> b) -> f a -> f b
     ```
     
@@ -173,7 +173,7 @@ Sum {getSum = 0}
 === "without explicit kind signature"
 
     ```haskell
-   class Functor f where
+    class Functor f where
         fmap :: (a -> b) -> f a -> f b
     ```
 
@@ -353,7 +353,7 @@ val = reader (\flag -> if flag then "hello world" else "no greeting")
     `liftA2` and `pure` can be used to define:
 
     ```haskell
-   (<*>) :: f (a -> b) -> f a -> f b
+    (<*>) :: f (a -> b) -> f a -> f b
     ```
 
     and conversely, `<*>` and `pure` can be used to define `liftA2`. For this reason, `pure` and `<*>` are also sometimes given as the basic methods of `Applicative`.

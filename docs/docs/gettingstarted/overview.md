@@ -79,7 +79,7 @@ You can also build the executable without running it, which is useful for checki
 cabal build
 ```
 
-Becuase the `haskell-book` section of the cabal file gives a source directory of `app` and a main source file of `Main.hs`, this will run the variable called `main` in `app/Main.hs`.
+Because the `haskell-book` section of the cabal file gives a source directory of `app` and a main source file of `Main.hs`, this will run the variable called `main` in `app/Main.hs`.
 
 ## Step 3 (set up the Haskell Language Server)
 

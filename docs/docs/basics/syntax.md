@@ -225,14 +225,14 @@ Here, the order of operations is top-down (read line, write file, print), and th
 
     === "with do"
         ```haskell
-       do 
+        do 
             x <- m
             f x
         ```
     === "without do"
 
         ```haskell
-       m >>= (\x -> f x)
+        m >>= (\x -> f x)
         ```
 
     Or for the above example:
@@ -241,7 +241,7 @@ Here, the order of operations is top-down (read line, write file, print), and th
     === "with do"
 
         ```haskell
-       example :: IO ()
+        example :: IO ()
         example = do
             userInput <- getLine
             let reversed = reverse userInput
@@ -253,7 +253,7 @@ Here, the order of operations is top-down (read line, write file, print), and th
     === "without do"
 
         ```haskell
-       example :: IO ()
+        example :: IO ()
         example = getLine >>= (\userInput -> 
             let reversed = reverse userInput
             in (writeFile "file/path" reversed >>= 
