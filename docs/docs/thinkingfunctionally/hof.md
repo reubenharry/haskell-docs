@@ -126,7 +126,7 @@ Instead of writing `func x = not (even x)`, one can write `func = not . even`, w
 === "pointful style"
 
     ```haskell
-   import Graphics.Gloss.Data.Picture -- (1)!
+    import Graphics.Gloss.Data.Picture -- (1)!
     picture :: Picture
     picture = 
         rotate 90
@@ -140,7 +140,7 @@ Instead of writing `func x = not (even x)`, one can write `func = not . even`, w
 === "pointfree style"
     
     ```haskell
-   import Graphics.Gloss.Data.Picture -- (1)!
+    import Graphics.Gloss.Data.Picture -- (1)!
     picture :: Picture
     picture = transform (circle 2) where 
         transform =
@@ -156,7 +156,7 @@ Using `flip`:
 === "pointful style"
 
     ```haskell
-   > threeMinusN n = subtract n 3 
+    > threeMinusN n = subtract n 3 
     > threeMinusN 6
     -3
 
@@ -168,7 +168,7 @@ Using `flip`:
 === "pointfree style (with `flip`)"
     
     ```haskell
-   > threeMinusN = flip subtract 3
+    > threeMinusN = flip subtract 3
     > threeMinusN 6
     -3
 
@@ -241,14 +241,14 @@ findBestPiece = foldr best Bishop [Bishop, Knight, Rook, Bishop]
 
     === "Explicit recursion"
         ```haskell
-       sumList (x:xs) = x + sumList xs
+        sumList (x:xs) = x + sumList xs
         sumList [x] = x
         ```
 
     === "Using higher-order function"
 
         ```haskell
-       sumList = foldr 0 (+) -- (1)!
+        sumList = foldr 0 (+) -- (1)!
         ```
 
         1. In fact, Haskell already provides this function, and calls it `sum`.

@@ -17,7 +17,7 @@ You can make your own types like this:
 === "Modern (GADT)"
 
     ```hs
-   data Square where -- (1)!
+    data Square where -- (1)!
         Sq :: Int -> Int -> Square
     ```
 
@@ -77,7 +77,7 @@ You can also name entries:
 === "Modern (GADT)"
 
     ```hs
-   data Entity where
+    data Entity where
       Sq :: {row :: Int, col :: Int} -> Entity
     ```
 
@@ -252,13 +252,13 @@ machine = machine1 where
     The list type can be defined recursively in this way:
 
     ```hs
-   data List a = EmptyList | HeadThenList a (List a)
+    data List a = EmptyList | HeadThenList a (List a)
     ```
 
     In fact, the `[a]` type in Haskell is defined in this way, with the `[1,2,3]` being extra syntax for convenience:
 
     ```hs
-   data [] a = [] | a : [a] -- (1)!
+    data [] a = [] | a : [a] -- (1)!
     ```
 
     1. `:` is the data constructor, analogous to `HeadThenList` above, but written *infix*. `[]` is analogous to `EmptyList`.
@@ -276,7 +276,7 @@ type Number = Double
     Here, `Number` and `Double` are not distinguished as separate types by the compiler, so replacing one by the other in a type signature will always be fine. This would not be true for:
 
     ```hs
-   data Number = N Double
+    data Number = N Double
     ```
 
 This can be useful for readability, particularly for quite complex types:

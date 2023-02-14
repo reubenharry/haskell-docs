@@ -38,21 +38,21 @@ A good example of [type-based refactoring](/thinkingfunctionally/typeinference/#
 === "original"
 
     ```haskell
-   initBoard :: Board
+    initBoard :: Board
     initBoard = Board $ \f r -> Empty
     ```
 
 === "wildcards"
 
     ```haskell
-   initBoard :: Board
+    initBoard :: Board
     initBoard = Board $ \_ _ -> Empty
     ```
 
 === "with `curry` and `const`"
 
     ```haskell
-   initBoard :: Board
+    initBoard :: Board
     initBoard = Board $ curry $ const Empty
     ```
 
@@ -69,8 +69,8 @@ A good example of [type-based refactoring](/thinkingfunctionally/typeinference/#
 
 === "original"
 
-    ```haskell
-   data SquareState where 
+    ```hs
+    data SquareState where 
         Empty :: SquareState
         HasPiece :: Piece -> SquareState
 
@@ -81,10 +81,8 @@ A good example of [type-based refactoring](/thinkingfunctionally/typeinference/#
 === "with dictionary"
 
     ```hs
-
     import qualified Data.Map as M
     type Board = M.Map (File, Rank) Piece
-
     ```
 
 
