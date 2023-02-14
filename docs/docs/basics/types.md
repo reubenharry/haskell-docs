@@ -301,7 +301,7 @@ Universally quantified types can appear as the parameters of other types:
 
 === "standard"
     ```haskell
-   getLeft :: Either a b -> Maybe a
+    getLeft :: Either a b -> Maybe a
     getLeft (Left x) = Just x
     getLeft (Right _) = Nothing
     ```
@@ -309,7 +309,7 @@ Universally quantified types can appear as the parameters of other types:
 === "with explicit quantifiers"
 
     ```haskell
-   getLeft :: forall a b. Either a b -> Maybe a
+    getLeft :: forall a b. Either a b -> Maybe a
     getLeft (Left x) = Just x
     getLeft (Right _) = Nothing
     ```
@@ -376,7 +376,7 @@ The kind does not need to be `*`. For example, here is the type of `fmap` (see [
 
 === "With kinds shown explicitly"
     ```haskell
-   fmap ::forall (f :: * -> *) (a::*) (b::*). Functor f => (a -> b) -> (f a -> f b)
+    fmap ::forall (f :: * -> *) (a::*) (b::*). Functor f => (a -> b) -> (f a -> f b)
     ```
 
 === "Without kinds shown explicitly (standard)"
