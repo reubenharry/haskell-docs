@@ -35,5 +35,6 @@ Haskell will always give the most general typeclass that supports the numeric op
 n :: Num a => a
 > double = (\x -> x + x) :: Double -> Double
 > double n
-10.0
-```
+10
+
+
