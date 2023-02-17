@@ -36,4 +36,5 @@ n :: Num a => a
 > double = (\x -> x + x) :: Double -> Double
 > double n
 10
-```
+
+
