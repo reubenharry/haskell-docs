@@ -184,7 +184,6 @@ nav:
   - FAQs:
     - Multiple Arguments: faqs/multipleArguments.md
     - Optional Arguments: faqs/optionalArguments.md
-    - Numbers: faqs/numbers.md
     - Dollar sign: faqs/dollar.md
     - Coercions: faqs/convertingnumbers.md
     - fmap with a function: faqs/functionFunctor.md
