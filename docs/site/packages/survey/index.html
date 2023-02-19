@@ -1,0 +1,3379 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://haskell-docs.netlify.app/packages/survey/">
+      
+      
+        <link rel="prev" href="../overview/">
+      
+      
+        <link rel="next" href="../containers/">
+      
+      <link rel="icon" href="../../img/favicon.svg">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.2">
+    
+    
+      
+        <title>Overview of the ecosystem - The Haskell Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f56500e0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#compilers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="The Haskell Guide" class="md-header__button md-logo" aria-label="The Haskell Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 3.535 5.647 12 0 20.465h4.235L9.883 12 4.235 3.535zm5.647 0L11.294 12l-5.647 8.465h4.235l3.53-5.29 3.53 5.29h4.234L9.883 3.535zm8.941 4.938 1.883 2.822H24V8.473zm2.824 4.232 1.882 2.822H24v-2.822z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The Haskell Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview of the ecosystem
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/reubenharry/haskell-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../gettingstarted/overview/" class="md-tabs__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../basics/types/" class="md-tabs__link">
+        Basics
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../thinkingfunctionally/typechecking/" class="md-tabs__link">
+        Thinking in Haskell
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../typeclasses/overview/" class="md-tabs__link">
+        Typeclasses
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../laziness/laziness/" class="md-tabs__link">
+        Laziness
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../overview/" class="md-tabs__link md-tabs__link--active">
+        Libraries
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../casestudy/overview/" class="md-tabs__link">
+        Case Study
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../gotchas/lists/" class="md-tabs__link">
+        Gotchas
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../faqs/multipleArguments/" class="md-tabs__link">
+        FAQs
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/resources/" class="md-tabs__link">
+        Resources
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="The Haskell Guide" class="md-nav__button md-logo" aria-label="The Haskell Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 3.535 5.647 12 0 20.465h4.235L9.883 12 4.235 3.535zm5.647 0L11.294 12l-5.647 8.465h4.235l3.53-5.29 3.53 5.29h4.234L9.883 3.535zm8.941 4.938 1.883 2.822H24V8.473zm2.824 4.232 1.882 2.822H24v-2.822z"/></svg>
+
+    </a>
+    The Haskell Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/reubenharry/haskell-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingstarted/overview/" class="md-nav__link">
+        Quick start
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingstarted/example/" class="md-nav__link">
+        Example Haskell File
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingstarted/versions/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Basics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Basics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/types/" class="md-nav__link">
+        Values and Types
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/createData/" class="md-nav__link">
+        Creating types
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/functions/" class="md-nav__link">
+        Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/syntax/" class="md-nav__link">
+        Syntactic constructs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Thinking in Haskell
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Thinking in Haskell" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Thinking in Haskell
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thinkingfunctionally/typechecking/" class="md-nav__link">
+        Type Checking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thinkingfunctionally/typeinference/" class="md-nav__link">
+        Type Inference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thinkingfunctionally/purity/" class="md-nav__link">
+        Purity
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thinkingfunctionally/immutability/" class="md-nav__link">
+        Immutability
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thinkingfunctionally/hof/" class="md-nav__link">
+        Thinking functionally
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Typeclasses
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Typeclasses" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Typeclasses
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../typeclasses/overview/" class="md-nav__link">
+        Typeclasses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../typeclasses/survey/" class="md-nav__link">
+        Important typeclasses
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Laziness
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Laziness" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Laziness
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../laziness/laziness/" class="md-nav__link">
+        Laziness
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Libraries
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Libraries" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Libraries
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        How to use libraries
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Overview of the ecosystem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Overview of the ecosystem
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#compilers" class="md-nav__link">
+    🏆 Compilers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-machine-concurrency" class="md-nav__link">
+    🏆 Single-machine Concurrency
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parsing-pretty-printing" class="md-nav__link">
+    🏆 Parsing / Pretty-printing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-side-web-programming" class="md-nav__link">
+    🥈 Server-side web programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    🥈 Testing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-structures-and-algorithms" class="md-nav__link">
+    🥈 Data structures and algorithms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benchmarking" class="md-nav__link">
+    🥈 Benchmarking
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unicode" class="md-nav__link">
+    🥈 Unicode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stream-programming" class="md-nav__link">
+    🥈 Stream programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serialization" class="md-nav__link">
+    🥈 Serialization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ide-support" class="md-nav__link">
+    🥈 IDE support
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-for-file-formats" class="md-nav__link">
+    🥈 Support for file formats
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    🥈 Logging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-formatting" class="md-nav__link">
+    🥈 Code formatting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripting" class="md-nav__link">
+    🥈 Scripting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-science" class="md-nav__link">
+    🌱 Data science
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numerical-programming" class="md-nav__link">
+    🌱 Numerical programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#front-end-web-programming" class="md-nav__link">
+    🌱 Front-end web programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distributed-programming" class="md-nav__link">
+    🌱 Distributed programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standalone-gui-applications" class="md-nav__link">
+    🌱 Standalone GUI applications
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#machine-learning" class="md-nav__link">
+    🌱 Machine learning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#game-programming" class="md-nav__link">
+    🌱 Game programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arm-processor-support" class="md-nav__link">
+    🌱 ARM processor support
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computer-vision" class="md-nav__link">
+    🌱 Computer Vision
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mobile-apps" class="md-nav__link">
+    🌱 Mobile apps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databases-and-data-stores" class="md-nav__link">
+    🌱 Databases and data stores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    🌱 Debugging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hot-code-loading" class="md-nav__link">
+    🌱 Hot code loading
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systems-embedded-programming" class="md-nav__link">
+    🌱 Systems / embedded programming
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/" class="md-nav__link">
+        Dictionaries and sets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickcheck/" class="md-nav__link">
+        Property-based testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aeson/" class="md-nav__link">
+        JSON
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mtl/" class="md-nav__link">
+        Side-Effects
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../megaparsec/" class="md-nav__link">
+        Parsing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lens/" class="md-nav__link">
+        Lenses
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Case Study
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Case Study" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Case Study
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../casestudy/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../casestudy/chess/" class="md-nav__link">
+        Chess Logic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../casestudy/parser/" class="md-nav__link">
+        Parsing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../casestudy/evaluator/" class="md-nav__link">
+        Evaluator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../casestudy/repl/" class="md-nav__link">
+        REPL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../casestudy/tests/" class="md-nav__link">
+        Tests
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Gotchas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gotchas" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Gotchas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gotchas/lists/" class="md-nav__link">
+        Lists
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gotchas/punning/" class="md-nav__link">
+        Punning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gotchas/strings/" class="md-nav__link">
+        Strings
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gotchas/show/" class="md-nav__link">
+        Show value
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gotchas/mutation/" class="md-nav__link">
+        Updating a variable
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gotchas/functiontype/" class="md-nav__link">
+        Varying output type
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gotchas/tupleLength/" class="md-nav__link">
+        Length of tuple
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gotchas/typevsvalue/" class="md-nav__link">
+        Confusing type and value
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          FAQs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="FAQs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          FAQs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faqs/multipleArguments/" class="md-nav__link">
+        Multiple Arguments
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faqs/optionalArguments/" class="md-nav__link">
+        Optional Arguments
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faqs/dollar/" class="md-nav__link">
+        Dollar sign
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faqs/convertingnumbers/" class="md-nav__link">
+        Coercions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faqs/functionFunctor/" class="md-nav__link">
+        fmap with a function
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faqs/numbers/" class="md-nav__link">
+        Converting Numbers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faqs/debugging/" class="md-nav__link">
+        Debugging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faqs/io/" class="md-nav__link">
+        I/O
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faqs/dependentOutput/" class="md-nav__link">
+        Output depends on input
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faqs/newtype/" class="md-nav__link">
+        Newtype
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Resources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/resources/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/articles/" class="md-nav__link">
+        Articles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/books/" class="md-nav__link">
+        Books
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/stackoverflow/" class="md-nav__link">
+        Stack Overflow
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#compilers" class="md-nav__link">
+    🏆 Compilers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-machine-concurrency" class="md-nav__link">
+    🏆 Single-machine Concurrency
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parsing-pretty-printing" class="md-nav__link">
+    🏆 Parsing / Pretty-printing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-side-web-programming" class="md-nav__link">
+    🥈 Server-side web programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    🥈 Testing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-structures-and-algorithms" class="md-nav__link">
+    🥈 Data structures and algorithms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benchmarking" class="md-nav__link">
+    🥈 Benchmarking
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unicode" class="md-nav__link">
+    🥈 Unicode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stream-programming" class="md-nav__link">
+    🥈 Stream programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serialization" class="md-nav__link">
+    🥈 Serialization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ide-support" class="md-nav__link">
+    🥈 IDE support
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-for-file-formats" class="md-nav__link">
+    🥈 Support for file formats
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    🥈 Logging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-formatting" class="md-nav__link">
+    🥈 Code formatting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripting" class="md-nav__link">
+    🥈 Scripting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-science" class="md-nav__link">
+    🌱 Data science
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numerical-programming" class="md-nav__link">
+    🌱 Numerical programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#front-end-web-programming" class="md-nav__link">
+    🌱 Front-end web programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distributed-programming" class="md-nav__link">
+    🌱 Distributed programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standalone-gui-applications" class="md-nav__link">
+    🌱 Standalone GUI applications
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#machine-learning" class="md-nav__link">
+    🌱 Machine learning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#game-programming" class="md-nav__link">
+    🌱 Game programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arm-processor-support" class="md-nav__link">
+    🌱 ARM processor support
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computer-vision" class="md-nav__link">
+    🌱 Computer Vision
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mobile-apps" class="md-nav__link">
+    🌱 Mobile apps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databases-and-data-stores" class="md-nav__link">
+    🌱 Databases and data stores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    🌱 Debugging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hot-code-loading" class="md-nav__link">
+    🌱 Hot code loading
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systems-embedded-programming" class="md-nav__link">
+    🌱 Systems / embedded programming
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/reubenharry/haskell-docs/edit/main/docs/docs/packages/survey.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+
+  <h1>Overview of the ecosystem</h1>
+
+<div class="admonition disclaimer">
+<p class="admonition-title">Disclaimer</p>
+<p>This section is adapted from Gabriella Gonzalez' <a href="https://github.com/Gabriella439/post-rfc/blob/main/sotu.md">State of the Ecosystem</a>, which is licensed <a href="https://github.com/Gabriella439/post-rfc/blob/main/LICENSE.md">here</a>.</p>
+<p>Some of the text has been cropped or modified.</p>
+<details class="contributors">
+<summary>Contributors</summary>
+<ul>
+<li>Aaron Levin</li>
+<li>Alois Cochard</li>
+<li>Ben Kovach</li>
+<li>Benno Fünfstück</li>
+<li>Carlo Hamalainen</li>
+<li>Chris Allen</li>
+<li>Curtis Gagliardi</li>
+<li>Deech</li>
+<li>David Howlett</li>
+<li>David Johnson</li>
+<li>Edward Cho</li>
+<li>Greg Weber</li>
+<li>Gregor Uhlenheuer</li>
+<li>Juan Pedro Villa Isaza</li>
+<li>Kazu Yamamoto</li>
+<li>Kevin Cantu</li>
+<li>Kirill Zaborsky</li>
+<li>Liam O'Connor-Davis</li>
+<li>Luke Randall</li>
+<li>Marcio Klepacz</li>
+<li>Mitchell Rosen</li>
+<li>Nicolas Kaiser</li>
+<li>Oliver Charles</li>
+<li>Pierre Radermecker</li>
+<li>Rodrigo B. de Oliveira</li>
+<li>Stephen Diehl</li>
+<li>Tim Docker</li>
+<li>Tran Ma</li>
+<li>Yuriy Syrovetskiy</li>
+<li><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/bburdette" title="GitHub User: bburdette">@bburdette</a></li>
+<li><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/co-dan" title="GitHub User: co-dan">@co-dan</a></li>
+<li><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/ExternalReality" title="GitHub User: ExternalReality">@ExternalReality</a></li>
+<li><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/GetContented" title="GitHub User: GetContented">@GetContented</a></li>
+<li><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/psibi" title="GitHub User: psibi">@psibi</a></li>
+<li><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/newswim" title="GitHub User: newswim">@newswim</a></li>
+</ul>
+</details>
+</div>
+<div class="admonition legend">
+<p class="admonition-title">Legend</p>
+<p>🏆 = <strong>Best in class</strong>: the best experience in any language</p>
+<p>🥈 = <strong>Mature</strong>: suitable for most programmers</p>
+<p>🌱 = <strong>Immature</strong>: acceptable for early-adopters</p>
+<p>⛔ = <strong>Undeveloped</strong></p>
+</div>
+<h2 id="compilers">🏆 Compilers<a class="headerlink" href="#compilers" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/parsec"><code>parsec</code></a> / <a href="https://hackage.haskell.org/package/megaparsec"><code>megaparsec</code></a> / <a href="https://hackage.haskell.org/package/attoparsec"><code>attoparsec</code></a> / <a href="https://hackage.haskell.org/package/trifecta"><code>trifecta</code></a> / <a href="https://hackage.haskell.org/package/alex"><code>alex</code></a>+<a href="https://hackage.haskell.org/package/happy"><code>happy</code></a> - parsing libraries</li>
+<li><a href="https://hackage.haskell.org/package/bound"><code>bound</code></a> / <a href="https://hackage.haskell.org/package/unbound"><code>unbound</code></a> - manipulating bound variables</li>
+<li><a href="https://hackage.haskell.org/package/hoopl"><code>hoopl</code></a> - optimization</li>
+<li><a href="https://hackage.haskell.org/package/uuagc"><code>uuagc</code></a> - attribute grammars</li>
+<li><a href="https://hackage.haskell.org/package/unification-fd"><code>unification-fd</code></a> - fast structural unification</li>
+<li><a href="https://hackage.haskell.org/package/prettyprinter"><code>prettyprinter</code></a> - pretty-printing</li>
+<li><a href="https://hackage.haskell.org/package/llvm-general"><code>llvm-general</code></a> - LLVM 3.5 API</li>
+<li><a href="https://hackage.haskell.org/package/llvm-hs"><code>llvm-hs</code></a> - LLVM 5 API (actively maintained fork of llvm-general)</li>
+<li><code>language-</code>{<a href="https://hackage.haskell.org/package/language-ecmascript"><code>ecmascript</code></a>|<a href="https://hackage.haskell.org/package/language-python"><code>python</code></a>|<a href="https://hackage.haskell.org/package/language-c-quote"><code>c-quote</code></a>|<a href="https://hackage.haskell.org/package/language-lua"><code>lua</code></a>|<a href="https://hackage.haskell.org/package/language-java"><code>java</code></a>|<a href="https://hackage.haskell.org/package/language-objc"><code>objc</code></a>|<a href="https://hackage.haskell.org/package/language-cil"><code>cil</code></a>} - parsers and
+   pretty-printers for other languages</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>Haskell originated in academia, and most languages of academic origin (such as
+the ML family of languages) excel at compiler-related tasks for obvious
+reasons.  As a result the language has a rich ecosystem of libraries dedicated
+to compiler-related tasks, such as parsing, pretty-printing, unification,
+bound variables, syntax tree manipulations, and optimization.</p>
+<p><strong>Some compilers written in Haskell:</strong></p>
+<ul>
+<li><a href="http://elm-lang.org"><code>Elm</code></a></li>
+<li><a href="http://www.purescript.org"><code>Purescript</code></a></li>
+<li><a href="http://www.idris-lang.org"><code>Idris</code></a></li>
+<li><a href="http://wiki.portal.chalmers.se/agda/pmwiki.php"><code>Agda</code></a></li>
+<li><a href="http://www.perlfoundation.org/perl6/index.cgi?pugs"><code>Pugs</code></a> (the first Perl 6 implementation)</li>
+<li><a href="https://www.haskell.org/ghc/"><code>ghc</code></a> (self-hosting)</li>
+<li><a href="https://github.com/Frege/frege"><code>frege</code></a> (very similar to Haskell, also self-hosting)</li>
+<li><a href="https://github.com/mattgreen/hython"><code>hython</code></a> (a Python3 interpreter written in Haskell)</li>
+<li><a href="http://lasca-lang.org"><code>Lasca</code></a> (a small Scala-like language with global type inference and optional dynamic mode on LLVM backend)</li>
+<li><a href="https://github.com/tadeuzagallo/verve-lang"><code>verve</code></a> - Functional language with object-oriented support</li>
+<li><a href="https://github.com/ollef/sixten"><code>sixten</code></a> - Haskell/Idris-style language with a focus on precise and efficient memory layout</li>
+<li><a href="https://github.com/carp-lang/Carp"><code>carp</code></a> - An efficient, statically typed Lisp with ownership tracking.</li>
+<li><a href="https://github.com/unisonweb/unison"><code>unison</code></a> - A purely functional distributed programming language with algebraic effects.</li>
+<li><a href="https://github.com/oden-lang/oden"><code>oden</code></a> (no longer in active development)</li>
+</ul>
+<p><strong>Educational resources:</strong></p>
+<ul>
+<li><a href="http://dev.stephendiehl.com/fun/">Write you a Haskell</a></li>
+<li><a href="http://www.andres-loeh.de/LambdaPi/">A Tutorial Implementation of a Dependently Typed Lambda Calculus</a></li>
+<li><a href="http://ozark.hendrix.edu/~yorgey/pub/unbound.pdf">Binders Unbound</a></li>
+</ul>
+<p><strong>Success stories:</strong></p>
+<ul>
+<li><a href="https://github.com/oden-lang/oden-lang.github.io/blob/master/blog/_posts/2016-01-17-the-haskell-rewrite.md">Oden restrospective on rewrite from Racket to Haskell</a></li>
+</ul>
+</details>
+<!-- ## 🏆 Maintenance
+
+??? Commentary
+
+    Haskell is fantastic for maintaining large projects.  It's hard to fully convey how nice it is to modify existing Haskell code.  You can only appreciate this through experience.
+
+    You can easily approach a large Haskell code base written by somebody else and make sweeping
+    architectural changes to the project without breaking the code.
+
+    You'll often hear people say: "if it compiles, it works".  A more accurate statement is: "if you refactor and
+    it compiles, it works".  This lets you move fast without breaking things.
+
+    Most statically typed languages are easy to maintain, but Haskell is on its
+    own level for the following reasons:
+
+    * Strong types
+    * Purity
+    * Global type inference
+    * Type classes
+    * Laziness
+
+    The latter three features are what differentiate Haskell from other statically
+    typed languages.
+
+    If you've ever maintained code in other languages you know that usually your
+    test suite breaks the moment you make large changes to your code base and you
+    have to spend a significant amount of effort keeping your test suite up to date
+    with your changes.  However, Haskell has a very powerful type system that lets
+    you transform tests into invariants that are enforced by the types so that you
+    can statically eliminate entire classes of errors at compile time.  These
+    types are much more flexible than tests when modifying code and types require
+    much less upkeep as you make large changes.
+
+    The Haskell community and ecosystem use the type system heavily to "test" their
+    applications, more so than other programming language communities.  That's not
+    to say that Haskell programmers don't write tests (they do), but rather they
+    prefer types over tests when they have the option.
+
+    Global type inference means that you don't have to update types and interfaces
+    as you change the code.  Whenever you do a large refactor, you can delete all type signatures and let the compiler infer the types and interfaces as you go.  When you're done refactoring, you can just insert back the type
+    signatures that the compiler infers as machine-checked documentation.
+
+    Type classes also assist refactoring because the compiler automatically
+    infers type class constraints (analogous to interfaces in other languages) so
+    that you don't need to explicitly annotate interfaces.  This is a huge time
+    saver.
+
+    Laziness deserves special mention because many outsiders do not appreciate how
+    laziness simplifies maintenance.  Many languages require tight coupling between
+    producers and consumers of data structures in order to avoid wasteful
+    evaluation, but laziness avoids this problem by only evaluating data structures
+    on demand.  This means that if your refactoring process changes the order in
+    which data structures are consumed or even stops referencing them altogether
+    you don't need to reorder or delete those data structures.  They will just
+    sit around patiently waiting until they are actually needed, if ever, before
+    they are evaluated.
+ -->
+
+<h2 id="single-machine-concurrency">🏆 Single-machine Concurrency<a class="headerlink" href="#single-machine-concurrency" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/stm"><code>stm</code></a> - Software transactional memory</li>
+<li><a href="https://hackage.haskell.org/package/unagi-chan"><code>unagi-chan</code></a> - High performance channels</li>
+<li><a href="https://hackage.haskell.org/package/async"><code>async</code></a> - Futures library</li>
+<li><a href="http://hackage.haskell.org/package/streamly"><code>streamly</code></a> - A streaming library offering high performance concurrency</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>Haskell's concurrency runtime
+performs as well or better than other mainstream languages and is significantly easier
+to use due to the runtime support for software-transactional memory.</p>
+<p>The best explanation of Haskell's threading module is the documentation in
+<code>Control.Concurrent</code>:</p>
+<blockquote>
+<p>Concurrency is "lightweight", which means that both thread creation and
+context switching overheads are extremely low. Scheduling of Haskell threads
+is done internally in the Haskell runtime system, and doesn't make use of any
+operating system-supplied thread packages.</p>
+</blockquote>
+<p>In Haskell, all I/O is non-blocking by default, so for example a web server
+will just spawn one lightweight thread per connection and each thread can be
+written in an ordinary synchronous style instead of nested callbacks like in
+Node.js.</p>
+<p>The best way to explain the performance of Haskell's threaded runtime is to
+give hard numbers:</p>
+<ul>
+<li>The Haskell thread scheduler can easily handle millions of threads</li>
+<li>Each thread requires 1 kb of memory, so the hard limitation to thread count
+is memory (1 GB per million threads).</li>
+<li>Haskell channel overhead for the standard library (using <code>TQueue</code>) is on the
+order of one microsecond per message and degrades linearly with increasing
+contention</li>
+<li>Haskell channel overhead using the <code>unagi-chan</code> library is on the order of
+100 nanoseconds (even under contention)</li>
+<li>Haskell's <code>MVar</code> (a low-level concurrency communication primitive) requires
+10-20 ns to add or remove values (roughly on par with acquiring or releasing
+a lock in other languages)</li>
+</ul>
+<p>Haskell also provides software-transactional memory, which allows programmers
+build composable and atomic memory transactions.  You can compose transactions
+together in multiple ways to build larger transactions:</p>
+<ul>
+<li>You can sequence two transactions to build a larger atomic transaction</li>
+<li>You can combine two transactions using alternation, falling back on the
+second transaction if the first one fails</li>
+<li>Transactions can retry, rolling back their state and sleeping until one
+of their dependencies changes in order to avoid wasteful polling</li>
+</ul>
+<p>A few other languages provide software-transactional memory, but Haskell's
+implementation has two main advantages over other implementations:</p>
+<ul>
+<li>The type system enforces that transactions only permit reversible memory
+modifications.  This guarantees at compile time that all transactions can
+be safely rolled back.</li>
+<li>Haskell's STM runtime takes advantage of enforced purity to improve the
+efficiency of transactions, retries, and alternation.</li>
+</ul>
+<p>Haskell is also the only language that supports both software transactional
+memory and non-blocking I/O.</p>
+<p><strong>Educational resources:</strong></p>
+<ul>
+<li><a href="http://chimera.labs.oreilly.com/books/1230000000929">Parallel and Concurrent Programming in Haskell</a></li>
+<li><a href="http://chimera.labs.oreilly.com/books/1230000000929/ch10.html#sec_stm-async">Parallel and Concurrent Programming in Haskell - Software transactional
+memory</a></li>
+<li><a href="https://www.fpcomplete.com/school/advanced-haskell/beautiful-concurrency">Beautiful concurrency</a> - a software-transactional memory tutorial</li>
+<li><a href="https://github.com/jberryman/chan-benchmarks#some-analysis-of-primitive-operations">Performance numbers for primitive operations</a> - Latency timings for
+various low-level operations</li>
+</ul>
+<p><strong>Success Stories:</strong></p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/3847108/what-is-the-haskell-response-to-node-js">What is the Haskell response to Node.js?</a></li>
+<li><a href="https://blog.lahteenmaki.net/haskell-and-non-blocking-asynchronous-io.html">Haskell and non-blocking asynchronous IO</a></li>
+</ul>
+</details>
+<h2 id="parsing-pretty-printing">🏆 Parsing / Pretty-printing<a class="headerlink" href="#parsing-pretty-printing" title="Permanent link">&para;</a></h2>
+<p><strong>Parsing libraries:</strong></p>
+<!-- * [`parsec`](https://hackage.haskell.org/package/parsec) - Best overall "value" -->
+<ul>
+<li><a href="https://hackage.haskell.org/package/megaparsec"><code>megaparsec</code></a> - Modern, actively maintained fork of <code>parsec</code></li>
+<li><a href="https://hackage.haskell.org/package/attoparsec"><code>attoparsec</code></a> - Extremely fast backtracking parser</li>
+<li><a href="https://hackage.haskell.org/package/Earley"><code>Earley</code></a> - Earley parsing
+  embedded within the Haskell language.  Parses all context-free
+  grammars, even ambiguous ones, with no need to left factor.
+  Returns all valid parses.</li>
+<li><a href="https://hackage.haskell.org/package/trifecta"><code>trifecta</code></a> - Best error messages (<code>clang</code>-style)</li>
+<li><a href="https://hackage.haskell.org/package/parsers"><code>parsers</code></a> - Interface compatible with <code>attoparsec</code>, <code>parsec</code> and <code>trifecta</code> which lets you easily switch between them.  People commonly use this library to begin with <code>trifecta</code> or <code>parsec</code> (for better error messages) then switch to <code>attoparsec</code> when done for performance</li>
+<li><a href="https://hackage.haskell.org/package/alex"><code>alex</code></a> / <a href="https://hackage.haskell.org/package/happy"><code>happy</code></a> - Like <code>lexx</code> / <code>yacc</code> but with Haskell integration</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>Haskell parsing is extremely powerful.  Recursive descent parser combinators are
+far-and-away the most popular parsing paradigm within the Haskell ecosystem, so
+much so that people use them even in place of regular expressions. </p>
+<p>If you're not sure what library to pick, we generally recommend the <code>megaparsec</code>
+library as a default well-rounded choice because it strikes a decent balance
+between ease-of-use, performance, good error messages, and small dependencies.</p>
+<p><code>attoparsec</code> deserves special mention as an extremely fast backtracking parsing
+library.  The speed and simplicity of this library will blow you away.  The
+main deficiency of <code>attoparsec</code> is the poor error messages.</p>
+<p>The pretty-printing front is also excellent.  Academic researchers just really
+love writing pretty-printing libraries in Haskell for some reason.</p>
+<p><strong>Pretty-printing libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/prettyprinter"><code>prettyprinter</code></a> - Pretty-printing library</li>
+<li><a href="https://hackage.haskell.org/package/text-format"><code>text-format</code></a> - High-performance string formatting</li>
+</ul>
+<p><strong>Educational resources:</strong></p>
+<ul>
+<li><a href="http://www.cs.nott.ac.uk/~gmh/pearl.pdf">Monadic Parsing in Haskell</a></li>
+</ul>
+<p><strong>Success Stories:</strong></p>
+<ul>
+<li><a href="http://www.serpentine.com/blog/2014/05/31/attoparsec/">A major upgrade to attoparsec: more speed, more power</a></li>
+</ul>
+</details>
+<h2 id="server-side-web-programming">🥈 Server-side web programming<a class="headerlink" href="#server-side-web-programming" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/aeson"><code>aeson</code></a> - Parsing and generation of JSON</li>
+<li><a href="https://hackage.haskell.org/package/warp"><code>warp</code></a> / <a href="https://hackage.haskell.org/package/wai"><code>wai</code></a> - the low-level server and API that all server libraries share, with the exception of <code>snap</code></li>
+<li><a href="https://hackage.haskell.org/package/scotty"><code>scotty</code></a> - A beginner-friendly server framework analogous to Ruby's Sinatra</li>
+<li><a href="https://www.spock.li/"><code>spock</code></a> - Lighter than the "enterprise" frameworks, but more featureful than scotty (type-safe routing, sessions, conn pooling, csrf protection, authentication, etc)</li>
+<li><a href="https://hackage.haskell.org/package/yesod"><code>yesod</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=yesod"><code>yesod-*</code></a> / <a href="https://hackage.haskell.org/package/snap"><code>snap</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=snap"><code>snap-*</code></a> / <a href="https://hackage.haskell.org/package/happstack-server"><code>happstack-server</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=happstack"><code>happstack-*</code></a> - "Enterprise" server frameworks with all the bells and whistles</li>
+<li><a href="https://ihp.digitallyinduced.com/"><code>ihp</code></a> - batteries-included web framework with a friendly and helpful community. The best choice when getting started with haskell.</li>
+<li><a href="https://hackage.haskell.org/package/servant"><code>servant</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=servant"><code>servant-*</code></a> - Library for type-safe REST servers and clients that might blow your mind</li>
+<li><a href="http://hackage.haskell.org/package/graphql-api"><code>graphql-api</code></a> - Implement a GraphQL API</li>
+<li><a href="https://hackage.haskell.org/package/websockets"><code>websockets</code></a> - Standalone websockets client and server</li>
+<li><a href="https://hackage.haskell.org/package/authenticate"><code>authenticate</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=authenticate"><code>authenticate-*</code></a> - Shared authentication libraries</li>
+<li><a href="https://hackage.haskell.org/package/ekg"><code>ekg</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=ekg"><code>ekg-*</code></a> - Haskell service monitoring</li>
+<li><a href="https://hackage.haskell.org/package/stm"><code>stm</code></a> - Software-transactional memory</li>
+<li><a href="https://hackage.haskell.org/package/lucid"><code>lucid</code></a> - Haskell DSL for
+  building HTML</li>
+<li><a href="https://hackage.haskell.org/package/mustache"><code>mustache</code></a> / <a href="https://hackage.haskell.org/package/karver"><code>karver</code></a> - Templating libraries</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>The main features in this category that Haskell brings to the table are:</p>
+<ul>
+<li>Server stability</li>
+<li>Performance</li>
+<li>Ease of concurrent programming</li>
+<li>Excellent support for web standards</li>
+</ul>
+<p>The strong type system and polished runtime greatly improve server stability
+and simplify maintenance.  This is the greatest differentiator of Haskell from
+other backend languages, because it significantly reduces the
+total-cost-of-ownership.  You should expect that you can maintain Haskell-based
+services with significantly fewer programmers than other languages, even when
+compared to other statically typed languages.</p>
+<p>The greatest weakness of server stability is space leaks.  The most
+common solution that I know of is to use <code>ekg</code> (a process monitor) to examine
+a server's memory stability before deploying to production.  The second most
+common solution is to learn to detect and prevent space leaks with experience,
+which is not as hard as people think.</p>
+<p>Haskell's performance is excellent and currently comparable to Java.  Both
+languages give roughly the same performance in beginner or expert hands,
+although for different reasons.</p>
+<p>Where Haskell shines in usability is the runtime support for the following
+three features:</p>
+<ul>
+<li>software transactional memory (which differentiates Haskell from Go)</li>
+<li>lightweight threads that use non-blocking I/O (which differentiates Haskell from the JVM)</li>
+<li>garbage collection (which differentiates Haskell from Rust)</li>
+</ul>
+<p>If you have never tried out Haskell's software transactional memory (STM), we highly recommend giving it a go, since it eliminates a large number of concurrency logic bugs.  STM is far and away the most underestimated feature of the Haskell runtime.</p>
+<p><strong>Some web sites,services, and projects powered by Haskell:</strong></p>
+<ul>
+<li>Facebook's spam filter: Sigma</li>
+<li>IMVU's REST API</li>
+<li>Utrecht's bicycle parking guidance system</li>
+<li><a href="http://elm-lang.org/">elm-lang.org</a></li>
+<li><a href="http://glot.io/">glot.io</a></li>
+<li><a href="http://pbfcomics.com/">The Perry Bible Fellowship</a></li>
+<li><a href="https://www.silk.co">Silk</a></li>
+<li><a href="http://www.shellcheck.net/">Shellcheck</a></li>
+<li><a href="http://instantwatcher.com/">instantwatcher.com</a></li>
+<li><a href="http://markup.rocks/">markup.rocks</a></li>
+<li><a href="http://zoomhub.net/">ZoomHub</a> (<a href="https://github.com/zoomhub/zoomhub">Code</a>)</li>
+<li><a href="https://postgrest.com/en/v4.3/">PostgREST</a> - Generates a REST API for a
+Postgres database</li>
+<li><a href="https://github.com/hasura/graphql-engine">Hasura</a></li>
+<li><a href="https://mercury.com/">Mercury</a></li>
+</ul>
+<p><strong>Success Stories:</strong></p>
+<ul>
+<li><a href="https://code.facebook.com/posts/745068642270222/fighting-spam-with-haskell/">Fighting spam with Haskell - Haskell in production, at scale, at Facebook</a></li>
+<li><a href="http://engineering.imvu.com/2014/03/24/what-its-like-to-use-haskell/">IMVU Engineering - What it's like to use Haskell</a></li>
+<li><a href="https://www.reddit.com/r/haskell/comments/3959r0/haskellbased_bicycle_parking_guidance_system_in/">Haskell-based Bicycle Parking Guidance System in Utrecht</a></li>
+<li><a href="http://haskell.cs.yale.edu/wp-content/uploads/2013/08/hask035-voellmy.pdf">Mio: A High-Performance Multicore IO Manager for GHC</a></li>
+<li><a href="http://www.aosabook.org/en/posa/warp.html">The Performance of Open Source Applications - Warp</a></li>
+<li><a href="https://simonmar.github.io/posts/2015-07-28-optimising-garbage-collection-overhead-in-sigma.html">Optimising Garbage Collection Overhead in Sigma</a></li>
+<li>instantwatcher.com author comments on rewrite from Ruby to Haskell - <a href="http://www.reddit.com/r/haskell/comments/3am3qu/should_i_put_a_powered_by_haskell_tag_w_haskell/csef8eq">[1]</a>
+<a href="http://www.reddit.com/r/haskell/comments/3e10ea/til_instantwatcher_is_made_with_haskell/ctavz2m">[2]</a></li>
+<li><a href="https://blog.wearewizards.io/a-lot-of-websockets-in-haskell">A lot of websockets in Haskell</a> - A load test showing that a Haskell server can handle 500K connections in 10 GB of memory.  The load tester requires more resources than the server</li>
+</ul>
+<p><strong>Educational resources:</strong></p>
+<ul>
+<li><a href="https://www.schoolofhaskell.com/school/advanced-haskell/beautiful-concurrency">Beautiful concurrency</a> - a software-transactional memory tutorial</li>
+<li><a href="http://www.yesodweb.com/book">The Yesod book</a></li>
+<li><a href="https://haskell-servant.readthedocs.io/en/stable/tutorial/index.html">The Servant tutorial</a></li>
+<li><a href="http://www.happstack.com">Overview of Happstack</a></li>
+<li><a href="https://ihp.digitallyinduced.com/Guide/index.html">IHP Guide</a></li>
+<li><a href="https://ihpcasts.com/">IHP Casts</a></li>
+</ul>
+<p><strong>Notable hosting platforms:</strong></p>
+<ul>
+<li><a href="https://ihpcloud.com/">IHP Cloud</a></li>
+</ul>
+</details>
+<!-- ## 🥈 Domain-specific languages (DSLs)
+
+??? Commentary
+
+    Haskell is great at DSL-building.  While not as flexible as a Lisp language I
+    would venture that Haskell is the most flexible of the non-Lisp languages.
+    You can overload a large amount of built-in syntax for your custom DSL.
+
+    The most popular example of overloaded syntax is `do` notation, which you can
+    overload to work with any type that implements the `Monad` interface.  This
+    syntactic sugar for `Monad`s in turn led to a huge overabundance of `Monad`
+    tutorials.
+
+    However, there are lesser known but equally important things that you can
+    overload, such as:
+
+    * numeric and string literals
+    * `if`/`then`/`else` expressions
+    * list comprehensions
+    * numeric operators
+
+    **Educational resources:**
+
+    * [You could have invented monads](http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html)
+    * [Rebindable syntax](https://downloads.haskell.org/ghc/latest/docs/users_guide/exts/rebindable_syntax.html)
+    * [Monad comprehensions](https://downloads.haskell.org/ghc/latest/docs/users_guide/exts/monad_comprehensions.html)
+    * [Overloaded strings](https://www.fpcomplete.com/school/to-infinity-and-beyond/pick-of-the-week/guide-to-ghc-extensions/basic-syntax-extensions#overloadedstrings)
+
+ -->
+
+<h2 id="testing">🥈 Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/QuickCheck"><code>QuickCheck</code></a> - property-based testing</li>
+<li><a href="https://hackage.haskell.org/package/doctest"><code>doctest</code></a> - tests embedded directly within documentation</li>
+<li><a href="https://hackage.haskell.org/package/free"><code>free</code></a> - Haskell's abstract version of "dependency injection"</li>
+<li><a href="https://hackage.haskell.org/package/hspec"><code>hspec</code></a> - Testing library analogous to Ruby's RSpec</li>
+<li><a href="https://hackage.haskell.org/package/HUnit"><code>HUnit</code></a> - Testing library analogous to Java's JUnit</li>
+<li><a href="https://hackage.haskell.org/package/tasty"><code>tasty</code></a> - Combination unit / regression / property testing library</li>
+<li><a href="http://hackage.haskell.org/package/hedgehog"><code>hedgehog</code></a> - property-based testing with integrated shrinking</li>
+<li><a href="https://hackage.haskell.org/package/HTF"><code>HTF</code></a> - Preprocessor based unit testing with various output formats</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>There are a few places where Haskell is the clear leader among all languages:</p>
+<ul>
+<li>property-based testing</li>
+<li>mocking / dependency injection</li>
+</ul>
+<p>Haskell's <code>QuickCheck</code> is the gold standard which all other property-based
+testing libraries are measured against.  The reason <code>QuickCheck</code> works so
+smoothly in Haskell is due to Haskell's type class system and purity.  The type
+class system simplifies automatic generation of random data from the input type
+of the property test.  Purity means that any failing test result can be
+automatically minimized by rerunning the check on smaller and smaller inputs
+until <code>QuickCheck</code> identifies the corner case that triggers the failure.</p>
+<p>Haskell also supports most testing functionality that you expect from other
+languages, including:</p>
+<ul>
+<li>standard package interfaces for testing</li>
+<li>unit testing libraries</li>
+<li>test result summaries and visualization</li>
+</ul>
+<p><strong>Educational resources:</strong></p>
+<ul>
+<li><a href="http://www.haskellforall.com/2012/06/you-could-have-invented-free-monads.html">Why free monads matter</a></li>
+<li><a href="http://www.haskellforall.com/2012/07/purify-code-using-free-monads.html">Purify code using free monads</a></li>
+<li><a href="https://github.com/kazu-yamamoto/unit-test-example/blob/master/markdown/en/tutorial.md">Up-front Unit Testing in Haskell</a></li>
+</ul>
+</details>
+<h2 id="data-structures-and-algorithms">🥈 Data structures and algorithms<a class="headerlink" href="#data-structures-and-algorithms" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/vector"><code>vector</code></a> - High-performance arrays</li>
+<li><a href="https://hackage.haskell.org/package/containers"><code>containers</code></a> - High-performance <code>Map</code>s, <code>Set</code>s, <code>Tree</code>s, <code>Graph</code>s, <code>Seq</code>s</li>
+<li><a href="https://hackage.haskell.org/package/unordered-containers"><code>unordered-containers</code></a> - High-performance <code>HashMap</code>s, HashSets</li>
+<li><a href="https://hackage.haskell.org/package/accelerate"><code>accelerate</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=accelerate"><code>accelerate-*</code></a> - GPU programming</li>
+<li><a href="https://hackage.haskell.org/package/massiv"><code>massiv</code></a> / <a href="https://hackage.haskell.org/package/repa"><code>repa</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=repa"><code>repa-*</code></a> - parallel shape-polymorphic arrays</li>
+<li><a href="http://hackage.haskell.org/package/discrimination"><code>discrimination</code></a> - Efficient linear-time sorting for user-defined datatypes</li>
+<li><a href="https://hackage.haskell.org/package/algebraic-graphs"><code>algebraic-graphs</code></a></li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>Haskell primarily uses persistent data structures, meaning that when you
+"update" a persistent data structure you just create a new data structure and
+you can keep the old one around (thus the name: persistent).  Haskell data
+structures are immutable, so you don't actually create a deep copy of the data
+structure when updating; any new structure will reuse as much of the original
+data structure as possible.</p>
+<p>The <strong>Notable libraries</strong> sections contains links to Haskell collections
+libraries that are heavily tuned.  You should realistically expect these
+libraries to compete with tuned Java code.  However, you should not expect
+Haskell to match expertly tuned C++ code.</p>
+<p>The selection of algorithms is not as broad as in Java or C++ but it is still
+pretty good and diverse enough to cover the majority of use cases.</p>
+</details>
+<h2 id="benchmarking">🥈 Benchmarking<a class="headerlink" href="#benchmarking" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/criterion"><code>criterion</code></a></li>
+<li><a href="http://hackage.haskell.org/package/gauge"><code>gauge</code></a> offers a similar feature set as <code>criterion</code> but has much fewer dependencies</li>
+<li><a href="https://hackage.haskell.org/package/tasty-bench"><code>tasty-bench</code></a> even lighter than <code>gauge</code> with support for comparing benchmarks</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>This boils down exclusively to the <code>criterion</code> library, which was done so well
+that nobody bothered to write a competing library.  Notable <code>criterion</code>
+features include:</p>
+<ul>
+<li>Detailed statistical analysis of timing data</li>
+<li>Beautiful graph output: (<a href="http://www.serpentine.com/criterion/report.html">Example</a>)</li>
+<li>High-resolution analysis (accurate down to nanoseconds)</li>
+<li>Customizable HTML/CSV/JSON output</li>
+<li>Garbage collection insensitivity</li>
+</ul>
+<p><strong>Educational resources:</strong></p>
+<ul>
+<li><a href="http://www.serpentine.com/criterion/tutorial.html">The <code>criterion</code> tutorial</a></li>
+</ul>
+</details>
+<h2 id="unicode">🥈 Unicode<a class="headerlink" href="#unicode" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/text"><code>text</code></a></li>
+<li><a href="https://hackage.haskell.org/package/text-icu"><code>text-icu</code></a></li>
+<li><a href="https://hackage.haskell.org/package/unicode-transforms"><code>unicode-transforms</code></a> – Unicode normalization</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>Haskell's Unicode support is excellent.  Just use the <code>text</code> and <code>text-icu</code>
+libraries, which provide a high-performance, space-efficient, and easy-to-use
+API for Unicode-aware text operations.</p>
+<p>Note that there is one big catch: the default <code>String</code> type in Haskell is
+inefficient.  You should always use <code>Text</code> whenever possible.</p>
+</details>
+<h2 id="stream-programming">🥈 Stream programming<a class="headerlink" href="#stream-programming" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/conduit"><code>conduit</code></a> / <a href="https://hackage.haskell.org/package/io-streams"><code>io-streams</code></a> / <a href="https://hackage.haskell.org/package/pipes"><code>pipes</code></a> / <a href="https://hackage.haskell.org/package/streaming"><code>streaming</code></a> / <a href="http://hackage.haskell.org/package/streamly"><code>streamly</code></a> - Stream programming libraries</li>
+<li><a href="https://hackage.haskell.org/package/machines"><code>machines</code></a> - Networked stream transducers library</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>Haskell's streaming ecosystem is mature.  Probably the biggest issue is that
+there are too many good choices (and a lot of ecosystem fragmentation as a
+result), but each of the streaming libraries listed below has a sufficiently
+rich ecosystem including common streaming tasks like:</p>
+<ul>
+<li>Network transmissions</li>
+<li>Compression</li>
+<li>External process pipes</li>
+<li>High-performance streaming aggregation</li>
+<li>Concurrent streams</li>
+<li>Incremental parsing</li>
+</ul>
+<p><strong>Educational resources:</strong></p>
+<ul>
+<li><a href="https://streamly.composewell.com/">The official <code>streamly</code> manual</a></li>
+<li><a href="https://www.fpcomplete.com/school/to-infinity-and-beyond/pick-of-the-week/conduit-overview">The official <code>conduit</code> tutorial</a></li>
+<li><a href="http://hackage.haskell.org/package/pipes/docs/Pipes-Tutorial.html">The official <code>pipes</code> tutorial</a></li>
+<li><a href="http://hackage.haskell.org/package/io-streams/docs/System-IO-Streams-Tutorial.html">The official <code>io-streams</code> tutorial</a></li>
+<li><a href="https://github.com/composewell/streaming-benchmarks">A benchmark of popular streaming libraries</a></li>
+</ul>
+</details>
+<h2 id="serialization">🥈 Serialization<a class="headerlink" href="#serialization" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/binary"><code>binary</code></a> / <a href="https://hackage.haskell.org/package/cereal"><code>cereal</code></a> / <a href="http://hackage.haskell.org/package/serialise"><code>serialise</code></a> / <a href="http://hackage.haskell.org/package/store"><code>store</code></a> - serialization / deserialization libraries</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>Haskell's serialization libraries are reasonably efficient and very easy to
+use.  You can easily automatically derive serializers/deserializers for
+user-defined data types and it's very easy to encode/decode values.</p>
+<p>Haskell's serialization does not suffer from any of the gotchas that
+object-oriented languages deal with (particularly Java/Scala).  Haskell data
+types don't have associated methods or state to deal with so
+serialization/deserialization is straightforward and obvious.  That's also
+why you can automatically derive correct serializers/deserializers.</p>
+<p>Serialization performance is pretty good.  You should expect to serialize data
+at a rate between 100 Mb/s to 1 Gb/s with careful tuning.  Serialization
+performance still has about 3x-5x room for improvement by multiple independent
+estimates.  See the "Faster binary serialization" link below for details of the
+ongoing work to improve the serialization speed of existing libraries.</p>
+<p><strong>Educational resources:</strong></p>
+<ul>
+<li><a href="https://github.com/haskell-perf/serialization">Benchmarks of several popular serialization libraries</a></li>
+<li><a href="http://code.haskell.org/~duncan/binary-experiment/binary.pdf">Faster binary serialization</a> / <a href="https://github.com/meiersi/HaskellerZ/blob/master/meetups/20150529-ZuriHac2015_Duncan_Coutts-Better_Faster_Binary_Serialization/binary.pdf">Better, faster binary serialization</a> - Slides on serialization efficiency improvements</li>
+</ul>
+</details>
+<h2 id="ide-support">🥈 IDE support<a class="headerlink" href="#ide-support" title="Permanent link">&para;</a></h2>
+<p>The <em>Haskell Language Server</em> provides IDE support for editors which support Microsoft's Language Service Protocol (LSP). The easiest of these to use is VSCode, but other choices like vim will work.</p>
+<p>The <em>Haskell Language Server</em> is included as part of Haskell's installer, GHCup.</p>
+<h2 id="support-for-file-formats">🥈 Support for file formats<a class="headerlink" href="#support-for-file-formats" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/aeson"><code>aeson</code></a> - JSON encoding/decoding</li>
+<li><a href="https://hackage.haskell.org/package/cassava"><code>cassava</code></a> / <a href="http://hackage.haskell.org/package/sv"><code>sv</code></a>- CSV encoding/decoding</li>
+<li><a href="https://hackage.haskell.org/package/yaml"><code>yaml</code></a> - YAML encoding/decoding</li>
+<li><a href="https://hackage.haskell.org/package/HsYAML"><code>HsYAML</code></a> - pure Haskell YAML 1.2 parser</li>
+<li><a href="https://hackage.haskell.org/package/xml"><code>xml</code></a> - XML encoding/decoding</li>
+<li><a href="http://hackage.haskell.org/package/tomland"><code>tomland</code></a> - TOML encoding/decoding</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>Haskell supports all the common domain-independent serialization formats (i.e.
+XML/JSON/YAML/CSV).  For more exotic formats Haskell won't be as good as, say,
+Python (which is notorious for supporting a huge number of file formats) but
+it's so easy to write your own quick and dirty parser in Haskell that this is
+not much of an issue.</p>
+</details>
+<h2 id="logging">🥈 Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://hackage.haskell.org/package/fast-logger"><code>fast-logger</code></a> - High-performance multicore logging system</li>
+<li><a href="https://hackage.haskell.org/package/hslogger"><code>hslogger</code></a> - Logging library analogous to Python's <code>logging</code> library</li>
+<li><a href="https://hackage.haskell.org/package/monad-logger"><code>monad-logger</code></a> - add logging with line numbers to your monad stack. Uses fast-logger under the hood.</li>
+<li><a href="http://hackage.haskell.org/package/katip"><code>katip</code></a> - Structured logging</li>
+<li><a href="https://hackage.haskell.org/package/log-base"><code>log</code></a> - Logging system with ElasticSearch, PostgreSQL and stdout sinks.</li>
+<li><a href="https://hackage.haskell.org/package/co-log"><code>co-log</code></a> - Composable contravariant comonadic logging library.</li>
+</ul>
+<h2 id="code-formatting">🥈 Code formatting<a class="headerlink" href="#code-formatting" title="Permanent link">&para;</a></h2>
+<p>Haskell has tools for automatic code formatting:</p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/ormolu"><code>ormolu</code></a> - More opinionated formatting tool that uses GHC's own parser</li>
+<li><a href="https://github.com/fourmolu/fourmolu"><code>fourmolu</code></a> - like <code>ormolu</code> but with configurability</li>
+<li><a href="https://hackage.haskell.org/package/stylish-haskell"><code>stylish-haskell</code></a> - Less opinionated code formatting tool that mostly formats imports, language extensions, and data type definitions</li>
+</ul>
+<h2 id="scripting">🥈 Scripting<a class="headerlink" href="#scripting" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/shelly"><code>shelly</code></a> / <a href="https://hackage.haskell.org/package/turtle"><code>turtle</code></a> / <a href="http://hackage.haskell.org/package/shellmet"><code>shellmet</code></a> - scripting libraries</li>
+<li><a href="https://hackage.haskell.org/package/optparse-applicative"><code>optparse-applicative</code></a> / <a href="https://hackage.haskell.org/package/cmdargs"><code>cmdargs</code></a> - command-line argument parsing</li>
+<li><a href="https://hackage.haskell.org/package/haskeline"><code>haskeline</code></a> - a complete Haskell implementation of <code>readline</code> for console
+  building</li>
+<li><a href="https://hackage.haskell.org/package/process"><code>process</code></a> - low-level library for sub-process management</li>
+<li><a href="https://hackage.haskell.org/package/ansi-terminal"><code>ansi-terminal</code></a> - de facto standard cross-platform terminal library (works on Windows as well)</li>
+<li><a href="http://hackage.haskell.org/package/brick"><code>brick</code></a> - terminal user interfaces (TUIs)</li>
+<li><a href="https://hackage.haskell.org/package/path"><code>path</code></a> / <a href="https://hackage.haskell.org/package/path-io"><code>path-io</code></a> - type safe handling of file paths</li>
+<li><a href="http://hackage.haskell.org/package/http-client"><code>http-client</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=http-client"><code>http-client-*</code></a> / <a href="http://hackage.haskell.org/package/req"><code>req</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=req"><code>req-*</code></a> / <a href="http://hackage.haskell.org/package/wreq"><code>wreq</code></a> - HTTP clients</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>Haskell's biggest advantage as a scripting language is that Haskell is the
+most widely adopted language that supports global type inference.  Many
+languages support local type inference (such as Rust, Go, Java, C#), which
+means that function argument types and interfaces must be declared but
+everything else can be inferred.  In Haskell, you can omit everything: all
+types and interfaces are completely inferred by the compiler (with some
+caveats, but they are minor).</p>
+<p>Global type inference gives Haskell the feel of a scripting language while
+still providing static assurances of safety.  Script type safety matters in
+particular for enterprise environments where glue scripts running with elevated
+privileges are one of the weakest points in these software architectures.</p>
+<p>The second benefit of Haskell's type safety is ease of script maintenance.
+Many scripts grow out of control as they accrete arcane requirements and once
+they begin to exceed 1000 LOC they become difficult to maintain in a
+dynamically typed language.  People rarely budget sufficient time to create a
+sufficiently extensive test suite that exercises every code path for each and
+every one of their scripts.  Having a strong type system is like getting a
+large number of auto-generated tests for free that exercise all script code
+paths.  Moreover, the type system is more resilient to refactoring than a test
+suite.</p>
+<p>However, the language is also usable even for simple one-off disposable scripts.  These Haskell scripts are
+comparable in size and simplicity to their equivalent Bash or Python scripts. This lets you easily start small and finish big.</p>
+<p>Haskell has one advantage over many dynamic scripting languages, which is that
+Haskell can be compiled into a native and statically linked binary for
+distribution to others.</p>
+<p>Haskell's scripting libraries are feature complete and provide all the
+niceties that you would expect from scripting in Python or Ruby, including
+features such as:</p>
+<ul>
+<li>rich suite of Unix-like utilities</li>
+<li>advanced sub-process management</li>
+<li>POSIX support</li>
+<li>light-weight idioms for exception safety and automatic resource disposal</li>
+</ul>
+<p><strong>Some command-line tools written in Haskell:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/pandoc"><code>pandoc</code></a></li>
+<li><a href="https://hackage.haskell.org/package/git-annex"><code>git-annex</code></a></li>
+<li><a href="http://hledger.org/"><code>hledger</code></a></li>
+</ul>
+<p><strong>Educational resources:</strong></p>
+<ul>
+<li><a href="http://www.yesodweb.com/blog/2012/03/shelly-for-shell-scripts">Shelly: Write your shell scripts in Haskell</a></li>
+<li><a href="http://www.haskellforall.com/2015/01/use-haskell-for-shell-scripting.html">Use Haskell for shell scripting</a></li>
+</ul>
+</details>
+<h2 id="data-science">🌱 Data science<a class="headerlink" href="#data-science" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/diagrams"><code>diagrams</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=diagrams"><code>diagrams-*</code></a> - Vector graphics library</li>
+<li><a href="https://hackage.haskell.org/package/ihaskell"><code>ihaskell</code></a> - Haskell backend to IPython</li>
+<li><a href="https://hackage.haskell.org/package/hmatrix"><code>hmatrix</code></a> - BLAS / LAPACK wrapper</li>
+<li><a href="http://tweag.github.io/HaskellR/"><code>HaskellR</code></a> - Mix Haskell and R code in Jupyter notebooks</li>
+<li><a href="https://github.com/tweag/sparkle"><code>Sparkle</code></a> - Haskell-to-Spark bridge</li>
+<li><a href="https://hackage.haskell.org/package/cassava"><code>cassava</code></a> - CSV encoding and decoding</li>
+<li><a href="https://hackage.haskell.org/package/Frames"><code>Frames</code></a> - Haskell data analysis tool analogous to Python's <code>pandas</code></li>
+<li><a href="https://hackage.haskell.org/package/statistics"><code>statistics</code></a></li>
+<li><a href="https://hackage.haskell.org/package/hvega"><code>hvega</code></a> - Plots via JS: quite powerful and well documented</li>
+<li><a href="https://hackage.haskell.org/package/Chart"><code>Chart</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=Chart"><code>Chart-*</code></a> - Charting library</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>Haskell data science can take advantage of other data science ecosystems via the
+<a href="http://tweag.github.io/HaskellR/"><code>HaskellR</code></a> and
+<a href="https://github.com/tweag/sparkle"><code>Sparkle</code></a> projects. <code>HaskellR</code> is a
+Haskell-to-R bridge with Jupyter notebook integration, which lets you take
+advantage of the broad R ecosystem while benefiting from the speed and type
+safety of Haskell.  <code>Sparkle</code> is a Haskell-to-Spark bridge which lets you
+interface with the Spark subset of the Java/Scala data science ecosystem.
+However, to get a Mature rating Haskell data science needs to be able to
+stand alone without depending on other programming language ecosystems.</p>
+<p>If you restrict yourself to just the Haskell ecosystem then choices are more
+limited. </p>
+<p>The Haskell analog of Python's <code>NumPy</code> is the <code>hmatrix</code> library, which provides Haskell
+bindings to BLAS, LAPACK.  <code>hmatrix</code>'s main limitation is that the API is a bit
+clunky, but all the tools are there.</p>
+<p>Haskell's charting story is okay.  Most charting APIs tend to be large, the types are a bit complex, and they
+have a very large number of dependencies.</p>
+<p>Fortunately, Haskell does integrate into IPython so you can use Haskell within
+an IPython shell or an online notebook.  For example, there is an online
+"IHaskell" notebook that you can use right now located here:</p>
+<ul>
+<li><a href="https://try.jupyter.org/">IHaskell notebook</a> - Click on "Welcome to Haskell.ipynb"</li>
+</ul>
+<p>If you want to learn more about how to setup your own IHaskell notebook, visit
+this project:</p>
+<ul>
+<li><a href="https://github.com/gibiansky/IHaskell">IHaskell Github repository</a></li>
+</ul>
+<p>The closest thing to Python's <code>pandas</code> is the <code>frames</code> library.</p>
+<p>One Haskell library that deserves honorable mention here is the <code>diagrams</code>
+library which lets you produce complex data visualizations very easily if
+you want something a little bit fancier than a chart.  Check out the <code>diagrams</code>
+project if you have time:</p>
+<ul>
+<li><a href="http://projects.haskell.org/diagrams/">The Diagrams project</a></li>
+<li><a href="http://projects.haskell.org/diagrams/gallery.html">Gallery of example diagrams</a></li>
+</ul>
+<p><strong>Areas for improvement:</strong></p>
+<ul>
+<li>Smooth user experience and integration across all of these libraries</li>
+<li>Simple types and APIs.  The data science programmers I know dislike overly
+complex or verbose APIs</li>
+<li>Beautiful data visualizations with very little investment</li>
+</ul>
+</details>
+<h2 id="numerical-programming">🌱 Numerical programming<a class="headerlink" href="#numerical-programming" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/accelerate"><code>accelerate</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=accelerate"><code>accelerate-*</code></a> - GPU programming</li>
+<li><a href="https://hackage.haskell.org/package/vector"><code>vector</code></a> - high-performance arrays</li>
+<li><a href="https://hackage.haskell.org/package/massiv"><code>massiv</code></a> / <a href="https://hackage.haskell.org/package/repa"><code>repa</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=repa"><code>repa-*</code></a> - parallel shape-polymorphic arrays</li>
+<li><a href="https://hackage.haskell.org/package/hmatrix"><code>hmatrix</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=hmatrix"><code>hmatrix-*</code></a> - Haskell's BLAS / LAPACK wrapper</li>
+<li><a href="https://hackage.haskell.org/package/ad"><code>ad</code></a> - automatic differentiation</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>Haskell's numerical programming story is not ready, but steadily improving.</p>
+<p>The biggest issues that the ecosystem faces are:</p>
+<ul>
+<li>Really clunky matrix library APIs</li>
+<li>Fickle rewrite-rule-based optimizations</li>
+</ul>
+<p>When the optimizations work they are amazing and produce code competitive with
+C.  However, small changes to your code can cause the optimizations to
+suddenly not trigger and then performance drops off a cliff.</p>
+<p>There is one Haskell library that avoids this problem entirely: <code>accelerate</code> generates LLVM and CUDA code at runtime and does not rely on Haskell's optimizer for code generation, which side-steps
+the problem.  <code>accelerate</code> has a large set of supported algorithms that you
+can find by just checking the library's reverse dependencies:</p>
+<ul>
+<li><a href="http://packdeps.haskellers.com/reverse/accelerate">Reverse dependencies of <code>accelerate</code></a></li>
+</ul>
+<p><strong>Success Stories:</strong></p>
+<ul>
+<li><a href="http://research.microsoft.com/en-us/um/people/simonpj/papers/ndp/haskell-beats-C.pdf">Exploiting vector instructions with generalized stream fusion</a></li>
+<li><a href="https://github.com/tmcdonell/tmcdonell.github.io/raw/master/papers/acc-llvm-haskell2015.pdf">Type-safe Runtime Code Generation: Accelerate to LLVM</a></li>
+</ul>
+<p><strong>Educational Resources:</strong></p>
+<ul>
+<li><a href="http://chimera.labs.oreilly.com/books/1230000000929/index.html">Parallel and concurrent programming in Haskell</a></li>
+</ul>
+</details>
+<h2 id="front-end-web-programming">🌱 Front-end web programming<a class="headerlink" href="#front-end-web-programming" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/reflex">reflex</a> / <a href="https://hackage.haskell.org/package/reflex-dom">reflex-dom</a> - Functional reactive programming library
+  for the front end</li>
+<li><a href="https://haskell-miso.org/">miso</a> a small "<a href="http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/">isomorphic</a>" front-end framework featuring a virtual-dom, inspired by <a href="http://elm-lang.org/">Elm</a>, <a href="http://redux.js.org/">Redux</a> and <a href="http://github.com/bobris/bobril">Bobril</a>.</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>This boils down to Haskell's ability to compile to JavaScript and WASM. Upcoming GHC versions will allow compilation to both, but for now the technology is experimental.</p>
+<p>There are two Haskell-like languages for front-end programming: <code>elm</code> and <code>purescript</code>.
+These are both used in production today and have equally active maintainers and
+communities of their own.  <code>purescript</code> in particular is extremely similar to
+Haskell.</p>
+<p><strong>Areas for improvement:</strong></p>
+<ul>
+<li>lack of clear story for smooth integration with existing
+JavaScript projects</li>
+<li>lack of educational resources targeted at non-experts
+explaining how to translate existing front-end programming idioms to Haskell</li>
+<li>lack of well-maintained and polished Haskell libraries for
+front-end programming</li>
+<li>lack of documentation for <code>ghcjs</code> ecosystem.  There's not even
+a basic tutorial on how to actually use <code>ghcjs</code></li>
+</ul>
+<p><strong>Notable Haskell-to-JavaScript compilers:</strong></p>
+<ul>
+<li><a href="https://github.com/ghcjs/ghcjs"><code>ghcjs</code></a></li>
+<li><a href="https://hackage.haskell.org/package/haste-compiler"><code>haste</code></a></li>
+</ul>
+</details>
+<h2 id="distributed-programming">🌱 Distributed programming<a class="headerlink" href="#distributed-programming" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/glue-core"><code>glue-core</code></a> /
+  <a href="https://hackage.haskell.org/package/glue-ekg"><code>glue-ekg</code></a> /
+  <a href="https://hackage.haskell.org/package/glue-example"><code>glue-example</code></a> - Service toolkit supporting</li>
+<li><a href="https://hackage.haskell.org/package/haxl"><code>haxl</code></a> - Facebook library for
+  efficient batching and scheduling of concurrent data access</li>
+<li><a href="https://hackage.haskell.org/package/distributed-process"><code>distributed-process</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=distributed-process"><code>distributed-process-*</code></a> - Haskell analog to Erlang</li>
+<li><a href="https://github.com/Soostone/hadron"><code>hadron</code></a> - Haskell wrapper around <code>hadoop</code></li>
+<li><a href="https://hackage.haskell.org/package/amazonka"><code>amazonka</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=amazonka"><code>amazonka-*</code></a> - Auto-generated
+  bindings to the entire Amazon Web Services SDK</li>
+<li><a href="http://hackage.haskell.org/package/gogol"><code>gogol</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=gogol"><code>gogol-*</code></a> - Auto-generated bindings to the entire Google Cloud Platform</li>
+<li><a href="https://github.com/transient-haskell/transient"><code>transient</code></a> - composable primitives for concurrency / parallelism / distributed computing</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>For distributed service architectures Haskell is catching up to its peers with
+service toolkit libraries, but for distributed computation Haskell still lags
+behind.</p>
+<p>There has been a lot of work in replicating Erlang-like functionality in
+Haskell through the Cloud Haskell project, not just in creating the low-level
+primitives for code distribution / networking / transport, but also in
+assembling a Haskell analog of Erlang's OTP.  Work on the higher-level libraries
+seems to have stopped, but the low-level libraries are still good for
+distributing computation.</p>
+<p><strong>Areas for improvement:</strong></p>
+<ul>
+<li>More analytics libraries needed.  Haskell has no analog of <code>scalding</code> or
+<code>spark</code>.  The most we have is just a Haskell wrapper around <code>hadoop</code></li>
+<li>A polished consensus library (i.e. a high quality Raft
+implementation in Haskell) needed.</li>
+</ul>
+</details>
+<h2 id="standalone-gui-applications">🌱 Standalone GUI applications<a class="headerlink" href="#standalone-gui-applications" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://github.com/jtdaugherty/brick"><code>brick</code></a> - Terminal UI based on vty package</li>
+<li><a href="https://hackage.haskell.org/package/threepenny-gui"><code>threepenny-gui</code></a> - Framework for local apps that use the web browser as the interface</li>
+<li><a href="https://hackage.haskell.org/package/gi-gtk"><code>gi-gtk</code></a> and various <a href="https://github.com/haskell-gi/haskell-gi/tree/master/bindings">other bindings</a> such as GStreamer audio/video - GTK+ (and more generally, GObject) bindings done right (autogenerated using GObject Introspection, hence <code>gi</code>)</li>
+<li><a href="https://hackage.haskell.org/package/wx"><code>wx</code></a> - wxWidgets bindings</li>
+<li><a href="https://hackage.haskell.org/package/X11"><code>X11</code></a> - X11 bindings</li>
+<li><a href="http://hackage.haskell.org/package/hsqml"><code>hsqml</code></a> - A Haskell binding for Qt Quick, a cross-platform framework for creating graphical user interfaces.</li>
+<li><a href="http://hackage.haskell.org/package/fltkhs"><code>fltkhs</code></a> - A Haskell binding to FLTK. Easy install/use, cross-platform, self-contained executables.</li>
+<li><a href="https://github.com/Frege/FregeFX"><code>FregeFX</code></a> - Frege bindings to Java FX
+  (Frege is essentially the Haskell for the JVM)</li>
+<li><a href="http://hackage.haskell.org/package/typed-spreadsheet"><code>typed-spreadsheet</code></a> -
+  Library for building composable interactive forms</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>Most Haskell GUI libraries are wrappers around toolkits written in other
+languages (such as GTK+ or Qt). 
+However, the Haskell bindings to GTK+ have a strongly imperative feel to them.
+The way you do everything is communicating between callbacks by mutating
+<code>IORef</code>s.  Also, you can't take extensive advantage of Haskell's awesome
+threading features because the GTK+ runtime is picky about what needs to happen
+on certain threads. </p>
+<p>There still isn't a Haskell binding to a widget toolkit that doesn't have some sort of setup issues with the
+toolkit.</p>
+<p>My impression is that most Haskell programmers interested in applications
+programming have collectively decided to concentrate their efforts on improving
+Haskell web applications instead of standalone GUI applications.  Honestly,
+that's probably the right decision in the long run.</p>
+<p>Another post that goes into more detail about this topic is this post written
+by Keera Studios:</p>
+<ul>
+<li><a href="http://keera.co.uk/blog/2014/05/23/state-gui-programming-haskell/">On the state of GUI programming in Haskell</a></li>
+</ul>
+<p><strong>Areas for improvement:</strong></p>
+<ul>
+<li>A GUI toolkit binding that is maintained, comprehensive, and easy to use</li>
+<li>Polished GUI interface builders</li>
+</ul>
+<p><strong>Some example applications:</strong></p>
+<ul>
+<li><a href="http://xmonad.org"><code>xmonad</code></a></li>
+<li><a href="http://leksah.org/index.html"><code>leksah</code></a></li>
+</ul>
+<p><strong>Educational resources:</strong></p>
+<ul>
+<li><a href="http://code.haskell.org/gtk2hs/docs/tutorial/Tutorial_Port/">Haskell port of the GTK tutorial</a></li>
+<li><a href="https://www.youtube.com/watch?v=JCSxWfUvi6o">Building pragmatic user interfaces in Haskell with HsQML</a></li>
+<li><a href="https://github.com/deech/fltkhs-compose-conference-2016-talk/blob/master/Talk.pdf">FLTK GUIs, including support for the Fluid visual interface builder</a></li>
+</ul>
+</details>
+<h2 id="machine-learning">🌱 Machine learning<a class="headerlink" href="#machine-learning" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://github.com/hasktorch/hasktorch#readme"><code>hasktorch</code></a> - Haskell bindings to
+  libtorch which is the C++ API for PyTorch</li>
+<li><a href="https://hackage.haskell.org/package/ad"><code>ad</code></a> - Automatic differentiation,
+  used as a substrate for many Haskell machine learning projects</li>
+<li><a href="https://hackage.haskell.org/package/backprop"><code>backprop</code></a> - AD for heterogenous types</li>
+<li><a href="https://hackage.haskell.org/package/ad-delcont"><code>ad-delcont</code></a></li>
+<li><a href="https://github.com/HuwCampbell/grenade"><code>grenade</code></a> - Machine learning
+  library implemented in Haskell with a BLAS/LAPACK backend and a high-level
+  type-based API</li>
+<li><a href="https://github.com/tensorflow/haskell"><code>tensorflow</code></a> - Haskell bindings to
+  Google's <code>tensorflow</code> project</li>
+<li><a href="https://github.com/arrayfire/arrayfire-haskell"><code>arrayfire</code></a> - Haskell bindings to
+  ArrayFire</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>There are two approaches to using machine learning in Haskell:</p>
+<ul>
+<li>Use a Haskell binding to an implementation in another language</li>
+<li>Use a machine learning library implemented in Haskell</li>
+</ul>
+<p>You will most likely want to check out Haskell bindings to the <code>libtorch</code>
+library if you are interested in the first approach.</p>
+<p>Also, Tweag.io has released <code>Sparkle</code>, a Haskell integration with Spark.  This
+enables the use of MLib from Haskell.  MLib is widely used in the industry
+for machine learning. Sparkle itself is fairly new.</p>
+<ul>
+<li><a href="https://github.com/tweag/sparkle">Github repository for <code>Sparkle</code></a></li>
+</ul>
+</details>
+<h2 id="game-programming">🌱 Game programming<a class="headerlink" href="#game-programming" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/gloss"><code>gloss</code></a> - Simple graphics and
+  game programming for beginners</li>
+<li><a href="https://hackage.haskell.org/package/Yampa"><code>Yampa</code></a> - A reactive programming library which has been used to implement games in a reactive style</li>
+<li><a href="https://code.world/haskell">Code World</a> - Similar to <code>gloss</code>, but you can try
+  it in your browser</li>
+<li><a href="https://hackage.haskell.org/package/vulkan"><code>vulkan</code></a> - Low-level Vulkan bindings</li>
+<li><a href="https://hackage.haskell.org/package/gl"><code>gl</code></a> - Comprehensive OpenGL bindings</li>
+<li><a href="https://hackage.haskell.org/package/SDL"><code>SDL</code></a> / <a href="https://hackage.haskell.org/packages/search?terms=SDL"><code>SDL-*</code></a> / <a href="https://hackage.haskell.org/package/sdl2"><code>sdl2</code></a> - Bindings to the SDL library</li>
+<li><a href="https://hackage.haskell.org/package/SFML"><code>SFML</code></a> - Bindings to the SFML library</li>
+<li><a href="https://github.com/ekmett/quine"><code>quine</code></a> - Github project with cool 3D demos</li>
+<li><a href="https://hackage.haskell.org/package/GPipe"><code>GPipe</code></a> - Type-safe OpenGL API
+  that also lets you embed shader code directly within Haskell.  See the
+  <a href="https://wiki.haskell.org/GPipe">GPipe wiki</a> to learn more</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>Haskell is a garbage collected language, so Haskell is more appropriate for the
+scripting / logic layer of a game but not suitable manipulating a large object
+graph or for implementing a high-performance game engine due to the risk of
+introducing perceptible pauses due to GC pauses.  For simple games you can
+realistically use Haskell for the entire stack.</p>
+<p>Examples of games that could be fully implemented in Haskell:</p>
+<ul>
+<li>Casual games</li>
+<li>Turn-based strategy games</li>
+<li>Adventure games</li>
+<li>Platform / side-scrolling games</li>
+<li>First-person shooter</li>
+</ul>
+<p>Examples of games that are difficult to implement at all in Haskell:</p>
+<ul>
+<li>Real-time strategy games</li>
+<li>MMORPGs</li>
+</ul>
+<p>Haskell has SDL, OpenGL, and Vulkan bindings, which are actually quite good, but that's
+about it.  You're on your own from that point onward.  There is not a rich
+ecosystem of higher-level libraries built on top of those bindings.  There is
+some work in this area, but nothing production quality or
+easy to use.</p>
+<p>The primary reason for the immature rating is the difficulty of integrating
+Haskell with existing game platforms, which often are biased towards a
+particular language or toolchain.  The only game platform where Haskell has no
+issues is native binaries for desktop games.  For the web, you must compile to
+JavaScript, which is doable.  For mobile games on Android you have to cross
+compile and interface the Haskell logic with Android through JNI + Haskell's
+foreign function interface.  For console games, you have no hope.</p>
+<p><strong>Areas for improvement:</strong></p>
+<ul>
+<li>Improve the garbage collector and benchmark performance with large heap sizes</li>
+<li>Provide higher-level game engines</li>
+<li>Improve distribution of Haskell games on proprietary game platforms</li>
+</ul>
+<p><strong>Educational resources:</strong></p>
+<ul>
+<li><a href="https://gilmi.me/blog/post/2018/07/24/pfgames">Purely Functional Games</a></li>
+</ul>
+</details>
+<h2 id="arm-processor-support">🌱 ARM processor support<a class="headerlink" href="#arm-processor-support" title="Permanent link">&para;</a></h2>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>On hobbyist boards like the Raspberry Pi its possible to compile Haskell code
+with GHC.  There are limitations; some libraries have problems on the arm platform,
+and GHCi only works on newer compilers.  Cross compiling doesn't work with
+template Haskell.  Stack and other large projects can take more than 1g of memory
+to compile.</p>
+<p>However, if the Haskell code builds, it runs with respectable performance on these machines.</p>
+<p><strong>Arch (Banana Pi)</strong></p>
+<p>update 2016-02-25:</p>
+<ul>
+<li>installed today from pacman, current versions are GHC 7.10.3 and cabal-install 1.22.6.0</li>
+<li>a compatible version of llvm also installed automatically.</li>
+<li>GHCi passes hello world test; cabal/GHC compiled a modest project normally.</li>
+</ul>
+<p><strong>Raspian (Raspberry Pi, pi2, others)</strong></p>
+<ul>
+<li>current version: GHC 7.4, cabal-install 1.14</li>
+<li>GHCi doesn't work.</li>
+</ul>
+<p><strong>Debian Jesse (Raspberry Pi 3)</strong></p>
+<ul>
+<li>works with: <code>ghc-7.10.3</code> and <code>stack-1.1.2</code></li>
+<li>Requires <code>llvm</code> version 3.5.2 or higher.  Do not use the <code>llvm-3.5</code> provided by default in the Jessie package distribution</li>
+</ul>
+<p><strong>Arch (Raspberry Pi 2)</strong></p>
+<ul>
+<li>current version 7.8.2, but llvm is 3.6, which is too new.</li>
+<li>downgrade packages for llvm not officially available.</li>
+<li>with llvm downgrade to 3.4, GHC and GHCi work, but problems compiling yesod,
+scotty.</li>
+<li>compiler crashes, segfaults, etc.</li>
+</ul>
+</details>
+<h2 id="computer-vision">🌱 Computer Vision<a class="headerlink" href="#computer-vision" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://github.com/LumiGuide/haskell-opencv"><code>haskell-opencv</code></a></li>
+<li><a href="https://github.com/sinelaw/HOpenCV"><code>HOpenCV</code></a></li>
+<li><a href="https://github.com/acowley/HOpenCV"><code>HOpenCV</code> fork</a></li>
+<li><a href="https://github.com/albertoruiz/easyVision"><code>easyVision</code></a></li>
+<li><a href="https://github.com/sinelaw/cv-combinators"><code>cv-combinators</code></a></li>
+<li><a href="https://github.com/ethereon/Zef"><code>Zef</code></a></li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>The largest real world Haskell usage of computer vision is LumiGuide, which
+powers municipal bicycle detection and guidance systems in Amsterdam.  They
+maintain <code>OpenCV</code> bindings in their <code>haskell-opencv</code> library.</p>
+<p>There are some interesting projects which try to tackle computer vision in a
+purely functional manner. <code>cv-combinators</code>, <code>easyVision</code>, and <code>Zef</code> are some
+examples.</p>
+<p>There are Haskell bindings for OpenCV available via <code>HOpenCV</code> which has bindings
+for versions up to <code>OpenCV 2.0</code>. A fork maintained by Anthony Cowley has bindings
+available for versions up to <code>OpenCV 2.4</code>, but it pretty much stops there.
+Currently, <code>OpenCV 3.0</code> has been released, and there are no Haskell bindings
+covering it.</p>
+<p><strong>Success Stories:</strong></p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=IKznN_TYjZk">Google TechTalk on LumiGuide</a></li>
+</ul>
+</details>
+<h2 id="mobile-apps">🌱 Mobile apps<a class="headerlink" href="#mobile-apps" title="Permanent link">&para;</a></h2>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>This greatly lags behind using languages that are natively supported by the
+mobile platform (i.e. Java for Android or Objective-C / Swift for iOS).</p>
+<p>However, one route is to compile Haskell to a supported language.  For
+example, you can compile Haskell to Java using <a href="https://eta-lang.org/">Eta</a>
+to port Haskell games to Android.</p>
+<p><strong>Educational resources:</strong></p>
+<ul>
+<li><a href="https://github.com/Jyothsnasrinivas/eta-android-2048">Android 2048 game in Eta</a></li>
+<li><a href="https://wiki.haskell.org/Android">Android development in Haskell</a></li>
+<li><a href="https://wiki.haskell.org/IPhone">iPhone development in Haskell</a></li>
+</ul>
+</details>
+<h2 id="databases-and-data-stores">🌱 Databases and data stores<a class="headerlink" href="#databases-and-data-stores" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="http://hackage.haskell.org/package/mysql-haskell"><code>mysql-haskell</code></a> / <a href="https://hackage.haskell.org/package/mysql-simple"><code>mysql-simple</code></a> - MySQL bindings</li>
+<li><a href="https://hackage.haskell.org/package/postgresql-simple"><code>postgresql-simple</code></a> - Postgres bindings</li>
+<li><a href="https://hackage.haskell.org/package/persistent"><code>persistent</code></a> - Database-agnostic ORM that supports automatic migrations</li>
+<li><a href="https://hackage.haskell.org/package/esqueleto"><code>esqueleto</code></a> / <a href="https://hackage.haskell.org/package/relational-record"><code>relational-record</code></a> / <a href="https://hackage.haskell.org/package/opaleye"><code>opaleye</code></a> - type-safe APIs for building well-formed SQL queries</li>
+<li><a href="https://hackage.haskell.org/package/acid-state"><code>acid-state</code></a> - Simple ACID data store that saves Haskell data types natively</li>
+<li><a href="https://hackage.haskell.org/package/aws"><code>aws</code></a> - Bindings to Amazon DynamoDB</li>
+<li><a href="https://hackage.haskell.org/package/hedis"><code>hedis</code></a> - Bindings to Redis</li>
+<li><a href="https://hackage.haskell.org/package/groundhog"><code>groundhog</code></a> - A nice datatype to relational mapping library, similar to ORMs</li>
+<li><a href="https://hackage.haskell.org/package/hasql"><code>hasql</code></a> - An efficient PostgreSQL driver and a flexible mapping API based on the binary protocol</li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>The "Immature" ranking is based on the lack of bindings to commercial databases
+like Microsoft SQL server and Oracle.  So whether or not Haskell is right for
+you probably depends heavily on whether there are bindings to the specific data
+store you use.</p>
+</details>
+<h2 id="debugging">🌱 Debugging<a class="headerlink" href="#debugging" title="Permanent link">&para;</a></h2>
+<p><strong>Educational resources</strong>:</p>
+<ul>
+<li><a href="https://downloads.haskell.org/ghc/latest/docs/users_guide/profiling.html">GHC Manual - Profiling chapter</a> - Read the whole thing; you will thank me
+  later</li>
+<li><a href="https://downloads.haskell.org/ghc/latest/docs/users_guide/runtime_control.html#rts-options-for-hackers-debuggers-and-over-interested-souls">Debugging runtime options</a> - See the <code>+RTS -xc</code> flag which adds stack traces to all exceptions (requires profiling enabled)</li>
+<li><a href="http://hackage.haskell.org/package/base-4.8.1.0/docs/GHC-Stack.html"><code>GHC.Stack</code></a> - Programmatic access to the call stack</li>
+<li><a href="http://blog.ezyang.com/2011/06/pinpointing-space-leaks-in-big-programs/">Pinpointing space leaks in big programs</a></li>
+<li><a href="http://book.realworldhaskell.org/read/profiling-and-optimization.html">Real World Haskell - Profiling and Optimization</a></li>
+<li><a href="https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html#the-ghci-debugger">The GHCi Debuggger</a> - Manual for GHCi-based breakpoints and
+  single-stepping</li>
+<li><a href="http://chimera.labs.oreilly.com/books/1230000000929/ch15.html#_debugging_concurrent_programs">Parallel and Concurrent Programming in Haskell - Debugging, Tuning, and Interfacing with Foreign Code</a> - Debugging concurrent programs</li>
+<li><a href="https://wiki.haskell.org/ThreadScope">Haskell wiki - ThreadScope</a></li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>The main Haskell debugging features are:</p>
+<ul>
+<li>Memory and performance profiling</li>
+<li>Stack traces</li>
+<li>Source-located errors, using <a href="http://hackage.haskell.org/package/base-4.8.1.0/docs/Control-Exception-Base.html#v%3Aassert">the <code>assert</code> function</a></li>
+<li>Breakpoints, single-stepping, and tracing within the GHCi REPL</li>
+<li>Informal <code>printf</code>-style tracing using <a href="https://hackage.haskell.org/package/base-4.8.1.0/docs/Debug-Trace.html"><code>Debug.Trace</code></a></li>
+<li>ThreadScope</li>
+</ul>
+</details>
+<h2 id="hot-code-loading">🌱 Hot code loading<a class="headerlink" href="#hot-code-loading" title="Permanent link">&para;</a></h2>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/essence-of-live-coding"><code>essence-of-live-coding</code></a></li>
+<li><a href="https://hackage.haskell.org/package/dyre"><code>dyre</code></a> / <a href="https://hackage.haskell.org/package/halive"><code>halive</code></a> - Program reinitialization with saved state</li>
+<li><a href="http://hackage.haskell.org/package/rapid"><code>rapid</code></a> - Code reloading within
+  <code>ghci</code> that persists state across reloads</li>
+<li><a href="https://hackage.haskell.org/package/plugins"><code>plugins</code></a> / <a href="https://hackage.haskell.org/package/hint"><code>hint</code></a> - Runtime compilation and linking</li>
+</ul>
+<h2 id="systems-embedded-programming">🌱 Systems / embedded programming<a class="headerlink" href="#systems-embedded-programming" title="Permanent link">&para;</a></h2>
+<p><strong>Educational resources:</strong></p>
+<ul>
+<li><a href="https://gergo.erdi.hu/retroclash/">Retrocomputing with Clash</a></li>
+<li><a href="https://www.reddit.com/r/haskell/comments/3gyol1/haskell_compiled_down_to_embedded_hardware/">/r/haskell - Haskell compiled down to Embedded Hardware</a></li>
+</ul>
+<details class="commentary">
+<summary>Commentary</summary>
+<p>Systems programming here means: programs where speed, memory layout, and latency really matter.</p>
+<p>Haskell fares really poorly in this area because:</p>
+<ul>
+<li>The language is garbage collected, so there are no latency guarantees</li>
+<li>Executable sizes are large</li>
+<li>Memory usage is difficult to constrain (thanks to space leaks)</li>
+<li>Haskell has a large and unavoidable runtime, which means you cannot easily
+embed Haskell within larger programs</li>
+<li>You can't easily predict what machine code that Haskell code will compile to</li>
+</ul>
+<p>Typically people approach this problem from the opposite direction: they write
+the low-level parts in C or Rust and then write Haskell bindings to the
+low-level code.</p>
+<p>It's worth noting that there is an alternative approach which is Haskell DSLs
+that are strongly typed that generate low-level code at runtime.  This is the
+approach championed by the company Galois.</p>
+<p><strong>Notable libraries:</strong></p>
+<ul>
+<li><a href="https://hackage.haskell.org/package/copilot"><code>copilot</code></a> - Stream DSL that generates C code</li>
+<li><a href="https://hackage.haskell.org/package/atom"><code>atom</code></a> / <a href="https://hackage.haskell.org/package/ivory"><code>ivory</code></a> - DSL for generating embedded programs</li>
+<li><a href="https://hackage.haskell.org/package/improve"><code>improve</code></a> - High-assurance DSL for embedded code that generates C and Ada</li>
+</ul>
+</details>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 12, 2023</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 8, 2023</span>
+      
+    
+  </small>
+</div>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: How to use libraries" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Previous
+                </span>
+                How to use libraries
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../containers/" class="md-footer__link md-footer__link--next" aria-label="Next: Dictionaries and sets" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Next
+                </span>
+                Dictionaries and sets
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5cf534bf.min.js"></script>
+      
+        <script src="../../javascripts/feedback.js"></script>
+      
+    
+  </body>
+</html>

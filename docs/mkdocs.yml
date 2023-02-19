@@ -1,5 +1,7 @@
 site_name: The Haskell Guide
 
+site_url: https://haskell-docs.netlify.app/
+
 repo_url: https://github.com/reubenharry/haskell-docs
 
 
