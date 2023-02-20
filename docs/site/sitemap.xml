@@ -2,282 +2,282 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://haskell-docs.netlify.app/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/basics/createData/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/basics/functions/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/basics/syntax/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/basics/types/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/casestudy/chess/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/casestudy/evaluator/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/casestudy/json/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/casestudy/overview/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/casestudy/parser/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/casestudy/repl/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/casestudy/tests/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/faqs/convertingnumbers/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/faqs/debugging/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/faqs/dependentOutput/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/faqs/dollar/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/faqs/functionFunctor/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/faqs/io/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/faqs/multipleArguments/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/faqs/newtype/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/faqs/numbers/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/faqs/optionalArguments/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/faqs/speed/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/gettingstarted/example/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/gettingstarted/overview/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/gettingstarted/versions/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/gotchas/functiontype/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/gotchas/lists/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/gotchas/mutation/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/gotchas/punning/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/gotchas/show/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/gotchas/strings/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/gotchas/tupleLength/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/gotchas/typevsvalue/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/laziness/laziness/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/packages/aeson/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/packages/containers/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/packages/diagrams/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/packages/lens/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/packages/megaparsec/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/packages/mtl/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/packages/overview/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/packages/quickcheck/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/packages/recursion-schemes/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/packages/survey/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/resources/articles/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/resources/books/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/resources/resources/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/resources/stackoverflow/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/thinkingfunctionally/hof/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/thinkingfunctionally/immutability/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/thinkingfunctionally/purity/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/thinkingfunctionally/typechecking/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/thinkingfunctionally/typeinference/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/typeclasses/overview/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://haskell-docs.netlify.app/typeclasses/survey/</loc>
-         <lastmod>2023-02-19</lastmod>
+         <lastmod>2023-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
