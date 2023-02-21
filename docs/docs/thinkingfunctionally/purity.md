@@ -27,7 +27,7 @@ boolean :: IO Bool -- (1)!
 True
 ```
 
-1. `x` cannot have type `Bool` - it has to mark in its type the fact that it involves the operation of printing.
+1. `boolean` cannot have type `Bool` - because its definition calls `print`, it has to mark in its type the fact that it involves the operation of printing.
 
 ## The benefit of purity
 
