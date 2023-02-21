@@ -106,6 +106,16 @@
 
     * [Oden restrospective on rewrite from Racket to Haskell](https://github.com/oden-lang/oden-lang.github.io/blob/master/blog/_posts/2016-01-17-the-haskell-rewrite.md)
 
+## 🏆 Generic programming
+
+This refers to automatically deriving algorithms for custom data types. Haskell is uniquely good at this:
+
+* [`discrimination`](https://hackage.haskell.org/package/discrimination) - fast, generic, linear-time discrimination and sorting
+* [`optparse-generic`](https://hackage.haskell.org/package/optparse-generic) - [well-documented](https://hackage.haskell.org/package/optparse-generic-1.4.9/docs/Options-Generic.html) auto-generation of command-line parsers for custom types.
+* [`generic-data`](https://hackage.haskell.org/package/generic-data) - deriving typeclass instances like `Monoid` automatically for custom data
+* [`generic-lens`](https://hackage.haskell.org/package/generic-lens) - derive [lenses](https://hackage.haskell.org/package/generic-lens-2.2.1.0/docs/Data-Generics-Product-Any.html) and [prisms](https://hackage.haskell.org/package/generic-lens-2.2.1.0/docs/Data-Generics-Sum-Any.html) for custom datatypes
+
+
 <!-- ## 🏆 Maintenance
 
 ??? Commentary
@@ -654,12 +664,14 @@ Haskell has tools for automatic code formatting:
 * [`stylish-haskell`](https://hackage.haskell.org/package/stylish-haskell) - Less opinionated code formatting tool that mostly formats imports, language extensions, and data type definitions
 
 
+
 ## 🥈 Scripting
 
 **Notable libraries:**
 
-* [`shelly`](https://hackage.haskell.org/package/shelly) / [`turtle`](https://hackage.haskell.org/package/turtle) / [`shellmet`](http://hackage.haskell.org/package/shellmet) - scripting libraries
 * [`optparse-applicative`](https://hackage.haskell.org/package/optparse-applicative) / [`cmdargs`](https://hackage.haskell.org/package/cmdargs) - command-line argument parsing
+* [`optparse-generic`](https://hackage.haskell.org/package/optparse-generic) - [well-documented](https://hackage.haskell.org/package/optparse-generic-1.4.9/docs/Options-Generic.html) auto-generation of command-line parsers for custom types.
+* [`shelly`](https://hackage.haskell.org/package/shelly) / [`turtle`](https://hackage.haskell.org/package/turtle) / [`shellmet`](http://hackage.haskell.org/package/shellmet) - scripting libraries
 * [`haskeline`](https://hackage.haskell.org/package/haskeline) - a complete Haskell implementation of `readline` for console
   building
 * [`process`](https://hackage.haskell.org/package/process) - low-level library for sub-process management
