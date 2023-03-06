@@ -36,6 +36,7 @@ The following are some high level principles.
 
 # Style
 
+
 ## Documentation > Book
 
 The Haskell Guide aims to be more like documentation than a book
@@ -53,6 +54,8 @@ You are writing a code example, but realize that `5 :: Num a => a` could be conf
 **Don't**: put an explanation of typeclasses and `Num` in the main body of the text of the current section.
 
 ## less > more
+
+"Avoid (information at all costs)" might well be the motto here. 
 
 Try to include only information that, if absent, would impede this person's understanding. 
 

@@ -1,10 +1,12 @@
+{-# LANGUAGE TemplateHaskell #-}
+
 module Chess where -- (3)!
 
 import Data.Char (toUpper)
 import Data.List (intercalate, intersperse)
 import Data.Text qualified as T
 import Witch (into)
-
+import Data.Text (Text)
 
 data PieceType = Bishop | Rook | Knight | Pawn | King | Queen -- (1)!
   deriving (Eq, Show) -- (4)!
