@@ -30,7 +30,7 @@ One of the main appeals of the library is that a JSON string, which is untyped, 
 ```
 
 1. A [dictionary](/packages/containers).
-2. These are needed to derive `Generic` and `ToJSON` respectively.
+2. These are needed to derive `Generic` and `ToJSON` respectively. This is an example of [generic programming](/packages/generics/).
 
 
 

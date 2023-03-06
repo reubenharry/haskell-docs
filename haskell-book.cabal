@@ -81,18 +81,29 @@ executable doctests
 --   main-is: docs/docs/packages/lens.lhs
 --   main-is: docs/docs/packages/quickcheck.lhs
 --   main-is: docs/docs/packages/mtl.lhs
-  main-is: docs/docs/packages/recursion-schemes.lhs
+--   main-is: docs/docs/packages/recursion-schemes.lhs
+  main-is: docs/docs/packages/generics.lhs
   build-depends:  
     base, 
     megaparsec,
     data-fix,
     text,
-    lens,
     mtl,
     recursion-schemes,
     containers,
     QuickCheck,
-    markdown-unlit
+    markdown-unlit,
+    lens,
+    generic-data,
+    discrimination,
+    generic-lens,
+    generic-arbitrary,
+    MemoTrie,
+    optparse-applicative,
+    optparse-generic,
+    cereal,
+    bytestring,
+    constraints
   ghc-options:    -pgmL markdown-unlit
   build-tool-depends: markdown-unlit:markdown-unlit
   default-language: GHC2021
