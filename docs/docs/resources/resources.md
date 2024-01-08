@@ -32,7 +32,7 @@ It also has its own [forum](https://discourse.haskell.org/).
 
 [This reference guide/tutorial](https://smunix.github.io/dev.stephendiehl.com/hask/tutorial.pdf) carefully and clearly details important advanced concepts and features in Haskell.
 
-[This performance guide](https://input-output-hk.github.io/hs-opt-handbook.github.io/) explains how to engineer programs in Haskell to be as fast as possible.
+[This performance guide](https://haskell.foundation/hs-opt-handbook.github.io/) explains how to engineer programs in Haskell to be as fast as possible.
 
 [The Haskell report](https://www.haskell.org/onlinereport/haskell2010/) is an exhaustive and carefully written reference manual of all of Haskell.
 
