@@ -3,7 +3,7 @@ This is a small selection of the wide range of books on Haskell.
 
 ## Books aimed at newcomers to Haskell
 
-[Practical Haskell: A Real World Guide to Programming](https://www.amazon.com/Practical-Haskell-World-Guide-Programming/dp/1484244796)
+[Practical Haskell: A Real World Guide to Programming](https://www.amazon.com/Practical-Haskell-Real-World-Functional-Programming/dp/1484285808)
 
 [Haskell Programming from first principles](https://haskellbook.com/)
 
