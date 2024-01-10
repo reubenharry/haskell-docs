@@ -1,4 +1,4 @@
-This is a small selection of the wide range of books on Haskell.
+This is a small selection of the wide range of books on Haskell. [This page](https://www.extrema.is/articles/haskell-books) provides a comprehensive list.
 
 
 ## Books aimed at newcomers to Haskell
@@ -6,6 +6,8 @@ This is a small selection of the wide range of books on Haskell.
 [Practical Haskell: A Real World Guide to Programming](https://www.amazon.com/Practical-Haskell-Real-World-Functional-Programming/dp/1484285808)
 
 [Haskell Programming from first principles](https://haskellbook.com/)
+
+[Effective Haskell: Solving Real-World Problems with Strongly Typed Functional Programmming](https://pragprog.com/titles/rshaskell/effective-haskell/)
 
 ## Books for intermediate users
 
